@@ -1,0 +1,2385 @@
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Counter1.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Counter1_Enable,"ax",%progbits
+  20              		.align	2
+  21              		.global	Counter1_Enable
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	Counter1_Enable, %function
+  25              	Counter1_Enable:
+  26              	.LFB1:
+  27              		.file 1 "Generated_Source\\PSoC5\\Counter1.c"
+   1:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/Counter1.c **** * File Name: Counter1.c  
+   3:Generated_Source\PSoC5/Counter1.c **** * Version 3.0
+   4:Generated_Source\PSoC5/Counter1.c **** *
+   5:Generated_Source\PSoC5/Counter1.c **** *  Description:
+   6:Generated_Source\PSoC5/Counter1.c **** *     The Counter component consists of a 8, 16, 24 or 32-bit counter with
+   7:Generated_Source\PSoC5/Counter1.c **** *     a selectable period between 2 and 2^Width - 1.  
+   8:Generated_Source\PSoC5/Counter1.c **** *
+   9:Generated_Source\PSoC5/Counter1.c **** *   Note:
+  10:Generated_Source\PSoC5/Counter1.c **** *     None
+  11:Generated_Source\PSoC5/Counter1.c **** *
+  12:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+  13:Generated_Source\PSoC5/Counter1.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/Counter1.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  15:Generated_Source\PSoC5/Counter1.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  16:Generated_Source\PSoC5/Counter1.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+  18:Generated_Source\PSoC5/Counter1.c **** 
+  19:Generated_Source\PSoC5/Counter1.c **** #include "Counter1.h"
+  20:Generated_Source\PSoC5/Counter1.c **** 
+  21:Generated_Source\PSoC5/Counter1.c **** uint8 Counter1_initVar = 0u;
+  22:Generated_Source\PSoC5/Counter1.c **** 
+  23:Generated_Source\PSoC5/Counter1.c **** 
+  24:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+  25:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_Init
+  26:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+  27:Generated_Source\PSoC5/Counter1.c **** * Summary:
+  28:Generated_Source\PSoC5/Counter1.c **** *     Initialize to the schematic state
+  29:Generated_Source\PSoC5/Counter1.c **** * 
+  30:Generated_Source\PSoC5/Counter1.c **** * Parameters:  
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 2
+
+
+  31:Generated_Source\PSoC5/Counter1.c **** *  void  
+  32:Generated_Source\PSoC5/Counter1.c **** *
+  33:Generated_Source\PSoC5/Counter1.c **** * Return: 
+  34:Generated_Source\PSoC5/Counter1.c **** *  void
+  35:Generated_Source\PSoC5/Counter1.c **** *
+  36:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+  37:Generated_Source\PSoC5/Counter1.c **** void Counter1_Init(void) 
+  38:Generated_Source\PSoC5/Counter1.c **** {
+  39:Generated_Source\PSoC5/Counter1.c ****         #if (!Counter1_UsingFixedFunction && !Counter1_ControlRegRemoved)
+  40:Generated_Source\PSoC5/Counter1.c ****             uint8 ctrl;
+  41:Generated_Source\PSoC5/Counter1.c ****         #endif /* (!Counter1_UsingFixedFunction && !Counter1_ControlRegRemoved) */
+  42:Generated_Source\PSoC5/Counter1.c ****         
+  43:Generated_Source\PSoC5/Counter1.c ****         #if(!Counter1_UsingFixedFunction) 
+  44:Generated_Source\PSoC5/Counter1.c ****             /* Interrupt State Backup for Critical Region*/
+  45:Generated_Source\PSoC5/Counter1.c ****             uint8 Counter1_interruptState;
+  46:Generated_Source\PSoC5/Counter1.c ****         #endif /* (!Counter1_UsingFixedFunction) */
+  47:Generated_Source\PSoC5/Counter1.c ****         
+  48:Generated_Source\PSoC5/Counter1.c ****         #if (Counter1_UsingFixedFunction)
+  49:Generated_Source\PSoC5/Counter1.c ****             /* Clear all bits but the enable bit (if it's already set for Timer operation */
+  50:Generated_Source\PSoC5/Counter1.c ****             Counter1_CONTROL &= Counter1_CTRL_ENABLE;
+  51:Generated_Source\PSoC5/Counter1.c ****             
+  52:Generated_Source\PSoC5/Counter1.c ****             /* Clear the mode bits for continuous run mode */
+  53:Generated_Source\PSoC5/Counter1.c ****             #if (CY_PSOC5A)
+  54:Generated_Source\PSoC5/Counter1.c ****                 Counter1_CONTROL2 &= ((uint8)(~Counter1_CTRL_MODE_MASK));
+  55:Generated_Source\PSoC5/Counter1.c ****             #endif /* (CY_PSOC5A) */
+  56:Generated_Source\PSoC5/Counter1.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  57:Generated_Source\PSoC5/Counter1.c ****                 Counter1_CONTROL3 &= ((uint8)(~Counter1_CTRL_MODE_MASK));                
+  58:Generated_Source\PSoC5/Counter1.c ****             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
+  59:Generated_Source\PSoC5/Counter1.c ****             /* Check if One Shot mode is enabled i.e. RunMode !=0*/
+  60:Generated_Source\PSoC5/Counter1.c ****             #if (Counter1_RunModeUsed != 0x0u)
+  61:Generated_Source\PSoC5/Counter1.c ****                 /* Set 3rd bit of Control register to enable one shot mode */
+  62:Generated_Source\PSoC5/Counter1.c ****                 Counter1_CONTROL |= Counter1_ONESHOT;
+  63:Generated_Source\PSoC5/Counter1.c ****             #endif /* (Counter1_RunModeUsed != 0x0u) */
+  64:Generated_Source\PSoC5/Counter1.c ****             
+  65:Generated_Source\PSoC5/Counter1.c ****             /* Set the IRQ to use the status register interrupts */
+  66:Generated_Source\PSoC5/Counter1.c ****             Counter1_CONTROL2 |= Counter1_CTRL2_IRQ_SEL;
+  67:Generated_Source\PSoC5/Counter1.c ****             
+  68:Generated_Source\PSoC5/Counter1.c ****             /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+  69:Generated_Source\PSoC5/Counter1.c ****             Counter1_RT1 &= ((uint8)(~Counter1_RT1_MASK));
+  70:Generated_Source\PSoC5/Counter1.c ****             Counter1_RT1 |= Counter1_SYNC;     
+  71:Generated_Source\PSoC5/Counter1.c ****                     
+  72:Generated_Source\PSoC5/Counter1.c ****             /*Enable DSI Sync all all inputs of the Timer*/
+  73:Generated_Source\PSoC5/Counter1.c ****             Counter1_RT1 &= ((uint8)(~Counter1_SYNCDSI_MASK));
+  74:Generated_Source\PSoC5/Counter1.c ****             Counter1_RT1 |= Counter1_SYNCDSI_EN;
+  75:Generated_Source\PSoC5/Counter1.c **** 
+  76:Generated_Source\PSoC5/Counter1.c ****         #else
+  77:Generated_Source\PSoC5/Counter1.c ****             #if(!Counter1_ControlRegRemoved)
+  78:Generated_Source\PSoC5/Counter1.c ****             /* Set the default compare mode defined in the parameter */
+  79:Generated_Source\PSoC5/Counter1.c ****             ctrl = Counter1_CONTROL & ((uint8)(~Counter1_CTRL_CMPMODE_MASK));
+  80:Generated_Source\PSoC5/Counter1.c ****             Counter1_CONTROL = ctrl | Counter1_DEFAULT_COMPARE_MODE;
+  81:Generated_Source\PSoC5/Counter1.c ****             
+  82:Generated_Source\PSoC5/Counter1.c ****             /* Set the default capture mode defined in the parameter */
+  83:Generated_Source\PSoC5/Counter1.c ****             ctrl = Counter1_CONTROL & ((uint8)(~Counter1_CTRL_CAPMODE_MASK));
+  84:Generated_Source\PSoC5/Counter1.c ****             
+  85:Generated_Source\PSoC5/Counter1.c ****             #if( 0 != Counter1_CAPTURE_MODE_CONF)
+  86:Generated_Source\PSoC5/Counter1.c ****                 Counter1_CONTROL = ctrl | Counter1_DEFAULT_CAPTURE_MODE;
+  87:Generated_Source\PSoC5/Counter1.c ****             #else
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 3
+
+
+  88:Generated_Source\PSoC5/Counter1.c ****                 Counter1_CONTROL = ctrl;
+  89:Generated_Source\PSoC5/Counter1.c ****             #endif /* 0 != Counter1_CAPTURE_MODE */ 
+  90:Generated_Source\PSoC5/Counter1.c ****             
+  91:Generated_Source\PSoC5/Counter1.c ****             #endif /* (!Counter1_ControlRegRemoved) */
+  92:Generated_Source\PSoC5/Counter1.c ****         #endif /* (Counter1_UsingFixedFunction) */
+  93:Generated_Source\PSoC5/Counter1.c ****         
+  94:Generated_Source\PSoC5/Counter1.c ****         /* Clear all data in the FIFO's */
+  95:Generated_Source\PSoC5/Counter1.c ****         #if (!Counter1_UsingFixedFunction)
+  96:Generated_Source\PSoC5/Counter1.c ****             Counter1_ClearFIFO();
+  97:Generated_Source\PSoC5/Counter1.c ****         #endif /* (!Counter1_UsingFixedFunction) */
+  98:Generated_Source\PSoC5/Counter1.c ****         
+  99:Generated_Source\PSoC5/Counter1.c ****         /* Set Initial values from Configuration */
+ 100:Generated_Source\PSoC5/Counter1.c ****         Counter1_WritePeriod(Counter1_INIT_PERIOD_VALUE);
+ 101:Generated_Source\PSoC5/Counter1.c ****         #if (!(Counter1_UsingFixedFunction && (CY_PSOC5A)))
+ 102:Generated_Source\PSoC5/Counter1.c ****             Counter1_WriteCounter(Counter1_INIT_COUNTER_VALUE);
+ 103:Generated_Source\PSoC5/Counter1.c ****         #endif /* (!(Counter1_UsingFixedFunction && (CY_PSOC5A))) */
+ 104:Generated_Source\PSoC5/Counter1.c ****         Counter1_SetInterruptMode(Counter1_INIT_INTERRUPTS_MASK);
+ 105:Generated_Source\PSoC5/Counter1.c ****         
+ 106:Generated_Source\PSoC5/Counter1.c ****         #if (!Counter1_UsingFixedFunction)
+ 107:Generated_Source\PSoC5/Counter1.c ****             /* Read the status register to clear the unwanted interrupts */
+ 108:Generated_Source\PSoC5/Counter1.c ****             (void)Counter1_ReadStatusRegister();
+ 109:Generated_Source\PSoC5/Counter1.c ****             /* Set the compare value (only available to non-fixed function implementation */
+ 110:Generated_Source\PSoC5/Counter1.c ****             Counter1_WriteCompare(Counter1_INIT_COMPARE_VALUE);
+ 111:Generated_Source\PSoC5/Counter1.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 112:Generated_Source\PSoC5/Counter1.c ****             
+ 113:Generated_Source\PSoC5/Counter1.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 114:Generated_Source\PSoC5/Counter1.c ****             /* Enter Critical Region*/
+ 115:Generated_Source\PSoC5/Counter1.c ****             Counter1_interruptState = CyEnterCriticalSection();
+ 116:Generated_Source\PSoC5/Counter1.c ****             
+ 117:Generated_Source\PSoC5/Counter1.c ****             Counter1_STATUS_AUX_CTRL |= Counter1_STATUS_ACTL_INT_EN_MASK;
+ 118:Generated_Source\PSoC5/Counter1.c ****             
+ 119:Generated_Source\PSoC5/Counter1.c ****             /* Exit Critical Region*/
+ 120:Generated_Source\PSoC5/Counter1.c ****             CyExitCriticalSection(Counter1_interruptState);
+ 121:Generated_Source\PSoC5/Counter1.c ****             
+ 122:Generated_Source\PSoC5/Counter1.c ****         #endif /* (!Counter1_UsingFixedFunction) */
+ 123:Generated_Source\PSoC5/Counter1.c **** }
+ 124:Generated_Source\PSoC5/Counter1.c **** 
+ 125:Generated_Source\PSoC5/Counter1.c **** 
+ 126:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 127:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_Enable
+ 128:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ 129:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 130:Generated_Source\PSoC5/Counter1.c **** *     Enable the Counter
+ 131:Generated_Source\PSoC5/Counter1.c **** * 
+ 132:Generated_Source\PSoC5/Counter1.c **** * Parameters:  
+ 133:Generated_Source\PSoC5/Counter1.c **** *  void  
+ 134:Generated_Source\PSoC5/Counter1.c **** *
+ 135:Generated_Source\PSoC5/Counter1.c **** * Return: 
+ 136:Generated_Source\PSoC5/Counter1.c **** *  void
+ 137:Generated_Source\PSoC5/Counter1.c **** *
+ 138:Generated_Source\PSoC5/Counter1.c **** * Side Effects: 
+ 139:Generated_Source\PSoC5/Counter1.c **** *   If the Enable mode is set to Hardware only then this function has no effect 
+ 140:Generated_Source\PSoC5/Counter1.c **** *   on the operation of the counter.
+ 141:Generated_Source\PSoC5/Counter1.c **** *
+ 142:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 143:Generated_Source\PSoC5/Counter1.c **** void Counter1_Enable(void) 
+ 144:Generated_Source\PSoC5/Counter1.c **** {
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 4
+
+
+  28              		.loc 1 144 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+ 145:Generated_Source\PSoC5/Counter1.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 146:Generated_Source\PSoC5/Counter1.c ****     #if (Counter1_UsingFixedFunction)
+ 147:Generated_Source\PSoC5/Counter1.c ****         Counter1_GLOBAL_ENABLE |= Counter1_BLOCK_EN_MASK;
+ 148:Generated_Source\PSoC5/Counter1.c ****         Counter1_GLOBAL_STBY_ENABLE |= Counter1_BLOCK_STBY_EN_MASK;
+ 149:Generated_Source\PSoC5/Counter1.c ****     #endif /* (Counter1_UsingFixedFunction) */  
+ 150:Generated_Source\PSoC5/Counter1.c ****         
+ 151:Generated_Source\PSoC5/Counter1.c ****     /* Enable the counter from the control register  */
+ 152:Generated_Source\PSoC5/Counter1.c ****     /* If Fixed Function then make sure Mode is set correctly */
+ 153:Generated_Source\PSoC5/Counter1.c ****     /* else make sure reset is clear */
+ 154:Generated_Source\PSoC5/Counter1.c ****     #if(!Counter1_ControlRegRemoved || Counter1_UsingFixedFunction)
+ 155:Generated_Source\PSoC5/Counter1.c ****         Counter1_CONTROL |= Counter1_CTRL_ENABLE;                
+  33              		.loc 1 155 0
+  34 0000 024A     		ldr	r2, .L2
+  35 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  36 0004 43F08003 		orr	r3, r3, #128
+  37 0008 1370     		strb	r3, [r2]
+  38 000a 7047     		bx	lr
+  39              	.L3:
+  40              		.align	2
+  41              	.L2:
+  42 000c 77640040 		.word	1073767543
+  43              		.cfi_endproc
+  44              	.LFE1:
+  45              		.size	Counter1_Enable, .-Counter1_Enable
+  46              		.section	.text.Counter1_Stop,"ax",%progbits
+  47              		.align	2
+  48              		.global	Counter1_Stop
+  49              		.thumb
+  50              		.thumb_func
+  51              		.type	Counter1_Stop, %function
+  52              	Counter1_Stop:
+  53              	.LFB3:
+ 156:Generated_Source\PSoC5/Counter1.c ****     #endif /* (!Counter1_ControlRegRemoved || Counter1_UsingFixedFunction) */
+ 157:Generated_Source\PSoC5/Counter1.c ****     
+ 158:Generated_Source\PSoC5/Counter1.c **** }
+ 159:Generated_Source\PSoC5/Counter1.c **** 
+ 160:Generated_Source\PSoC5/Counter1.c **** 
+ 161:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 162:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_Start
+ 163:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ 164:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 165:Generated_Source\PSoC5/Counter1.c **** *  Enables the counter for operation 
+ 166:Generated_Source\PSoC5/Counter1.c **** *
+ 167:Generated_Source\PSoC5/Counter1.c **** * Parameters:  
+ 168:Generated_Source\PSoC5/Counter1.c **** *  void  
+ 169:Generated_Source\PSoC5/Counter1.c **** *
+ 170:Generated_Source\PSoC5/Counter1.c **** * Return: 
+ 171:Generated_Source\PSoC5/Counter1.c **** *  void
+ 172:Generated_Source\PSoC5/Counter1.c **** *
+ 173:Generated_Source\PSoC5/Counter1.c **** * Global variables:
+ 174:Generated_Source\PSoC5/Counter1.c **** *  Counter1_initVar: Is modified when this function is called for the  
+ 175:Generated_Source\PSoC5/Counter1.c **** *   first time. Is used to ensure that initialization happens only once.
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 5
+
+
+ 176:Generated_Source\PSoC5/Counter1.c **** *
+ 177:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 178:Generated_Source\PSoC5/Counter1.c **** void Counter1_Start(void) 
+ 179:Generated_Source\PSoC5/Counter1.c **** {
+ 180:Generated_Source\PSoC5/Counter1.c ****     if(Counter1_initVar == 0u)
+ 181:Generated_Source\PSoC5/Counter1.c ****     {
+ 182:Generated_Source\PSoC5/Counter1.c ****         Counter1_Init();
+ 183:Generated_Source\PSoC5/Counter1.c ****         
+ 184:Generated_Source\PSoC5/Counter1.c ****         Counter1_initVar = 1u; /* Clear this bit for Initialization */        
+ 185:Generated_Source\PSoC5/Counter1.c ****     }
+ 186:Generated_Source\PSoC5/Counter1.c ****     
+ 187:Generated_Source\PSoC5/Counter1.c ****     /* Enable the Counter */
+ 188:Generated_Source\PSoC5/Counter1.c ****     Counter1_Enable();        
+ 189:Generated_Source\PSoC5/Counter1.c **** }
+ 190:Generated_Source\PSoC5/Counter1.c **** 
+ 191:Generated_Source\PSoC5/Counter1.c **** 
+ 192:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 193:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_Stop
+ 194:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ 195:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 196:Generated_Source\PSoC5/Counter1.c **** * Halts the counter, but does not change any modes or disable interrupts.
+ 197:Generated_Source\PSoC5/Counter1.c **** *
+ 198:Generated_Source\PSoC5/Counter1.c **** * Parameters:  
+ 199:Generated_Source\PSoC5/Counter1.c **** *  void  
+ 200:Generated_Source\PSoC5/Counter1.c **** *
+ 201:Generated_Source\PSoC5/Counter1.c **** * Return: 
+ 202:Generated_Source\PSoC5/Counter1.c **** *  void
+ 203:Generated_Source\PSoC5/Counter1.c **** *
+ 204:Generated_Source\PSoC5/Counter1.c **** * Side Effects: If the Enable mode is set to Hardware only then this function
+ 205:Generated_Source\PSoC5/Counter1.c **** *               has no effect on the operation of the counter.
+ 206:Generated_Source\PSoC5/Counter1.c **** *
+ 207:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 208:Generated_Source\PSoC5/Counter1.c **** void Counter1_Stop(void) 
+ 209:Generated_Source\PSoC5/Counter1.c **** {
+  54              		.loc 1 209 0
+  55              		.cfi_startproc
+  56              		@ args = 0, pretend = 0, frame = 0
+  57              		@ frame_needed = 0, uses_anonymous_args = 0
+  58              		@ link register save eliminated.
+ 210:Generated_Source\PSoC5/Counter1.c ****     /* Disable Counter */
+ 211:Generated_Source\PSoC5/Counter1.c ****     #if(!Counter1_ControlRegRemoved || Counter1_UsingFixedFunction)
+ 212:Generated_Source\PSoC5/Counter1.c ****         Counter1_CONTROL &= ((uint8)(~Counter1_CTRL_ENABLE));        
+  59              		.loc 1 212 0
+  60 0000 024A     		ldr	r2, .L5
+  61 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  62 0004 03F07F03 		and	r3, r3, #127
+  63 0008 1370     		strb	r3, [r2]
+  64 000a 7047     		bx	lr
+  65              	.L6:
+  66              		.align	2
+  67              	.L5:
+  68 000c 77640040 		.word	1073767543
+  69              		.cfi_endproc
+  70              	.LFE3:
+  71              		.size	Counter1_Stop, .-Counter1_Stop
+  72              		.section	.text.Counter1_SetInterruptMode,"ax",%progbits
+  73              		.align	2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 6
+
+
+  74              		.global	Counter1_SetInterruptMode
+  75              		.thumb
+  76              		.thumb_func
+  77              		.type	Counter1_SetInterruptMode, %function
+  78              	Counter1_SetInterruptMode:
+  79              	.LFB4:
+ 213:Generated_Source\PSoC5/Counter1.c ****     #endif /* (!Counter1_ControlRegRemoved || Counter1_UsingFixedFunction) */
+ 214:Generated_Source\PSoC5/Counter1.c ****     
+ 215:Generated_Source\PSoC5/Counter1.c ****     /* Globally disable the Fixed Function Block chosen */
+ 216:Generated_Source\PSoC5/Counter1.c ****     #if (Counter1_UsingFixedFunction)
+ 217:Generated_Source\PSoC5/Counter1.c ****         Counter1_GLOBAL_ENABLE &= ((uint8)(~Counter1_BLOCK_EN_MASK));
+ 218:Generated_Source\PSoC5/Counter1.c ****         Counter1_GLOBAL_STBY_ENABLE &= ((uint8)(~Counter1_BLOCK_STBY_EN_MASK));
+ 219:Generated_Source\PSoC5/Counter1.c ****     #endif /* (Counter1_UsingFixedFunction) */
+ 220:Generated_Source\PSoC5/Counter1.c **** }
+ 221:Generated_Source\PSoC5/Counter1.c **** 
+ 222:Generated_Source\PSoC5/Counter1.c **** 
+ 223:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 224:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_SetInterruptMode
+ 225:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ 226:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 227:Generated_Source\PSoC5/Counter1.c **** * Configures which interrupt sources are enabled to generate the final interrupt
+ 228:Generated_Source\PSoC5/Counter1.c **** *
+ 229:Generated_Source\PSoC5/Counter1.c **** * Parameters:  
+ 230:Generated_Source\PSoC5/Counter1.c **** *  InterruptsMask: This parameter is an or'd collection of the status bits
+ 231:Generated_Source\PSoC5/Counter1.c **** *                   which will be allowed to generate the counters interrupt.   
+ 232:Generated_Source\PSoC5/Counter1.c **** *
+ 233:Generated_Source\PSoC5/Counter1.c **** * Return: 
+ 234:Generated_Source\PSoC5/Counter1.c **** *  void
+ 235:Generated_Source\PSoC5/Counter1.c **** *
+ 236:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 237:Generated_Source\PSoC5/Counter1.c **** void Counter1_SetInterruptMode(uint8 interruptsMask) 
+ 238:Generated_Source\PSoC5/Counter1.c **** {
+  80              		.loc 1 238 0
+  81              		.cfi_startproc
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              		@ link register save eliminated.
+  85              	.LVL0:
+ 239:Generated_Source\PSoC5/Counter1.c ****     Counter1_STATUS_MASK = interruptsMask;
+  86              		.loc 1 239 0
+  87 0000 014B     		ldr	r3, .L8
+  88 0002 1870     		strb	r0, [r3]
+  89 0004 7047     		bx	lr
+  90              	.L9:
+  91 0006 00BF     		.align	2
+  92              	.L8:
+  93 0008 8B640040 		.word	1073767563
+  94              		.cfi_endproc
+  95              	.LFE4:
+  96              		.size	Counter1_SetInterruptMode, .-Counter1_SetInterruptMode
+  97              		.section	.text.Counter1_ReadStatusRegister,"ax",%progbits
+  98              		.align	2
+  99              		.global	Counter1_ReadStatusRegister
+ 100              		.thumb
+ 101              		.thumb_func
+ 102              		.type	Counter1_ReadStatusRegister, %function
+ 103              	Counter1_ReadStatusRegister:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 7
+
+
+ 104              	.LFB5:
+ 240:Generated_Source\PSoC5/Counter1.c **** }
+ 241:Generated_Source\PSoC5/Counter1.c **** 
+ 242:Generated_Source\PSoC5/Counter1.c **** 
+ 243:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 244:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_ReadStatusRegister
+ 245:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ 246:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 247:Generated_Source\PSoC5/Counter1.c **** *   Reads the status register and returns it's state. This function should use
+ 248:Generated_Source\PSoC5/Counter1.c **** *       defined types for the bit-field information as the bits in this
+ 249:Generated_Source\PSoC5/Counter1.c **** *       register may be permuteable.
+ 250:Generated_Source\PSoC5/Counter1.c **** *
+ 251:Generated_Source\PSoC5/Counter1.c **** * Parameters:  
+ 252:Generated_Source\PSoC5/Counter1.c **** *  void
+ 253:Generated_Source\PSoC5/Counter1.c **** *
+ 254:Generated_Source\PSoC5/Counter1.c **** * Return: 
+ 255:Generated_Source\PSoC5/Counter1.c **** *  (uint8) The contents of the status register
+ 256:Generated_Source\PSoC5/Counter1.c **** *
+ 257:Generated_Source\PSoC5/Counter1.c **** * Side Effects:
+ 258:Generated_Source\PSoC5/Counter1.c **** *   Status register bits may be clear on read. 
+ 259:Generated_Source\PSoC5/Counter1.c **** *
+ 260:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 261:Generated_Source\PSoC5/Counter1.c **** uint8   Counter1_ReadStatusRegister(void) 
+ 262:Generated_Source\PSoC5/Counter1.c **** {
+ 105              		.loc 1 262 0
+ 106              		.cfi_startproc
+ 107              		@ args = 0, pretend = 0, frame = 0
+ 108              		@ frame_needed = 0, uses_anonymous_args = 0
+ 109              		@ link register save eliminated.
+ 263:Generated_Source\PSoC5/Counter1.c ****     return Counter1_STATUS;
+ 110              		.loc 1 263 0
+ 111 0000 014B     		ldr	r3, .L11
+ 112 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 264:Generated_Source\PSoC5/Counter1.c **** }
+ 113              		.loc 1 264 0
+ 114 0004 7047     		bx	lr
+ 115              	.L12:
+ 116 0006 00BF     		.align	2
+ 117              	.L11:
+ 118 0008 6B640040 		.word	1073767531
+ 119              		.cfi_endproc
+ 120              	.LFE5:
+ 121              		.size	Counter1_ReadStatusRegister, .-Counter1_ReadStatusRegister
+ 122              		.section	.text.Counter1_ReadControlRegister,"ax",%progbits
+ 123              		.align	2
+ 124              		.global	Counter1_ReadControlRegister
+ 125              		.thumb
+ 126              		.thumb_func
+ 127              		.type	Counter1_ReadControlRegister, %function
+ 128              	Counter1_ReadControlRegister:
+ 129              	.LFB6:
+ 265:Generated_Source\PSoC5/Counter1.c **** 
+ 266:Generated_Source\PSoC5/Counter1.c **** 
+ 267:Generated_Source\PSoC5/Counter1.c **** #if(!Counter1_ControlRegRemoved)
+ 268:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 269:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_ReadControlRegister
+ 270:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 8
+
+
+ 271:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 272:Generated_Source\PSoC5/Counter1.c **** *   Reads the control register and returns it's state. This function should use
+ 273:Generated_Source\PSoC5/Counter1.c **** *       defined types for the bit-field information as the bits in this
+ 274:Generated_Source\PSoC5/Counter1.c **** *       register may be permuteable.
+ 275:Generated_Source\PSoC5/Counter1.c **** *
+ 276:Generated_Source\PSoC5/Counter1.c **** * Parameters:  
+ 277:Generated_Source\PSoC5/Counter1.c **** *  void
+ 278:Generated_Source\PSoC5/Counter1.c **** *
+ 279:Generated_Source\PSoC5/Counter1.c **** * Return: 
+ 280:Generated_Source\PSoC5/Counter1.c **** *  (uint8) The contents of the control register
+ 281:Generated_Source\PSoC5/Counter1.c **** *
+ 282:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 283:Generated_Source\PSoC5/Counter1.c **** uint8   Counter1_ReadControlRegister(void) 
+ 284:Generated_Source\PSoC5/Counter1.c **** {
+ 130              		.loc 1 284 0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134              		@ link register save eliminated.
+ 285:Generated_Source\PSoC5/Counter1.c ****     return Counter1_CONTROL;
+ 135              		.loc 1 285 0
+ 136 0000 014B     		ldr	r3, .L14
+ 137 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 286:Generated_Source\PSoC5/Counter1.c **** }
+ 138              		.loc 1 286 0
+ 139 0004 7047     		bx	lr
+ 140              	.L15:
+ 141 0006 00BF     		.align	2
+ 142              	.L14:
+ 143 0008 77640040 		.word	1073767543
+ 144              		.cfi_endproc
+ 145              	.LFE6:
+ 146              		.size	Counter1_ReadControlRegister, .-Counter1_ReadControlRegister
+ 147              		.section	.text.Counter1_WriteControlRegister,"ax",%progbits
+ 148              		.align	2
+ 149              		.global	Counter1_WriteControlRegister
+ 150              		.thumb
+ 151              		.thumb_func
+ 152              		.type	Counter1_WriteControlRegister, %function
+ 153              	Counter1_WriteControlRegister:
+ 154              	.LFB7:
+ 287:Generated_Source\PSoC5/Counter1.c **** 
+ 288:Generated_Source\PSoC5/Counter1.c **** 
+ 289:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 290:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_WriteControlRegister
+ 291:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ 292:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 293:Generated_Source\PSoC5/Counter1.c **** *   Sets the bit-field of the control register.  This function should use
+ 294:Generated_Source\PSoC5/Counter1.c **** *       defined types for the bit-field information as the bits in this
+ 295:Generated_Source\PSoC5/Counter1.c **** *       register may be permuteable.
+ 296:Generated_Source\PSoC5/Counter1.c **** *
+ 297:Generated_Source\PSoC5/Counter1.c **** * Parameters:  
+ 298:Generated_Source\PSoC5/Counter1.c **** *  void
+ 299:Generated_Source\PSoC5/Counter1.c **** *
+ 300:Generated_Source\PSoC5/Counter1.c **** * Return: 
+ 301:Generated_Source\PSoC5/Counter1.c **** *  (uint8) The contents of the control register
+ 302:Generated_Source\PSoC5/Counter1.c **** *
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 9
+
+
+ 303:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 304:Generated_Source\PSoC5/Counter1.c **** void    Counter1_WriteControlRegister(uint8 control) 
+ 305:Generated_Source\PSoC5/Counter1.c **** {
+ 155              		.loc 1 305 0
+ 156              		.cfi_startproc
+ 157              		@ args = 0, pretend = 0, frame = 0
+ 158              		@ frame_needed = 0, uses_anonymous_args = 0
+ 159              		@ link register save eliminated.
+ 160              	.LVL1:
+ 306:Generated_Source\PSoC5/Counter1.c ****     Counter1_CONTROL = control;
+ 161              		.loc 1 306 0
+ 162 0000 014B     		ldr	r3, .L17
+ 163 0002 1870     		strb	r0, [r3]
+ 164 0004 7047     		bx	lr
+ 165              	.L18:
+ 166 0006 00BF     		.align	2
+ 167              	.L17:
+ 168 0008 77640040 		.word	1073767543
+ 169              		.cfi_endproc
+ 170              	.LFE7:
+ 171              		.size	Counter1_WriteControlRegister, .-Counter1_WriteControlRegister
+ 172              		.section	.text.Counter1_WriteCounter,"ax",%progbits
+ 173              		.align	2
+ 174              		.global	Counter1_WriteCounter
+ 175              		.thumb
+ 176              		.thumb_func
+ 177              		.type	Counter1_WriteCounter, %function
+ 178              	Counter1_WriteCounter:
+ 179              	.LFB8:
+ 307:Generated_Source\PSoC5/Counter1.c **** }
+ 308:Generated_Source\PSoC5/Counter1.c **** 
+ 309:Generated_Source\PSoC5/Counter1.c **** #endif  /* (!Counter1_ControlRegRemoved) */
+ 310:Generated_Source\PSoC5/Counter1.c **** 
+ 311:Generated_Source\PSoC5/Counter1.c **** 
+ 312:Generated_Source\PSoC5/Counter1.c **** #if (!(Counter1_UsingFixedFunction && (CY_PSOC5A)))
+ 313:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 314:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_WriteCounter
+ 315:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ 316:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 317:Generated_Source\PSoC5/Counter1.c **** *   This funtion is used to set the counter to a specific value
+ 318:Generated_Source\PSoC5/Counter1.c **** *
+ 319:Generated_Source\PSoC5/Counter1.c **** * Parameters:  
+ 320:Generated_Source\PSoC5/Counter1.c **** *  counter:  New counter value. 
+ 321:Generated_Source\PSoC5/Counter1.c **** *
+ 322:Generated_Source\PSoC5/Counter1.c **** * Return: 
+ 323:Generated_Source\PSoC5/Counter1.c **** *  void 
+ 324:Generated_Source\PSoC5/Counter1.c **** *
+ 325:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 326:Generated_Source\PSoC5/Counter1.c **** void Counter1_WriteCounter(uint32 counter) \
+ 327:Generated_Source\PSoC5/Counter1.c ****                                    
+ 328:Generated_Source\PSoC5/Counter1.c **** {
+ 180              		.loc 1 328 0
+ 181              		.cfi_startproc
+ 182              		@ args = 0, pretend = 0, frame = 0
+ 183              		@ frame_needed = 0, uses_anonymous_args = 0
+ 184              	.LVL2:
+ 185 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 10
+
+
+ 186              		.cfi_def_cfa_offset 8
+ 187              		.cfi_offset 3, -8
+ 188              		.cfi_offset 14, -4
+ 329:Generated_Source\PSoC5/Counter1.c ****     #if(Counter1_UsingFixedFunction)
+ 330:Generated_Source\PSoC5/Counter1.c ****         /* assert if block is already enabled */
+ 331:Generated_Source\PSoC5/Counter1.c ****         CYASSERT (0u == (Counter1_GLOBAL_ENABLE & Counter1_BLOCK_EN_MASK));
+ 332:Generated_Source\PSoC5/Counter1.c ****         /* If block is disabled, enable it and then write the counter */
+ 333:Generated_Source\PSoC5/Counter1.c ****         Counter1_GLOBAL_ENABLE |= Counter1_BLOCK_EN_MASK;
+ 334:Generated_Source\PSoC5/Counter1.c ****         CY_SET_REG16(Counter1_COUNTER_LSB_PTR, (uint16)counter);
+ 335:Generated_Source\PSoC5/Counter1.c ****         Counter1_GLOBAL_ENABLE &= ((uint8)(~Counter1_BLOCK_EN_MASK));
+ 336:Generated_Source\PSoC5/Counter1.c ****     #else
+ 337:Generated_Source\PSoC5/Counter1.c ****         CY_SET_REG24(Counter1_COUNTER_LSB_PTR, counter);
+ 189              		.loc 1 337 0
+ 190 0002 0146     		mov	r1, r0
+ 191 0004 0148     		ldr	r0, .L21
+ 192              	.LVL3:
+ 193 0006 FFF7FEFF 		bl	CySetReg24
+ 194              	.LVL4:
+ 195 000a 08BD     		pop	{r3, pc}
+ 196              	.L22:
+ 197              		.align	2
+ 198              	.L21:
+ 199 000c 06640040 		.word	1073767430
+ 200              		.cfi_endproc
+ 201              	.LFE8:
+ 202              		.size	Counter1_WriteCounter, .-Counter1_WriteCounter
+ 203              		.section	.text.Counter1_ReadCounter,"ax",%progbits
+ 204              		.align	2
+ 205              		.global	Counter1_ReadCounter
+ 206              		.thumb
+ 207              		.thumb_func
+ 208              		.type	Counter1_ReadCounter, %function
+ 209              	Counter1_ReadCounter:
+ 210              	.LFB9:
+ 338:Generated_Source\PSoC5/Counter1.c ****     #endif /* (Counter1_UsingFixedFunction) */
+ 339:Generated_Source\PSoC5/Counter1.c **** }
+ 340:Generated_Source\PSoC5/Counter1.c **** #endif /* (!(Counter1_UsingFixedFunction && (CY_PSOC5A))) */
+ 341:Generated_Source\PSoC5/Counter1.c **** 
+ 342:Generated_Source\PSoC5/Counter1.c **** 
+ 343:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 344:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_ReadCounter
+ 345:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ 346:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 347:Generated_Source\PSoC5/Counter1.c **** * Returns the current value of the counter.  It doesn't matter
+ 348:Generated_Source\PSoC5/Counter1.c **** * if the counter is enabled or running.
+ 349:Generated_Source\PSoC5/Counter1.c **** *
+ 350:Generated_Source\PSoC5/Counter1.c **** * Parameters:  
+ 351:Generated_Source\PSoC5/Counter1.c **** *  void:  
+ 352:Generated_Source\PSoC5/Counter1.c **** *
+ 353:Generated_Source\PSoC5/Counter1.c **** * Return: 
+ 354:Generated_Source\PSoC5/Counter1.c **** *  (uint32) The present value of the counter.
+ 355:Generated_Source\PSoC5/Counter1.c **** *
+ 356:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 357:Generated_Source\PSoC5/Counter1.c **** uint32 Counter1_ReadCounter(void) 
+ 358:Generated_Source\PSoC5/Counter1.c **** {
+ 211              		.loc 1 358 0
+ 212              		.cfi_startproc
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 11
+
+
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215              		@ link register save eliminated.
+ 359:Generated_Source\PSoC5/Counter1.c ****     /* Force capture by reading Accumulator */
+ 360:Generated_Source\PSoC5/Counter1.c ****     /* Must first do a software capture to be able to read the counter */
+ 361:Generated_Source\PSoC5/Counter1.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 362:Generated_Source\PSoC5/Counter1.c ****     #if(Counter1_UsingFixedFunction)
+ 363:Generated_Source\PSoC5/Counter1.c **** 		(void)CY_GET_REG16(Counter1_COUNTER_LSB_PTR);
+ 364:Generated_Source\PSoC5/Counter1.c **** 	#else
+ 365:Generated_Source\PSoC5/Counter1.c **** 		(void)CY_GET_REG8(Counter1_COUNTER_LSB_PTR_8BIT);
+ 216              		.loc 1 365 0
+ 217 0000 034B     		ldr	r3, .L24
+ 218 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 366:Generated_Source\PSoC5/Counter1.c **** 	#endif/* (Counter1_UsingFixedFunction) */
+ 367:Generated_Source\PSoC5/Counter1.c ****     
+ 368:Generated_Source\PSoC5/Counter1.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 369:Generated_Source\PSoC5/Counter1.c ****     #if(Counter1_UsingFixedFunction)
+ 370:Generated_Source\PSoC5/Counter1.c ****         return ((uint32)CY_GET_REG16(Counter1_STATICCOUNT_LSB_PTR));
+ 371:Generated_Source\PSoC5/Counter1.c ****     #else
+ 372:Generated_Source\PSoC5/Counter1.c ****         return (CY_GET_REG24(Counter1_STATICCOUNT_LSB_PTR));
+ 219              		.loc 1 372 0
+ 220 0004 034B     		ldr	r3, .L24+4
+ 221 0006 1868     		ldr	r0, [r3]	@ unaligned
+ 373:Generated_Source\PSoC5/Counter1.c ****     #endif /* (Counter1_UsingFixedFunction) */
+ 374:Generated_Source\PSoC5/Counter1.c **** }
+ 222              		.loc 1 374 0
+ 223 0008 20F07F40 		bic	r0, r0, #-16777216
+ 224 000c 7047     		bx	lr
+ 225              	.L25:
+ 226 000e 00BF     		.align	2
+ 227              	.L24:
+ 228 0010 06640040 		.word	1073767430
+ 229 0014 46640040 		.word	1073767494
+ 230              		.cfi_endproc
+ 231              	.LFE9:
+ 232              		.size	Counter1_ReadCounter, .-Counter1_ReadCounter
+ 233              		.section	.text.Counter1_ReadCapture,"ax",%progbits
+ 234              		.align	2
+ 235              		.global	Counter1_ReadCapture
+ 236              		.thumb
+ 237              		.thumb_func
+ 238              		.type	Counter1_ReadCapture, %function
+ 239              	Counter1_ReadCapture:
+ 240              	.LFB10:
+ 375:Generated_Source\PSoC5/Counter1.c **** 
+ 376:Generated_Source\PSoC5/Counter1.c **** 
+ 377:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 378:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_ReadCapture
+ 379:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ 380:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 381:Generated_Source\PSoC5/Counter1.c **** *   This function returns the last value captured.
+ 382:Generated_Source\PSoC5/Counter1.c **** *
+ 383:Generated_Source\PSoC5/Counter1.c **** * Parameters:  
+ 384:Generated_Source\PSoC5/Counter1.c **** *  void
+ 385:Generated_Source\PSoC5/Counter1.c **** *
+ 386:Generated_Source\PSoC5/Counter1.c **** * Return: 
+ 387:Generated_Source\PSoC5/Counter1.c **** *  (uint32) Present Capture value.
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 12
+
+
+ 388:Generated_Source\PSoC5/Counter1.c **** *
+ 389:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 390:Generated_Source\PSoC5/Counter1.c **** uint32 Counter1_ReadCapture(void) 
+ 391:Generated_Source\PSoC5/Counter1.c **** {
+ 241              		.loc 1 391 0
+ 242              		.cfi_startproc
+ 243              		@ args = 0, pretend = 0, frame = 0
+ 244              		@ frame_needed = 0, uses_anonymous_args = 0
+ 245              		@ link register save eliminated.
+ 392:Generated_Source\PSoC5/Counter1.c ****     #if(Counter1_UsingFixedFunction)
+ 393:Generated_Source\PSoC5/Counter1.c ****         return ((uint32)CY_GET_REG16(Counter1_STATICCOUNT_LSB_PTR));
+ 394:Generated_Source\PSoC5/Counter1.c ****     #else
+ 395:Generated_Source\PSoC5/Counter1.c ****         return (CY_GET_REG24(Counter1_STATICCOUNT_LSB_PTR));
+ 246              		.loc 1 395 0
+ 247 0000 024B     		ldr	r3, .L27
+ 248 0002 1868     		ldr	r0, [r3]	@ unaligned
+ 396:Generated_Source\PSoC5/Counter1.c ****     #endif /* (Counter1_UsingFixedFunction) */
+ 397:Generated_Source\PSoC5/Counter1.c **** }
+ 249              		.loc 1 397 0
+ 250 0004 20F07F40 		bic	r0, r0, #-16777216
+ 251 0008 7047     		bx	lr
+ 252              	.L28:
+ 253 000a 00BF     		.align	2
+ 254              	.L27:
+ 255 000c 46640040 		.word	1073767494
+ 256              		.cfi_endproc
+ 257              	.LFE10:
+ 258              		.size	Counter1_ReadCapture, .-Counter1_ReadCapture
+ 259              		.section	.text.Counter1_WritePeriod,"ax",%progbits
+ 260              		.align	2
+ 261              		.global	Counter1_WritePeriod
+ 262              		.thumb
+ 263              		.thumb_func
+ 264              		.type	Counter1_WritePeriod, %function
+ 265              	Counter1_WritePeriod:
+ 266              	.LFB11:
+ 398:Generated_Source\PSoC5/Counter1.c **** 
+ 399:Generated_Source\PSoC5/Counter1.c **** 
+ 400:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 401:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_WritePeriod
+ 402:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ 403:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 404:Generated_Source\PSoC5/Counter1.c **** * Changes the period of the counter.  The new period 
+ 405:Generated_Source\PSoC5/Counter1.c **** * will be loaded the next time terminal count is detected.
+ 406:Generated_Source\PSoC5/Counter1.c **** *
+ 407:Generated_Source\PSoC5/Counter1.c **** * Parameters:  
+ 408:Generated_Source\PSoC5/Counter1.c **** *  period: (uint32) A value of 0 will result in
+ 409:Generated_Source\PSoC5/Counter1.c **** *         the counter remaining at zero.  
+ 410:Generated_Source\PSoC5/Counter1.c **** *
+ 411:Generated_Source\PSoC5/Counter1.c **** * Return: 
+ 412:Generated_Source\PSoC5/Counter1.c **** *  void
+ 413:Generated_Source\PSoC5/Counter1.c **** *
+ 414:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 415:Generated_Source\PSoC5/Counter1.c **** void Counter1_WritePeriod(uint32 period) 
+ 416:Generated_Source\PSoC5/Counter1.c **** {
+ 267              		.loc 1 416 0
+ 268              		.cfi_startproc
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 13
+
+
+ 269              		@ args = 0, pretend = 0, frame = 0
+ 270              		@ frame_needed = 0, uses_anonymous_args = 0
+ 271              	.LVL5:
+ 272 0000 08B5     		push	{r3, lr}
+ 273              		.cfi_def_cfa_offset 8
+ 274              		.cfi_offset 3, -8
+ 275              		.cfi_offset 14, -4
+ 417:Generated_Source\PSoC5/Counter1.c ****     #if(Counter1_UsingFixedFunction)
+ 418:Generated_Source\PSoC5/Counter1.c ****         CY_SET_REG16(Counter1_PERIOD_LSB_PTR,(uint16)period);
+ 419:Generated_Source\PSoC5/Counter1.c ****     #else
+ 420:Generated_Source\PSoC5/Counter1.c ****         CY_SET_REG24(Counter1_PERIOD_LSB_PTR, period);
+ 276              		.loc 1 420 0
+ 277 0002 0146     		mov	r1, r0
+ 278 0004 0148     		ldr	r0, .L31
+ 279              	.LVL6:
+ 280 0006 FFF7FEFF 		bl	CySetReg24
+ 281              	.LVL7:
+ 282 000a 08BD     		pop	{r3, pc}
+ 283              	.L32:
+ 284              		.align	2
+ 285              	.L31:
+ 286 000c 26640040 		.word	1073767462
+ 287              		.cfi_endproc
+ 288              	.LFE11:
+ 289              		.size	Counter1_WritePeriod, .-Counter1_WritePeriod
+ 290              		.section	.text.Counter1_ReadPeriod,"ax",%progbits
+ 291              		.align	2
+ 292              		.global	Counter1_ReadPeriod
+ 293              		.thumb
+ 294              		.thumb_func
+ 295              		.type	Counter1_ReadPeriod, %function
+ 296              	Counter1_ReadPeriod:
+ 297              	.LFB12:
+ 421:Generated_Source\PSoC5/Counter1.c ****     #endif /* (Counter1_UsingFixedFunction) */
+ 422:Generated_Source\PSoC5/Counter1.c **** }
+ 423:Generated_Source\PSoC5/Counter1.c **** 
+ 424:Generated_Source\PSoC5/Counter1.c **** 
+ 425:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 426:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_ReadPeriod
+ 427:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ 428:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 429:Generated_Source\PSoC5/Counter1.c **** * Reads the current period value without affecting counter operation.
+ 430:Generated_Source\PSoC5/Counter1.c **** *
+ 431:Generated_Source\PSoC5/Counter1.c **** * Parameters:  
+ 432:Generated_Source\PSoC5/Counter1.c **** *  void:  
+ 433:Generated_Source\PSoC5/Counter1.c **** *
+ 434:Generated_Source\PSoC5/Counter1.c **** * Return: 
+ 435:Generated_Source\PSoC5/Counter1.c **** *  (uint32) Present period value.
+ 436:Generated_Source\PSoC5/Counter1.c **** *
+ 437:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 438:Generated_Source\PSoC5/Counter1.c **** uint32 Counter1_ReadPeriod(void) 
+ 439:Generated_Source\PSoC5/Counter1.c **** {
+ 298              		.loc 1 439 0
+ 299              		.cfi_startproc
+ 300              		@ args = 0, pretend = 0, frame = 0
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302              		@ link register save eliminated.
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 14
+
+
+ 440:Generated_Source\PSoC5/Counter1.c ****     #if(Counter1_UsingFixedFunction)
+ 441:Generated_Source\PSoC5/Counter1.c ****         return ((uint32)CY_GET_REG16(Counter1_PERIOD_LSB_PTR));
+ 442:Generated_Source\PSoC5/Counter1.c ****     #else
+ 443:Generated_Source\PSoC5/Counter1.c ****         return (CY_GET_REG24(Counter1_PERIOD_LSB_PTR));
+ 303              		.loc 1 443 0
+ 304 0000 024B     		ldr	r3, .L34
+ 305 0002 1868     		ldr	r0, [r3]	@ unaligned
+ 444:Generated_Source\PSoC5/Counter1.c ****     #endif /* (Counter1_UsingFixedFunction) */
+ 445:Generated_Source\PSoC5/Counter1.c **** }
+ 306              		.loc 1 445 0
+ 307 0004 20F07F40 		bic	r0, r0, #-16777216
+ 308 0008 7047     		bx	lr
+ 309              	.L35:
+ 310 000a 00BF     		.align	2
+ 311              	.L34:
+ 312 000c 26640040 		.word	1073767462
+ 313              		.cfi_endproc
+ 314              	.LFE12:
+ 315              		.size	Counter1_ReadPeriod, .-Counter1_ReadPeriod
+ 316              		.section	.text.Counter1_WriteCompare,"ax",%progbits
+ 317              		.align	2
+ 318              		.global	Counter1_WriteCompare
+ 319              		.thumb
+ 320              		.thumb_func
+ 321              		.type	Counter1_WriteCompare, %function
+ 322              	Counter1_WriteCompare:
+ 323              	.LFB13:
+ 446:Generated_Source\PSoC5/Counter1.c **** 
+ 447:Generated_Source\PSoC5/Counter1.c **** 
+ 448:Generated_Source\PSoC5/Counter1.c **** #if (!Counter1_UsingFixedFunction)
+ 449:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 450:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_WriteCompare
+ 451:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ 452:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 453:Generated_Source\PSoC5/Counter1.c **** * Changes the compare value.  The compare output will 
+ 454:Generated_Source\PSoC5/Counter1.c **** * reflect the new value on the next UDB clock.  The compare output will be 
+ 455:Generated_Source\PSoC5/Counter1.c **** * driven high when the present counter value compares true based on the 
+ 456:Generated_Source\PSoC5/Counter1.c **** * configured compare mode setting. 
+ 457:Generated_Source\PSoC5/Counter1.c **** *
+ 458:Generated_Source\PSoC5/Counter1.c **** * Parameters:  
+ 459:Generated_Source\PSoC5/Counter1.c **** *  Compare:  New compare value. 
+ 460:Generated_Source\PSoC5/Counter1.c **** *
+ 461:Generated_Source\PSoC5/Counter1.c **** * Return: 
+ 462:Generated_Source\PSoC5/Counter1.c **** *  void
+ 463:Generated_Source\PSoC5/Counter1.c **** *
+ 464:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 465:Generated_Source\PSoC5/Counter1.c **** void Counter1_WriteCompare(uint32 compare) \
+ 466:Generated_Source\PSoC5/Counter1.c ****                                    
+ 467:Generated_Source\PSoC5/Counter1.c **** {
+ 324              		.loc 1 467 0
+ 325              		.cfi_startproc
+ 326              		@ args = 0, pretend = 0, frame = 0
+ 327              		@ frame_needed = 0, uses_anonymous_args = 0
+ 328              	.LVL8:
+ 329 0000 08B5     		push	{r3, lr}
+ 330              		.cfi_def_cfa_offset 8
+ 331              		.cfi_offset 3, -8
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 15
+
+
+ 332              		.cfi_offset 14, -4
+ 468:Generated_Source\PSoC5/Counter1.c ****     #if(Counter1_UsingFixedFunction)
+ 469:Generated_Source\PSoC5/Counter1.c ****         CY_SET_REG16(Counter1_COMPARE_LSB_PTR, (uint16)compare);
+ 470:Generated_Source\PSoC5/Counter1.c ****     #else
+ 471:Generated_Source\PSoC5/Counter1.c ****         CY_SET_REG24(Counter1_COMPARE_LSB_PTR, compare);
+ 333              		.loc 1 471 0
+ 334 0002 0146     		mov	r1, r0
+ 335 0004 0148     		ldr	r0, .L38
+ 336              	.LVL9:
+ 337 0006 FFF7FEFF 		bl	CySetReg24
+ 338              	.LVL10:
+ 339 000a 08BD     		pop	{r3, pc}
+ 340              	.L39:
+ 341              		.align	2
+ 342              	.L38:
+ 343 000c 36640040 		.word	1073767478
+ 344              		.cfi_endproc
+ 345              	.LFE13:
+ 346              		.size	Counter1_WriteCompare, .-Counter1_WriteCompare
+ 347              		.section	.text.Counter1_ReadCompare,"ax",%progbits
+ 348              		.align	2
+ 349              		.global	Counter1_ReadCompare
+ 350              		.thumb
+ 351              		.thumb_func
+ 352              		.type	Counter1_ReadCompare, %function
+ 353              	Counter1_ReadCompare:
+ 354              	.LFB14:
+ 472:Generated_Source\PSoC5/Counter1.c ****     #endif /* (Counter1_UsingFixedFunction) */
+ 473:Generated_Source\PSoC5/Counter1.c **** }
+ 474:Generated_Source\PSoC5/Counter1.c **** 
+ 475:Generated_Source\PSoC5/Counter1.c **** 
+ 476:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 477:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_ReadCompare
+ 478:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ 479:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 480:Generated_Source\PSoC5/Counter1.c **** * Returns the compare value.
+ 481:Generated_Source\PSoC5/Counter1.c **** *
+ 482:Generated_Source\PSoC5/Counter1.c **** * Parameters:  
+ 483:Generated_Source\PSoC5/Counter1.c **** *  void:
+ 484:Generated_Source\PSoC5/Counter1.c **** *
+ 485:Generated_Source\PSoC5/Counter1.c **** * Return: 
+ 486:Generated_Source\PSoC5/Counter1.c **** *  (uint32) Present compare value.
+ 487:Generated_Source\PSoC5/Counter1.c **** *
+ 488:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 489:Generated_Source\PSoC5/Counter1.c **** uint32 Counter1_ReadCompare(void) 
+ 490:Generated_Source\PSoC5/Counter1.c **** {
+ 355              		.loc 1 490 0
+ 356              		.cfi_startproc
+ 357              		@ args = 0, pretend = 0, frame = 0
+ 358              		@ frame_needed = 0, uses_anonymous_args = 0
+ 359              		@ link register save eliminated.
+ 491:Generated_Source\PSoC5/Counter1.c ****     return (CY_GET_REG24(Counter1_COMPARE_LSB_PTR));
+ 360              		.loc 1 491 0
+ 361 0000 024B     		ldr	r3, .L41
+ 362 0002 1868     		ldr	r0, [r3]	@ unaligned
+ 492:Generated_Source\PSoC5/Counter1.c **** }
+ 363              		.loc 1 492 0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 16
+
+
+ 364 0004 20F07F40 		bic	r0, r0, #-16777216
+ 365 0008 7047     		bx	lr
+ 366              	.L42:
+ 367 000a 00BF     		.align	2
+ 368              	.L41:
+ 369 000c 36640040 		.word	1073767478
+ 370              		.cfi_endproc
+ 371              	.LFE14:
+ 372              		.size	Counter1_ReadCompare, .-Counter1_ReadCompare
+ 373              		.section	.text.Counter1_ClearFIFO,"ax",%progbits
+ 374              		.align	2
+ 375              		.global	Counter1_ClearFIFO
+ 376              		.thumb
+ 377              		.thumb_func
+ 378              		.type	Counter1_ClearFIFO, %function
+ 379              	Counter1_ClearFIFO:
+ 380              	.LFB15:
+ 493:Generated_Source\PSoC5/Counter1.c **** 
+ 494:Generated_Source\PSoC5/Counter1.c **** 
+ 495:Generated_Source\PSoC5/Counter1.c **** #if (Counter1_COMPARE_MODE_SOFTWARE)
+ 496:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 497:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_SetCompareMode
+ 498:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ 499:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 500:Generated_Source\PSoC5/Counter1.c **** *  Sets the software controlled Compare Mode.
+ 501:Generated_Source\PSoC5/Counter1.c **** *
+ 502:Generated_Source\PSoC5/Counter1.c **** * Parameters:
+ 503:Generated_Source\PSoC5/Counter1.c **** *  compareMode:  Compare Mode Enumerated Type.
+ 504:Generated_Source\PSoC5/Counter1.c **** *
+ 505:Generated_Source\PSoC5/Counter1.c **** * Return:
+ 506:Generated_Source\PSoC5/Counter1.c **** *  void
+ 507:Generated_Source\PSoC5/Counter1.c **** *
+ 508:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 509:Generated_Source\PSoC5/Counter1.c **** void Counter1_SetCompareMode(uint8 compareMode) 
+ 510:Generated_Source\PSoC5/Counter1.c **** {
+ 511:Generated_Source\PSoC5/Counter1.c ****     /* Clear the compare mode bits in the control register */
+ 512:Generated_Source\PSoC5/Counter1.c ****     Counter1_CONTROL &= ((uint8)(~Counter1_CTRL_CMPMODE_MASK));
+ 513:Generated_Source\PSoC5/Counter1.c ****     
+ 514:Generated_Source\PSoC5/Counter1.c ****     /* Write the new setting */
+ 515:Generated_Source\PSoC5/Counter1.c ****     Counter1_CONTROL |= compareMode;
+ 516:Generated_Source\PSoC5/Counter1.c **** }
+ 517:Generated_Source\PSoC5/Counter1.c **** #endif  /* (Counter1_COMPARE_MODE_SOFTWARE) */
+ 518:Generated_Source\PSoC5/Counter1.c **** 
+ 519:Generated_Source\PSoC5/Counter1.c **** 
+ 520:Generated_Source\PSoC5/Counter1.c **** #if (Counter1_CAPTURE_MODE_SOFTWARE)
+ 521:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 522:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_SetCaptureMode
+ 523:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ 524:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 525:Generated_Source\PSoC5/Counter1.c **** *  Sets the software controlled Capture Mode.
+ 526:Generated_Source\PSoC5/Counter1.c **** *
+ 527:Generated_Source\PSoC5/Counter1.c **** * Parameters:
+ 528:Generated_Source\PSoC5/Counter1.c **** *  captureMode:  Capture Mode Enumerated Type.
+ 529:Generated_Source\PSoC5/Counter1.c **** *
+ 530:Generated_Source\PSoC5/Counter1.c **** * Return:
+ 531:Generated_Source\PSoC5/Counter1.c **** *  void
+ 532:Generated_Source\PSoC5/Counter1.c **** *
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 17
+
+
+ 533:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 534:Generated_Source\PSoC5/Counter1.c **** void Counter1_SetCaptureMode(uint8 captureMode) 
+ 535:Generated_Source\PSoC5/Counter1.c **** {
+ 536:Generated_Source\PSoC5/Counter1.c ****     /* Clear the capture mode bits in the control register */
+ 537:Generated_Source\PSoC5/Counter1.c ****     Counter1_CONTROL &= ((uint8)(~Counter1_CTRL_CAPMODE_MASK));
+ 538:Generated_Source\PSoC5/Counter1.c ****     
+ 539:Generated_Source\PSoC5/Counter1.c ****     /* Write the new setting */
+ 540:Generated_Source\PSoC5/Counter1.c ****     Counter1_CONTROL |= ((uint8)((uint8)captureMode << Counter1_CTRL_CAPMODE0_SHIFT));
+ 541:Generated_Source\PSoC5/Counter1.c **** }
+ 542:Generated_Source\PSoC5/Counter1.c **** #endif  /* (Counter1_CAPTURE_MODE_SOFTWARE) */
+ 543:Generated_Source\PSoC5/Counter1.c **** 
+ 544:Generated_Source\PSoC5/Counter1.c **** 
+ 545:Generated_Source\PSoC5/Counter1.c **** /*******************************************************************************
+ 546:Generated_Source\PSoC5/Counter1.c **** * Function Name: Counter1_ClearFIFO
+ 547:Generated_Source\PSoC5/Counter1.c **** ********************************************************************************
+ 548:Generated_Source\PSoC5/Counter1.c **** * Summary:
+ 549:Generated_Source\PSoC5/Counter1.c **** *   This function clears all capture data from the capture FIFO
+ 550:Generated_Source\PSoC5/Counter1.c **** *
+ 551:Generated_Source\PSoC5/Counter1.c **** * Parameters:  
+ 552:Generated_Source\PSoC5/Counter1.c **** *  void:
+ 553:Generated_Source\PSoC5/Counter1.c **** *
+ 554:Generated_Source\PSoC5/Counter1.c **** * Return: 
+ 555:Generated_Source\PSoC5/Counter1.c **** *  None
+ 556:Generated_Source\PSoC5/Counter1.c **** *
+ 557:Generated_Source\PSoC5/Counter1.c **** *******************************************************************************/
+ 558:Generated_Source\PSoC5/Counter1.c **** void Counter1_ClearFIFO(void) 
+ 559:Generated_Source\PSoC5/Counter1.c **** {
+ 381              		.loc 1 559 0
+ 382              		.cfi_startproc
+ 383              		@ args = 0, pretend = 0, frame = 0
+ 384              		@ frame_needed = 0, uses_anonymous_args = 0
+ 385 0000 08B5     		push	{r3, lr}
+ 386              		.cfi_def_cfa_offset 8
+ 387              		.cfi_offset 3, -8
+ 388              		.cfi_offset 14, -4
+ 560:Generated_Source\PSoC5/Counter1.c **** 
+ 561:Generated_Source\PSoC5/Counter1.c ****     while(0u != (Counter1_ReadStatusRegister() & Counter1_STATUS_FIFONEMP))
+ 389              		.loc 1 561 0
+ 390 0002 01E0     		b	.L44
+ 391              	.L45:
+ 562:Generated_Source\PSoC5/Counter1.c ****     {
+ 563:Generated_Source\PSoC5/Counter1.c ****         (void)Counter1_ReadCapture();
+ 392              		.loc 1 563 0
+ 393 0004 FFF7FEFF 		bl	Counter1_ReadCapture
+ 394              	.LVL11:
+ 395              	.L44:
+ 561:Generated_Source\PSoC5/Counter1.c ****     {
+ 396              		.loc 1 561 0
+ 397 0008 FFF7FEFF 		bl	Counter1_ReadStatusRegister
+ 398              	.LVL12:
+ 399 000c 10F0400F 		tst	r0, #64
+ 400 0010 F8D1     		bne	.L45
+ 564:Generated_Source\PSoC5/Counter1.c ****     }
+ 565:Generated_Source\PSoC5/Counter1.c **** 
+ 566:Generated_Source\PSoC5/Counter1.c **** }
+ 401              		.loc 1 566 0
+ 402 0012 08BD     		pop	{r3, pc}
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 18
+
+
+ 403              		.cfi_endproc
+ 404              	.LFE15:
+ 405              		.size	Counter1_ClearFIFO, .-Counter1_ClearFIFO
+ 406              		.section	.text.Counter1_Init,"ax",%progbits
+ 407              		.align	2
+ 408              		.global	Counter1_Init
+ 409              		.thumb
+ 410              		.thumb_func
+ 411              		.type	Counter1_Init, %function
+ 412              	Counter1_Init:
+ 413              	.LFB0:
+  38:Generated_Source\PSoC5/Counter1.c ****         #if (!Counter1_UsingFixedFunction && !Counter1_ControlRegRemoved)
+ 414              		.loc 1 38 0
+ 415              		.cfi_startproc
+ 416              		@ args = 0, pretend = 0, frame = 0
+ 417              		@ frame_needed = 0, uses_anonymous_args = 0
+ 418 0000 08B5     		push	{r3, lr}
+ 419              		.cfi_def_cfa_offset 8
+ 420              		.cfi_offset 3, -8
+ 421              		.cfi_offset 14, -4
+  79:Generated_Source\PSoC5/Counter1.c ****             Counter1_CONTROL = ctrl | Counter1_DEFAULT_COMPARE_MODE;
+ 422              		.loc 1 79 0
+ 423 0002 124A     		ldr	r2, .L49
+ 424 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 425 0006 03F0F803 		and	r3, r3, #248
+ 426              	.LVL13:
+  80:Generated_Source\PSoC5/Counter1.c ****             
+ 427              		.loc 1 80 0
+ 428 000a 43F00103 		orr	r3, r3, #1
+ 429              	.LVL14:
+ 430 000e 1370     		strb	r3, [r2]
+  83:Generated_Source\PSoC5/Counter1.c ****             
+ 431              		.loc 1 83 0
+ 432 0010 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 433 0012 03F0FC03 		and	r3, r3, #252
+ 434              	.LVL15:
+  88:Generated_Source\PSoC5/Counter1.c ****             #endif /* 0 != Counter1_CAPTURE_MODE */ 
+ 435              		.loc 1 88 0
+ 436 0016 1370     		strb	r3, [r2]
+  96:Generated_Source\PSoC5/Counter1.c ****         #endif /* (!Counter1_UsingFixedFunction) */
+ 437              		.loc 1 96 0
+ 438 0018 FFF7FEFF 		bl	Counter1_ClearFIFO
+ 439              	.LVL16:
+ 100:Generated_Source\PSoC5/Counter1.c ****         #if (!(Counter1_UsingFixedFunction && (CY_PSOC5A)))
+ 440              		.loc 1 100 0
+ 441 001c FF20     		movs	r0, #255
+ 442 001e FFF7FEFF 		bl	Counter1_WritePeriod
+ 443              	.LVL17:
+ 102:Generated_Source\PSoC5/Counter1.c ****         #endif /* (!(Counter1_UsingFixedFunction && (CY_PSOC5A))) */
+ 444              		.loc 1 102 0
+ 445 0022 0020     		movs	r0, #0
+ 446 0024 FFF7FEFF 		bl	Counter1_WriteCounter
+ 447              	.LVL18:
+ 104:Generated_Source\PSoC5/Counter1.c ****         
+ 448              		.loc 1 104 0
+ 449 0028 0020     		movs	r0, #0
+ 450 002a FFF7FEFF 		bl	Counter1_SetInterruptMode
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 19
+
+
+ 451              	.LVL19:
+ 108:Generated_Source\PSoC5/Counter1.c ****             /* Set the compare value (only available to non-fixed function implementation */
+ 452              		.loc 1 108 0
+ 453 002e FFF7FEFF 		bl	Counter1_ReadStatusRegister
+ 454              	.LVL20:
+ 110:Generated_Source\PSoC5/Counter1.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 455              		.loc 1 110 0
+ 456 0032 8020     		movs	r0, #128
+ 457 0034 FFF7FEFF 		bl	Counter1_WriteCompare
+ 458              	.LVL21:
+ 115:Generated_Source\PSoC5/Counter1.c ****             
+ 459              		.loc 1 115 0
+ 460 0038 FFF7FEFF 		bl	CyEnterCriticalSection
+ 461              	.LVL22:
+ 117:Generated_Source\PSoC5/Counter1.c ****             
+ 462              		.loc 1 117 0
+ 463 003c 044A     		ldr	r2, .L49+4
+ 464 003e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 465 0040 43F01003 		orr	r3, r3, #16
+ 466 0044 1370     		strb	r3, [r2]
+ 120:Generated_Source\PSoC5/Counter1.c ****             
+ 467              		.loc 1 120 0
+ 468 0046 FFF7FEFF 		bl	CyExitCriticalSection
+ 469              	.LVL23:
+ 470 004a 08BD     		pop	{r3, pc}
+ 471              	.L50:
+ 472              		.align	2
+ 473              	.L49:
+ 474 004c 77640040 		.word	1073767543
+ 475 0050 9B640040 		.word	1073767579
+ 476              		.cfi_endproc
+ 477              	.LFE0:
+ 478              		.size	Counter1_Init, .-Counter1_Init
+ 479              		.section	.text.Counter1_Start,"ax",%progbits
+ 480              		.align	2
+ 481              		.global	Counter1_Start
+ 482              		.thumb
+ 483              		.thumb_func
+ 484              		.type	Counter1_Start, %function
+ 485              	Counter1_Start:
+ 486              	.LFB2:
+ 179:Generated_Source\PSoC5/Counter1.c ****     if(Counter1_initVar == 0u)
+ 487              		.loc 1 179 0
+ 488              		.cfi_startproc
+ 489              		@ args = 0, pretend = 0, frame = 0
+ 490              		@ frame_needed = 0, uses_anonymous_args = 0
+ 491 0000 08B5     		push	{r3, lr}
+ 492              		.cfi_def_cfa_offset 8
+ 493              		.cfi_offset 3, -8
+ 494              		.cfi_offset 14, -4
+ 180:Generated_Source\PSoC5/Counter1.c ****     {
+ 495              		.loc 1 180 0
+ 496 0002 054B     		ldr	r3, .L54
+ 497 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 498 0006 23B9     		cbnz	r3, .L52
+ 182:Generated_Source\PSoC5/Counter1.c ****         
+ 499              		.loc 1 182 0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 20
+
+
+ 500 0008 FFF7FEFF 		bl	Counter1_Init
+ 501              	.LVL24:
+ 184:Generated_Source\PSoC5/Counter1.c ****     }
+ 502              		.loc 1 184 0
+ 503 000c 0122     		movs	r2, #1
+ 504 000e 024B     		ldr	r3, .L54
+ 505 0010 1A70     		strb	r2, [r3]
+ 506              	.L52:
+ 188:Generated_Source\PSoC5/Counter1.c **** }
+ 507              		.loc 1 188 0
+ 508 0012 FFF7FEFF 		bl	Counter1_Enable
+ 509              	.LVL25:
+ 510 0016 08BD     		pop	{r3, pc}
+ 511              	.L55:
+ 512              		.align	2
+ 513              	.L54:
+ 514 0018 00000000 		.word	.LANCHOR0
+ 515              		.cfi_endproc
+ 516              	.LFE2:
+ 517              		.size	Counter1_Start, .-Counter1_Start
+ 518              		.global	Counter1_initVar
+ 519              		.bss
+ 520              		.set	.LANCHOR0,. + 0
+ 521              		.type	Counter1_initVar, %object
+ 522              		.size	Counter1_initVar, 1
+ 523              	Counter1_initVar:
+ 524 0000 00       		.space	1
+ 525              		.text
+ 526              	.Letext0:
+ 527              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 528              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 529              		.section	.debug_info,"",%progbits
+ 530              	.Ldebug_info0:
+ 531 0000 A0030000 		.4byte	0x3a0
+ 532 0004 0400     		.2byte	0x4
+ 533 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 534 000a 04       		.byte	0x4
+ 535 000b 01       		.uleb128 0x1
+ 536 000c 2A010000 		.4byte	.LASF44
+ 537 0010 0C       		.byte	0xc
+ 538 0011 00030000 		.4byte	.LASF45
+ 539 0015 9C000000 		.4byte	.LASF46
+ 540 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 541 001d 00000000 		.4byte	0
+ 542 0021 00000000 		.4byte	.Ldebug_line0
+ 543 0025 02       		.uleb128 0x2
+ 544 0026 01       		.byte	0x1
+ 545 0027 06       		.byte	0x6
+ 546 0028 66030000 		.4byte	.LASF0
+ 547 002c 02       		.uleb128 0x2
+ 548 002d 01       		.byte	0x1
+ 549 002e 08       		.byte	0x8
+ 550 002f 1C010000 		.4byte	.LASF1
+ 551 0033 02       		.uleb128 0x2
+ 552 0034 02       		.byte	0x2
+ 553 0035 05       		.byte	0x5
+ 554 0036 F6020000 		.4byte	.LASF2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 21
+
+
+ 555 003a 02       		.uleb128 0x2
+ 556 003b 02       		.byte	0x2
+ 557 003c 07       		.byte	0x7
+ 558 003d 5B000000 		.4byte	.LASF3
+ 559 0041 02       		.uleb128 0x2
+ 560 0042 04       		.byte	0x4
+ 561 0043 05       		.byte	0x5
+ 562 0044 3A030000 		.4byte	.LASF4
+ 563 0048 02       		.uleb128 0x2
+ 564 0049 04       		.byte	0x4
+ 565 004a 07       		.byte	0x7
+ 566 004b BD010000 		.4byte	.LASF5
+ 567 004f 02       		.uleb128 0x2
+ 568 0050 08       		.byte	0x8
+ 569 0051 05       		.byte	0x5
+ 570 0052 CF020000 		.4byte	.LASF6
+ 571 0056 02       		.uleb128 0x2
+ 572 0057 08       		.byte	0x8
+ 573 0058 07       		.byte	0x7
+ 574 0059 05010000 		.4byte	.LASF7
+ 575 005d 03       		.uleb128 0x3
+ 576 005e 04       		.byte	0x4
+ 577 005f 05       		.byte	0x5
+ 578 0060 696E7400 		.ascii	"int\000"
+ 579 0064 02       		.uleb128 0x2
+ 580 0065 04       		.byte	0x4
+ 581 0066 07       		.byte	0x7
+ 582 0067 69020000 		.4byte	.LASF8
+ 583 006b 04       		.uleb128 0x4
+ 584 006c CF010000 		.4byte	.LASF9
+ 585 0070 02       		.byte	0x2
+ 586 0071 E401     		.2byte	0x1e4
+ 587 0073 2C000000 		.4byte	0x2c
+ 588 0077 04       		.uleb128 0x4
+ 589 0078 36020000 		.4byte	.LASF10
+ 590 007c 02       		.byte	0x2
+ 591 007d E601     		.2byte	0x1e6
+ 592 007f 48000000 		.4byte	0x48
+ 593 0083 02       		.uleb128 0x2
+ 594 0084 04       		.byte	0x4
+ 595 0085 04       		.byte	0x4
+ 596 0086 F7000000 		.4byte	.LASF11
+ 597 008a 02       		.uleb128 0x2
+ 598 008b 08       		.byte	0x8
+ 599 008c 04       		.byte	0x4
+ 600 008d 0B020000 		.4byte	.LASF12
+ 601 0091 02       		.uleb128 0x2
+ 602 0092 01       		.byte	0x1
+ 603 0093 08       		.byte	0x8
+ 604 0094 43030000 		.4byte	.LASF13
+ 605 0098 04       		.uleb128 0x4
+ 606 0099 B8010000 		.4byte	.LASF14
+ 607 009d 02       		.byte	0x2
+ 608 009e 8E02     		.2byte	0x28e
+ 609 00a0 A4000000 		.4byte	0xa4
+ 610 00a4 05       		.uleb128 0x5
+ 611 00a5 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 22
+
+
+ 612 00a9 04       		.uleb128 0x4
+ 613 00aa 15000000 		.4byte	.LASF15
+ 614 00ae 02       		.byte	0x2
+ 615 00af 9002     		.2byte	0x290
+ 616 00b1 B5000000 		.4byte	0xb5
+ 617 00b5 05       		.uleb128 0x5
+ 618 00b6 77000000 		.4byte	0x77
+ 619 00ba 02       		.uleb128 0x2
+ 620 00bb 08       		.byte	0x8
+ 621 00bc 04       		.byte	0x4
+ 622 00bd BA020000 		.4byte	.LASF16
+ 623 00c1 02       		.uleb128 0x2
+ 624 00c2 04       		.byte	0x4
+ 625 00c3 07       		.byte	0x7
+ 626 00c4 C6020000 		.4byte	.LASF17
+ 627 00c8 06       		.uleb128 0x6
+ 628 00c9 7A030000 		.4byte	.LASF18
+ 629 00cd 01       		.byte	0x1
+ 630 00ce 8F       		.byte	0x8f
+ 631 00cf 00000000 		.4byte	.LFB1
+ 632 00d3 10000000 		.4byte	.LFE1-.LFB1
+ 633 00d7 01       		.uleb128 0x1
+ 634 00d8 9C       		.byte	0x9c
+ 635 00d9 06       		.uleb128 0x6
+ 636 00da DD020000 		.4byte	.LASF19
+ 637 00de 01       		.byte	0x1
+ 638 00df D0       		.byte	0xd0
+ 639 00e0 00000000 		.4byte	.LFB3
+ 640 00e4 10000000 		.4byte	.LFE3-.LFB3
+ 641 00e8 01       		.uleb128 0x1
+ 642 00e9 9C       		.byte	0x9c
+ 643 00ea 07       		.uleb128 0x7
+ 644 00eb 82000000 		.4byte	.LASF22
+ 645 00ef 01       		.byte	0x1
+ 646 00f0 ED       		.byte	0xed
+ 647 00f1 00000000 		.4byte	.LFB4
+ 648 00f5 0C000000 		.4byte	.LFE4-.LFB4
+ 649 00f9 01       		.uleb128 0x1
+ 650 00fa 9C       		.byte	0x9c
+ 651 00fb 0D010000 		.4byte	0x10d
+ 652 00ff 08       		.uleb128 0x8
+ 653 0100 DD010000 		.4byte	.LASF24
+ 654 0104 01       		.byte	0x1
+ 655 0105 ED       		.byte	0xed
+ 656 0106 6B000000 		.4byte	0x6b
+ 657 010a 01       		.uleb128 0x1
+ 658 010b 50       		.byte	0x50
+ 659 010c 00       		.byte	0
+ 660 010d 09       		.uleb128 0x9
+ 661 010e 38000000 		.4byte	.LASF20
+ 662 0112 01       		.byte	0x1
+ 663 0113 0501     		.2byte	0x105
+ 664 0115 6B000000 		.4byte	0x6b
+ 665 0119 00000000 		.4byte	.LFB5
+ 666 011d 0C000000 		.4byte	.LFE5-.LFB5
+ 667 0121 01       		.uleb128 0x1
+ 668 0122 9C       		.byte	0x9c
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 23
+
+
+ 669 0123 09       		.uleb128 0x9
+ 670 0124 1B000000 		.4byte	.LASF21
+ 671 0128 01       		.byte	0x1
+ 672 0129 1B01     		.2byte	0x11b
+ 673 012b 6B000000 		.4byte	0x6b
+ 674 012f 00000000 		.4byte	.LFB6
+ 675 0133 0C000000 		.4byte	.LFE6-.LFB6
+ 676 0137 01       		.uleb128 0x1
+ 677 0138 9C       		.byte	0x9c
+ 678 0139 0A       		.uleb128 0xa
+ 679 013a 48030000 		.4byte	.LASF23
+ 680 013e 01       		.byte	0x1
+ 681 013f 3001     		.2byte	0x130
+ 682 0141 00000000 		.4byte	.LFB7
+ 683 0145 0C000000 		.4byte	.LFE7-.LFB7
+ 684 0149 01       		.uleb128 0x1
+ 685 014a 9C       		.byte	0x9c
+ 686 014b 5E010000 		.4byte	0x15e
+ 687 014f 0B       		.uleb128 0xb
+ 688 0150 D5010000 		.4byte	.LASF25
+ 689 0154 01       		.byte	0x1
+ 690 0155 3001     		.2byte	0x130
+ 691 0157 6B000000 		.4byte	0x6b
+ 692 015b 01       		.uleb128 0x1
+ 693 015c 50       		.byte	0x50
+ 694 015d 00       		.byte	0
+ 695 015e 0A       		.uleb128 0xa
+ 696 015f 8A030000 		.4byte	.LASF26
+ 697 0163 01       		.byte	0x1
+ 698 0164 4601     		.2byte	0x146
+ 699 0166 00000000 		.4byte	.LFB8
+ 700 016a 10000000 		.4byte	.LFE8-.LFB8
+ 701 016e 01       		.uleb128 0x1
+ 702 016f 9C       		.byte	0x9c
+ 703 0170 9F010000 		.4byte	0x19f
+ 704 0174 0C       		.uleb128 0xc
+ 705 0175 FD000000 		.4byte	.LASF27
+ 706 0179 01       		.byte	0x1
+ 707 017a 4601     		.2byte	0x146
+ 708 017c 77000000 		.4byte	0x77
+ 709 0180 00000000 		.4byte	.LLST0
+ 710 0184 0D       		.uleb128 0xd
+ 711 0185 0A000000 		.4byte	.LVL4
+ 712 0189 81030000 		.4byte	0x381
+ 713 018d 0E       		.uleb128 0xe
+ 714 018e 01       		.uleb128 0x1
+ 715 018f 50       		.byte	0x50
+ 716 0190 05       		.uleb128 0x5
+ 717 0191 0C       		.byte	0xc
+ 718 0192 06640040 		.4byte	0x40006406
+ 719 0196 0E       		.uleb128 0xe
+ 720 0197 01       		.uleb128 0x1
+ 721 0198 51       		.byte	0x51
+ 722 0199 03       		.uleb128 0x3
+ 723 019a F3       		.byte	0xf3
+ 724 019b 01       		.uleb128 0x1
+ 725 019c 50       		.byte	0x50
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 24
+
+
+ 726 019d 00       		.byte	0
+ 727 019e 00       		.byte	0
+ 728 019f 09       		.uleb128 0x9
+ 729 01a0 12020000 		.4byte	.LASF28
+ 730 01a4 01       		.byte	0x1
+ 731 01a5 6501     		.2byte	0x165
+ 732 01a7 77000000 		.4byte	0x77
+ 733 01ab 00000000 		.4byte	.LFB9
+ 734 01af 18000000 		.4byte	.LFE9-.LFB9
+ 735 01b3 01       		.uleb128 0x1
+ 736 01b4 9C       		.byte	0x9c
+ 737 01b5 09       		.uleb128 0x9
+ 738 01b6 00000000 		.4byte	.LASF29
+ 739 01ba 01       		.byte	0x1
+ 740 01bb 8601     		.2byte	0x186
+ 741 01bd 77000000 		.4byte	0x77
+ 742 01c1 00000000 		.4byte	.LFB10
+ 743 01c5 10000000 		.4byte	.LFE10-.LFB10
+ 744 01c9 01       		.uleb128 0x1
+ 745 01ca 9C       		.byte	0x9c
+ 746 01cb 0A       		.uleb128 0xa
+ 747 01cc 54020000 		.4byte	.LASF30
+ 748 01d0 01       		.byte	0x1
+ 749 01d1 9F01     		.2byte	0x19f
+ 750 01d3 00000000 		.4byte	.LFB11
+ 751 01d7 10000000 		.4byte	.LFE11-.LFB11
+ 752 01db 01       		.uleb128 0x1
+ 753 01dc 9C       		.byte	0x9c
+ 754 01dd 0C020000 		.4byte	0x20c
+ 755 01e1 0C       		.uleb128 0xc
+ 756 01e2 54000000 		.4byte	.LASF31
+ 757 01e6 01       		.byte	0x1
+ 758 01e7 9F01     		.2byte	0x19f
+ 759 01e9 77000000 		.4byte	0x77
+ 760 01ed 2C000000 		.4byte	.LLST1
+ 761 01f1 0D       		.uleb128 0xd
+ 762 01f2 0A000000 		.4byte	.LVL7
+ 763 01f6 81030000 		.4byte	0x381
+ 764 01fa 0E       		.uleb128 0xe
+ 765 01fb 01       		.uleb128 0x1
+ 766 01fc 50       		.byte	0x50
+ 767 01fd 05       		.uleb128 0x5
+ 768 01fe 0C       		.byte	0xc
+ 769 01ff 26640040 		.4byte	0x40006426
+ 770 0203 0E       		.uleb128 0xe
+ 771 0204 01       		.uleb128 0x1
+ 772 0205 51       		.byte	0x51
+ 773 0206 03       		.uleb128 0x3
+ 774 0207 F3       		.byte	0xf3
+ 775 0208 01       		.uleb128 0x1
+ 776 0209 50       		.byte	0x50
+ 777 020a 00       		.byte	0
+ 778 020b 00       		.byte	0
+ 779 020c 09       		.uleb128 0x9
+ 780 020d 6E000000 		.4byte	.LASF32
+ 781 0211 01       		.byte	0x1
+ 782 0212 B601     		.2byte	0x1b6
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 25
+
+
+ 783 0214 77000000 		.4byte	0x77
+ 784 0218 00000000 		.4byte	.LFB12
+ 785 021c 10000000 		.4byte	.LFE12-.LFB12
+ 786 0220 01       		.uleb128 0x1
+ 787 0221 9C       		.byte	0x9c
+ 788 0222 0A       		.uleb128 0xa
+ 789 0223 9F020000 		.4byte	.LASF33
+ 790 0227 01       		.byte	0x1
+ 791 0228 D101     		.2byte	0x1d1
+ 792 022a 00000000 		.4byte	.LFB13
+ 793 022e 10000000 		.4byte	.LFE13-.LFB13
+ 794 0232 01       		.uleb128 0x1
+ 795 0233 9C       		.byte	0x9c
+ 796 0234 63020000 		.4byte	0x263
+ 797 0238 0C       		.uleb128 0xc
+ 798 0239 72030000 		.4byte	.LASF34
+ 799 023d 01       		.byte	0x1
+ 800 023e D101     		.2byte	0x1d1
+ 801 0240 77000000 		.4byte	0x77
+ 802 0244 58000000 		.4byte	.LLST2
+ 803 0248 0D       		.uleb128 0xd
+ 804 0249 0A000000 		.4byte	.LVL10
+ 805 024d 81030000 		.4byte	0x381
+ 806 0251 0E       		.uleb128 0xe
+ 807 0252 01       		.uleb128 0x1
+ 808 0253 50       		.byte	0x50
+ 809 0254 05       		.uleb128 0x5
+ 810 0255 0C       		.byte	0xc
+ 811 0256 36640040 		.4byte	0x40006436
+ 812 025a 0E       		.uleb128 0xe
+ 813 025b 01       		.uleb128 0x1
+ 814 025c 51       		.byte	0x51
+ 815 025d 03       		.uleb128 0x3
+ 816 025e F3       		.byte	0xf3
+ 817 025f 01       		.uleb128 0x1
+ 818 0260 50       		.byte	0x50
+ 819 0261 00       		.byte	0
+ 820 0262 00       		.byte	0
+ 821 0263 09       		.uleb128 0x9
+ 822 0264 E2000000 		.4byte	.LASF35
+ 823 0268 01       		.byte	0x1
+ 824 0269 E901     		.2byte	0x1e9
+ 825 026b 77000000 		.4byte	0x77
+ 826 026f 00000000 		.4byte	.LFB14
+ 827 0273 10000000 		.4byte	.LFE14-.LFB14
+ 828 0277 01       		.uleb128 0x1
+ 829 0278 9C       		.byte	0x9c
+ 830 0279 0A       		.uleb128 0xa
+ 831 027a 76020000 		.4byte	.LASF36
+ 832 027e 01       		.byte	0x1
+ 833 027f 2E02     		.2byte	0x22e
+ 834 0281 00000000 		.4byte	.LFB15
+ 835 0285 14000000 		.4byte	.LFE15-.LFB15
+ 836 0289 01       		.uleb128 0x1
+ 837 028a 9C       		.byte	0x9c
+ 838 028b A2020000 		.4byte	0x2a2
+ 839 028f 0F       		.uleb128 0xf
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 26
+
+
+ 840 0290 08000000 		.4byte	.LVL11
+ 841 0294 B5010000 		.4byte	0x1b5
+ 842 0298 0F       		.uleb128 0xf
+ 843 0299 0C000000 		.4byte	.LVL12
+ 844 029d 0D010000 		.4byte	0x10d
+ 845 02a1 00       		.byte	0
+ 846 02a2 07       		.uleb128 0x7
+ 847 02a3 EC010000 		.4byte	.LASF37
+ 848 02a7 01       		.byte	0x1
+ 849 02a8 25       		.byte	0x25
+ 850 02a9 00000000 		.4byte	.LFB0
+ 851 02ad 54000000 		.4byte	.LFE0-.LFB0
+ 852 02b1 01       		.uleb128 0x1
+ 853 02b2 9C       		.byte	0x9c
+ 854 02b3 48030000 		.4byte	0x348
+ 855 02b7 10       		.uleb128 0x10
+ 856 02b8 B5020000 		.4byte	.LASF38
+ 857 02bc 01       		.byte	0x1
+ 858 02bd 28       		.byte	0x28
+ 859 02be 6B000000 		.4byte	0x6b
+ 860 02c2 84000000 		.4byte	.LLST3
+ 861 02c6 10       		.uleb128 0x10
+ 862 02c7 22030000 		.4byte	.LASF39
+ 863 02cb 01       		.byte	0x1
+ 864 02cc 2D       		.byte	0x2d
+ 865 02cd 6B000000 		.4byte	0x6b
+ 866 02d1 A2000000 		.4byte	.LLST4
+ 867 02d5 0F       		.uleb128 0xf
+ 868 02d6 1C000000 		.4byte	.LVL16
+ 869 02da 79020000 		.4byte	0x279
+ 870 02de 11       		.uleb128 0x11
+ 871 02df 22000000 		.4byte	.LVL17
+ 872 02e3 CB010000 		.4byte	0x1cb
+ 873 02e7 F2020000 		.4byte	0x2f2
+ 874 02eb 0E       		.uleb128 0xe
+ 875 02ec 01       		.uleb128 0x1
+ 876 02ed 50       		.byte	0x50
+ 877 02ee 02       		.uleb128 0x2
+ 878 02ef 08       		.byte	0x8
+ 879 02f0 FF       		.byte	0xff
+ 880 02f1 00       		.byte	0
+ 881 02f2 11       		.uleb128 0x11
+ 882 02f3 28000000 		.4byte	.LVL18
+ 883 02f7 5E010000 		.4byte	0x15e
+ 884 02fb 05030000 		.4byte	0x305
+ 885 02ff 0E       		.uleb128 0xe
+ 886 0300 01       		.uleb128 0x1
+ 887 0301 50       		.byte	0x50
+ 888 0302 01       		.uleb128 0x1
+ 889 0303 30       		.byte	0x30
+ 890 0304 00       		.byte	0
+ 891 0305 11       		.uleb128 0x11
+ 892 0306 2E000000 		.4byte	.LVL19
+ 893 030a EA000000 		.4byte	0xea
+ 894 030e 18030000 		.4byte	0x318
+ 895 0312 0E       		.uleb128 0xe
+ 896 0313 01       		.uleb128 0x1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 27
+
+
+ 897 0314 50       		.byte	0x50
+ 898 0315 01       		.uleb128 0x1
+ 899 0316 30       		.byte	0x30
+ 900 0317 00       		.byte	0
+ 901 0318 0F       		.uleb128 0xf
+ 902 0319 32000000 		.4byte	.LVL20
+ 903 031d 0D010000 		.4byte	0x10d
+ 904 0321 11       		.uleb128 0x11
+ 905 0322 38000000 		.4byte	.LVL21
+ 906 0326 22020000 		.4byte	0x222
+ 907 032a 35030000 		.4byte	0x335
+ 908 032e 0E       		.uleb128 0xe
+ 909 032f 01       		.uleb128 0x1
+ 910 0330 50       		.byte	0x50
+ 911 0331 02       		.uleb128 0x2
+ 912 0332 08       		.byte	0x8
+ 913 0333 80       		.byte	0x80
+ 914 0334 00       		.byte	0
+ 915 0335 0F       		.uleb128 0xf
+ 916 0336 3C000000 		.4byte	.LVL22
+ 917 033a 8D030000 		.4byte	0x38d
+ 918 033e 0F       		.uleb128 0xf
+ 919 033f 4A000000 		.4byte	.LVL23
+ 920 0343 98030000 		.4byte	0x398
+ 921 0347 00       		.byte	0
+ 922 0348 07       		.uleb128 0x7
+ 923 0349 27020000 		.4byte	.LASF40
+ 924 034d 01       		.byte	0x1
+ 925 034e B2       		.byte	0xb2
+ 926 034f 00000000 		.4byte	.LFB2
+ 927 0353 1C000000 		.4byte	.LFE2-.LFB2
+ 928 0357 01       		.uleb128 0x1
+ 929 0358 9C       		.byte	0x9c
+ 930 0359 70030000 		.4byte	0x370
+ 931 035d 0F       		.uleb128 0xf
+ 932 035e 0C000000 		.4byte	.LVL24
+ 933 0362 A2020000 		.4byte	0x2a2
+ 934 0366 0F       		.uleb128 0xf
+ 935 0367 16000000 		.4byte	.LVL25
+ 936 036b C8000000 		.4byte	0xc8
+ 937 036f 00       		.byte	0
+ 938 0370 12       		.uleb128 0x12
+ 939 0371 FA010000 		.4byte	.LASF47
+ 940 0375 01       		.byte	0x1
+ 941 0376 15       		.byte	0x15
+ 942 0377 6B000000 		.4byte	0x6b
+ 943 037b 05       		.uleb128 0x5
+ 944 037c 03       		.byte	0x3
+ 945 037d 00000000 		.4byte	Counter1_initVar
+ 946 0381 13       		.uleb128 0x13
+ 947 0382 EB020000 		.4byte	.LASF41
+ 948 0386 EB020000 		.4byte	.LASF41
+ 949 038a 02       		.byte	0x2
+ 950 038b 2702     		.2byte	0x227
+ 951 038d 14       		.uleb128 0x14
+ 952 038e 3D020000 		.4byte	.LASF42
+ 953 0392 3D020000 		.4byte	.LASF42
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 28
+
+
+ 954 0396 03       		.byte	0x3
+ 955 0397 7D       		.byte	0x7d
+ 956 0398 14       		.uleb128 0x14
+ 957 0399 89020000 		.4byte	.LASF43
+ 958 039d 89020000 		.4byte	.LASF43
+ 959 03a1 03       		.byte	0x3
+ 960 03a2 7E       		.byte	0x7e
+ 961 03a3 00       		.byte	0
+ 962              		.section	.debug_abbrev,"",%progbits
+ 963              	.Ldebug_abbrev0:
+ 964 0000 01       		.uleb128 0x1
+ 965 0001 11       		.uleb128 0x11
+ 966 0002 01       		.byte	0x1
+ 967 0003 25       		.uleb128 0x25
+ 968 0004 0E       		.uleb128 0xe
+ 969 0005 13       		.uleb128 0x13
+ 970 0006 0B       		.uleb128 0xb
+ 971 0007 03       		.uleb128 0x3
+ 972 0008 0E       		.uleb128 0xe
+ 973 0009 1B       		.uleb128 0x1b
+ 974 000a 0E       		.uleb128 0xe
+ 975 000b 55       		.uleb128 0x55
+ 976 000c 17       		.uleb128 0x17
+ 977 000d 11       		.uleb128 0x11
+ 978 000e 01       		.uleb128 0x1
+ 979 000f 10       		.uleb128 0x10
+ 980 0010 17       		.uleb128 0x17
+ 981 0011 00       		.byte	0
+ 982 0012 00       		.byte	0
+ 983 0013 02       		.uleb128 0x2
+ 984 0014 24       		.uleb128 0x24
+ 985 0015 00       		.byte	0
+ 986 0016 0B       		.uleb128 0xb
+ 987 0017 0B       		.uleb128 0xb
+ 988 0018 3E       		.uleb128 0x3e
+ 989 0019 0B       		.uleb128 0xb
+ 990 001a 03       		.uleb128 0x3
+ 991 001b 0E       		.uleb128 0xe
+ 992 001c 00       		.byte	0
+ 993 001d 00       		.byte	0
+ 994 001e 03       		.uleb128 0x3
+ 995 001f 24       		.uleb128 0x24
+ 996 0020 00       		.byte	0
+ 997 0021 0B       		.uleb128 0xb
+ 998 0022 0B       		.uleb128 0xb
+ 999 0023 3E       		.uleb128 0x3e
+ 1000 0024 0B       		.uleb128 0xb
+ 1001 0025 03       		.uleb128 0x3
+ 1002 0026 08       		.uleb128 0x8
+ 1003 0027 00       		.byte	0
+ 1004 0028 00       		.byte	0
+ 1005 0029 04       		.uleb128 0x4
+ 1006 002a 16       		.uleb128 0x16
+ 1007 002b 00       		.byte	0
+ 1008 002c 03       		.uleb128 0x3
+ 1009 002d 0E       		.uleb128 0xe
+ 1010 002e 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 29
+
+
+ 1011 002f 0B       		.uleb128 0xb
+ 1012 0030 3B       		.uleb128 0x3b
+ 1013 0031 05       		.uleb128 0x5
+ 1014 0032 49       		.uleb128 0x49
+ 1015 0033 13       		.uleb128 0x13
+ 1016 0034 00       		.byte	0
+ 1017 0035 00       		.byte	0
+ 1018 0036 05       		.uleb128 0x5
+ 1019 0037 35       		.uleb128 0x35
+ 1020 0038 00       		.byte	0
+ 1021 0039 49       		.uleb128 0x49
+ 1022 003a 13       		.uleb128 0x13
+ 1023 003b 00       		.byte	0
+ 1024 003c 00       		.byte	0
+ 1025 003d 06       		.uleb128 0x6
+ 1026 003e 2E       		.uleb128 0x2e
+ 1027 003f 00       		.byte	0
+ 1028 0040 3F       		.uleb128 0x3f
+ 1029 0041 19       		.uleb128 0x19
+ 1030 0042 03       		.uleb128 0x3
+ 1031 0043 0E       		.uleb128 0xe
+ 1032 0044 3A       		.uleb128 0x3a
+ 1033 0045 0B       		.uleb128 0xb
+ 1034 0046 3B       		.uleb128 0x3b
+ 1035 0047 0B       		.uleb128 0xb
+ 1036 0048 27       		.uleb128 0x27
+ 1037 0049 19       		.uleb128 0x19
+ 1038 004a 11       		.uleb128 0x11
+ 1039 004b 01       		.uleb128 0x1
+ 1040 004c 12       		.uleb128 0x12
+ 1041 004d 06       		.uleb128 0x6
+ 1042 004e 40       		.uleb128 0x40
+ 1043 004f 18       		.uleb128 0x18
+ 1044 0050 9742     		.uleb128 0x2117
+ 1045 0052 19       		.uleb128 0x19
+ 1046 0053 00       		.byte	0
+ 1047 0054 00       		.byte	0
+ 1048 0055 07       		.uleb128 0x7
+ 1049 0056 2E       		.uleb128 0x2e
+ 1050 0057 01       		.byte	0x1
+ 1051 0058 3F       		.uleb128 0x3f
+ 1052 0059 19       		.uleb128 0x19
+ 1053 005a 03       		.uleb128 0x3
+ 1054 005b 0E       		.uleb128 0xe
+ 1055 005c 3A       		.uleb128 0x3a
+ 1056 005d 0B       		.uleb128 0xb
+ 1057 005e 3B       		.uleb128 0x3b
+ 1058 005f 0B       		.uleb128 0xb
+ 1059 0060 27       		.uleb128 0x27
+ 1060 0061 19       		.uleb128 0x19
+ 1061 0062 11       		.uleb128 0x11
+ 1062 0063 01       		.uleb128 0x1
+ 1063 0064 12       		.uleb128 0x12
+ 1064 0065 06       		.uleb128 0x6
+ 1065 0066 40       		.uleb128 0x40
+ 1066 0067 18       		.uleb128 0x18
+ 1067 0068 9742     		.uleb128 0x2117
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 30
+
+
+ 1068 006a 19       		.uleb128 0x19
+ 1069 006b 01       		.uleb128 0x1
+ 1070 006c 13       		.uleb128 0x13
+ 1071 006d 00       		.byte	0
+ 1072 006e 00       		.byte	0
+ 1073 006f 08       		.uleb128 0x8
+ 1074 0070 05       		.uleb128 0x5
+ 1075 0071 00       		.byte	0
+ 1076 0072 03       		.uleb128 0x3
+ 1077 0073 0E       		.uleb128 0xe
+ 1078 0074 3A       		.uleb128 0x3a
+ 1079 0075 0B       		.uleb128 0xb
+ 1080 0076 3B       		.uleb128 0x3b
+ 1081 0077 0B       		.uleb128 0xb
+ 1082 0078 49       		.uleb128 0x49
+ 1083 0079 13       		.uleb128 0x13
+ 1084 007a 02       		.uleb128 0x2
+ 1085 007b 18       		.uleb128 0x18
+ 1086 007c 00       		.byte	0
+ 1087 007d 00       		.byte	0
+ 1088 007e 09       		.uleb128 0x9
+ 1089 007f 2E       		.uleb128 0x2e
+ 1090 0080 00       		.byte	0
+ 1091 0081 3F       		.uleb128 0x3f
+ 1092 0082 19       		.uleb128 0x19
+ 1093 0083 03       		.uleb128 0x3
+ 1094 0084 0E       		.uleb128 0xe
+ 1095 0085 3A       		.uleb128 0x3a
+ 1096 0086 0B       		.uleb128 0xb
+ 1097 0087 3B       		.uleb128 0x3b
+ 1098 0088 05       		.uleb128 0x5
+ 1099 0089 27       		.uleb128 0x27
+ 1100 008a 19       		.uleb128 0x19
+ 1101 008b 49       		.uleb128 0x49
+ 1102 008c 13       		.uleb128 0x13
+ 1103 008d 11       		.uleb128 0x11
+ 1104 008e 01       		.uleb128 0x1
+ 1105 008f 12       		.uleb128 0x12
+ 1106 0090 06       		.uleb128 0x6
+ 1107 0091 40       		.uleb128 0x40
+ 1108 0092 18       		.uleb128 0x18
+ 1109 0093 9742     		.uleb128 0x2117
+ 1110 0095 19       		.uleb128 0x19
+ 1111 0096 00       		.byte	0
+ 1112 0097 00       		.byte	0
+ 1113 0098 0A       		.uleb128 0xa
+ 1114 0099 2E       		.uleb128 0x2e
+ 1115 009a 01       		.byte	0x1
+ 1116 009b 3F       		.uleb128 0x3f
+ 1117 009c 19       		.uleb128 0x19
+ 1118 009d 03       		.uleb128 0x3
+ 1119 009e 0E       		.uleb128 0xe
+ 1120 009f 3A       		.uleb128 0x3a
+ 1121 00a0 0B       		.uleb128 0xb
+ 1122 00a1 3B       		.uleb128 0x3b
+ 1123 00a2 05       		.uleb128 0x5
+ 1124 00a3 27       		.uleb128 0x27
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 31
+
+
+ 1125 00a4 19       		.uleb128 0x19
+ 1126 00a5 11       		.uleb128 0x11
+ 1127 00a6 01       		.uleb128 0x1
+ 1128 00a7 12       		.uleb128 0x12
+ 1129 00a8 06       		.uleb128 0x6
+ 1130 00a9 40       		.uleb128 0x40
+ 1131 00aa 18       		.uleb128 0x18
+ 1132 00ab 9742     		.uleb128 0x2117
+ 1133 00ad 19       		.uleb128 0x19
+ 1134 00ae 01       		.uleb128 0x1
+ 1135 00af 13       		.uleb128 0x13
+ 1136 00b0 00       		.byte	0
+ 1137 00b1 00       		.byte	0
+ 1138 00b2 0B       		.uleb128 0xb
+ 1139 00b3 05       		.uleb128 0x5
+ 1140 00b4 00       		.byte	0
+ 1141 00b5 03       		.uleb128 0x3
+ 1142 00b6 0E       		.uleb128 0xe
+ 1143 00b7 3A       		.uleb128 0x3a
+ 1144 00b8 0B       		.uleb128 0xb
+ 1145 00b9 3B       		.uleb128 0x3b
+ 1146 00ba 05       		.uleb128 0x5
+ 1147 00bb 49       		.uleb128 0x49
+ 1148 00bc 13       		.uleb128 0x13
+ 1149 00bd 02       		.uleb128 0x2
+ 1150 00be 18       		.uleb128 0x18
+ 1151 00bf 00       		.byte	0
+ 1152 00c0 00       		.byte	0
+ 1153 00c1 0C       		.uleb128 0xc
+ 1154 00c2 05       		.uleb128 0x5
+ 1155 00c3 00       		.byte	0
+ 1156 00c4 03       		.uleb128 0x3
+ 1157 00c5 0E       		.uleb128 0xe
+ 1158 00c6 3A       		.uleb128 0x3a
+ 1159 00c7 0B       		.uleb128 0xb
+ 1160 00c8 3B       		.uleb128 0x3b
+ 1161 00c9 05       		.uleb128 0x5
+ 1162 00ca 49       		.uleb128 0x49
+ 1163 00cb 13       		.uleb128 0x13
+ 1164 00cc 02       		.uleb128 0x2
+ 1165 00cd 17       		.uleb128 0x17
+ 1166 00ce 00       		.byte	0
+ 1167 00cf 00       		.byte	0
+ 1168 00d0 0D       		.uleb128 0xd
+ 1169 00d1 898201   		.uleb128 0x4109
+ 1170 00d4 01       		.byte	0x1
+ 1171 00d5 11       		.uleb128 0x11
+ 1172 00d6 01       		.uleb128 0x1
+ 1173 00d7 31       		.uleb128 0x31
+ 1174 00d8 13       		.uleb128 0x13
+ 1175 00d9 00       		.byte	0
+ 1176 00da 00       		.byte	0
+ 1177 00db 0E       		.uleb128 0xe
+ 1178 00dc 8A8201   		.uleb128 0x410a
+ 1179 00df 00       		.byte	0
+ 1180 00e0 02       		.uleb128 0x2
+ 1181 00e1 18       		.uleb128 0x18
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 32
+
+
+ 1182 00e2 9142     		.uleb128 0x2111
+ 1183 00e4 18       		.uleb128 0x18
+ 1184 00e5 00       		.byte	0
+ 1185 00e6 00       		.byte	0
+ 1186 00e7 0F       		.uleb128 0xf
+ 1187 00e8 898201   		.uleb128 0x4109
+ 1188 00eb 00       		.byte	0
+ 1189 00ec 11       		.uleb128 0x11
+ 1190 00ed 01       		.uleb128 0x1
+ 1191 00ee 31       		.uleb128 0x31
+ 1192 00ef 13       		.uleb128 0x13
+ 1193 00f0 00       		.byte	0
+ 1194 00f1 00       		.byte	0
+ 1195 00f2 10       		.uleb128 0x10
+ 1196 00f3 34       		.uleb128 0x34
+ 1197 00f4 00       		.byte	0
+ 1198 00f5 03       		.uleb128 0x3
+ 1199 00f6 0E       		.uleb128 0xe
+ 1200 00f7 3A       		.uleb128 0x3a
+ 1201 00f8 0B       		.uleb128 0xb
+ 1202 00f9 3B       		.uleb128 0x3b
+ 1203 00fa 0B       		.uleb128 0xb
+ 1204 00fb 49       		.uleb128 0x49
+ 1205 00fc 13       		.uleb128 0x13
+ 1206 00fd 02       		.uleb128 0x2
+ 1207 00fe 17       		.uleb128 0x17
+ 1208 00ff 00       		.byte	0
+ 1209 0100 00       		.byte	0
+ 1210 0101 11       		.uleb128 0x11
+ 1211 0102 898201   		.uleb128 0x4109
+ 1212 0105 01       		.byte	0x1
+ 1213 0106 11       		.uleb128 0x11
+ 1214 0107 01       		.uleb128 0x1
+ 1215 0108 31       		.uleb128 0x31
+ 1216 0109 13       		.uleb128 0x13
+ 1217 010a 01       		.uleb128 0x1
+ 1218 010b 13       		.uleb128 0x13
+ 1219 010c 00       		.byte	0
+ 1220 010d 00       		.byte	0
+ 1221 010e 12       		.uleb128 0x12
+ 1222 010f 34       		.uleb128 0x34
+ 1223 0110 00       		.byte	0
+ 1224 0111 03       		.uleb128 0x3
+ 1225 0112 0E       		.uleb128 0xe
+ 1226 0113 3A       		.uleb128 0x3a
+ 1227 0114 0B       		.uleb128 0xb
+ 1228 0115 3B       		.uleb128 0x3b
+ 1229 0116 0B       		.uleb128 0xb
+ 1230 0117 49       		.uleb128 0x49
+ 1231 0118 13       		.uleb128 0x13
+ 1232 0119 3F       		.uleb128 0x3f
+ 1233 011a 19       		.uleb128 0x19
+ 1234 011b 02       		.uleb128 0x2
+ 1235 011c 18       		.uleb128 0x18
+ 1236 011d 00       		.byte	0
+ 1237 011e 00       		.byte	0
+ 1238 011f 13       		.uleb128 0x13
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 33
+
+
+ 1239 0120 2E       		.uleb128 0x2e
+ 1240 0121 00       		.byte	0
+ 1241 0122 3F       		.uleb128 0x3f
+ 1242 0123 19       		.uleb128 0x19
+ 1243 0124 3C       		.uleb128 0x3c
+ 1244 0125 19       		.uleb128 0x19
+ 1245 0126 6E       		.uleb128 0x6e
+ 1246 0127 0E       		.uleb128 0xe
+ 1247 0128 03       		.uleb128 0x3
+ 1248 0129 0E       		.uleb128 0xe
+ 1249 012a 3A       		.uleb128 0x3a
+ 1250 012b 0B       		.uleb128 0xb
+ 1251 012c 3B       		.uleb128 0x3b
+ 1252 012d 05       		.uleb128 0x5
+ 1253 012e 00       		.byte	0
+ 1254 012f 00       		.byte	0
+ 1255 0130 14       		.uleb128 0x14
+ 1256 0131 2E       		.uleb128 0x2e
+ 1257 0132 00       		.byte	0
+ 1258 0133 3F       		.uleb128 0x3f
+ 1259 0134 19       		.uleb128 0x19
+ 1260 0135 3C       		.uleb128 0x3c
+ 1261 0136 19       		.uleb128 0x19
+ 1262 0137 6E       		.uleb128 0x6e
+ 1263 0138 0E       		.uleb128 0xe
+ 1264 0139 03       		.uleb128 0x3
+ 1265 013a 0E       		.uleb128 0xe
+ 1266 013b 3A       		.uleb128 0x3a
+ 1267 013c 0B       		.uleb128 0xb
+ 1268 013d 3B       		.uleb128 0x3b
+ 1269 013e 0B       		.uleb128 0xb
+ 1270 013f 00       		.byte	0
+ 1271 0140 00       		.byte	0
+ 1272 0141 00       		.byte	0
+ 1273              		.section	.debug_loc,"",%progbits
+ 1274              	.Ldebug_loc0:
+ 1275              	.LLST0:
+ 1276 0000 00000000 		.4byte	.LVL2
+ 1277 0004 06000000 		.4byte	.LVL3
+ 1278 0008 0100     		.2byte	0x1
+ 1279 000a 50       		.byte	0x50
+ 1280 000b 06000000 		.4byte	.LVL3
+ 1281 000f 09000000 		.4byte	.LVL4-1
+ 1282 0013 0100     		.2byte	0x1
+ 1283 0015 51       		.byte	0x51
+ 1284 0016 09000000 		.4byte	.LVL4-1
+ 1285 001a 10000000 		.4byte	.LFE8
+ 1286 001e 0400     		.2byte	0x4
+ 1287 0020 F3       		.byte	0xf3
+ 1288 0021 01       		.uleb128 0x1
+ 1289 0022 50       		.byte	0x50
+ 1290 0023 9F       		.byte	0x9f
+ 1291 0024 00000000 		.4byte	0
+ 1292 0028 00000000 		.4byte	0
+ 1293              	.LLST1:
+ 1294 002c 00000000 		.4byte	.LVL5
+ 1295 0030 06000000 		.4byte	.LVL6
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 34
+
+
+ 1296 0034 0100     		.2byte	0x1
+ 1297 0036 50       		.byte	0x50
+ 1298 0037 06000000 		.4byte	.LVL6
+ 1299 003b 09000000 		.4byte	.LVL7-1
+ 1300 003f 0100     		.2byte	0x1
+ 1301 0041 51       		.byte	0x51
+ 1302 0042 09000000 		.4byte	.LVL7-1
+ 1303 0046 10000000 		.4byte	.LFE11
+ 1304 004a 0400     		.2byte	0x4
+ 1305 004c F3       		.byte	0xf3
+ 1306 004d 01       		.uleb128 0x1
+ 1307 004e 50       		.byte	0x50
+ 1308 004f 9F       		.byte	0x9f
+ 1309 0050 00000000 		.4byte	0
+ 1310 0054 00000000 		.4byte	0
+ 1311              	.LLST2:
+ 1312 0058 00000000 		.4byte	.LVL8
+ 1313 005c 06000000 		.4byte	.LVL9
+ 1314 0060 0100     		.2byte	0x1
+ 1315 0062 50       		.byte	0x50
+ 1316 0063 06000000 		.4byte	.LVL9
+ 1317 0067 09000000 		.4byte	.LVL10-1
+ 1318 006b 0100     		.2byte	0x1
+ 1319 006d 51       		.byte	0x51
+ 1320 006e 09000000 		.4byte	.LVL10-1
+ 1321 0072 10000000 		.4byte	.LFE13
+ 1322 0076 0400     		.2byte	0x4
+ 1323 0078 F3       		.byte	0xf3
+ 1324 0079 01       		.uleb128 0x1
+ 1325 007a 50       		.byte	0x50
+ 1326 007b 9F       		.byte	0x9f
+ 1327 007c 00000000 		.4byte	0
+ 1328 0080 00000000 		.4byte	0
+ 1329              	.LLST3:
+ 1330 0084 0A000000 		.4byte	.LVL13
+ 1331 0088 0E000000 		.4byte	.LVL14
+ 1332 008c 0100     		.2byte	0x1
+ 1333 008e 53       		.byte	0x53
+ 1334 008f 16000000 		.4byte	.LVL15
+ 1335 0093 1B000000 		.4byte	.LVL16-1
+ 1336 0097 0100     		.2byte	0x1
+ 1337 0099 53       		.byte	0x53
+ 1338 009a 00000000 		.4byte	0
+ 1339 009e 00000000 		.4byte	0
+ 1340              	.LLST4:
+ 1341 00a2 3C000000 		.4byte	.LVL22
+ 1342 00a6 49000000 		.4byte	.LVL23-1
+ 1343 00aa 0100     		.2byte	0x1
+ 1344 00ac 50       		.byte	0x50
+ 1345 00ad 00000000 		.4byte	0
+ 1346 00b1 00000000 		.4byte	0
+ 1347              		.section	.debug_aranges,"",%progbits
+ 1348 0000 94000000 		.4byte	0x94
+ 1349 0004 0200     		.2byte	0x2
+ 1350 0006 00000000 		.4byte	.Ldebug_info0
+ 1351 000a 04       		.byte	0x4
+ 1352 000b 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 35
+
+
+ 1353 000c 0000     		.2byte	0
+ 1354 000e 0000     		.2byte	0
+ 1355 0010 00000000 		.4byte	.LFB1
+ 1356 0014 10000000 		.4byte	.LFE1-.LFB1
+ 1357 0018 00000000 		.4byte	.LFB3
+ 1358 001c 10000000 		.4byte	.LFE3-.LFB3
+ 1359 0020 00000000 		.4byte	.LFB4
+ 1360 0024 0C000000 		.4byte	.LFE4-.LFB4
+ 1361 0028 00000000 		.4byte	.LFB5
+ 1362 002c 0C000000 		.4byte	.LFE5-.LFB5
+ 1363 0030 00000000 		.4byte	.LFB6
+ 1364 0034 0C000000 		.4byte	.LFE6-.LFB6
+ 1365 0038 00000000 		.4byte	.LFB7
+ 1366 003c 0C000000 		.4byte	.LFE7-.LFB7
+ 1367 0040 00000000 		.4byte	.LFB8
+ 1368 0044 10000000 		.4byte	.LFE8-.LFB8
+ 1369 0048 00000000 		.4byte	.LFB9
+ 1370 004c 18000000 		.4byte	.LFE9-.LFB9
+ 1371 0050 00000000 		.4byte	.LFB10
+ 1372 0054 10000000 		.4byte	.LFE10-.LFB10
+ 1373 0058 00000000 		.4byte	.LFB11
+ 1374 005c 10000000 		.4byte	.LFE11-.LFB11
+ 1375 0060 00000000 		.4byte	.LFB12
+ 1376 0064 10000000 		.4byte	.LFE12-.LFB12
+ 1377 0068 00000000 		.4byte	.LFB13
+ 1378 006c 10000000 		.4byte	.LFE13-.LFB13
+ 1379 0070 00000000 		.4byte	.LFB14
+ 1380 0074 10000000 		.4byte	.LFE14-.LFB14
+ 1381 0078 00000000 		.4byte	.LFB15
+ 1382 007c 14000000 		.4byte	.LFE15-.LFB15
+ 1383 0080 00000000 		.4byte	.LFB0
+ 1384 0084 54000000 		.4byte	.LFE0-.LFB0
+ 1385 0088 00000000 		.4byte	.LFB2
+ 1386 008c 1C000000 		.4byte	.LFE2-.LFB2
+ 1387 0090 00000000 		.4byte	0
+ 1388 0094 00000000 		.4byte	0
+ 1389              		.section	.debug_ranges,"",%progbits
+ 1390              	.Ldebug_ranges0:
+ 1391 0000 00000000 		.4byte	.LFB1
+ 1392 0004 10000000 		.4byte	.LFE1
+ 1393 0008 00000000 		.4byte	.LFB3
+ 1394 000c 10000000 		.4byte	.LFE3
+ 1395 0010 00000000 		.4byte	.LFB4
+ 1396 0014 0C000000 		.4byte	.LFE4
+ 1397 0018 00000000 		.4byte	.LFB5
+ 1398 001c 0C000000 		.4byte	.LFE5
+ 1399 0020 00000000 		.4byte	.LFB6
+ 1400 0024 0C000000 		.4byte	.LFE6
+ 1401 0028 00000000 		.4byte	.LFB7
+ 1402 002c 0C000000 		.4byte	.LFE7
+ 1403 0030 00000000 		.4byte	.LFB8
+ 1404 0034 10000000 		.4byte	.LFE8
+ 1405 0038 00000000 		.4byte	.LFB9
+ 1406 003c 18000000 		.4byte	.LFE9
+ 1407 0040 00000000 		.4byte	.LFB10
+ 1408 0044 10000000 		.4byte	.LFE10
+ 1409 0048 00000000 		.4byte	.LFB11
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 36
+
+
+ 1410 004c 10000000 		.4byte	.LFE11
+ 1411 0050 00000000 		.4byte	.LFB12
+ 1412 0054 10000000 		.4byte	.LFE12
+ 1413 0058 00000000 		.4byte	.LFB13
+ 1414 005c 10000000 		.4byte	.LFE13
+ 1415 0060 00000000 		.4byte	.LFB14
+ 1416 0064 10000000 		.4byte	.LFE14
+ 1417 0068 00000000 		.4byte	.LFB15
+ 1418 006c 14000000 		.4byte	.LFE15
+ 1419 0070 00000000 		.4byte	.LFB0
+ 1420 0074 54000000 		.4byte	.LFE0
+ 1421 0078 00000000 		.4byte	.LFB2
+ 1422 007c 1C000000 		.4byte	.LFE2
+ 1423 0080 00000000 		.4byte	0
+ 1424 0084 00000000 		.4byte	0
+ 1425              		.section	.debug_line,"",%progbits
+ 1426              	.Ldebug_line0:
+ 1427 0000 84010000 		.section	.debug_str,"MS",%progbits,1
+ 1427      02005000 
+ 1427      00000201 
+ 1427      FB0E0D00 
+ 1427      01010101 
+ 1428              	.LASF29:
+ 1429 0000 436F756E 		.ascii	"Counter1_ReadCapture\000"
+ 1429      74657231 
+ 1429      5F526561 
+ 1429      64436170 
+ 1429      74757265 
+ 1430              	.LASF15:
+ 1431 0015 72656733 		.ascii	"reg32\000"
+ 1431      3200
+ 1432              	.LASF21:
+ 1433 001b 436F756E 		.ascii	"Counter1_ReadControlRegister\000"
+ 1433      74657231 
+ 1433      5F526561 
+ 1433      64436F6E 
+ 1433      74726F6C 
+ 1434              	.LASF20:
+ 1435 0038 436F756E 		.ascii	"Counter1_ReadStatusRegister\000"
+ 1435      74657231 
+ 1435      5F526561 
+ 1435      64537461 
+ 1435      74757352 
+ 1436              	.LASF31:
+ 1437 0054 70657269 		.ascii	"period\000"
+ 1437      6F6400
+ 1438              	.LASF3:
+ 1439 005b 73686F72 		.ascii	"short unsigned int\000"
+ 1439      7420756E 
+ 1439      7369676E 
+ 1439      65642069 
+ 1439      6E7400
+ 1440              	.LASF32:
+ 1441 006e 436F756E 		.ascii	"Counter1_ReadPeriod\000"
+ 1441      74657231 
+ 1441      5F526561 
+ 1441      64506572 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 37
+
+
+ 1441      696F6400 
+ 1442              	.LASF22:
+ 1443 0082 436F756E 		.ascii	"Counter1_SetInterruptMode\000"
+ 1443      74657231 
+ 1443      5F536574 
+ 1443      496E7465 
+ 1443      72727570 
+ 1444              	.LASF46:
+ 1445 009c 443A5C55 		.ascii	"D:\\Users\\ESTEBAN\\Desktop\\Materias\\Codigos\\Psc"
+ 1445      73657273 
+ 1445      5C455354 
+ 1445      4542414E 
+ 1445      5C446573 
+ 1446 00c9 6F635C4C 		.ascii	"oc\\LABVIEW\\labview.cydsn\000"
+ 1446      41425649 
+ 1446      45575C6C 
+ 1446      61627669 
+ 1446      65772E63 
+ 1447              	.LASF35:
+ 1448 00e2 436F756E 		.ascii	"Counter1_ReadCompare\000"
+ 1448      74657231 
+ 1448      5F526561 
+ 1448      64436F6D 
+ 1448      70617265 
+ 1449              	.LASF11:
+ 1450 00f7 666C6F61 		.ascii	"float\000"
+ 1450      7400
+ 1451              	.LASF27:
+ 1452 00fd 636F756E 		.ascii	"counter\000"
+ 1452      74657200 
+ 1453              	.LASF7:
+ 1454 0105 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1454      206C6F6E 
+ 1454      6720756E 
+ 1454      7369676E 
+ 1454      65642069 
+ 1455              	.LASF1:
+ 1456 011c 756E7369 		.ascii	"unsigned char\000"
+ 1456      676E6564 
+ 1456      20636861 
+ 1456      7200
+ 1457              	.LASF44:
+ 1458 012a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1458      43313120 
+ 1458      352E342E 
+ 1458      31203230 
+ 1458      31363036 
+ 1459 015d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1459      20726576 
+ 1459      6973696F 
+ 1459      6E203233 
+ 1459      37373135 
+ 1460 0190 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1460      66756E63 
+ 1460      74696F6E 
+ 1460      2D736563 
+ 1460      74696F6E 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 38
+
+
+ 1461              	.LASF14:
+ 1462 01b8 72656738 		.ascii	"reg8\000"
+ 1462      00
+ 1463              	.LASF5:
+ 1464 01bd 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1464      20756E73 
+ 1464      69676E65 
+ 1464      6420696E 
+ 1464      7400
+ 1465              	.LASF9:
+ 1466 01cf 75696E74 		.ascii	"uint8\000"
+ 1466      3800
+ 1467              	.LASF25:
+ 1468 01d5 636F6E74 		.ascii	"control\000"
+ 1468      726F6C00 
+ 1469              	.LASF24:
+ 1470 01dd 696E7465 		.ascii	"interruptsMask\000"
+ 1470      72727570 
+ 1470      74734D61 
+ 1470      736B00
+ 1471              	.LASF37:
+ 1472 01ec 436F756E 		.ascii	"Counter1_Init\000"
+ 1472      74657231 
+ 1472      5F496E69 
+ 1472      7400
+ 1473              	.LASF47:
+ 1474 01fa 436F756E 		.ascii	"Counter1_initVar\000"
+ 1474      74657231 
+ 1474      5F696E69 
+ 1474      74566172 
+ 1474      00
+ 1475              	.LASF12:
+ 1476 020b 646F7562 		.ascii	"double\000"
+ 1476      6C6500
+ 1477              	.LASF28:
+ 1478 0212 436F756E 		.ascii	"Counter1_ReadCounter\000"
+ 1478      74657231 
+ 1478      5F526561 
+ 1478      64436F75 
+ 1478      6E746572 
+ 1479              	.LASF40:
+ 1480 0227 436F756E 		.ascii	"Counter1_Start\000"
+ 1480      74657231 
+ 1480      5F537461 
+ 1480      727400
+ 1481              	.LASF10:
+ 1482 0236 75696E74 		.ascii	"uint32\000"
+ 1482      333200
+ 1483              	.LASF42:
+ 1484 023d 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1484      74657243 
+ 1484      72697469 
+ 1484      63616C53 
+ 1484      65637469 
+ 1485              	.LASF30:
+ 1486 0254 436F756E 		.ascii	"Counter1_WritePeriod\000"
+ 1486      74657231 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 39
+
+
+ 1486      5F577269 
+ 1486      74655065 
+ 1486      72696F64 
+ 1487              	.LASF8:
+ 1488 0269 756E7369 		.ascii	"unsigned int\000"
+ 1488      676E6564 
+ 1488      20696E74 
+ 1488      00
+ 1489              	.LASF36:
+ 1490 0276 436F756E 		.ascii	"Counter1_ClearFIFO\000"
+ 1490      74657231 
+ 1490      5F436C65 
+ 1490      61724649 
+ 1490      464F00
+ 1491              	.LASF43:
+ 1492 0289 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1492      69744372 
+ 1492      69746963 
+ 1492      616C5365 
+ 1492      6374696F 
+ 1493              	.LASF33:
+ 1494 029f 436F756E 		.ascii	"Counter1_WriteCompare\000"
+ 1494      74657231 
+ 1494      5F577269 
+ 1494      7465436F 
+ 1494      6D706172 
+ 1495              	.LASF38:
+ 1496 02b5 6374726C 		.ascii	"ctrl\000"
+ 1496      00
+ 1497              	.LASF16:
+ 1498 02ba 6C6F6E67 		.ascii	"long double\000"
+ 1498      20646F75 
+ 1498      626C6500 
+ 1499              	.LASF17:
+ 1500 02c6 73697A65 		.ascii	"sizetype\000"
+ 1500      74797065 
+ 1500      00
+ 1501              	.LASF6:
+ 1502 02cf 6C6F6E67 		.ascii	"long long int\000"
+ 1502      206C6F6E 
+ 1502      6720696E 
+ 1502      7400
+ 1503              	.LASF19:
+ 1504 02dd 436F756E 		.ascii	"Counter1_Stop\000"
+ 1504      74657231 
+ 1504      5F53746F 
+ 1504      7000
+ 1505              	.LASF41:
+ 1506 02eb 43795365 		.ascii	"CySetReg24\000"
+ 1506      74526567 
+ 1506      323400
+ 1507              	.LASF2:
+ 1508 02f6 73686F72 		.ascii	"short int\000"
+ 1508      7420696E 
+ 1508      7400
+ 1509              	.LASF45:
+ 1510 0300 47656E65 		.ascii	"Generated_Source\\PSoC5\\Counter1.c\000"
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccUThddJ.s 			page 40
+
+
+ 1510      72617465 
+ 1510      645F536F 
+ 1510      75726365 
+ 1510      5C50536F 
+ 1511              	.LASF39:
+ 1512 0322 436F756E 		.ascii	"Counter1_interruptState\000"
+ 1512      74657231 
+ 1512      5F696E74 
+ 1512      65727275 
+ 1512      70745374 
+ 1513              	.LASF4:
+ 1514 033a 6C6F6E67 		.ascii	"long int\000"
+ 1514      20696E74 
+ 1514      00
+ 1515              	.LASF13:
+ 1516 0343 63686172 		.ascii	"char\000"
+ 1516      00
+ 1517              	.LASF23:
+ 1518 0348 436F756E 		.ascii	"Counter1_WriteControlRegister\000"
+ 1518      74657231 
+ 1518      5F577269 
+ 1518      7465436F 
+ 1518      6E74726F 
+ 1519              	.LASF0:
+ 1520 0366 7369676E 		.ascii	"signed char\000"
+ 1520      65642063 
+ 1520      68617200 
+ 1521              	.LASF34:
+ 1522 0372 636F6D70 		.ascii	"compare\000"
+ 1522      61726500 
+ 1523              	.LASF18:
+ 1524 037a 436F756E 		.ascii	"Counter1_Enable\000"
+ 1524      74657231 
+ 1524      5F456E61 
+ 1524      626C6500 
+ 1525              	.LASF26:
+ 1526 038a 436F756E 		.ascii	"Counter1_WriteCounter\000"
+ 1526      74657231 
+ 1526      5F577269 
+ 1526      7465436F 
+ 1526      756E7465 
+ 1527              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

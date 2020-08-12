@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Sensor_Comunicacion_USB\Sensor_Capacitivo">
+<ExpandedNodeIds>
+<v>Sensor_Comunicacion_USB</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\TopDesign</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Pins</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Analog</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Clocks</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Interrupts</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\DMA</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\System</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Directives</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Flash Security</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\EEPROM</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Header Files</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Header Files\cyapicallbacks.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Source Files</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Source Files\main.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense\CapSense.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense\CapSense.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense\CapSense_CSHL.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense\CapSense_CSHL.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense\CapSense_INT.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense\CapSense_Pins.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense\CapSense_Pins.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense\CapSense_PM.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense\CapSense_SMS_Wrapper.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense\CapSense_TunerHelper.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense\CapSense_TunerHelper.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense_AMuxCH0</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense_AMuxCH0\CapSense_AMuxCH0.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense_AMuxCH0\CapSense_AMuxCH0.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense_CompCH0</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense_CompCH0\CapSense_CompCH0.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense_CompCH0\CapSense_CompCH0.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense_CompCH0\CapSense_CompCH0_PM.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense_IdacCH0</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense_IdacCH0\CapSense_IdacCH0.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense_IdacCH0\CapSense_IdacCH0.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense_IdacCH0\CapSense_IdacCH0_PM.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense_IntClock</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense_IntClock\CapSense_IntClock.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense_IntClock\CapSense_IntClock.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\cm3gcc.ld</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\Cm3Iar.icf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\Cm3RealView.scat</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\Cm3Start.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\cmsis_armcc.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\cmsis_gcc.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\core_cm3.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\core_cm3_psoc5.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\core_cmFunc.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\core_cmInstr.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\CyBootAsmGnu.s</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\CyBootAsmIar.s</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\CyBootAsmRv.s</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\CyDmac.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\CyDmac.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\CyFlash.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\CyFlash.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\CyLib.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\CyLib.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\cypins.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\cyPm.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\cyPm.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\CySpc.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\CySpc.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\cytypes.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cy_boot\cyutils.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\LCD</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\LCD\LCD.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\LCD\LCD.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\LCD\LCD_PM.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\LCD_LCDPort</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\LCD_LCDPort\LCD_LCDPort.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\LCD_LCDPort\LCD_LCDPort.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\LCD_LCDPort\LCD_LCDPort_aliases.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cycodeshareexport.ld</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cycodeshareimport.ld</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cycodeshareimport.scat</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cydevice.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cydevice_trm.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cydevicegnu.inc</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cydeviceiar.inc</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cydeviceiar_trm.inc</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cydevicerv.inc</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cydevicerv_trm.inc</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cydisabledsheets.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cyfitter.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cyfitter_cfg.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cyfitter_cfg.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cyfittergnu.inc</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cyfitteriar.inc</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cyfitterrv.inc</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\cymetadata.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\project.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\TopDesign</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\Pins</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\Analog</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\Clocks</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\Interrupts</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\DMA</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\System</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\Directives</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\Flash Security</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\EEPROM</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Header Files</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Header Files\cyapicallbacks.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Source Files</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Source Files\main.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\cm3gcc.ld</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\Cm3Iar.icf</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\Cm3RealView.scat</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\Cm3Start.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\cmsis_armcc.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\cmsis_gcc.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\core_cm3.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\core_cm3_psoc5.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\core_cmFunc.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\core_cmInstr.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\CyBootAsmGnu.s</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\CyBootAsmIar.s</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\CyBootAsmRv.s</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\CyDmac.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\CyDmac.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\CyFlash.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\CyFlash.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\CyLib.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\CyLib.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\cypins.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\cyPm.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\cyPm.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\CySpc.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\CySpc.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\cytypes.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cy_boot\cyutils.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\LCD</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\LCD\LCD.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\LCD\LCD.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\LCD\LCD_PM.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\LCD_LCDPort</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\LCD_LCDPort\LCD_LCDPort.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\LCD_LCDPort\LCD_LCDPort.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\LCD_LCDPort\LCD_LCDPort_aliases.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_audio.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_audio.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_boot.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_cdc.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_cdc.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_cdc.inf</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_cls.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_cydmac.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_descr.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_drv.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_episr.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_hid.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_hid.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_midi.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_midi.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_msc.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_msc.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_pm.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_pvt.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_std.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB\USB_vnd.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB_Dm</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB_Dm\USB_Dm.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB_Dm\USB_Dm.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB_Dm\USB_Dm_aliases.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB_Dp</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB_Dp\USB_Dp.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB_Dp\USB_Dp.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\USB_Dp\USB_Dp_aliases.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cycodeshareexport.ld</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cycodeshareimport.ld</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cycodeshareimport.scat</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cydevice.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cydevice_trm.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cydevicegnu.inc</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cydeviceiar.inc</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cydeviceiar_trm.inc</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cydevicerv.inc</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cydevicerv_trm.inc</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cydisabledsheets.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cyfitter.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cyfitter_cfg.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cyfitter_cfg.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cyfittergnu.inc</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cyfitteriar.inc</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cyfitterrv.inc</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\cymetadata.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source\PSoC5\project.h</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Sensor_Comunicacion_USB</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo</v>
+<v>Sensor_Comunicacion_USB\USB_Serial</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\TopDesign</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\Pins</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\Analog</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\Clocks</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\Interrupts</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\DMA</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\System</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\Directives</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\Flash Security</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.cydwr\EEPROM</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Header Files</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Header Files\cyapicallbacks.h</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Source Files</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Source Files\main.c</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\Generated_Source</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Sensor_Comunicacion_USB</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\TopDesign</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\TopDesign\TopDesign.cysch</v>
+<v>Sensor_Comunicacion_USB\USB_Serial</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\TopDesign</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Sensor_Comunicacion_USB</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\TopDesign</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\TopDesign\TopDesign.cysch</v>
+<v>Sensor_Comunicacion_USB\USB_Serial</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\TopDesign</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Sensor_Comunicacion_USB</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.gpdsc</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.rpt</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo_timing.html</v>
+<v>Sensor_Comunicacion_USB\USB_Serial</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.gpdsc</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.rpt</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Sensor_Comunicacion_USB</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.gpdsc</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.rpt</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo_timing.html</v>
+<v>Sensor_Comunicacion_USB\USB_Serial</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.gpdsc</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial.rpt</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USB_Serial_timing.html</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Sensor_Comunicacion_USB</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\PSoC 5LP Architecture TRM</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CY8C58LP Family Datasheet</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\System Reference Guides</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\System Reference Guides\cy_boot_v5_50</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CapSense_CSD_v3_50.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CharLCD_v2_20.pdf</v>
+<v>Sensor_Comunicacion_USB\USB_Serial</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\PSoC 5LP Architecture TRM</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\CY8C58LP Family Datasheet</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\System Reference Guides</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\System Reference Guides\cy_boot_v5_50</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\CharLCD_v2_20.pdf</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USBFS_v3_10.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Sensor_Comunicacion_USB</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\PSoC 5LP Architecture TRM</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CY8C58LP Family Datasheet</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\System Reference Guides</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\System Reference Guides\cy_boot_v5_50</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CapSense_CSD_v3_50.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CharLCD_v2_20.pdf</v>
+<v>Sensor_Comunicacion_USB\USB_Serial</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\PSoC 5LP Architecture TRM</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\CY8C58LP Family Datasheet</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\System Reference Guides</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\System Reference Guides\cy_boot_v5_50</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\CharLCD_v2_20.pdf</v>
+<v>Sensor_Comunicacion_USB\USB_Serial\USBFS_v3_10.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\Sensor_Capacitivo.cydsn\main.c" />
+<name v=".\USB_Serial.cydsn\main.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="753, 399" SelectedTabbedMdiWindow="ecc90837-cb4c-41f7-aee6-6c6944d4139b"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="43850630-c835-437f-9fe3-2e8d4db89471" /><DocumentWindow Key="C:\Users\Henry Alberto\Documents\GitHub\PSOC_5_Examples\Sensor_Comunicacion_USB\Sensor_Capacitivo.cydsn\main.c" Guid="e7312315-b49b-4473-833b-8486dc3d9818" /><DocumentWindow Key="C:\Users\Henry Alberto\Documents\GitHub\PSOC_5_Examples\Sensor_Comunicacion_USB\USB_Serial.cydsn\main.c" Guid="ecc90837-cb4c-41f7-aee6-6c6944d4139b" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

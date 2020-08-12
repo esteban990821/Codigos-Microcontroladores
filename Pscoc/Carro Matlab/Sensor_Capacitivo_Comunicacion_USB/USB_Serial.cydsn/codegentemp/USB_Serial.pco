@@ -1,0 +1,29 @@
+# USB_Serial
+# 2019-05-12 02:54:34Z
+
+# IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 0
+# IO_1@[IOP=(1)][IoId=(1)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 1
+# IO_3@[IOP=(1)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 3
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_io "\USB:Dm(0)\" iocell 15 7
+set_location "\USB:Dp\" logicalport -1 -1 15
+set_io "\USB:Dp(0)\" iocell 15 6
+set_io "Entrada(0)" iocell 6 5
+set_io "Entrada2(0)" iocell 3 7
+set_io "Pulsador(0)" iocell 6 1
+set_location "\USB:dp_int\" interrupt -1 -1 12
+set_location "\USB:USB\" usbcell -1 -1 0
+set_location "\USB:ep_3\" interrupt -1 -1 4
+set_location "\USB:ep_2\" interrupt -1 -1 3
+set_location "\USB:ep_1\" interrupt -1 -1 2
+set_location "\USB:ep_0\" interrupt -1 -1 24
+set_location "\USB:bus_reset\" interrupt -1 -1 23
+set_location "\USB:arb_int\" interrupt -1 -1 22
+set_location "\USB:sof_int\" interrupt -1 -1 21
+set_location "\ADC_2:IRQ\" interrupt -1 -1 1
+set_location "\ADC_2:ADC_SAR\" sarcell -1 -1 1
+set_location "\ADC_1:IRQ\" interrupt -1 -1 0
+set_location "\ADC_1:ADC_SAR\" sarcell -1 -1 0

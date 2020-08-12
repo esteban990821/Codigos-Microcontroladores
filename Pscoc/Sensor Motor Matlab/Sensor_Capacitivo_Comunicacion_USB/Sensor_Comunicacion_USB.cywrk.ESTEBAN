@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Sensor_Comunicacion_USB\Sensor_Capacitivo\TopDesign">
+<ExpandedNodeIds>
+<v>Sensor_Comunicacion_USB</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\TopDesign</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Pins</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Analog</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Clocks</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Interrupts</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\DMA</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\System</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Directives</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Flash Security</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\EEPROM</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Header Files</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Header Files\cyapicallbacks.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Source Files</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Source Files\main.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\CapSense</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source\PSoC5\Timer_1</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Sensor_Comunicacion_USB</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\TopDesign</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Pins</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Analog</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Clocks</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Interrupts</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\DMA</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\System</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Directives</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\Flash Security</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.cydwr\EEPROM</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Header Files</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Header Files\cyapicallbacks.h</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Source Files</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Source Files\main.c</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Generated_Source</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Sensor_Comunicacion_USB</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\TopDesign</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Sensor_Comunicacion_USB</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\TopDesign</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Sensor_Comunicacion_USB</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_AMuxCH0.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_CompCH0.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_CompCH0_PM.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_CSHL.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_IdacCH0.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_IdacCH0_PM.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_INT.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_IntClock.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_Pins.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_PM.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_SMS_Wrapper.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_TunerHelper.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_1.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_2.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_3.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_LCDPort.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_PM.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_1.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\pulsador.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_1.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_1_PM.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_2.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_2_PM.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\Reloj_1.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\Reloj_2.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\salida1.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\salida2.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_1.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_1_PM.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\timer_clock.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\timer_clock_1.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_PM.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\USB.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\USB_audio.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\USB_boot.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\USB_cdc.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\USB_cls.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\USB_descr.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\USB_Dm.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\USB_Dp.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\USB_drv.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\USB_episr.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\USB_hid.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\USB_midi.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\USB_msc.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\USB_pm.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\USB_std.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\USB_vnd.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Sensor_Capacitivo.elf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Sensor_Capacitivo.hex</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Sensor_Capacitivo.map</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.gpdsc</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo.rpt</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Sensor_Capacitivo_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Sensor_Comunicacion_USB</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_AMuxCH0.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_CompCH0.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_CompCH0_PM.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_CSHL.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_IdacCH0.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_IdacCH0_PM.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_INT.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_IntClock.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_Pins.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_PM.lst</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_SMS_Wrapper.lst</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Sensor_Comunicacion_USB</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\PSoC 5LP Architecture TRM</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CY8C58LP Family Datasheet</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\System Reference Guides</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\System Reference Guides\cy_boot_v5_50</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CapSense_CSD_v3_50.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CharLCD_v2_20.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\cy_clock_v2_20</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\cy_constant_v1_0</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\cy_isr_v1_70</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\cy_pins_v2_20</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\PWM_v3_30</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\PWM_v3_30\PWM_v3_30.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Timer_v2_80</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\Timer_v2_80\Timer_v2_80.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\USBFS_v3_20.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\ZeroTerminal</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\ZeroTerminal\ZeroTerminal.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Sensor_Comunicacion_USB</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\PSoC 5LP Architecture TRM</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CY8C58LP Family Datasheet</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\System Reference Guides</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\System Reference Guides\cy_boot_v5_50</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CapSense_CSD_v3_50.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\CharLCD_v2_20.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\cy_clock_v2_20</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\cy_constant_v1_0</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\cy_isr_v1_70</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\cy_pins_v2_20</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\PWM_v3_30</v>
+<v>Sensor_Comunicacion_USB\Sensor_Capacitivo\PWM_v3_30\PWM_v3_30.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\Sensor_Capacitivo.cydsn\main.c" />
+<name v=".\Sensor_Capacitivo.cydsn\Sensor_Capacitivo.cydwr" />
+<name v=".\Sensor_Capacitivo.cydsn\TopDesign\TopDesign.cysch" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="934, 372" SelectedTabbedMdiWindow="84ff5e95-2d88-46b1-ac8d-fc3a73f24dba"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="cdba411a-a292-4b1e-8e55-34afd99c6361" /><DocumentWindow Key="D:\Users\ESTEBAN\Desktop\Materias\Codigos\Pscoc\Sensor Motor Matlab\Sensor_Capacitivo_Comunicacion_USB\Sensor_Capacitivo.cydsn\main.c" Guid="84ff5e95-2d88-46b1-ac8d-fc3a73f24dba" /><DocumentWindow Key="D:\Users\ESTEBAN\Desktop\Materias\Codigos\Pscoc\Sensor Motor Matlab\Sensor_Capacitivo_Comunicacion_USB\Sensor_Capacitivo.cydsn\Sensor_Capacitivo.cydwr" Guid="81cfb4a1-20bb-4fab-82d5-081ac26d2ba3" /><DocumentWindow Key="D:\Users\ESTEBAN\Desktop\Materias\Codigos\Pscoc\Sensor Motor Matlab\Sensor_Capacitivo_Comunicacion_USB\Sensor_Capacitivo.cydsn\TopDesign\TopDesign.cysch" Guid="36d8f806-6eef-4a0e-bc6f-3444538f74e9" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

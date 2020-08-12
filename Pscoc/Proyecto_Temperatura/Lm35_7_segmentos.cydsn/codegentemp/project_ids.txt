@@ -1,0 +1,6 @@
+D:\Users\ESTEBAN\Documents\PSoC Creator\Proyecto_Temperatura\Lm35_7_segmentos.cydsn\Lm35_7_segmentos.cyprj|ff338473-b492-4b21-812d-0ccf5de58b76
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|28f26e28-8505-4103-a186-f172b9ba21cc
+D:\Users\ESTEBAN\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|6f57cc1f-b289-4e29-a4ce-86e38ba383d6
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|7d2d1804-5b16-4dbd-86fb-4944b5b0dc09
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|1a32df96-29ea-4d86-8c58-8e8830873e19
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|8bf3f17d-fd9e-47ad-8961-e043e8473ef1

@@ -1,0 +1,6 @@
+D:\Users\ESTEBAN\Desktop\Materias\Codigos\Pscoc\carro\carro\Design01.cydsn\Design01.cyprj|238e6f32-1b7c-4569-b11f-c6299929a1bc
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|81a94718-5a4c-444e-9472-0873fd5fd257
+D:\Users\ESTEBAN\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|07a8ba8b-b4dd-4a52-96bd-74a9b29f405a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|15a539f3-4d50-47eb-b001-7e15c474d8c9
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|dea859ec-0644-4fb1-8fe3-a3116f265681
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|2c4bcf7c-6847-484b-826a-93916cdc1146

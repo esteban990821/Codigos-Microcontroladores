@@ -1,0 +1,6 @@
+D:\Users\ESTEBAN\Desktop\Materias\Codigos\Pscoc\Carrito_arcos\carro_arcos.cydsn\carro_arcos.cyprj|48fe8674-25ab-48fe-a01e-0b6522a0f2b7
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|a3e92b95-ccbb-4630-a220-3ee3279e04b2
+D:\Users\ESTEBAN\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|2193f3ee-4e32-4cb2-8617-02ceec1a7acd
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|aba6af58-a11e-47c8-9842-25467a5009e4
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|d61e8658-ca43-4479-9ed5-5a8f78e24d2b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|74010889-ead0-4897-b2e6-9943469db380

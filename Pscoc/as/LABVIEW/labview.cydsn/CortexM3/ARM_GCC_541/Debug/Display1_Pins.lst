@@ -1,0 +1,667 @@
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccEDi1ue.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Display1_Pins.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Display1_SegPort_SetDriveMode,"ax",%progbits
+  20              		.align	2
+  21              		.global	Display1_SegPort_SetDriveMode
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	Display1_SegPort_SetDriveMode, %function
+  25              	Display1_SegPort_SetDriveMode:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC5\\Display1_Pins.c"
+   1:Generated_Source\PSoC5/Display1_Pins.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/Display1_Pins.c **** * File Name: Display1.c
+   3:Generated_Source\PSoC5/Display1_Pins.c **** * Version 2.30
+   4:Generated_Source\PSoC5/Display1_Pins.c **** *
+   5:Generated_Source\PSoC5/Display1_Pins.c **** * Description:
+   6:Generated_Source\PSoC5/Display1_Pins.c **** *  This file provides the pin API source code for the Static Segment LCD
+   7:Generated_Source\PSoC5/Display1_Pins.c **** *  component.
+   8:Generated_Source\PSoC5/Display1_Pins.c **** *
+   9:Generated_Source\PSoC5/Display1_Pins.c **** * Note:
+  10:Generated_Source\PSoC5/Display1_Pins.c **** *
+  11:Generated_Source\PSoC5/Display1_Pins.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/Display1_Pins.c **** * Copyright 2008-2013, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/Display1_Pins.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC5/Display1_Pins.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC5/Display1_Pins.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/Display1_Pins.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/Display1_Pins.c **** 
+  18:Generated_Source\PSoC5/Display1_Pins.c **** #include <Display1_Pins.h>
+  19:Generated_Source\PSoC5/Display1_Pins.c **** 
+  20:Generated_Source\PSoC5/Display1_Pins.c **** /*******************************************************************************
+  21:Generated_Source\PSoC5/Display1_Pins.c **** * Function Name: Display1_SegPort_SetDriveMode 
+  22:Generated_Source\PSoC5/Display1_Pins.c **** ********************************************************************************
+  23:Generated_Source\PSoC5/Display1_Pins.c **** * Summary:
+  24:Generated_Source\PSoC5/Display1_Pins.c **** *  Change the drive mode on the pins of the port.
+  25:Generated_Source\PSoC5/Display1_Pins.c **** *
+  26:Generated_Source\PSoC5/Display1_Pins.c **** * Parameters:
+  27:Generated_Source\PSoC5/Display1_Pins.c **** *  mode: Changes the pins to this drive mode.
+  28:Generated_Source\PSoC5/Display1_Pins.c **** *
+  29:Generated_Source\PSoC5/Display1_Pins.c **** * Return:
+  30:Generated_Source\PSoC5/Display1_Pins.c **** *  void
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccEDi1ue.s 			page 2
+
+
+  31:Generated_Source\PSoC5/Display1_Pins.c **** *
+  32:Generated_Source\PSoC5/Display1_Pins.c **** *******************************************************************************/
+  33:Generated_Source\PSoC5/Display1_Pins.c **** void Display1_SegPort_SetDriveMode(uint8 mode) 
+  34:Generated_Source\PSoC5/Display1_Pins.c **** {
+  28              		.loc 1 34 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  35:Generated_Source\PSoC5/Display1_Pins.c ****     CyPins_SetPinDriveMode(Display1_SegPort_0, mode);
+  34              		.loc 1 35 0
+  35 0000 2B4A     		ldr	r2, .L2
+  36 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  37 0004 00F00E00 		and	r0, r0, #14
+  38              	.LVL1:
+  39 0008 03F0F103 		and	r3, r3, #241
+  40 000c 0343     		orrs	r3, r3, r0
+  41 000e 1370     		strb	r3, [r2]
+  36:Generated_Source\PSoC5/Display1_Pins.c ****     CyPins_SetPinDriveMode(Display1_SegPort_1, mode);
+  42              		.loc 1 36 0
+  43 0010 0132     		adds	r2, r2, #1
+  44 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  45 0014 03F0F103 		and	r3, r3, #241
+  46 0018 0343     		orrs	r3, r3, r0
+  47 001a 1370     		strb	r3, [r2]
+  37:Generated_Source\PSoC5/Display1_Pins.c ****     CyPins_SetPinDriveMode(Display1_SegPort_2, mode);
+  48              		.loc 1 37 0
+  49 001c 0132     		adds	r2, r2, #1
+  50 001e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  51 0020 03F0F103 		and	r3, r3, #241
+  52 0024 0343     		orrs	r3, r3, r0
+  53 0026 1370     		strb	r3, [r2]
+  38:Generated_Source\PSoC5/Display1_Pins.c ****     CyPins_SetPinDriveMode(Display1_SegPort_3, mode);
+  54              		.loc 1 38 0
+  55 0028 0132     		adds	r2, r2, #1
+  56 002a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  57 002c 03F0F103 		and	r3, r3, #241
+  58 0030 0343     		orrs	r3, r3, r0
+  59 0032 1370     		strb	r3, [r2]
+  39:Generated_Source\PSoC5/Display1_Pins.c ****     CyPins_SetPinDriveMode(Display1_SegPort_4, mode);
+  60              		.loc 1 39 0
+  61 0034 0132     		adds	r2, r2, #1
+  62 0036 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  63 0038 03F0F103 		and	r3, r3, #241
+  64 003c 0343     		orrs	r3, r3, r0
+  65 003e 1370     		strb	r3, [r2]
+  40:Generated_Source\PSoC5/Display1_Pins.c ****     CyPins_SetPinDriveMode(Display1_SegPort_5, mode);
+  66              		.loc 1 40 0
+  67 0040 0132     		adds	r2, r2, #1
+  68 0042 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  69 0044 03F0F103 		and	r3, r3, #241
+  70 0048 0343     		orrs	r3, r3, r0
+  71 004a 1370     		strb	r3, [r2]
+  41:Generated_Source\PSoC5/Display1_Pins.c ****     CyPins_SetPinDriveMode(Display1_SegPort_6, mode);
+  72              		.loc 1 41 0
+  73 004c 0132     		adds	r2, r2, #1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccEDi1ue.s 			page 3
+
+
+  74 004e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  75 0050 03F0F103 		and	r3, r3, #241
+  76 0054 0343     		orrs	r3, r3, r0
+  77 0056 1370     		strb	r3, [r2]
+  42:Generated_Source\PSoC5/Display1_Pins.c ****     CyPins_SetPinDriveMode(Display1_SegPort_7, mode);
+  78              		.loc 1 42 0
+  79 0058 1232     		adds	r2, r2, #18
+  80 005a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  81 005c 03F0F103 		and	r3, r3, #241
+  82 0060 0343     		orrs	r3, r3, r0
+  83 0062 1370     		strb	r3, [r2]
+  43:Generated_Source\PSoC5/Display1_Pins.c ****     CyPins_SetPinDriveMode(Display1_SegPort_8, mode);
+  84              		.loc 1 43 0
+  85 0064 0132     		adds	r2, r2, #1
+  86 0066 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  87 0068 03F0F103 		and	r3, r3, #241
+  88 006c 0343     		orrs	r3, r3, r0
+  89 006e 1370     		strb	r3, [r2]
+  44:Generated_Source\PSoC5/Display1_Pins.c ****     CyPins_SetPinDriveMode(Display1_SegPort_9, mode);
+  90              		.loc 1 44 0
+  91 0070 0132     		adds	r2, r2, #1
+  92 0072 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  93 0074 03F0F103 		and	r3, r3, #241
+  94 0078 0343     		orrs	r3, r3, r0
+  95 007a 1370     		strb	r3, [r2]
+  45:Generated_Source\PSoC5/Display1_Pins.c ****     CyPins_SetPinDriveMode(Display1_SegPort_10, mode);
+  96              		.loc 1 45 0
+  97 007c 0132     		adds	r2, r2, #1
+  98 007e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  99 0080 03F0F103 		and	r3, r3, #241
+ 100 0084 0343     		orrs	r3, r3, r0
+ 101 0086 1370     		strb	r3, [r2]
+  46:Generated_Source\PSoC5/Display1_Pins.c ****     CyPins_SetPinDriveMode(Display1_SegPort_11, mode);
+ 102              		.loc 1 46 0
+ 103 0088 0132     		adds	r2, r2, #1
+ 104 008a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 105 008c 03F0F103 		and	r3, r3, #241
+ 106 0090 0343     		orrs	r3, r3, r0
+ 107 0092 1370     		strb	r3, [r2]
+  47:Generated_Source\PSoC5/Display1_Pins.c ****     CyPins_SetPinDriveMode(Display1_SegPort_12, mode);
+ 108              		.loc 1 47 0
+ 109 0094 0132     		adds	r2, r2, #1
+ 110 0096 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 111 0098 03F0F103 		and	r3, r3, #241
+ 112 009c 0343     		orrs	r3, r3, r0
+ 113 009e 1370     		strb	r3, [r2]
+  48:Generated_Source\PSoC5/Display1_Pins.c ****     CyPins_SetPinDriveMode(Display1_SegPort_13, mode);
+ 114              		.loc 1 48 0
+ 115 00a0 0132     		adds	r2, r2, #1
+ 116 00a2 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 117 00a4 03F0F103 		and	r3, r3, #241
+ 118 00a8 1843     		orrs	r0, r0, r3
+ 119 00aa 1070     		strb	r0, [r2]
+ 120 00ac 7047     		bx	lr
+ 121              	.L3:
+ 122 00ae 00BF     		.align	2
+ 123              	.L2:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccEDi1ue.s 			page 4
+
+
+ 124 00b0 01500040 		.word	1073762305
+ 125              		.cfi_endproc
+ 126              	.LFE0:
+ 127              		.size	Display1_SegPort_SetDriveMode, .-Display1_SegPort_SetDriveMode
+ 128              		.section	.text.Display1_ComPort_SetDriveMode,"ax",%progbits
+ 129              		.align	2
+ 130              		.global	Display1_ComPort_SetDriveMode
+ 131              		.thumb
+ 132              		.thumb_func
+ 133              		.type	Display1_ComPort_SetDriveMode, %function
+ 134              	Display1_ComPort_SetDriveMode:
+ 135              	.LFB1:
+  49:Generated_Source\PSoC5/Display1_Pins.c **** }
+  50:Generated_Source\PSoC5/Display1_Pins.c **** 
+  51:Generated_Source\PSoC5/Display1_Pins.c **** /*******************************************************************************
+  52:Generated_Source\PSoC5/Display1_Pins.c **** * Function Name: Display1_ComPort_SetDriveMode 
+  53:Generated_Source\PSoC5/Display1_Pins.c **** ********************************************************************************
+  54:Generated_Source\PSoC5/Display1_Pins.c **** * Summary:
+  55:Generated_Source\PSoC5/Display1_Pins.c **** *  Change the drive mode on the pins of the port.
+  56:Generated_Source\PSoC5/Display1_Pins.c **** *
+  57:Generated_Source\PSoC5/Display1_Pins.c **** * Parameters:
+  58:Generated_Source\PSoC5/Display1_Pins.c **** *  mode: Changes the pins to this drive mode.
+  59:Generated_Source\PSoC5/Display1_Pins.c **** *
+  60:Generated_Source\PSoC5/Display1_Pins.c **** * Return:
+  61:Generated_Source\PSoC5/Display1_Pins.c **** *  void
+  62:Generated_Source\PSoC5/Display1_Pins.c **** *
+  63:Generated_Source\PSoC5/Display1_Pins.c **** *******************************************************************************/
+  64:Generated_Source\PSoC5/Display1_Pins.c **** void Display1_ComPort_SetDriveMode(uint8 mode) 
+  65:Generated_Source\PSoC5/Display1_Pins.c **** {
+ 136              		.loc 1 65 0
+ 137              		.cfi_startproc
+ 138              		@ args = 0, pretend = 0, frame = 0
+ 139              		@ frame_needed = 0, uses_anonymous_args = 0
+ 140              		@ link register save eliminated.
+ 141              	.LVL2:
+  66:Generated_Source\PSoC5/Display1_Pins.c ****     CyPins_SetPinDriveMode(Display1_ComPort_0, mode);
+ 142              		.loc 1 66 0
+ 143 0000 044A     		ldr	r2, .L5
+ 144 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 145 0004 03F0F103 		and	r3, r3, #241
+ 146 0008 00F00E00 		and	r0, r0, #14
+ 147              	.LVL3:
+ 148 000c 1843     		orrs	r0, r0, r3
+ 149 000e 1070     		strb	r0, [r2]
+ 150 0010 7047     		bx	lr
+ 151              	.L6:
+ 152 0012 00BF     		.align	2
+ 153              	.L5:
+ 154 0014 00500040 		.word	1073762304
+ 155              		.cfi_endproc
+ 156              	.LFE1:
+ 157              		.size	Display1_ComPort_SetDriveMode, .-Display1_ComPort_SetDriveMode
+ 158              		.text
+ 159              	.Letext0:
+ 160              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
+ 161              		.section	.debug_info,"",%progbits
+ 162              	.Ldebug_info0:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccEDi1ue.s 			page 5
+
+
+ 163 0000 E0000000 		.4byte	0xe0
+ 164 0004 0400     		.2byte	0x4
+ 165 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 166 000a 04       		.byte	0x4
+ 167 000b 01       		.uleb128 0x1
+ 168 000c 59000000 		.4byte	.LASF15
+ 169 0010 0C       		.byte	0xc
+ 170 0011 1E000000 		.4byte	.LASF16
+ 171 0015 5A010000 		.4byte	.LASF17
+ 172 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 173 001d 00000000 		.4byte	0
+ 174 0021 00000000 		.4byte	.Ldebug_line0
+ 175 0025 02       		.uleb128 0x2
+ 176 0026 01       		.byte	0x1
+ 177 0027 06       		.byte	0x6
+ 178 0028 D4010000 		.4byte	.LASF0
+ 179 002c 02       		.uleb128 0x2
+ 180 002d 01       		.byte	0x1
+ 181 002e 08       		.byte	0x8
+ 182 002f 4B000000 		.4byte	.LASF1
+ 183 0033 02       		.uleb128 0x2
+ 184 0034 02       		.byte	0x2
+ 185 0035 05       		.byte	0x5
+ 186 0036 BB010000 		.4byte	.LASF2
+ 187 003a 02       		.uleb128 0x2
+ 188 003b 02       		.byte	0x2
+ 189 003c 07       		.byte	0x7
+ 190 003d FE000000 		.4byte	.LASF3
+ 191 0041 02       		.uleb128 0x2
+ 192 0042 04       		.byte	0x4
+ 193 0043 05       		.byte	0x5
+ 194 0044 CB010000 		.4byte	.LASF4
+ 195 0048 02       		.uleb128 0x2
+ 196 0049 04       		.byte	0x4
+ 197 004a 07       		.byte	0x7
+ 198 004b EC000000 		.4byte	.LASF5
+ 199 004f 02       		.uleb128 0x2
+ 200 0050 08       		.byte	0x8
+ 201 0051 05       		.byte	0x5
+ 202 0052 A8010000 		.4byte	.LASF6
+ 203 0056 02       		.uleb128 0x2
+ 204 0057 08       		.byte	0x8
+ 205 0058 07       		.byte	0x7
+ 206 0059 43010000 		.4byte	.LASF7
+ 207 005d 03       		.uleb128 0x3
+ 208 005e 04       		.byte	0x4
+ 209 005f 05       		.byte	0x5
+ 210 0060 696E7400 		.ascii	"int\000"
+ 211 0064 02       		.uleb128 0x2
+ 212 0065 04       		.byte	0x4
+ 213 0066 07       		.byte	0x7
+ 214 0067 36010000 		.4byte	.LASF8
+ 215 006b 04       		.uleb128 0x4
+ 216 006c C5010000 		.4byte	.LASF12
+ 217 0070 02       		.byte	0x2
+ 218 0071 E401     		.2byte	0x1e4
+ 219 0073 2C000000 		.4byte	0x2c
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccEDi1ue.s 			page 6
+
+
+ 220 0077 02       		.uleb128 0x2
+ 221 0078 04       		.byte	0x4
+ 222 0079 04       		.byte	0x4
+ 223 007a 45000000 		.4byte	.LASF9
+ 224 007e 02       		.uleb128 0x2
+ 225 007f 08       		.byte	0x8
+ 226 0080 04       		.byte	0x4
+ 227 0081 2F010000 		.4byte	.LASF10
+ 228 0085 02       		.uleb128 0x2
+ 229 0086 01       		.byte	0x1
+ 230 0087 08       		.byte	0x8
+ 231 0088 B6010000 		.4byte	.LASF11
+ 232 008c 04       		.uleb128 0x4
+ 233 008d E7000000 		.4byte	.LASF13
+ 234 0091 02       		.byte	0x2
+ 235 0092 8E02     		.2byte	0x28e
+ 236 0094 98000000 		.4byte	0x98
+ 237 0098 05       		.uleb128 0x5
+ 238 0099 6B000000 		.4byte	0x6b
+ 239 009d 06       		.uleb128 0x6
+ 240 009e 11010000 		.4byte	.LASF18
+ 241 00a2 01       		.byte	0x1
+ 242 00a3 21       		.byte	0x21
+ 243 00a4 00000000 		.4byte	.LFB0
+ 244 00a8 B4000000 		.4byte	.LFE0-.LFB0
+ 245 00ac 01       		.uleb128 0x1
+ 246 00ad 9C       		.byte	0x9c
+ 247 00ae C2000000 		.4byte	0xc2
+ 248 00b2 07       		.uleb128 0x7
+ 249 00b3 A3010000 		.4byte	.LASF14
+ 250 00b7 01       		.byte	0x1
+ 251 00b8 21       		.byte	0x21
+ 252 00b9 6B000000 		.4byte	0x6b
+ 253 00bd 00000000 		.4byte	.LLST0
+ 254 00c1 00       		.byte	0
+ 255 00c2 08       		.uleb128 0x8
+ 256 00c3 00000000 		.4byte	.LASF19
+ 257 00c7 01       		.byte	0x1
+ 258 00c8 40       		.byte	0x40
+ 259 00c9 00000000 		.4byte	.LFB1
+ 260 00cd 18000000 		.4byte	.LFE1-.LFB1
+ 261 00d1 01       		.uleb128 0x1
+ 262 00d2 9C       		.byte	0x9c
+ 263 00d3 07       		.uleb128 0x7
+ 264 00d4 A3010000 		.4byte	.LASF14
+ 265 00d8 01       		.byte	0x1
+ 266 00d9 40       		.byte	0x40
+ 267 00da 6B000000 		.4byte	0x6b
+ 268 00de 21000000 		.4byte	.LLST1
+ 269 00e2 00       		.byte	0
+ 270 00e3 00       		.byte	0
+ 271              		.section	.debug_abbrev,"",%progbits
+ 272              	.Ldebug_abbrev0:
+ 273 0000 01       		.uleb128 0x1
+ 274 0001 11       		.uleb128 0x11
+ 275 0002 01       		.byte	0x1
+ 276 0003 25       		.uleb128 0x25
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccEDi1ue.s 			page 7
+
+
+ 277 0004 0E       		.uleb128 0xe
+ 278 0005 13       		.uleb128 0x13
+ 279 0006 0B       		.uleb128 0xb
+ 280 0007 03       		.uleb128 0x3
+ 281 0008 0E       		.uleb128 0xe
+ 282 0009 1B       		.uleb128 0x1b
+ 283 000a 0E       		.uleb128 0xe
+ 284 000b 55       		.uleb128 0x55
+ 285 000c 17       		.uleb128 0x17
+ 286 000d 11       		.uleb128 0x11
+ 287 000e 01       		.uleb128 0x1
+ 288 000f 10       		.uleb128 0x10
+ 289 0010 17       		.uleb128 0x17
+ 290 0011 00       		.byte	0
+ 291 0012 00       		.byte	0
+ 292 0013 02       		.uleb128 0x2
+ 293 0014 24       		.uleb128 0x24
+ 294 0015 00       		.byte	0
+ 295 0016 0B       		.uleb128 0xb
+ 296 0017 0B       		.uleb128 0xb
+ 297 0018 3E       		.uleb128 0x3e
+ 298 0019 0B       		.uleb128 0xb
+ 299 001a 03       		.uleb128 0x3
+ 300 001b 0E       		.uleb128 0xe
+ 301 001c 00       		.byte	0
+ 302 001d 00       		.byte	0
+ 303 001e 03       		.uleb128 0x3
+ 304 001f 24       		.uleb128 0x24
+ 305 0020 00       		.byte	0
+ 306 0021 0B       		.uleb128 0xb
+ 307 0022 0B       		.uleb128 0xb
+ 308 0023 3E       		.uleb128 0x3e
+ 309 0024 0B       		.uleb128 0xb
+ 310 0025 03       		.uleb128 0x3
+ 311 0026 08       		.uleb128 0x8
+ 312 0027 00       		.byte	0
+ 313 0028 00       		.byte	0
+ 314 0029 04       		.uleb128 0x4
+ 315 002a 16       		.uleb128 0x16
+ 316 002b 00       		.byte	0
+ 317 002c 03       		.uleb128 0x3
+ 318 002d 0E       		.uleb128 0xe
+ 319 002e 3A       		.uleb128 0x3a
+ 320 002f 0B       		.uleb128 0xb
+ 321 0030 3B       		.uleb128 0x3b
+ 322 0031 05       		.uleb128 0x5
+ 323 0032 49       		.uleb128 0x49
+ 324 0033 13       		.uleb128 0x13
+ 325 0034 00       		.byte	0
+ 326 0035 00       		.byte	0
+ 327 0036 05       		.uleb128 0x5
+ 328 0037 35       		.uleb128 0x35
+ 329 0038 00       		.byte	0
+ 330 0039 49       		.uleb128 0x49
+ 331 003a 13       		.uleb128 0x13
+ 332 003b 00       		.byte	0
+ 333 003c 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccEDi1ue.s 			page 8
+
+
+ 334 003d 06       		.uleb128 0x6
+ 335 003e 2E       		.uleb128 0x2e
+ 336 003f 01       		.byte	0x1
+ 337 0040 3F       		.uleb128 0x3f
+ 338 0041 19       		.uleb128 0x19
+ 339 0042 03       		.uleb128 0x3
+ 340 0043 0E       		.uleb128 0xe
+ 341 0044 3A       		.uleb128 0x3a
+ 342 0045 0B       		.uleb128 0xb
+ 343 0046 3B       		.uleb128 0x3b
+ 344 0047 0B       		.uleb128 0xb
+ 345 0048 27       		.uleb128 0x27
+ 346 0049 19       		.uleb128 0x19
+ 347 004a 11       		.uleb128 0x11
+ 348 004b 01       		.uleb128 0x1
+ 349 004c 12       		.uleb128 0x12
+ 350 004d 06       		.uleb128 0x6
+ 351 004e 40       		.uleb128 0x40
+ 352 004f 18       		.uleb128 0x18
+ 353 0050 9742     		.uleb128 0x2117
+ 354 0052 19       		.uleb128 0x19
+ 355 0053 01       		.uleb128 0x1
+ 356 0054 13       		.uleb128 0x13
+ 357 0055 00       		.byte	0
+ 358 0056 00       		.byte	0
+ 359 0057 07       		.uleb128 0x7
+ 360 0058 05       		.uleb128 0x5
+ 361 0059 00       		.byte	0
+ 362 005a 03       		.uleb128 0x3
+ 363 005b 0E       		.uleb128 0xe
+ 364 005c 3A       		.uleb128 0x3a
+ 365 005d 0B       		.uleb128 0xb
+ 366 005e 3B       		.uleb128 0x3b
+ 367 005f 0B       		.uleb128 0xb
+ 368 0060 49       		.uleb128 0x49
+ 369 0061 13       		.uleb128 0x13
+ 370 0062 02       		.uleb128 0x2
+ 371 0063 17       		.uleb128 0x17
+ 372 0064 00       		.byte	0
+ 373 0065 00       		.byte	0
+ 374 0066 08       		.uleb128 0x8
+ 375 0067 2E       		.uleb128 0x2e
+ 376 0068 01       		.byte	0x1
+ 377 0069 3F       		.uleb128 0x3f
+ 378 006a 19       		.uleb128 0x19
+ 379 006b 03       		.uleb128 0x3
+ 380 006c 0E       		.uleb128 0xe
+ 381 006d 3A       		.uleb128 0x3a
+ 382 006e 0B       		.uleb128 0xb
+ 383 006f 3B       		.uleb128 0x3b
+ 384 0070 0B       		.uleb128 0xb
+ 385 0071 27       		.uleb128 0x27
+ 386 0072 19       		.uleb128 0x19
+ 387 0073 11       		.uleb128 0x11
+ 388 0074 01       		.uleb128 0x1
+ 389 0075 12       		.uleb128 0x12
+ 390 0076 06       		.uleb128 0x6
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccEDi1ue.s 			page 9
+
+
+ 391 0077 40       		.uleb128 0x40
+ 392 0078 18       		.uleb128 0x18
+ 393 0079 9742     		.uleb128 0x2117
+ 394 007b 19       		.uleb128 0x19
+ 395 007c 00       		.byte	0
+ 396 007d 00       		.byte	0
+ 397 007e 00       		.byte	0
+ 398              		.section	.debug_loc,"",%progbits
+ 399              	.Ldebug_loc0:
+ 400              	.LLST0:
+ 401 0000 00000000 		.4byte	.LVL0
+ 402 0004 08000000 		.4byte	.LVL1
+ 403 0008 0100     		.2byte	0x1
+ 404 000a 50       		.byte	0x50
+ 405 000b 08000000 		.4byte	.LVL1
+ 406 000f B4000000 		.4byte	.LFE0
+ 407 0013 0400     		.2byte	0x4
+ 408 0015 F3       		.byte	0xf3
+ 409 0016 01       		.uleb128 0x1
+ 410 0017 50       		.byte	0x50
+ 411 0018 9F       		.byte	0x9f
+ 412 0019 00000000 		.4byte	0
+ 413 001d 00000000 		.4byte	0
+ 414              	.LLST1:
+ 415 0021 00000000 		.4byte	.LVL2
+ 416 0025 0C000000 		.4byte	.LVL3
+ 417 0029 0100     		.2byte	0x1
+ 418 002b 50       		.byte	0x50
+ 419 002c 0C000000 		.4byte	.LVL3
+ 420 0030 18000000 		.4byte	.LFE1
+ 421 0034 0400     		.2byte	0x4
+ 422 0036 F3       		.byte	0xf3
+ 423 0037 01       		.uleb128 0x1
+ 424 0038 50       		.byte	0x50
+ 425 0039 9F       		.byte	0x9f
+ 426 003a 00000000 		.4byte	0
+ 427 003e 00000000 		.4byte	0
+ 428              		.section	.debug_aranges,"",%progbits
+ 429 0000 24000000 		.4byte	0x24
+ 430 0004 0200     		.2byte	0x2
+ 431 0006 00000000 		.4byte	.Ldebug_info0
+ 432 000a 04       		.byte	0x4
+ 433 000b 00       		.byte	0
+ 434 000c 0000     		.2byte	0
+ 435 000e 0000     		.2byte	0
+ 436 0010 00000000 		.4byte	.LFB0
+ 437 0014 B4000000 		.4byte	.LFE0-.LFB0
+ 438 0018 00000000 		.4byte	.LFB1
+ 439 001c 18000000 		.4byte	.LFE1-.LFB1
+ 440 0020 00000000 		.4byte	0
+ 441 0024 00000000 		.4byte	0
+ 442              		.section	.debug_ranges,"",%progbits
+ 443              	.Ldebug_ranges0:
+ 444 0000 00000000 		.4byte	.LFB0
+ 445 0004 B4000000 		.4byte	.LFE0
+ 446 0008 00000000 		.4byte	.LFB1
+ 447 000c 18000000 		.4byte	.LFE1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccEDi1ue.s 			page 10
+
+
+ 448 0010 00000000 		.4byte	0
+ 449 0014 00000000 		.4byte	0
+ 450              		.section	.debug_line,"",%progbits
+ 451              	.Ldebug_line0:
+ 452 0000 7E000000 		.section	.debug_str,"MS",%progbits,1
+ 452      02004A00 
+ 452      00000201 
+ 452      FB0E0D00 
+ 452      01010101 
+ 453              	.LASF19:
+ 454 0000 44697370 		.ascii	"Display1_ComPort_SetDriveMode\000"
+ 454      6C617931 
+ 454      5F436F6D 
+ 454      506F7274 
+ 454      5F536574 
+ 455              	.LASF16:
+ 456 001e 47656E65 		.ascii	"Generated_Source\\PSoC5\\Display1_Pins.c\000"
+ 456      72617465 
+ 456      645F536F 
+ 456      75726365 
+ 456      5C50536F 
+ 457              	.LASF9:
+ 458 0045 666C6F61 		.ascii	"float\000"
+ 458      7400
+ 459              	.LASF1:
+ 460 004b 756E7369 		.ascii	"unsigned char\000"
+ 460      676E6564 
+ 460      20636861 
+ 460      7200
+ 461              	.LASF15:
+ 462 0059 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 462      43313120 
+ 462      352E342E 
+ 462      31203230 
+ 462      31363036 
+ 463 008c 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 463      20726576 
+ 463      6973696F 
+ 463      6E203233 
+ 463      37373135 
+ 464 00bf 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 464      66756E63 
+ 464      74696F6E 
+ 464      2D736563 
+ 464      74696F6E 
+ 465              	.LASF13:
+ 466 00e7 72656738 		.ascii	"reg8\000"
+ 466      00
+ 467              	.LASF5:
+ 468 00ec 6C6F6E67 		.ascii	"long unsigned int\000"
+ 468      20756E73 
+ 468      69676E65 
+ 468      6420696E 
+ 468      7400
+ 469              	.LASF3:
+ 470 00fe 73686F72 		.ascii	"short unsigned int\000"
+ 470      7420756E 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccEDi1ue.s 			page 11
+
+
+ 470      7369676E 
+ 470      65642069 
+ 470      6E7400
+ 471              	.LASF18:
+ 472 0111 44697370 		.ascii	"Display1_SegPort_SetDriveMode\000"
+ 472      6C617931 
+ 472      5F536567 
+ 472      506F7274 
+ 472      5F536574 
+ 473              	.LASF10:
+ 474 012f 646F7562 		.ascii	"double\000"
+ 474      6C6500
+ 475              	.LASF8:
+ 476 0136 756E7369 		.ascii	"unsigned int\000"
+ 476      676E6564 
+ 476      20696E74 
+ 476      00
+ 477              	.LASF7:
+ 478 0143 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 478      206C6F6E 
+ 478      6720756E 
+ 478      7369676E 
+ 478      65642069 
+ 479              	.LASF17:
+ 480 015a 443A5C55 		.ascii	"D:\\Users\\ESTEBAN\\Desktop\\Materias\\Codigos\\Psc"
+ 480      73657273 
+ 480      5C455354 
+ 480      4542414E 
+ 480      5C446573 
+ 481 0187 6F635C61 		.ascii	"oc\\as\\LABVIEW\\labview.cydsn\000"
+ 481      735C4C41 
+ 481      42564945 
+ 481      575C6C61 
+ 481      62766965 
+ 482              	.LASF14:
+ 483 01a3 6D6F6465 		.ascii	"mode\000"
+ 483      00
+ 484              	.LASF6:
+ 485 01a8 6C6F6E67 		.ascii	"long long int\000"
+ 485      206C6F6E 
+ 485      6720696E 
+ 485      7400
+ 486              	.LASF11:
+ 487 01b6 63686172 		.ascii	"char\000"
+ 487      00
+ 488              	.LASF2:
+ 489 01bb 73686F72 		.ascii	"short int\000"
+ 489      7420696E 
+ 489      7400
+ 490              	.LASF12:
+ 491 01c5 75696E74 		.ascii	"uint8\000"
+ 491      3800
+ 492              	.LASF4:
+ 493 01cb 6C6F6E67 		.ascii	"long int\000"
+ 493      20696E74 
+ 493      00
+ 494              	.LASF0:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccEDi1ue.s 			page 12
+
+
+ 495 01d4 7369676E 		.ascii	"signed char\000"
+ 495      65642063 
+ 495      68617200 
+ 496              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

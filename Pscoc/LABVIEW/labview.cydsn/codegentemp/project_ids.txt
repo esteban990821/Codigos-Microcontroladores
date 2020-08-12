@@ -1,0 +1,6 @@
+D:\Users\ESTEBAN\Desktop\Materias\Codigos\Pscoc\LABVIEW\labview.cydsn\labview.cyprj|50b4b37e-4eda-402e-a559-f0b08e676d38
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|0e1b813c-abcc-48da-a892-6513c59545a3
+D:\Users\ESTEBAN\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|174fb14e-87d1-4a75-92dd-29b7eb6a9a74
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|8ea410a0-ca04-4a20-b429-0385b1f7c4d2
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|990417c6-971c-4c1e-8763-91ff2db933cd
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|4a3a9fd4-240b-4b5a-b9e8-b81645e3c691

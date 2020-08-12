@@ -1,0 +1,6 @@
+F:\Psoc\el original\Todo\ADC+UART+MUX - copia\Design01.cydsn\Design01.cyprj|484b5a4e-3e13-4903-9c67-840544f66fa6
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|4dd0a1e8-f01b-48ea-9f55-f94f8c149e10
+D:\Users\ESTEBAN\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|664c7e99-c4c5-4284-ad30-fa3b94cd061e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|b257c827-6880-4a07-9245-24e72f1931d1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|20b8f395-fece-40e4-9c7b-ab5aaf47e7bd
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|d3d25f8c-47a6-4e1c-a1b7-f429d0fb9c9f

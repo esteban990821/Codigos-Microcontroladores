@@ -1,0 +1,6 @@
+D:\Users\ESTEBAN\Desktop\Materias\Codigos\Pscoc\Carro Matlab\Sensor_Capacitivo_Comunicacion_USB\USB_Serial.cydsn\USB_Serial.cyprj|c16a8754-aed4-4a51-b0cd-f777358f72d6
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|8f6ce977-85a7-48bb-9c7f-aa4291466acb
+D:\Users\ESTEBAN\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|528cbd1b-e2d1-4dcc-8eaf-428c56963ae8
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|0a127141-3d9e-4755-a492-625b7597f9ea
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|eb1a425c-10d0-4ac1-92d5-44d42e01099b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|572ec7d2-9819-497e-bdc7-39f4c6a4c66b

@@ -1,0 +1,17 @@
+# USB_Serial
+# 2019-05-12 02:54:33Z
+
+# IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 0
+# IO_1@[IOP=(1)][IoId=(1)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 1
+# IO_3@[IOP=(1)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 3
+set_io "\USB:Dm(0)\" iocell 15 7
+set_io "\USB:Dp(0)\" iocell 15 6
+set_io "Entrada(0)" iocell 6 5
+set_io "Entrada2(0)" iocell 3 7
+set_io "Pulsador(0)" iocell 6 1
+set_location "\USB:USB\" usbcell -1 -1 0
+set_location "\ADC_2:ADC_SAR\" sarcell -1 -1 1
+set_location "\ADC_1:ADC_SAR\" sarcell -1 -1 0

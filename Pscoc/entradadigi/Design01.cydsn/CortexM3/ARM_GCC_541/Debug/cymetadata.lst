@@ -1,0 +1,1351 @@
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 820
+  28              	cy_meta_configecc:
+  29 0000 02       		.byte	2
+  30 0001 52       		.byte	82
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 03       		.byte	3
+  34 0005 65       		.byte	101
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 02       		.byte	2
+  38 0009 15       		.byte	21
+  39 000a 01       		.byte	1
+  40 000b 40       		.byte	64
+  41 000c 5D       		.byte	93
+  42 000d 18       		.byte	24
+  43 000e 01       		.byte	1
+  44 000f 40       		.byte	64
+  45 0010 38       		.byte	56
+  46 0011 19       		.byte	25
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 67       		.byte	103
+  50 0015 1A       		.byte	26
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 4B       		.byte	75
+  54 0019 1B       		.byte	27
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 03       		.byte	3
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 2
+
+
+  58 001d 40       		.byte	64
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 02       		.byte	2
+  62 0021 41       		.byte	65
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 02       		.byte	2
+  66 0025 42       		.byte	66
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 02       		.byte	2
+  70 0029 43       		.byte	67
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 02       		.byte	2
+  74 002d 48       		.byte	72
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 06       		.byte	6
+  78 0031 49       		.byte	73
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 01       		.byte	1
+  82 0035 4C       		.byte	76
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 07       		.byte	7
+  86 0039 4D       		.byte	77
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 02       		.byte	2
+  90 003d 50       		.byte	80
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 01       		.byte	1
+  94 0041 51       		.byte	81
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 61       		.byte	97
+  98 0045 80       		.byte	-128
+  99 0046 64       		.byte	100
+ 100 0047 40       		.byte	64
+ 101 0048 89       		.byte	-119
+ 102 0049 72       		.byte	114
+ 103 004a 8A       		.byte	-118
+ 104 004b 38       		.byte	56
+ 105 004c 8B       		.byte	-117
+ 106 004d 0F       		.byte	15
+ 107 004e E2       		.byte	-30
+ 108 004f 02       		.byte	2
+ 109 0050 E6       		.byte	-26
+ 110 0051 04       		.byte	4
+ 111 0052 00       		.byte	0
+ 112 0053 14       		.byte	20
+ 113 0054 03       		.byte	3
+ 114 0055 08       		.byte	8
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 3
+
+
+ 115 0056 04       		.byte	4
+ 116 0057 10       		.byte	16
+ 117 0058 06       		.byte	6
+ 118 0059 AC       		.byte	-84
+ 119 005a 08       		.byte	8
+ 120 005b 09       		.byte	9
+ 121 005c 09       		.byte	9
+ 122 005d 80       		.byte	-128
+ 123 005e 0A       		.byte	10
+ 124 005f D0       		.byte	-48
+ 125 0060 0B       		.byte	11
+ 126 0061 13       		.byte	19
+ 127 0062 0C       		.byte	12
+ 128 0063 DC       		.byte	-36
+ 129 0064 0E       		.byte	14
+ 130 0065 22       		.byte	34
+ 131 0066 11       		.byte	17
+ 132 0067 2C       		.byte	44
+ 133 0068 13       		.byte	19
+ 134 0069 43       		.byte	67
+ 135 006a 16       		.byte	22
+ 136 006b 20       		.byte	32
+ 137 006c 17       		.byte	23
+ 138 006d 0C       		.byte	12
+ 139 006e 1E       		.byte	30
+ 140 006f 03       		.byte	3
+ 141 0070 20       		.byte	32
+ 142 0071 10       		.byte	16
+ 143 0072 22       		.byte	34
+ 144 0073 40       		.byte	64
+ 145 0074 25       		.byte	37
+ 146 0075 71       		.byte	113
+ 147 0076 27       		.byte	39
+ 148 0077 0E       		.byte	14
+ 149 0078 28       		.byte	40
+ 150 0079 0C       		.byte	12
+ 151 007a 29       		.byte	41
+ 152 007b 71       		.byte	113
+ 153 007c 2A       		.byte	42
+ 154 007d 71       		.byte	113
+ 155 007e 2B       		.byte	43
+ 156 007f 06       		.byte	6
+ 157 0080 33       		.byte	51
+ 158 0081 30       		.byte	48
+ 159 0082 34       		.byte	52
+ 160 0083 E0       		.byte	-32
+ 161 0084 35       		.byte	53
+ 162 0085 C0       		.byte	-64
+ 163 0086 36       		.byte	54
+ 164 0087 1F       		.byte	31
+ 165 0088 37       		.byte	55
+ 166 0089 0F       		.byte	15
+ 167 008a 39       		.byte	57
+ 168 008b 28       		.byte	40
+ 169 008c 3A       		.byte	58
+ 170 008d 20       		.byte	32
+ 171 008e 3B       		.byte	59
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 4
+
+
+ 172 008f 80       		.byte	-128
+ 173 0090 3F       		.byte	63
+ 174 0091 04       		.byte	4
+ 175 0092 40       		.byte	64
+ 176 0093 02       		.byte	2
+ 177 0094 45       		.byte	69
+ 178 0095 40       		.byte	64
+ 179 0096 49       		.byte	73
+ 180 0097 FF       		.byte	-1
+ 181 0098 4A       		.byte	74
+ 182 0099 07       		.byte	7
+ 183 009a 4B       		.byte	75
+ 184 009b FF       		.byte	-1
+ 185 009c 4C       		.byte	76
+ 186 009d 40       		.byte	64
+ 187 009e 4D       		.byte	77
+ 188 009f 20       		.byte	32
+ 189 00a0 4E       		.byte	78
+ 190 00a1 F0       		.byte	-16
+ 191 00a2 4F       		.byte	79
+ 192 00a3 05       		.byte	5
+ 193 00a4 50       		.byte	80
+ 194 00a5 08       		.byte	8
+ 195 00a6 58       		.byte	88
+ 196 00a7 04       		.byte	4
+ 197 00a8 59       		.byte	89
+ 198 00a9 04       		.byte	4
+ 199 00aa 5A       		.byte	90
+ 200 00ab 04       		.byte	4
+ 201 00ac 5F       		.byte	95
+ 202 00ad 01       		.byte	1
+ 203 00ae 60       		.byte	96
+ 204 00af 40       		.byte	64
+ 205 00b0 61       		.byte	97
+ 206 00b1 A8       		.byte	-88
+ 207 00b2 62       		.byte	98
+ 208 00b3 40       		.byte	64
+ 209 00b4 63       		.byte	99
+ 210 00b5 20       		.byte	32
+ 211 00b6 80       		.byte	-128
+ 212 00b7 3F       		.byte	63
+ 213 00b8 81       		.byte	-127
+ 214 00b9 10       		.byte	16
+ 215 00ba 84       		.byte	-124
+ 216 00bb 33       		.byte	51
+ 217 00bc 85       		.byte	-123
+ 218 00bd 18       		.byte	24
+ 219 00be 86       		.byte	-122
+ 220 00bf 0C       		.byte	12
+ 221 00c0 88       		.byte	-120
+ 222 00c1 1F       		.byte	31
+ 223 00c2 89       		.byte	-119
+ 224 00c3 08       		.byte	8
+ 225 00c4 8A       		.byte	-118
+ 226 00c5 20       		.byte	32
+ 227 00c6 8C       		.byte	-116
+ 228 00c7 1C       		.byte	28
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 5
+
+
+ 229 00c8 8D       		.byte	-115
+ 230 00c9 3C       		.byte	60
+ 231 00ca 8E       		.byte	-114
+ 232 00cb 23       		.byte	35
+ 233 00cc 8F       		.byte	-113
+ 234 00cd 02       		.byte	2
+ 235 00ce 90       		.byte	-112
+ 236 00cf 03       		.byte	3
+ 237 00d0 91       		.byte	-111
+ 238 00d1 04       		.byte	4
+ 239 00d2 96       		.byte	-106
+ 240 00d3 23       		.byte	35
+ 241 00d4 98       		.byte	-104
+ 242 00d5 02       		.byte	2
+ 243 00d6 99       		.byte	-103
+ 244 00d7 1C       		.byte	28
+ 245 00d8 9B       		.byte	-101
+ 246 00d9 21       		.byte	33
+ 247 00da 9C       		.byte	-100
+ 248 00db 40       		.byte	64
+ 249 00dc 9D       		.byte	-99
+ 250 00dd 3F       		.byte	63
+ 251 00de A0       		.byte	-96
+ 252 00df 08       		.byte	8
+ 253 00e0 A4       		.byte	-92
+ 254 00e1 04       		.byte	4
+ 255 00e2 A7       		.byte	-89
+ 256 00e3 04       		.byte	4
+ 257 00e4 A8       		.byte	-88
+ 258 00e5 0C       		.byte	12
+ 259 00e6 AB       		.byte	-85
+ 260 00e7 23       		.byte	35
+ 261 00e8 AC       		.byte	-84
+ 262 00e9 01       		.byte	1
+ 263 00ea AD       		.byte	-83
+ 264 00eb 27       		.byte	39
+ 265 00ec AF       		.byte	-81
+ 266 00ed 18       		.byte	24
+ 267 00ee B0       		.byte	-80
+ 268 00ef 10       		.byte	16
+ 269 00f0 B1       		.byte	-79
+ 270 00f1 1F       		.byte	31
+ 271 00f2 B2       		.byte	-78
+ 272 00f3 2C       		.byte	44
+ 273 00f4 B4       		.byte	-76
+ 274 00f5 0F       		.byte	15
+ 275 00f6 B5       		.byte	-75
+ 276 00f7 38       		.byte	56
+ 277 00f8 B6       		.byte	-74
+ 278 00f9 40       		.byte	64
+ 279 00fa BA       		.byte	-70
+ 280 00fb 28       		.byte	40
+ 281 00fc BB       		.byte	-69
+ 282 00fd 82       		.byte	-126
+ 283 00fe BE       		.byte	-66
+ 284 00ff 41       		.byte	65
+ 285 0100 D6       		.byte	-42
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 6
+
+
+ 286 0101 02       		.byte	2
+ 287 0102 D7       		.byte	-41
+ 288 0103 13       		.byte	19
+ 289 0104 D8       		.byte	-40
+ 290 0105 04       		.byte	4
+ 291 0106 D9       		.byte	-39
+ 292 0107 04       		.byte	4
+ 293 0108 DB       		.byte	-37
+ 294 0109 04       		.byte	4
+ 295 010a DF       		.byte	-33
+ 296 010b 01       		.byte	1
+ 297 010c 00       		.byte	0
+ 298 010d 54       		.byte	84
+ 299 010e 02       		.byte	2
+ 300 010f 80       		.byte	-128
+ 301 0110 05       		.byte	5
+ 302 0111 04       		.byte	4
+ 303 0112 06       		.byte	6
+ 304 0113 80       		.byte	-128
+ 305 0114 07       		.byte	7
+ 306 0115 0A       		.byte	10
+ 307 0116 08       		.byte	8
+ 308 0117 04       		.byte	4
+ 309 0118 0A       		.byte	10
+ 310 0119 89       		.byte	-119
+ 311 011a 0E       		.byte	14
+ 312 011b 01       		.byte	1
+ 313 011c 0F       		.byte	15
+ 314 011d 20       		.byte	32
+ 315 011e 10       		.byte	16
+ 316 011f 82       		.byte	-126
+ 317 0120 13       		.byte	19
+ 318 0121 14       		.byte	20
+ 319 0122 15       		.byte	21
+ 320 0123 01       		.byte	1
+ 321 0124 16       		.byte	22
+ 322 0125 08       		.byte	8
+ 323 0126 18       		.byte	24
+ 324 0127 14       		.byte	20
+ 325 0128 19       		.byte	25
+ 326 0129 81       		.byte	-127
+ 327 012a 1A       		.byte	26
+ 328 012b 24       		.byte	36
+ 329 012c 1E       		.byte	30
+ 330 012d 01       		.byte	1
+ 331 012e 1F       		.byte	31
+ 332 012f 10       		.byte	16
+ 333 0130 20       		.byte	32
+ 334 0131 48       		.byte	72
+ 335 0132 22       		.byte	34
+ 336 0133 80       		.byte	-128
+ 337 0134 27       		.byte	39
+ 338 0135 2A       		.byte	42
+ 339 0136 28       		.byte	40
+ 340 0137 04       		.byte	4
+ 341 0138 2A       		.byte	42
+ 342 0139 20       		.byte	32
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 7
+
+
+ 343 013a 2B       		.byte	43
+ 344 013b 22       		.byte	34
+ 345 013c 2E       		.byte	46
+ 346 013d 08       		.byte	8
+ 347 013e 2F       		.byte	47
+ 348 013f 18       		.byte	24
+ 349 0140 30       		.byte	48
+ 350 0141 02       		.byte	2
+ 351 0142 32       		.byte	50
+ 352 0143 90       		.byte	-112
+ 353 0144 37       		.byte	55
+ 354 0145 0A       		.byte	10
+ 355 0146 38       		.byte	56
+ 356 0147 68       		.byte	104
+ 357 0148 3A       		.byte	58
+ 358 0149 02       		.byte	2
+ 359 014a 3D       		.byte	61
+ 360 014b 01       		.byte	1
+ 361 014c 3F       		.byte	63
+ 362 014d 20       		.byte	32
+ 363 014e 47       		.byte	71
+ 364 014f 20       		.byte	32
+ 365 0150 4D       		.byte	77
+ 366 0151 01       		.byte	1
+ 367 0152 57       		.byte	87
+ 368 0153 10       		.byte	16
+ 369 0154 59       		.byte	89
+ 370 0155 01       		.byte	1
+ 371 0156 69       		.byte	105
+ 372 0157 14       		.byte	20
+ 373 0158 6A       		.byte	106
+ 374 0159 40       		.byte	64
+ 375 015a 70       		.byte	112
+ 376 015b 94       		.byte	-108
+ 377 015c 72       		.byte	114
+ 378 015d 02       		.byte	2
+ 379 015e 73       		.byte	115
+ 380 015f 14       		.byte	20
+ 381 0160 79       		.byte	121
+ 382 0161 02       		.byte	2
+ 383 0162 7A       		.byte	122
+ 384 0163 80       		.byte	-128
+ 385 0164 85       		.byte	-123
+ 386 0165 80       		.byte	-128
+ 387 0166 8C       		.byte	-116
+ 388 0167 04       		.byte	4
+ 389 0168 8F       		.byte	-113
+ 390 0169 02       		.byte	2
+ 391 016a C0       		.byte	-64
+ 392 016b FF       		.byte	-1
+ 393 016c C2       		.byte	-62
+ 394 016d AF       		.byte	-81
+ 395 016e C4       		.byte	-60
+ 396 016f 5F       		.byte	95
+ 397 0170 CA       		.byte	-54
+ 398 0171 6E       		.byte	110
+ 399 0172 CC       		.byte	-52
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 8
+
+
+ 400 0173 CD       		.byte	-51
+ 401 0174 CE       		.byte	-50
+ 402 0175 AF       		.byte	-81
+ 403 0176 D0       		.byte	-48
+ 404 0177 20       		.byte	32
+ 405 0178 D6       		.byte	-42
+ 406 0179 01       		.byte	1
+ 407 017a E0       		.byte	-32
+ 408 017b 08       		.byte	8
+ 409 017c 05       		.byte	5
+ 410 017d 7C       		.byte	124
+ 411 017e 06       		.byte	6
+ 412 017f 02       		.byte	2
+ 413 0180 09       		.byte	9
+ 414 0181 7C       		.byte	124
+ 415 0182 0A       		.byte	10
+ 416 0183 08       		.byte	8
+ 417 0184 0E       		.byte	14
+ 418 0185 02       		.byte	2
+ 419 0186 0F       		.byte	15
+ 420 0187 83       		.byte	-125
+ 421 0188 10       		.byte	16
+ 422 0189 01       		.byte	1
+ 423 018a 11       		.byte	17
+ 424 018b 29       		.byte	41
+ 425 018c 13       		.byte	19
+ 426 018d 44       		.byte	68
+ 427 018e 15       		.byte	21
+ 428 018f 52       		.byte	82
+ 429 0190 17       		.byte	23
+ 430 0191 24       		.byte	36
+ 431 0192 1B       		.byte	27
+ 432 0193 83       		.byte	-125
+ 433 0194 1D       		.byte	29
+ 434 0195 07       		.byte	7
+ 435 0196 1F       		.byte	31
+ 436 0197 18       		.byte	24
+ 437 0198 21       		.byte	33
+ 438 0199 83       		.byte	-125
+ 439 019a 22       		.byte	34
+ 440 019b 04       		.byte	4
+ 441 019c 24       		.byte	36
+ 442 019d 01       		.byte	1
+ 443 019e 27       		.byte	39
+ 444 019f 03       		.byte	3
+ 445 01a0 28       		.byte	40
+ 446 01a1 01       		.byte	1
+ 447 01a2 29       		.byte	41
+ 448 01a3 83       		.byte	-125
+ 449 01a4 2E       		.byte	46
+ 450 01a5 18       		.byte	24
+ 451 01a6 30       		.byte	48
+ 452 01a7 02       		.byte	2
+ 453 01a8 31       		.byte	49
+ 454 01a9 03       		.byte	3
+ 455 01aa 32       		.byte	50
+ 456 01ab 01       		.byte	1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 9
+
+
+ 457 01ac 33       		.byte	51
+ 458 01ad 60       		.byte	96
+ 459 01ae 34       		.byte	52
+ 460 01af 10       		.byte	16
+ 461 01b0 35       		.byte	53
+ 462 01b1 80       		.byte	-128
+ 463 01b2 36       		.byte	54
+ 464 01b3 0C       		.byte	12
+ 465 01b4 37       		.byte	55
+ 466 01b5 1C       		.byte	28
+ 467 01b6 39       		.byte	57
+ 468 01b7 20       		.byte	32
+ 469 01b8 3E       		.byte	62
+ 470 01b9 41       		.byte	65
+ 471 01ba 40       		.byte	64
+ 472 01bb 23       		.byte	35
+ 473 01bc 41       		.byte	65
+ 474 01bd 04       		.byte	4
+ 475 01be 42       		.byte	66
+ 476 01bf 06       		.byte	6
+ 477 01c0 44       		.byte	68
+ 478 01c1 01       		.byte	1
+ 479 01c2 45       		.byte	69
+ 480 01c3 E0       		.byte	-32
+ 481 01c4 47       		.byte	71
+ 482 01c5 C0       		.byte	-64
+ 483 01c6 48       		.byte	72
+ 484 01c7 22       		.byte	34
+ 485 01c8 49       		.byte	73
+ 486 01c9 FF       		.byte	-1
+ 487 01ca 4A       		.byte	74
+ 488 01cb FF       		.byte	-1
+ 489 01cc 4B       		.byte	75
+ 490 01cd FF       		.byte	-1
+ 491 01ce 4C       		.byte	76
+ 492 01cf 62       		.byte	98
+ 493 01d0 4D       		.byte	77
+ 494 01d1 A0       		.byte	-96
+ 495 01d2 4E       		.byte	78
+ 496 01d3 F0       		.byte	-16
+ 497 01d4 4F       		.byte	79
+ 498 01d5 41       		.byte	65
+ 499 01d6 50       		.byte	80
+ 500 01d7 0C       		.byte	12
+ 501 01d8 54       		.byte	84
+ 502 01d9 18       		.byte	24
+ 503 01da 56       		.byte	86
+ 504 01db 04       		.byte	4
+ 505 01dc 58       		.byte	88
+ 506 01dd 04       		.byte	4
+ 507 01de 59       		.byte	89
+ 508 01df 04       		.byte	4
+ 509 01e0 5A       		.byte	90
+ 510 01e1 04       		.byte	4
+ 511 01e2 5B       		.byte	91
+ 512 01e3 04       		.byte	4
+ 513 01e4 5F       		.byte	95
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 10
+
+
+ 514 01e5 01       		.byte	1
+ 515 01e6 66       		.byte	102
+ 516 01e7 40       		.byte	64
+ 517 01e8 67       		.byte	103
+ 518 01e9 02       		.byte	2
+ 519 01ea 69       		.byte	105
+ 520 01eb 10       		.byte	16
+ 521 01ec 6A       		.byte	106
+ 522 01ed 30       		.byte	48
+ 523 01ee 6B       		.byte	107
+ 524 01ef 10       		.byte	16
+ 525 01f0 6D       		.byte	109
+ 526 01f1 10       		.byte	16
+ 527 01f2 6E       		.byte	110
+ 528 01f3 10       		.byte	16
+ 529 01f4 6F       		.byte	111
+ 530 01f5 12       		.byte	18
+ 531 01f6 84       		.byte	-124
+ 532 01f7 13       		.byte	19
+ 533 01f8 86       		.byte	-122
+ 534 01f9 0C       		.byte	12
+ 535 01fa 88       		.byte	-120
+ 536 01fb 13       		.byte	19
+ 537 01fc 8A       		.byte	-118
+ 538 01fd 04       		.byte	4
+ 539 01fe 8C       		.byte	-116
+ 540 01ff 03       		.byte	3
+ 541 0200 8E       		.byte	-114
+ 542 0201 14       		.byte	20
+ 543 0202 93       		.byte	-109
+ 544 0203 01       		.byte	1
+ 545 0204 96       		.byte	-106
+ 546 0205 15       		.byte	21
+ 547 0206 9B       		.byte	-101
+ 548 0207 01       		.byte	1
+ 549 0208 A0       		.byte	-96
+ 550 0209 0A       		.byte	10
+ 551 020a A2       		.byte	-94
+ 552 020b 14       		.byte	20
+ 553 020c A6       		.byte	-90
+ 554 020d 08       		.byte	8
+ 555 020e A8       		.byte	-88
+ 556 020f 20       		.byte	32
+ 557 0210 B0       		.byte	-80
+ 558 0211 10       		.byte	16
+ 559 0212 B2       		.byte	-78
+ 560 0213 0F       		.byte	15
+ 561 0214 B4       		.byte	-76
+ 562 0215 20       		.byte	32
+ 563 0216 B5       		.byte	-75
+ 564 0217 01       		.byte	1
+ 565 0218 BA       		.byte	-70
+ 566 0219 08       		.byte	8
+ 567 021a BE       		.byte	-66
+ 568 021b 11       		.byte	17
+ 569 021c BF       		.byte	-65
+ 570 021d 10       		.byte	16
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 11
+
+
+ 571 021e C0       		.byte	-64
+ 572 021f 36       		.byte	54
+ 573 0220 C1       		.byte	-63
+ 574 0221 02       		.byte	2
+ 575 0222 C5       		.byte	-59
+ 576 0223 E0       		.byte	-32
+ 577 0224 C6       		.byte	-58
+ 578 0225 0B       		.byte	11
+ 579 0226 C7       		.byte	-57
+ 580 0227 CE       		.byte	-50
+ 581 0228 C8       		.byte	-56
+ 582 0229 36       		.byte	54
+ 583 022a C9       		.byte	-55
+ 584 022b FF       		.byte	-1
+ 585 022c CA       		.byte	-54
+ 586 022d FF       		.byte	-1
+ 587 022e CB       		.byte	-53
+ 588 022f FF       		.byte	-1
+ 589 0230 CE       		.byte	-50
+ 590 0231 F0       		.byte	-16
+ 591 0232 CF       		.byte	-49
+ 592 0233 44       		.byte	68
+ 593 0234 D0       		.byte	-48
+ 594 0235 0C       		.byte	12
+ 595 0236 D4       		.byte	-44
+ 596 0237 01       		.byte	1
+ 597 0238 D6       		.byte	-42
+ 598 0239 04       		.byte	4
+ 599 023a D8       		.byte	-40
+ 600 023b 04       		.byte	4
+ 601 023c D9       		.byte	-39
+ 602 023d 04       		.byte	4
+ 603 023e DA       		.byte	-38
+ 604 023f 04       		.byte	4
+ 605 0240 DB       		.byte	-37
+ 606 0241 04       		.byte	4
+ 607 0242 DF       		.byte	-33
+ 608 0243 01       		.byte	1
+ 609 0244 E6       		.byte	-26
+ 610 0245 C0       		.byte	-64
+ 611 0246 EA       		.byte	-22
+ 612 0247 40       		.byte	64
+ 613 0248 EB       		.byte	-21
+ 614 0249 02       		.byte	2
+ 615 024a 00       		.byte	0
+ 616 024b 18       		.byte	24
+ 617 024c 02       		.byte	2
+ 618 024d 01       		.byte	1
+ 619 024e 05       		.byte	5
+ 620 024f 04       		.byte	4
+ 621 0250 06       		.byte	6
+ 622 0251 0A       		.byte	10
+ 623 0252 0A       		.byte	10
+ 624 0253 40       		.byte	64
+ 625 0254 0F       		.byte	15
+ 626 0255 20       		.byte	32
+ 627 0256 10       		.byte	16
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 12
+
+
+ 628 0257 02       		.byte	2
+ 629 0258 11       		.byte	17
+ 630 0259 14       		.byte	20
+ 631 025a 12       		.byte	18
+ 632 025b 80       		.byte	-128
+ 633 025c 16       		.byte	22
+ 634 025d 04       		.byte	4
+ 635 025e 17       		.byte	23
+ 636 025f 0A       		.byte	10
+ 637 0260 18       		.byte	24
+ 638 0261 01       		.byte	1
+ 639 0262 19       		.byte	25
+ 640 0263 08       		.byte	8
+ 641 0264 1A       		.byte	26
+ 642 0265 10       		.byte	16
+ 643 0266 1B       		.byte	27
+ 644 0267 21       		.byte	33
+ 645 0268 1D       		.byte	29
+ 646 0269 0C       		.byte	12
+ 647 026a 1E       		.byte	30
+ 648 026b 88       		.byte	-120
+ 649 026c 1F       		.byte	31
+ 650 026d 08       		.byte	8
+ 651 026e 20       		.byte	32
+ 652 026f 10       		.byte	16
+ 653 0270 22       		.byte	34
+ 654 0271 E5       		.byte	-27
+ 655 0272 24       		.byte	36
+ 656 0273 04       		.byte	4
+ 657 0274 28       		.byte	40
+ 658 0275 88       		.byte	-120
+ 659 0276 29       		.byte	41
+ 660 0277 08       		.byte	8
+ 661 0278 30       		.byte	48
+ 662 0279 02       		.byte	2
+ 663 027a 32       		.byte	50
+ 664 027b 54       		.byte	84
+ 665 027c 35       		.byte	53
+ 666 027d 01       		.byte	1
+ 667 027e 36       		.byte	54
+ 668 027f 20       		.byte	32
+ 669 0280 38       		.byte	56
+ 670 0281 40       		.byte	64
+ 671 0282 39       		.byte	57
+ 672 0283 14       		.byte	20
+ 673 0284 40       		.byte	64
+ 674 0285 89       		.byte	-119
+ 675 0286 41       		.byte	65
+ 676 0287 01       		.byte	1
+ 677 0288 42       		.byte	66
+ 678 0289 34       		.byte	52
+ 679 028a 45       		.byte	69
+ 680 028b 08       		.byte	8
+ 681 028c 46       		.byte	70
+ 682 028d 08       		.byte	8
+ 683 028e 48       		.byte	72
+ 684 028f 04       		.byte	4
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 13
+
+
+ 685 0290 49       		.byte	73
+ 686 0291 01       		.byte	1
+ 687 0292 4D       		.byte	77
+ 688 0293 01       		.byte	1
+ 689 0294 4F       		.byte	79
+ 690 0295 20       		.byte	32
+ 691 0296 52       		.byte	82
+ 692 0297 01       		.byte	1
+ 693 0298 56       		.byte	86
+ 694 0299 86       		.byte	-122
+ 695 029a 5A       		.byte	90
+ 696 029b 02       		.byte	2
+ 697 029c 5C       		.byte	92
+ 698 029d 20       		.byte	32
+ 699 029e 5D       		.byte	93
+ 700 029f 01       		.byte	1
+ 701 02a0 5E       		.byte	94
+ 702 02a1 88       		.byte	-120
+ 703 02a2 60       		.byte	96
+ 704 02a3 04       		.byte	4
+ 705 02a4 62       		.byte	98
+ 706 02a5 02       		.byte	2
+ 707 02a6 63       		.byte	99
+ 708 02a7 02       		.byte	2
+ 709 02a8 65       		.byte	101
+ 710 02a9 02       		.byte	2
+ 711 02aa 81       		.byte	-127
+ 712 02ab 02       		.byte	2
+ 713 02ac 86       		.byte	-122
+ 714 02ad 02       		.byte	2
+ 715 02ae 88       		.byte	-120
+ 716 02af 02       		.byte	2
+ 717 02b0 8C       		.byte	-116
+ 718 02b1 20       		.byte	32
+ 719 02b2 8E       		.byte	-114
+ 720 02b3 02       		.byte	2
+ 721 02b4 90       		.byte	-112
+ 722 02b5 40       		.byte	64
+ 723 02b6 91       		.byte	-111
+ 724 02b7 16       		.byte	22
+ 725 02b8 92       		.byte	-110
+ 726 02b9 64       		.byte	100
+ 727 02ba 96       		.byte	-106
+ 728 02bb 88       		.byte	-120
+ 729 02bc 9A       		.byte	-102
+ 730 02bd 08       		.byte	8
+ 731 02be 9B       		.byte	-101
+ 732 02bf 0A       		.byte	10
+ 733 02c0 9D       		.byte	-99
+ 734 02c1 04       		.byte	4
+ 735 02c2 9E       		.byte	-98
+ 736 02c3 A0       		.byte	-96
+ 737 02c4 A0       		.byte	-96
+ 738 02c5 04       		.byte	4
+ 739 02c6 A3       		.byte	-93
+ 740 02c7 10       		.byte	16
+ 741 02c8 A4       		.byte	-92
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 14
+
+
+ 742 02c9 02       		.byte	2
+ 743 02ca A7       		.byte	-89
+ 744 02cb 28       		.byte	40
+ 745 02cc C0       		.byte	-64
+ 746 02cd E7       		.byte	-25
+ 747 02ce C2       		.byte	-62
+ 748 02cf 28       		.byte	40
+ 749 02d0 C4       		.byte	-60
+ 750 02d1 7F       		.byte	127
+ 751 02d2 CA       		.byte	-54
+ 752 02d3 07       		.byte	7
+ 753 02d4 CC       		.byte	-52
+ 754 02d5 AF       		.byte	-81
+ 755 02d6 CE       		.byte	-50
+ 756 02d7 0E       		.byte	14
+ 757 02d8 D0       		.byte	-48
+ 758 02d9 6F       		.byte	111
+ 759 02da D2       		.byte	-46
+ 760 02db 24       		.byte	36
+ 761 02dc D6       		.byte	-42
+ 762 02dd F1       		.byte	-15
+ 763 02de D8       		.byte	-40
+ 764 02df 8D       		.byte	-115
+ 765 02e0 31       		.byte	49
+ 766 02e1 10       		.byte	16
+ 767 02e2 37       		.byte	55
+ 768 02e3 80       		.byte	-128
+ 769 02e4 CC       		.byte	-52
+ 770 02e5 30       		.byte	48
+ 771 02e6 9D       		.byte	-99
+ 772 02e7 10       		.byte	16
+ 773 02e8 9F       		.byte	-97
+ 774 02e9 80       		.byte	-128
+ 775 02ea 9D       		.byte	-99
+ 776 02eb 10       		.byte	16
+ 777 02ec 9F       		.byte	-97
+ 778 02ed 80       		.byte	-128
+ 779 02ee 9D       		.byte	-99
+ 780 02ef 10       		.byte	16
+ 781 02f0 9F       		.byte	-97
+ 782 02f1 80       		.byte	-128
+ 783 02f2 9D       		.byte	-99
+ 784 02f3 10       		.byte	16
+ 785 02f4 9F       		.byte	-97
+ 786 02f5 80       		.byte	-128
+ 787 02f6 81       		.byte	-127
+ 788 02f7 10       		.byte	16
+ 789 02f8 87       		.byte	-121
+ 790 02f9 80       		.byte	-128
+ 791 02fa 9D       		.byte	-99
+ 792 02fb 10       		.byte	16
+ 793 02fc 9F       		.byte	-97
+ 794 02fd 80       		.byte	-128
+ 795 02fe E2       		.byte	-30
+ 796 02ff 40       		.byte	64
+ 797 0300 E6       		.byte	-26
+ 798 0301 20       		.byte	32
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 15
+
+
+ 799 0302 87       		.byte	-121
+ 800 0303 10       		.byte	16
+ 801 0304 10       		.byte	16
+ 802 0305 80       		.byte	-128
+ 803 0306 73       		.byte	115
+ 804 0307 10       		.byte	16
+ 805 0308 88       		.byte	-120
+ 806 0309 80       		.byte	-128
+ 807 030a 93       		.byte	-109
+ 808 030b 10       		.byte	16
+ 809 030c C4       		.byte	-60
+ 810 030d 08       		.byte	8
+ 811 030e DC       		.byte	-36
+ 812 030f 01       		.byte	1
+ 813 0310 E6       		.byte	-26
+ 814 0311 01       		.byte	1
+ 815 0312 10       		.byte	16
+ 816 0313 01       		.byte	1
+ 817 0314 1C       		.byte	28
+ 818 0315 01       		.byte	1
+ 819 0316 00       		.byte	0
+ 820 0317 0F       		.byte	15
+ 821 0318 03       		.byte	3
+ 822 0319 00       		.byte	0
+ 823 031a 00       		.byte	0
+ 824 031b 00       		.byte	0
+ 825 031c 00       		.byte	0
+ 826 031d 00       		.byte	0
+ 827 031e 00       		.byte	0
+ 828 031f 00       		.byte	0
+ 829 0320 80       		.byte	-128
+ 830 0321 00       		.byte	0
+ 831 0322 40       		.byte	64
+ 832 0323 80       		.byte	-128
+ 833 0324 80       		.byte	-128
+ 834 0325 00       		.byte	0
+ 835 0326 80       		.byte	-128
+ 836 0327 00       		.byte	0
+ 837 0328 00       		.byte	0
+ 838 0329 00       		.byte	0
+ 839 032a 00       		.byte	0
+ 840 032b 00       		.byte	0
+ 841 032c 30       		.byte	48
+ 842 032d 0B       		.byte	11
+ 843 032e 0B       		.byte	11
+ 844 032f 00       		.byte	0
+ 845 0330 00       		.byte	0
+ 846 0331 00       		.byte	0
+ 847 0332 00       		.byte	0
+ 848 0333 00       		.byte	0
+ 849              		.section	.cywolatch,"a",%progbits
+ 850              		.align	2
+ 851              		.type	cy_meta_wonvl, %object
+ 852              		.size	cy_meta_wonvl, 4
+ 853              	cy_meta_wonvl:
+ 854 0000 BC       		.byte	-68
+ 855 0001 90       		.byte	-112
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 16
+
+
+ 856 0002 AC       		.byte	-84
+ 857 0003 AF       		.byte	-81
+ 858              		.section	.cycustnvl,"a",%progbits
+ 859              		.align	2
+ 860              		.type	cy_meta_custnvl, %object
+ 861              		.size	cy_meta_custnvl, 4
+ 862              	cy_meta_custnvl:
+ 863 0000 00       		.byte	0
+ 864 0001 00       		.byte	0
+ 865 0002 40       		.byte	64
+ 866 0003 05       		.byte	5
+ 867              		.section	.cymeta,"a",%progbits
+ 868              		.align	2
+ 869              		.type	cy_metadata, %object
+ 870              		.size	cy_metadata, 12
+ 871              	cy_metadata:
+ 872 0000 00       		.byte	0
+ 873 0001 01       		.byte	1
+ 874 0002 2E       		.byte	46
+ 875 0003 16       		.byte	22
+ 876 0004 10       		.byte	16
+ 877 0005 69       		.byte	105
+ 878 0006 00       		.byte	0
+ 879 0007 01       		.byte	1
+ 880 0008 00       		.byte	0
+ 881 0009 00       		.byte	0
+ 882 000a 00       		.byte	0
+ 883 000b 00       		.byte	0
+ 884              		.section	.cyflashprotect,"a",%progbits
+ 885              		.align	2
+ 886              		.type	cy_meta_flashprotect, %object
+ 887              		.size	cy_meta_flashprotect, 256
+ 888              	cy_meta_flashprotect:
+ 889 0000 00000000 		.space	256
+ 889      00000000 
+ 889      00000000 
+ 889      00000000 
+ 889      00000000 
+ 890              		.text
+ 891              	.Letext0:
+ 892              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 893              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 894              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 895              		.section	.debug_info,"",%progbits
+ 896              	.Ldebug_info0:
+ 897 0000 31010000 		.4byte	0x131
+ 898 0004 0400     		.2byte	0x4
+ 899 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 900 000a 04       		.byte	0x4
+ 901 000b 01       		.uleb128 0x1
+ 902 000c 24000000 		.4byte	.LASF17
+ 903 0010 0C       		.byte	0xc
+ 904 0011 C9010000 		.4byte	.LASF18
+ 905 0015 25010000 		.4byte	.LASF19
+ 906 0019 00000000 		.4byte	.Ldebug_line0
+ 907 001d 02       		.uleb128 0x2
+ 908 001e 01       		.byte	0x1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 17
+
+
+ 909 001f 06       		.byte	0x6
+ 910 0020 BD010000 		.4byte	.LASF0
+ 911 0024 03       		.uleb128 0x3
+ 912 0025 00000000 		.4byte	.LASF9
+ 913 0029 01       		.byte	0x1
+ 914 002a 1D       		.byte	0x1d
+ 915 002b 2F000000 		.4byte	0x2f
+ 916 002f 02       		.uleb128 0x2
+ 917 0030 01       		.byte	0x1
+ 918 0031 08       		.byte	0x8
+ 919 0032 16000000 		.4byte	.LASF1
+ 920 0036 02       		.uleb128 0x2
+ 921 0037 02       		.byte	0x2
+ 922 0038 05       		.byte	0x5
+ 923 0039 AA010000 		.4byte	.LASF2
+ 924 003d 02       		.uleb128 0x2
+ 925 003e 02       		.byte	0x2
+ 926 003f 07       		.byte	0x7
+ 927 0040 C4000000 		.4byte	.LASF3
+ 928 0044 02       		.uleb128 0x2
+ 929 0045 04       		.byte	0x4
+ 930 0046 05       		.byte	0x5
+ 931 0047 B4010000 		.4byte	.LASF4
+ 932 004b 02       		.uleb128 0x2
+ 933 004c 04       		.byte	0x4
+ 934 004d 07       		.byte	0x7
+ 935 004e B2000000 		.4byte	.LASF5
+ 936 0052 02       		.uleb128 0x2
+ 937 0053 08       		.byte	0x8
+ 938 0054 05       		.byte	0x5
+ 939 0055 9C010000 		.4byte	.LASF6
+ 940 0059 02       		.uleb128 0x2
+ 941 005a 08       		.byte	0x8
+ 942 005b 07       		.byte	0x7
+ 943 005c 06010000 		.4byte	.LASF7
+ 944 0060 04       		.uleb128 0x4
+ 945 0061 04       		.byte	0x4
+ 946 0062 05       		.byte	0x5
+ 947 0063 696E7400 		.ascii	"int\000"
+ 948 0067 02       		.uleb128 0x2
+ 949 0068 04       		.byte	0x4
+ 950 0069 07       		.byte	0x7
+ 951 006a F9000000 		.4byte	.LASF8
+ 952 006e 03       		.uleb128 0x3
+ 953 006f 1D010000 		.4byte	.LASF10
+ 954 0073 02       		.byte	0x2
+ 955 0074 18       		.byte	0x18
+ 956 0075 24000000 		.4byte	0x24
+ 957 0079 05       		.uleb128 0x5
+ 958 007a 91000000 		.4byte	0x91
+ 959 007e 8A000000 		.4byte	0x8a
+ 960 0082 06       		.uleb128 0x6
+ 961 0083 8A000000 		.4byte	0x8a
+ 962 0087 3303     		.2byte	0x333
+ 963 0089 00       		.byte	0
+ 964 008a 02       		.uleb128 0x2
+ 965 008b 04       		.byte	0x4
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 18
+
+
+ 966 008c 07       		.byte	0x7
+ 967 008d 93010000 		.4byte	.LASF11
+ 968 0091 07       		.uleb128 0x7
+ 969 0092 6E000000 		.4byte	0x6e
+ 970 0096 08       		.uleb128 0x8
+ 971 0097 E7000000 		.4byte	.LASF12
+ 972 009b 03       		.byte	0x3
+ 973 009c 1F       		.byte	0x1f
+ 974 009d A7000000 		.4byte	0xa7
+ 975 00a1 05       		.uleb128 0x5
+ 976 00a2 03       		.byte	0x3
+ 977 00a3 00000000 		.4byte	cy_meta_configecc
+ 978 00a7 07       		.uleb128 0x7
+ 979 00a8 79000000 		.4byte	0x79
+ 980 00ac 05       		.uleb128 0x5
+ 981 00ad 91000000 		.4byte	0x91
+ 982 00b1 BC000000 		.4byte	0xbc
+ 983 00b5 09       		.uleb128 0x9
+ 984 00b6 8A000000 		.4byte	0x8a
+ 985 00ba 03       		.byte	0x3
+ 986 00bb 00       		.byte	0
+ 987 00bc 08       		.uleb128 0x8
+ 988 00bd D7000000 		.4byte	.LASF13
+ 989 00c1 03       		.byte	0x3
+ 990 00c2 93       		.byte	0x93
+ 991 00c3 CD000000 		.4byte	0xcd
+ 992 00c7 05       		.uleb128 0x5
+ 993 00c8 03       		.byte	0x3
+ 994 00c9 00000000 		.4byte	cy_meta_custnvl
+ 995 00cd 07       		.uleb128 0x7
+ 996 00ce AC000000 		.4byte	0xac
+ 997 00d2 08       		.uleb128 0x8
+ 998 00d3 85010000 		.4byte	.LASF14
+ 999 00d7 03       		.byte	0x3
+ 1000 00d8 A1       		.byte	0xa1
+ 1001 00d9 E3000000 		.4byte	0xe3
+ 1002 00dd 05       		.uleb128 0x5
+ 1003 00de 03       		.byte	0x3
+ 1004 00df 00000000 		.4byte	cy_meta_wonvl
+ 1005 00e3 07       		.uleb128 0x7
+ 1006 00e4 AC000000 		.4byte	0xac
+ 1007 00e8 05       		.uleb128 0x5
+ 1008 00e9 91000000 		.4byte	0x91
+ 1009 00ed F8000000 		.4byte	0xf8
+ 1010 00f1 09       		.uleb128 0x9
+ 1011 00f2 8A000000 		.4byte	0x8a
+ 1012 00f6 FF       		.byte	0xff
+ 1013 00f7 00       		.byte	0
+ 1014 00f8 08       		.uleb128 0x8
+ 1015 00f9 70010000 		.4byte	.LASF15
+ 1016 00fd 03       		.byte	0x3
+ 1017 00fe AF       		.byte	0xaf
+ 1018 00ff 09010000 		.4byte	0x109
+ 1019 0103 05       		.uleb128 0x5
+ 1020 0104 03       		.byte	0x3
+ 1021 0105 00000000 		.4byte	cy_meta_flashprotect
+ 1022 0109 07       		.uleb128 0x7
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 19
+
+
+ 1023 010a E8000000 		.4byte	0xe8
+ 1024 010e 05       		.uleb128 0x5
+ 1025 010f 91000000 		.4byte	0x91
+ 1026 0113 1E010000 		.4byte	0x11e
+ 1027 0117 09       		.uleb128 0x9
+ 1028 0118 8A000000 		.4byte	0x8a
+ 1029 011c 0B       		.byte	0xb
+ 1030 011d 00       		.byte	0
+ 1031 011e 08       		.uleb128 0x8
+ 1032 011f 0A000000 		.4byte	.LASF16
+ 1033 0123 03       		.byte	0x3
+ 1034 0124 DC       		.byte	0xdc
+ 1035 0125 2F010000 		.4byte	0x12f
+ 1036 0129 05       		.uleb128 0x5
+ 1037 012a 03       		.byte	0x3
+ 1038 012b 00000000 		.4byte	cy_metadata
+ 1039 012f 07       		.uleb128 0x7
+ 1040 0130 0E010000 		.4byte	0x10e
+ 1041 0134 00       		.byte	0
+ 1042              		.section	.debug_abbrev,"",%progbits
+ 1043              	.Ldebug_abbrev0:
+ 1044 0000 01       		.uleb128 0x1
+ 1045 0001 11       		.uleb128 0x11
+ 1046 0002 01       		.byte	0x1
+ 1047 0003 25       		.uleb128 0x25
+ 1048 0004 0E       		.uleb128 0xe
+ 1049 0005 13       		.uleb128 0x13
+ 1050 0006 0B       		.uleb128 0xb
+ 1051 0007 03       		.uleb128 0x3
+ 1052 0008 0E       		.uleb128 0xe
+ 1053 0009 1B       		.uleb128 0x1b
+ 1054 000a 0E       		.uleb128 0xe
+ 1055 000b 10       		.uleb128 0x10
+ 1056 000c 17       		.uleb128 0x17
+ 1057 000d 00       		.byte	0
+ 1058 000e 00       		.byte	0
+ 1059 000f 02       		.uleb128 0x2
+ 1060 0010 24       		.uleb128 0x24
+ 1061 0011 00       		.byte	0
+ 1062 0012 0B       		.uleb128 0xb
+ 1063 0013 0B       		.uleb128 0xb
+ 1064 0014 3E       		.uleb128 0x3e
+ 1065 0015 0B       		.uleb128 0xb
+ 1066 0016 03       		.uleb128 0x3
+ 1067 0017 0E       		.uleb128 0xe
+ 1068 0018 00       		.byte	0
+ 1069 0019 00       		.byte	0
+ 1070 001a 03       		.uleb128 0x3
+ 1071 001b 16       		.uleb128 0x16
+ 1072 001c 00       		.byte	0
+ 1073 001d 03       		.uleb128 0x3
+ 1074 001e 0E       		.uleb128 0xe
+ 1075 001f 3A       		.uleb128 0x3a
+ 1076 0020 0B       		.uleb128 0xb
+ 1077 0021 3B       		.uleb128 0x3b
+ 1078 0022 0B       		.uleb128 0xb
+ 1079 0023 49       		.uleb128 0x49
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 20
+
+
+ 1080 0024 13       		.uleb128 0x13
+ 1081 0025 00       		.byte	0
+ 1082 0026 00       		.byte	0
+ 1083 0027 04       		.uleb128 0x4
+ 1084 0028 24       		.uleb128 0x24
+ 1085 0029 00       		.byte	0
+ 1086 002a 0B       		.uleb128 0xb
+ 1087 002b 0B       		.uleb128 0xb
+ 1088 002c 3E       		.uleb128 0x3e
+ 1089 002d 0B       		.uleb128 0xb
+ 1090 002e 03       		.uleb128 0x3
+ 1091 002f 08       		.uleb128 0x8
+ 1092 0030 00       		.byte	0
+ 1093 0031 00       		.byte	0
+ 1094 0032 05       		.uleb128 0x5
+ 1095 0033 01       		.uleb128 0x1
+ 1096 0034 01       		.byte	0x1
+ 1097 0035 49       		.uleb128 0x49
+ 1098 0036 13       		.uleb128 0x13
+ 1099 0037 01       		.uleb128 0x1
+ 1100 0038 13       		.uleb128 0x13
+ 1101 0039 00       		.byte	0
+ 1102 003a 00       		.byte	0
+ 1103 003b 06       		.uleb128 0x6
+ 1104 003c 21       		.uleb128 0x21
+ 1105 003d 00       		.byte	0
+ 1106 003e 49       		.uleb128 0x49
+ 1107 003f 13       		.uleb128 0x13
+ 1108 0040 2F       		.uleb128 0x2f
+ 1109 0041 05       		.uleb128 0x5
+ 1110 0042 00       		.byte	0
+ 1111 0043 00       		.byte	0
+ 1112 0044 07       		.uleb128 0x7
+ 1113 0045 26       		.uleb128 0x26
+ 1114 0046 00       		.byte	0
+ 1115 0047 49       		.uleb128 0x49
+ 1116 0048 13       		.uleb128 0x13
+ 1117 0049 00       		.byte	0
+ 1118 004a 00       		.byte	0
+ 1119 004b 08       		.uleb128 0x8
+ 1120 004c 34       		.uleb128 0x34
+ 1121 004d 00       		.byte	0
+ 1122 004e 03       		.uleb128 0x3
+ 1123 004f 0E       		.uleb128 0xe
+ 1124 0050 3A       		.uleb128 0x3a
+ 1125 0051 0B       		.uleb128 0xb
+ 1126 0052 3B       		.uleb128 0x3b
+ 1127 0053 0B       		.uleb128 0xb
+ 1128 0054 49       		.uleb128 0x49
+ 1129 0055 13       		.uleb128 0x13
+ 1130 0056 3F       		.uleb128 0x3f
+ 1131 0057 19       		.uleb128 0x19
+ 1132 0058 02       		.uleb128 0x2
+ 1133 0059 18       		.uleb128 0x18
+ 1134 005a 00       		.byte	0
+ 1135 005b 00       		.byte	0
+ 1136 005c 09       		.uleb128 0x9
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 21
+
+
+ 1137 005d 21       		.uleb128 0x21
+ 1138 005e 00       		.byte	0
+ 1139 005f 49       		.uleb128 0x49
+ 1140 0060 13       		.uleb128 0x13
+ 1141 0061 2F       		.uleb128 0x2f
+ 1142 0062 0B       		.uleb128 0xb
+ 1143 0063 00       		.byte	0
+ 1144 0064 00       		.byte	0
+ 1145 0065 00       		.byte	0
+ 1146              		.section	.debug_aranges,"",%progbits
+ 1147 0000 14000000 		.4byte	0x14
+ 1148 0004 0200     		.2byte	0x2
+ 1149 0006 00000000 		.4byte	.Ldebug_info0
+ 1150 000a 04       		.byte	0x4
+ 1151 000b 00       		.byte	0
+ 1152 000c 0000     		.2byte	0
+ 1153 000e 0000     		.2byte	0
+ 1154 0010 00000000 		.4byte	0
+ 1155 0014 00000000 		.4byte	0
+ 1156              		.section	.debug_line,"",%progbits
+ 1157              	.Ldebug_line0:
+ 1158 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 1158      02003701 
+ 1158      00000201 
+ 1158      FB0E0D00 
+ 1158      01010101 
+ 1159              	.LASF9:
+ 1160 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 1160      6E74385F 
+ 1160      7400
+ 1161              	.LASF16:
+ 1162 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 1162      65746164 
+ 1162      61746100 
+ 1163              	.LASF1:
+ 1164 0016 756E7369 		.ascii	"unsigned char\000"
+ 1164      676E6564 
+ 1164      20636861 
+ 1164      7200
+ 1165              	.LASF17:
+ 1166 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1166      43313120 
+ 1166      352E342E 
+ 1166      31203230 
+ 1166      31363036 
+ 1167 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1167      20726576 
+ 1167      6973696F 
+ 1167      6E203233 
+ 1167      37373135 
+ 1168 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1168      66756E63 
+ 1168      74696F6E 
+ 1168      2D736563 
+ 1168      74696F6E 
+ 1169              	.LASF5:
+ 1170 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 22
+
+
+ 1170      20756E73 
+ 1170      69676E65 
+ 1170      6420696E 
+ 1170      7400
+ 1171              	.LASF3:
+ 1172 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 1172      7420756E 
+ 1172      7369676E 
+ 1172      65642069 
+ 1172      6E7400
+ 1173              	.LASF13:
+ 1174 00d7 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 1174      6574615F 
+ 1174      63757374 
+ 1174      6E766C00 
+ 1175              	.LASF12:
+ 1176 00e7 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 1176      6574615F 
+ 1176      636F6E66 
+ 1176      69676563 
+ 1176      6300
+ 1177              	.LASF8:
+ 1178 00f9 756E7369 		.ascii	"unsigned int\000"
+ 1178      676E6564 
+ 1178      20696E74 
+ 1178      00
+ 1179              	.LASF7:
+ 1180 0106 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1180      206C6F6E 
+ 1180      6720756E 
+ 1180      7369676E 
+ 1180      65642069 
+ 1181              	.LASF10:
+ 1182 011d 75696E74 		.ascii	"uint8_t\000"
+ 1182      385F7400 
+ 1183              	.LASF19:
+ 1184 0125 443A5C55 		.ascii	"D:\\Users\\ESTEBAN\\Desktop\\Materias\\Codigos\\Psc"
+ 1184      73657273 
+ 1184      5C455354 
+ 1184      4542414E 
+ 1184      5C446573 
+ 1185 0152 6F635C65 		.ascii	"oc\\entradadigi\\Design01.cydsn\000"
+ 1185      6E747261 
+ 1185      64616469 
+ 1185      67695C44 
+ 1185      65736967 
+ 1186              	.LASF15:
+ 1187 0170 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 1187      6574615F 
+ 1187      666C6173 
+ 1187      6870726F 
+ 1187      74656374 
+ 1188              	.LASF14:
+ 1189 0185 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 1189      6574615F 
+ 1189      776F6E76 
+ 1189      6C00
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccurrLR6.s 			page 23
+
+
+ 1190              	.LASF11:
+ 1191 0193 73697A65 		.ascii	"sizetype\000"
+ 1191      74797065 
+ 1191      00
+ 1192              	.LASF6:
+ 1193 019c 6C6F6E67 		.ascii	"long long int\000"
+ 1193      206C6F6E 
+ 1193      6720696E 
+ 1193      7400
+ 1194              	.LASF2:
+ 1195 01aa 73686F72 		.ascii	"short int\000"
+ 1195      7420696E 
+ 1195      7400
+ 1196              	.LASF4:
+ 1197 01b4 6C6F6E67 		.ascii	"long int\000"
+ 1197      20696E74 
+ 1197      00
+ 1198              	.LASF0:
+ 1199 01bd 7369676E 		.ascii	"signed char\000"
+ 1199      65642063 
+ 1199      68617200 
+ 1200              	.LASF18:
+ 1201 01c9 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 1201      72617465 
+ 1201      645F536F 
+ 1201      75726365 
+ 1201      5C50536F 
+ 1202              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

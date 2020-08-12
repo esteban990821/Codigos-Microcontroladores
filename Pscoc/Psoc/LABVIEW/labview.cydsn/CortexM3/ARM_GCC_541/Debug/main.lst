@@ -1,0 +1,4344 @@
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.interrupcion,"ax",%progbits
+  20              		.align	2
+  21              		.global	interrupcion
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	interrupcion, %function
+  25              	interrupcion:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include "stdio.h"
+  14:main.c        **** #include "stdlib.h"
+  15:main.c        **** 
+  16:main.c        **** 
+  17:main.c        **** 
+  18:main.c        **** char recibir, cadena[],cadena2[4], longitud=0, str[12], publicar[12],publicar1[12],publicar2[12]; 
+  19:main.c        **** int bandera=0, canal=0, ganancia=0, signal,numero[12],dato,valor,cuenta,acu=0,DAC,VDAC,guardado1,gu
+  20:main.c        **** float32 Vin;
+  21:main.c        **** void Input();
+  22:main.c        **** void Output();
+  23:main.c        **** void Contador();
+  24:main.c        **** 
+  25:main.c        **** 
+  26:main.c        **** CY_ISR(interrupcion){
+  28              		.loc 1 26 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 2
+
+
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  27:main.c        ****     
+  28:main.c        ****     recibir= UART_GetChar();
+  36              		.loc 1 28 0
+  37 0002 FFF7FEFF 		bl	UART_GetChar
+  38              	.LVL0:
+  39 0006 1B4C     		ldr	r4, .L8
+  40 0008 2070     		strb	r0, [r4]
+  29:main.c        ****     UART_PutChar(recibir);
+  41              		.loc 1 29 0
+  42 000a FFF7FEFF 		bl	UART_PutChar
+  43              	.LVL1:
+  30:main.c        ****     
+  31:main.c        ****     
+  32:main.c        ****     if (recibir =='I'){
+  44              		.loc 1 32 0
+  45 000e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+  46 0010 492B     		cmp	r3, #73
+  47 0012 04D1     		bne	.L2
+  33:main.c        ****         bandera=0;
+  34:main.c        ****         dato=1;
+  48              		.loc 1 34 0
+  49 0014 0122     		movs	r2, #1
+  50 0016 1849     		ldr	r1, .L8+4
+  51 0018 0A60     		str	r2, [r1]
+  35:main.c        ****         bandera=1;
+  52              		.loc 1 35 0
+  53 001a 1849     		ldr	r1, .L8+8
+  54 001c 0A60     		str	r2, [r1]
+  55              	.L2:
+  36:main.c        ****         
+  37:main.c        ****        
+  38:main.c        ****     }
+  39:main.c        ****    if (recibir =='O'){
+  56              		.loc 1 39 0
+  57 001e 4F2B     		cmp	r3, #79
+  58 0020 05D1     		bne	.L3
+  40:main.c        ****         dato=1;
+  59              		.loc 1 40 0
+  60 0022 0121     		movs	r1, #1
+  61 0024 144A     		ldr	r2, .L8+4
+  62 0026 1160     		str	r1, [r2]
+  41:main.c        ****         bandera=2;
+  63              		.loc 1 41 0
+  64 0028 0221     		movs	r1, #2
+  65 002a 144A     		ldr	r2, .L8+8
+  66 002c 1160     		str	r1, [r2]
+  67              	.L3:
+  42:main.c        ****         
+  43:main.c        ****    
+  44:main.c        ****         
+  45:main.c        ****     }
+  46:main.c        ****  if (recibir =='C'){
+  68              		.loc 1 46 0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 3
+
+
+  69 002e 432B     		cmp	r3, #67
+  70 0030 05D1     		bne	.L4
+  47:main.c        ****         dato=1;
+  71              		.loc 1 47 0
+  72 0032 0121     		movs	r1, #1
+  73 0034 104A     		ldr	r2, .L8+4
+  74 0036 1160     		str	r1, [r2]
+  48:main.c        ****         bandera=3;
+  75              		.loc 1 48 0
+  76 0038 0321     		movs	r1, #3
+  77 003a 104A     		ldr	r2, .L8+8
+  78 003c 1160     		str	r1, [r2]
+  79              	.L4:
+  49:main.c        ****         
+  50:main.c        ****    
+  51:main.c        ****         
+  52:main.c        ****     }
+  53:main.c        ****    if(recibir ==' '){
+  80              		.loc 1 53 0
+  81 003e 202B     		cmp	r3, #32
+  82 0040 07D1     		bne	.L5
+  54:main.c        ****         dato=1;
+  83              		.loc 1 54 0
+  84 0042 0121     		movs	r1, #1
+  85 0044 0C4A     		ldr	r2, .L8+4
+  86 0046 1160     		str	r1, [r2]
+  55:main.c        ****         bandera=0;
+  87              		.loc 1 55 0
+  88 0048 0C4A     		ldr	r2, .L8+8
+  89 004a 0021     		movs	r1, #0
+  90 004c 1160     		str	r1, [r2]
+  56:main.c        ****       longitud=5;  
+  91              		.loc 1 56 0
+  92 004e 0521     		movs	r1, #5
+  93 0050 1171     		strb	r1, [r2, #4]
+  94              	.L5:
+  57:main.c        ****     }
+  58:main.c        ****     
+  59:main.c        ****     if (dato == 1){
+  95              		.loc 1 59 0
+  96 0052 094A     		ldr	r2, .L8+4
+  97 0054 1268     		ldr	r2, [r2]
+  98 0056 012A     		cmp	r2, #1
+  99 0058 0AD1     		bne	.L1
+  60:main.c        ****         cadena[longitud] = recibir;
+ 100              		.loc 1 60 0
+ 101 005a 0849     		ldr	r1, .L8+8
+ 102 005c 0A79     		ldrb	r2, [r1, #4]	@ zero_extendqisi2
+ 103 005e 0848     		ldr	r0, .L8+12
+ 104 0060 8354     		strb	r3, [r0, r2]
+  61:main.c        ****         longitud=longitud+1;
+ 105              		.loc 1 61 0
+ 106 0062 531C     		adds	r3, r2, #1
+ 107 0064 DBB2     		uxtb	r3, r3
+ 108 0066 0B71     		strb	r3, [r1, #4]
+  62:main.c        ****         
+  63:main.c        ****         if(longitud==7){
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 4
+
+
+ 109              		.loc 1 63 0
+ 110 0068 072B     		cmp	r3, #7
+ 111 006a 01D1     		bne	.L1
+  64:main.c        ****             longitud=0;
+ 112              		.loc 1 64 0
+ 113 006c 0022     		movs	r2, #0
+ 114 006e 0A71     		strb	r2, [r1, #4]
+ 115              	.L1:
+ 116 0070 10BD     		pop	{r4, pc}
+ 117              	.L9:
+ 118 0072 00BF     		.align	2
+ 119              	.L8:
+ 120 0074 00000000 		.word	recibir
+ 121 0078 00000000 		.word	dato
+ 122 007c 00000000 		.word	.LANCHOR0
+ 123 0080 00000000 		.word	cadena
+ 124              		.cfi_endproc
+ 125              	.LFE64:
+ 126              		.size	interrupcion, .-interrupcion
+ 127              		.section	.text.Input,"ax",%progbits
+ 128              		.align	2
+ 129              		.global	Input
+ 130              		.thumb
+ 131              		.thumb_func
+ 132              		.type	Input, %function
+ 133              	Input:
+ 134              	.LFB66:
+  65:main.c        ****         
+  66:main.c        ****             
+  67:main.c        ****         }
+  68:main.c        ****     
+  69:main.c        ****     }
+  70:main.c        ****      
+  71:main.c        **** 
+  72:main.c        **** }
+  73:main.c        **** 
+  74:main.c        **** int main(void)
+  75:main.c        **** {
+  76:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  77:main.c        ****     ADC_Start(); 
+  78:main.c        ****     PGA_Start();
+  79:main.c        ****     MUX_Start();
+  80:main.c        ****     UART_Start();
+  81:main.c        ****     VDAC1_Start();
+  82:main.c        ****     VDAC1_SetRange(VDAC1_RANGE_4V);
+  83:main.c        ****     VDAC2_Start();
+  84:main.c        ****     VDAC2_SetRange(VDAC2_RANGE_4V);
+  85:main.c        ****     isrRx_Start();
+  86:main.c        ****     isrRx_StartEx(interrupcion);
+  87:main.c        ****     
+  88:main.c        ****   
+  89:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  90:main.c        **** 
+  91:main.c        ****     for(;;)
+  92:main.c        ****     {
+  93:main.c        ****         
+  94:main.c        ****         
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 5
+
+
+  95:main.c        ****          switch (bandera){
+  96:main.c        ****             case 0:
+  97:main.c        ****             break;
+  98:main.c        ****           
+  99:main.c        ****             case 1:
+ 100:main.c        ****             Input();
+ 101:main.c        ****             break;
+ 102:main.c        ****             
+ 103:main.c        ****             case 2:
+ 104:main.c        ****             Output();
+ 105:main.c        ****             break;
+ 106:main.c        ****             
+ 107:main.c        ****             case 3:
+ 108:main.c        ****             Contador();
+ 109:main.c        ****             break;
+ 110:main.c        ****             
+ 111:main.c        ****             
+ 112:main.c        ****         
+ 113:main.c        ****         }
+ 114:main.c        ****         
+ 115:main.c        ****         
+ 116:main.c        ****        
+ 117:main.c        ****         
+ 118:main.c        ****         }
+ 119:main.c        ****      
+ 120:main.c        ****        
+ 121:main.c        ****     }
+ 122:main.c        **** 
+ 123:main.c        **** void Input(){
+ 135              		.loc 1 123 0
+ 136              		.cfi_startproc
+ 137              		@ args = 0, pretend = 0, frame = 0
+ 138              		@ frame_needed = 0, uses_anonymous_args = 0
+ 139 0000 10B5     		push	{r4, lr}
+ 140              		.cfi_def_cfa_offset 8
+ 141              		.cfi_offset 4, -8
+ 142              		.cfi_offset 14, -4
+ 124:main.c        **** 
+ 125:main.c        ****  if(cadena[1]=='a'){
+ 143              		.loc 1 125 0
+ 144 0002 6F4B     		ldr	r3, .L25
+ 145 0004 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 146 0006 612B     		cmp	r3, #97
+ 147 0008 40F08380 		bne	.L11
+ 126:main.c        ****             
+ 127:main.c        ****         MUX_FastSelect(0);
+ 148              		.loc 1 127 0
+ 149 000c 0020     		movs	r0, #0
+ 150 000e FFF7FEFF 		bl	MUX_FastSelect
+ 151              	.LVL2:
+ 128:main.c        ****         ADC_StartConvert();
+ 152              		.loc 1 128 0
+ 153 0012 FFF7FEFF 		bl	ADC_StartConvert
+ 154              	.LVL3:
+ 129:main.c        ****         ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
+ 155              		.loc 1 129 0
+ 156 0016 0020     		movs	r0, #0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 6
+
+
+ 157 0018 FFF7FEFF 		bl	ADC_IsEndConversion
+ 158              	.LVL4:
+ 130:main.c        ****         numero[0]=ADC_GetResult32();
+ 159              		.loc 1 130 0
+ 160 001c FFF7FEFF 		bl	ADC_GetResult32
+ 161              	.LVL5:
+ 162 0020 684C     		ldr	r4, .L25+4
+ 163 0022 2060     		str	r0, [r4]
+ 131:main.c        ****         ADC_StopConvert(); 
+ 164              		.loc 1 131 0
+ 165 0024 FFF7FEFF 		bl	ADC_StopConvert
+ 166              	.LVL6:
+ 132:main.c        ****             
+ 133:main.c        ****         MUX_FastSelect(1);
+ 167              		.loc 1 133 0
+ 168 0028 0120     		movs	r0, #1
+ 169 002a FFF7FEFF 		bl	MUX_FastSelect
+ 170              	.LVL7:
+ 134:main.c        ****         ADC_StartConvert();
+ 171              		.loc 1 134 0
+ 172 002e FFF7FEFF 		bl	ADC_StartConvert
+ 173              	.LVL8:
+ 135:main.c        ****         ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
+ 174              		.loc 1 135 0
+ 175 0032 0020     		movs	r0, #0
+ 176 0034 FFF7FEFF 		bl	ADC_IsEndConversion
+ 177              	.LVL9:
+ 136:main.c        ****         numero[1]=ADC_GetResult32();
+ 178              		.loc 1 136 0
+ 179 0038 FFF7FEFF 		bl	ADC_GetResult32
+ 180              	.LVL10:
+ 181 003c 6060     		str	r0, [r4, #4]
+ 137:main.c        ****         ADC_StopConvert(); 
+ 182              		.loc 1 137 0
+ 183 003e FFF7FEFF 		bl	ADC_StopConvert
+ 184              	.LVL11:
+ 138:main.c        ****             
+ 139:main.c        ****         MUX_FastSelect(2);
+ 185              		.loc 1 139 0
+ 186 0042 0220     		movs	r0, #2
+ 187 0044 FFF7FEFF 		bl	MUX_FastSelect
+ 188              	.LVL12:
+ 140:main.c        ****         ADC_StartConvert();
+ 189              		.loc 1 140 0
+ 190 0048 FFF7FEFF 		bl	ADC_StartConvert
+ 191              	.LVL13:
+ 141:main.c        ****         ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
+ 192              		.loc 1 141 0
+ 193 004c 0020     		movs	r0, #0
+ 194 004e FFF7FEFF 		bl	ADC_IsEndConversion
+ 195              	.LVL14:
+ 142:main.c        ****         numero[2]=ADC_GetResult32();
+ 196              		.loc 1 142 0
+ 197 0052 FFF7FEFF 		bl	ADC_GetResult32
+ 198              	.LVL15:
+ 199 0056 A060     		str	r0, [r4, #8]
+ 143:main.c        ****         ADC_StopConvert();
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 7
+
+
+ 200              		.loc 1 143 0
+ 201 0058 FFF7FEFF 		bl	ADC_StopConvert
+ 202              	.LVL16:
+ 144:main.c        ****         
+ 145:main.c        ****         if(cadena[4]=='1'){
+ 203              		.loc 1 145 0
+ 204 005c 584B     		ldr	r3, .L25
+ 205 005e 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 206 0060 312B     		cmp	r3, #49
+ 207 0062 02D1     		bne	.L12
+ 146:main.c        ****         PGA_SetGain(1);
+ 208              		.loc 1 146 0
+ 209 0064 0120     		movs	r0, #1
+ 210 0066 FFF7FEFF 		bl	PGA_SetGain
+ 211              	.LVL17:
+ 212              	.L12:
+ 147:main.c        ****         }
+ 148:main.c        ****         if(cadena[4]=='2'){
+ 213              		.loc 1 148 0
+ 214 006a 554B     		ldr	r3, .L25
+ 215 006c 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 216 006e 322B     		cmp	r3, #50
+ 217 0070 02D1     		bne	.L13
+ 149:main.c        ****         PGA_SetGain(2);
+ 218              		.loc 1 149 0
+ 219 0072 0220     		movs	r0, #2
+ 220 0074 FFF7FEFF 		bl	PGA_SetGain
+ 221              	.LVL18:
+ 222              	.L13:
+ 150:main.c        ****         }
+ 151:main.c        ****         if(cadena[4]=='4'){
+ 223              		.loc 1 151 0
+ 224 0078 514B     		ldr	r3, .L25
+ 225 007a 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 226 007c 342B     		cmp	r3, #52
+ 227 007e 02D1     		bne	.L14
+ 152:main.c        ****         PGA_SetGain(4);
+ 228              		.loc 1 152 0
+ 229 0080 0420     		movs	r0, #4
+ 230 0082 FFF7FEFF 		bl	PGA_SetGain
+ 231              	.LVL19:
+ 232              	.L14:
+ 153:main.c        ****         }
+ 154:main.c        ****         if(cadena[4]=='8'){
+ 233              		.loc 1 154 0
+ 234 0086 4E4B     		ldr	r3, .L25
+ 235 0088 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 236 008a 382B     		cmp	r3, #56
+ 237 008c 02D1     		bne	.L15
+ 155:main.c        ****         PGA_SetGain(8);
+ 238              		.loc 1 155 0
+ 239 008e 0820     		movs	r0, #8
+ 240 0090 FFF7FEFF 		bl	PGA_SetGain
+ 241              	.LVL20:
+ 242              	.L15:
+ 156:main.c        ****         }
+ 157:main.c        ****         if (cadena[2]=='0'){
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 8
+
+
+ 243              		.loc 1 157 0
+ 244 0094 4A4B     		ldr	r3, .L25
+ 245 0096 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 246 0098 302B     		cmp	r3, #48
+ 247 009a 10D1     		bne	.L16
+ 158:main.c        ****         if(cadena[6]=='\r'){    
+ 248              		.loc 1 158 0
+ 249 009c 484B     		ldr	r3, .L25
+ 250 009e 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 251 00a0 0D2B     		cmp	r3, #13
+ 252 00a2 0CD1     		bne	.L16
+ 159:main.c        ****         sprintf(publicar,"%3dA0 \n \r" ,numero[0]);
+ 253              		.loc 1 159 0
+ 254 00a4 484C     		ldr	r4, .L25+8
+ 255 00a6 474B     		ldr	r3, .L25+4
+ 256 00a8 1A68     		ldr	r2, [r3]
+ 257 00aa 4849     		ldr	r1, .L25+12
+ 258 00ac 2046     		mov	r0, r4
+ 259 00ae FFF7FEFF 		bl	sprintf
+ 260              	.LVL21:
+ 160:main.c        ****         UART_PutString(publicar);
+ 261              		.loc 1 160 0
+ 262 00b2 2046     		mov	r0, r4
+ 263 00b4 FFF7FEFF 		bl	UART_PutString
+ 264              	.LVL22:
+ 161:main.c        ****         CyDelay(100);
+ 265              		.loc 1 161 0
+ 266 00b8 6420     		movs	r0, #100
+ 267 00ba FFF7FEFF 		bl	CyDelay
+ 268              	.LVL23:
+ 269              	.L16:
+ 162:main.c        ****     
+ 163:main.c        ****         
+ 164:main.c        ****         }}
+ 165:main.c        ****         if(cadena[2]=='1'){
+ 270              		.loc 1 165 0
+ 271 00be 404B     		ldr	r3, .L25
+ 272 00c0 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 273 00c2 312B     		cmp	r3, #49
+ 274 00c4 10D1     		bne	.L17
+ 166:main.c        ****          if(cadena[6]=='\r'){
+ 275              		.loc 1 166 0
+ 276 00c6 3E4B     		ldr	r3, .L25
+ 277 00c8 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 278 00ca 0D2B     		cmp	r3, #13
+ 279 00cc 0CD1     		bne	.L17
+ 167:main.c        ****         sprintf(publicar,"%3dA1 \n \r" ,numero[1]);
+ 280              		.loc 1 167 0
+ 281 00ce 3E4C     		ldr	r4, .L25+8
+ 282 00d0 3C4B     		ldr	r3, .L25+4
+ 283 00d2 5A68     		ldr	r2, [r3, #4]
+ 284 00d4 3E49     		ldr	r1, .L25+16
+ 285 00d6 2046     		mov	r0, r4
+ 286 00d8 FFF7FEFF 		bl	sprintf
+ 287              	.LVL24:
+ 168:main.c        ****         UART_PutString(publicar);
+ 288              		.loc 1 168 0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 9
+
+
+ 289 00dc 2046     		mov	r0, r4
+ 290 00de FFF7FEFF 		bl	UART_PutString
+ 291              	.LVL25:
+ 169:main.c        ****         CyDelay(100);
+ 292              		.loc 1 169 0
+ 293 00e2 6420     		movs	r0, #100
+ 294 00e4 FFF7FEFF 		bl	CyDelay
+ 295              	.LVL26:
+ 296              	.L17:
+ 170:main.c        ****         }
+ 171:main.c        ****         }
+ 172:main.c        ****         
+ 173:main.c        ****         if(cadena[2]=='2'){
+ 297              		.loc 1 173 0
+ 298 00e8 354B     		ldr	r3, .L25
+ 299 00ea 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 300 00ec 322B     		cmp	r3, #50
+ 301 00ee 10D1     		bne	.L11
+ 174:main.c        ****         if(cadena[6]=='\r'){
+ 302              		.loc 1 174 0
+ 303 00f0 334B     		ldr	r3, .L25
+ 304 00f2 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 305 00f4 0D2B     		cmp	r3, #13
+ 306 00f6 0CD1     		bne	.L11
+ 175:main.c        ****         sprintf(publicar,"%3dA2 \n \r" ,numero[2]);
+ 307              		.loc 1 175 0
+ 308 00f8 334C     		ldr	r4, .L25+8
+ 309 00fa 324B     		ldr	r3, .L25+4
+ 310 00fc 9A68     		ldr	r2, [r3, #8]
+ 311 00fe 3549     		ldr	r1, .L25+20
+ 312 0100 2046     		mov	r0, r4
+ 313 0102 FFF7FEFF 		bl	sprintf
+ 314              	.LVL27:
+ 176:main.c        ****         UART_PutString(publicar);
+ 315              		.loc 1 176 0
+ 316 0106 2046     		mov	r0, r4
+ 317 0108 FFF7FEFF 		bl	UART_PutString
+ 318              	.LVL28:
+ 177:main.c        ****         CyDelay(100);
+ 319              		.loc 1 177 0
+ 320 010c 6420     		movs	r0, #100
+ 321 010e FFF7FEFF 		bl	CyDelay
+ 322              	.LVL29:
+ 323              	.L11:
+ 178:main.c        ****         }
+ 179:main.c        ****         }
+ 180:main.c        ****         }
+ 181:main.c        **** if(cadena[1]=='d'){  
+ 324              		.loc 1 181 0
+ 325 0112 2B4B     		ldr	r3, .L25
+ 326 0114 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 327 0116 642B     		cmp	r3, #100
+ 328 0118 50D1     		bne	.L10
+ 182:main.c        **** if(cadena[2]=='0'){  
+ 329              		.loc 1 182 0
+ 330 011a 294B     		ldr	r3, .L25
+ 331 011c 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 10
+
+
+ 332 011e 302B     		cmp	r3, #48
+ 333 0120 16D1     		bne	.L19
+ 183:main.c        **** if(cadena[6]=='\r'){
+ 334              		.loc 1 183 0
+ 335 0122 274B     		ldr	r3, .L25
+ 336 0124 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 337 0126 0D2B     		cmp	r3, #13
+ 338 0128 12D1     		bne	.L19
+ 184:main.c        **** if(D0_Read()==1){
+ 339              		.loc 1 184 0
+ 340 012a FFF7FEFF 		bl	D0_Read
+ 341              	.LVL30:
+ 342 012e 0128     		cmp	r0, #1
+ 343 0130 07D1     		bne	.L20
+ 185:main.c        ****      UART_PutString("Entrada D0=T \n \r"); 
+ 344              		.loc 1 185 0
+ 345 0132 2948     		ldr	r0, .L25+24
+ 346 0134 FFF7FEFF 		bl	UART_PutString
+ 347              	.LVL31:
+ 186:main.c        ****       CyDelay(500);
+ 348              		.loc 1 186 0
+ 349 0138 4FF4FA70 		mov	r0, #500
+ 350 013c FFF7FEFF 		bl	CyDelay
+ 351              	.LVL32:
+ 352 0140 06E0     		b	.L19
+ 353              	.L20:
+ 187:main.c        ****     }
+ 188:main.c        ****     else{
+ 189:main.c        ****     UART_PutString("Entrada D0=F \n \r");  
+ 354              		.loc 1 189 0
+ 355 0142 2648     		ldr	r0, .L25+28
+ 356 0144 FFF7FEFF 		bl	UART_PutString
+ 357              	.LVL33:
+ 190:main.c        ****       CyDelay(500);
+ 358              		.loc 1 190 0
+ 359 0148 4FF4FA70 		mov	r0, #500
+ 360 014c FFF7FEFF 		bl	CyDelay
+ 361              	.LVL34:
+ 362              	.L19:
+ 191:main.c        ****     }
+ 192:main.c        ****     
+ 193:main.c        **** }
+ 194:main.c        **** }
+ 195:main.c        **** if(cadena[2]=='1'){    
+ 363              		.loc 1 195 0
+ 364 0150 1B4B     		ldr	r3, .L25
+ 365 0152 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 366 0154 312B     		cmp	r3, #49
+ 367 0156 16D1     		bne	.L21
+ 196:main.c        **** if(cadena[6]=='\r'){
+ 368              		.loc 1 196 0
+ 369 0158 194B     		ldr	r3, .L25
+ 370 015a 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 371 015c 0D2B     		cmp	r3, #13
+ 372 015e 12D1     		bne	.L21
+ 197:main.c        **** if(D1_Read()==1){
+ 373              		.loc 1 197 0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 11
+
+
+ 374 0160 FFF7FEFF 		bl	D1_Read
+ 375              	.LVL35:
+ 376 0164 0128     		cmp	r0, #1
+ 377 0166 07D1     		bne	.L22
+ 198:main.c        ****      UART_PutString("Entrada D1=T \n \r"); 
+ 378              		.loc 1 198 0
+ 379 0168 1D48     		ldr	r0, .L25+32
+ 380 016a FFF7FEFF 		bl	UART_PutString
+ 381              	.LVL36:
+ 199:main.c        ****       CyDelay(500);
+ 382              		.loc 1 199 0
+ 383 016e 4FF4FA70 		mov	r0, #500
+ 384 0172 FFF7FEFF 		bl	CyDelay
+ 385              	.LVL37:
+ 386 0176 06E0     		b	.L21
+ 387              	.L22:
+ 200:main.c        ****     }
+ 201:main.c        ****     else{
+ 202:main.c        ****     UART_PutString("Entrada D1=F \n \r");  
+ 388              		.loc 1 202 0
+ 389 0178 1A48     		ldr	r0, .L25+36
+ 390 017a FFF7FEFF 		bl	UART_PutString
+ 391              	.LVL38:
+ 203:main.c        ****       CyDelay(500);
+ 392              		.loc 1 203 0
+ 393 017e 4FF4FA70 		mov	r0, #500
+ 394 0182 FFF7FEFF 		bl	CyDelay
+ 395              	.LVL39:
+ 396              	.L21:
+ 204:main.c        ****     }
+ 205:main.c        ****     
+ 206:main.c        **** }
+ 207:main.c        **** }
+ 208:main.c        **** if(cadena[2]=='2'){
+ 397              		.loc 1 208 0
+ 398 0186 0E4B     		ldr	r3, .L25
+ 399 0188 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 400 018a 322B     		cmp	r3, #50
+ 401 018c 16D1     		bne	.L10
+ 209:main.c        **** if(cadena[6]=='\r'){
+ 402              		.loc 1 209 0
+ 403 018e 0C4B     		ldr	r3, .L25
+ 404 0190 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 405 0192 0D2B     		cmp	r3, #13
+ 406 0194 12D1     		bne	.L10
+ 210:main.c        **** if(D2_Read()==1){
+ 407              		.loc 1 210 0
+ 408 0196 FFF7FEFF 		bl	D2_Read
+ 409              	.LVL40:
+ 410 019a 0128     		cmp	r0, #1
+ 411 019c 07D1     		bne	.L23
+ 211:main.c        ****      UART_PutString("Entrada D2=T \n \r"); 
+ 412              		.loc 1 211 0
+ 413 019e 1248     		ldr	r0, .L25+40
+ 414 01a0 FFF7FEFF 		bl	UART_PutString
+ 415              	.LVL41:
+ 212:main.c        ****       CyDelay(500);
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 12
+
+
+ 416              		.loc 1 212 0
+ 417 01a4 4FF4FA70 		mov	r0, #500
+ 418 01a8 FFF7FEFF 		bl	CyDelay
+ 419              	.LVL42:
+ 420 01ac 10BD     		pop	{r4, pc}
+ 421              	.L23:
+ 213:main.c        ****     }
+ 214:main.c        ****     else{
+ 215:main.c        ****     UART_PutString("Entrada D2=F \n \r");  
+ 422              		.loc 1 215 0
+ 423 01ae 0F48     		ldr	r0, .L25+44
+ 424 01b0 FFF7FEFF 		bl	UART_PutString
+ 425              	.LVL43:
+ 216:main.c        ****       CyDelay(500);
+ 426              		.loc 1 216 0
+ 427 01b4 4FF4FA70 		mov	r0, #500
+ 428 01b8 FFF7FEFF 		bl	CyDelay
+ 429              	.LVL44:
+ 430              	.L10:
+ 431 01bc 10BD     		pop	{r4, pc}
+ 432              	.L26:
+ 433 01be 00BF     		.align	2
+ 434              	.L25:
+ 435 01c0 00000000 		.word	cadena
+ 436 01c4 00000000 		.word	numero
+ 437 01c8 00000000 		.word	publicar
+ 438 01cc 00000000 		.word	.LC0
+ 439 01d0 0C000000 		.word	.LC1
+ 440 01d4 18000000 		.word	.LC2
+ 441 01d8 24000000 		.word	.LC3
+ 442 01dc 38000000 		.word	.LC4
+ 443 01e0 4C000000 		.word	.LC5
+ 444 01e4 60000000 		.word	.LC6
+ 445 01e8 74000000 		.word	.LC7
+ 446 01ec 88000000 		.word	.LC8
+ 447              		.cfi_endproc
+ 448              	.LFE66:
+ 449              		.size	Input, .-Input
+ 450              		.global	__aeabi_i2d
+ 451              		.global	__aeabi_dmul
+ 452              		.global	__aeabi_ddiv
+ 453              		.global	__aeabi_d2f
+ 454              		.global	__aeabi_f2d
+ 455              		.section	.text.Output,"ax",%progbits
+ 456              		.align	2
+ 457              		.global	Output
+ 458              		.thumb
+ 459              		.thumb_func
+ 460              		.type	Output, %function
+ 461              	Output:
+ 462              	.LFB67:
+ 217:main.c        ****     }
+ 218:main.c        ****  
+ 219:main.c        **** }
+ 220:main.c        **** }
+ 221:main.c        ****     
+ 222:main.c        ****     
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 13
+
+
+ 223:main.c        ****     
+ 224:main.c        ****     
+ 225:main.c        ****     
+ 226:main.c        ****       }  
+ 227:main.c        **** 
+ 228:main.c        **** 
+ 229:main.c        **** 
+ 230:main.c        **** 
+ 231:main.c        **** 
+ 232:main.c        **** }
+ 233:main.c        **** void Output(){
+ 463              		.loc 1 233 0
+ 464              		.cfi_startproc
+ 465              		@ args = 0, pretend = 0, frame = 0
+ 466              		@ frame_needed = 0, uses_anonymous_args = 0
+ 467 0000 38B5     		push	{r3, r4, r5, lr}
+ 468              		.cfi_def_cfa_offset 16
+ 469              		.cfi_offset 3, -16
+ 470              		.cfi_offset 4, -12
+ 471              		.cfi_offset 5, -8
+ 472              		.cfi_offset 14, -4
+ 234:main.c        **** 
+ 235:main.c        **** if(cadena[1]=='d'){
+ 473              		.loc 1 235 0
+ 474 0002 8D4B     		ldr	r3, .L43+16
+ 475 0004 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 476 0006 642B     		cmp	r3, #100
+ 477 0008 77D1     		bne	.L28
+ 236:main.c        **** if(cadena[2]=='0'){
+ 478              		.loc 1 236 0
+ 479 000a 8B4B     		ldr	r3, .L43+16
+ 480 000c 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 481 000e 302B     		cmp	r3, #48
+ 482 0010 23D1     		bne	.L29
+ 237:main.c        **** if(cadena[4]=='T'){
+ 483              		.loc 1 237 0
+ 484 0012 894B     		ldr	r3, .L43+16
+ 485 0014 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 486 0016 542B     		cmp	r3, #84
+ 487 0018 0DD1     		bne	.L30
+ 238:main.c        **** if(cadena[6]=='\r'){
+ 488              		.loc 1 238 0
+ 489 001a 874B     		ldr	r3, .L43+16
+ 490 001c 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 491 001e 0D2B     		cmp	r3, #13
+ 492 0020 09D1     		bne	.L30
+ 239:main.c        ****         SalidaD0_Write(1);
+ 493              		.loc 1 239 0
+ 494 0022 0120     		movs	r0, #1
+ 495 0024 FFF7FEFF 		bl	SalidaD0_Write
+ 496              	.LVL45:
+ 240:main.c        ****       UART_PutString("Salida D0=T \n \r"); 
+ 497              		.loc 1 240 0
+ 498 0028 8448     		ldr	r0, .L43+20
+ 499 002a FFF7FEFF 		bl	UART_PutString
+ 500              	.LVL46:
+ 241:main.c        ****       CyDelay(500);
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 14
+
+
+ 501              		.loc 1 241 0
+ 502 002e 4FF4FA70 		mov	r0, #500
+ 503 0032 FFF7FEFF 		bl	CyDelay
+ 504              	.LVL47:
+ 505              	.L30:
+ 242:main.c        ****          }
+ 243:main.c        ****     }
+ 244:main.c        **** if(cadena[4]=='F'){
+ 506              		.loc 1 244 0
+ 507 0036 804B     		ldr	r3, .L43+16
+ 508 0038 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 509 003a 462B     		cmp	r3, #70
+ 510 003c 0DD1     		bne	.L29
+ 245:main.c        **** if(cadena[6]=='\r'){
+ 511              		.loc 1 245 0
+ 512 003e 7E4B     		ldr	r3, .L43+16
+ 513 0040 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 514 0042 0D2B     		cmp	r3, #13
+ 515 0044 09D1     		bne	.L29
+ 246:main.c        ****         SalidaD0_Write(0);
+ 516              		.loc 1 246 0
+ 517 0046 0020     		movs	r0, #0
+ 518 0048 FFF7FEFF 		bl	SalidaD0_Write
+ 519              	.LVL48:
+ 247:main.c        ****       UART_PutString("Salida D0=F \n \r"); 
+ 520              		.loc 1 247 0
+ 521 004c 7C48     		ldr	r0, .L43+24
+ 522 004e FFF7FEFF 		bl	UART_PutString
+ 523              	.LVL49:
+ 248:main.c        ****       CyDelay(500);
+ 524              		.loc 1 248 0
+ 525 0052 4FF4FA70 		mov	r0, #500
+ 526 0056 FFF7FEFF 		bl	CyDelay
+ 527              	.LVL50:
+ 528              	.L29:
+ 249:main.c        ****         }
+ 250:main.c        ****     }
+ 251:main.c        ****  }
+ 252:main.c        **** if(cadena[2]=='1'){
+ 529              		.loc 1 252 0
+ 530 005a 774B     		ldr	r3, .L43+16
+ 531 005c 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 532 005e 312B     		cmp	r3, #49
+ 533 0060 23D1     		bne	.L31
+ 253:main.c        **** if(cadena[4]=='T'){
+ 534              		.loc 1 253 0
+ 535 0062 754B     		ldr	r3, .L43+16
+ 536 0064 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 537 0066 542B     		cmp	r3, #84
+ 538 0068 0DD1     		bne	.L32
+ 254:main.c        **** if(cadena[6]=='\r'){
+ 539              		.loc 1 254 0
+ 540 006a 734B     		ldr	r3, .L43+16
+ 541 006c 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 542 006e 0D2B     		cmp	r3, #13
+ 543 0070 09D1     		bne	.L32
+ 255:main.c        ****         SalidaD1_Write(1);
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 15
+
+
+ 544              		.loc 1 255 0
+ 545 0072 0120     		movs	r0, #1
+ 546 0074 FFF7FEFF 		bl	SalidaD1_Write
+ 547              	.LVL51:
+ 256:main.c        ****       UART_PutString("Salida D1=T \n \r"); 
+ 548              		.loc 1 256 0
+ 549 0078 7248     		ldr	r0, .L43+28
+ 550 007a FFF7FEFF 		bl	UART_PutString
+ 551              	.LVL52:
+ 257:main.c        ****       CyDelay(500);}
+ 552              		.loc 1 257 0
+ 553 007e 4FF4FA70 		mov	r0, #500
+ 554 0082 FFF7FEFF 		bl	CyDelay
+ 555              	.LVL53:
+ 556              	.L32:
+ 258:main.c        ****     }
+ 259:main.c        **** if(cadena[4]=='F'){
+ 557              		.loc 1 259 0
+ 558 0086 6C4B     		ldr	r3, .L43+16
+ 559 0088 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 560 008a 462B     		cmp	r3, #70
+ 561 008c 0DD1     		bne	.L31
+ 260:main.c        **** if(cadena[6]=='\r'){
+ 562              		.loc 1 260 0
+ 563 008e 6A4B     		ldr	r3, .L43+16
+ 564 0090 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 565 0092 0D2B     		cmp	r3, #13
+ 566 0094 09D1     		bne	.L31
+ 261:main.c        ****         SalidaD1_Write(0);
+ 567              		.loc 1 261 0
+ 568 0096 0020     		movs	r0, #0
+ 569 0098 FFF7FEFF 		bl	SalidaD1_Write
+ 570              	.LVL54:
+ 262:main.c        ****       UART_PutString("Salida D1=F \n \r"); 
+ 571              		.loc 1 262 0
+ 572 009c 6A48     		ldr	r0, .L43+32
+ 573 009e FFF7FEFF 		bl	UART_PutString
+ 574              	.LVL55:
+ 263:main.c        ****       CyDelay(500);
+ 575              		.loc 1 263 0
+ 576 00a2 4FF4FA70 		mov	r0, #500
+ 577 00a6 FFF7FEFF 		bl	CyDelay
+ 578              	.LVL56:
+ 579              	.L31:
+ 264:main.c        ****         }
+ 265:main.c        ****     }
+ 266:main.c        ****  }
+ 267:main.c        **** if(cadena[2]=='2'){
+ 580              		.loc 1 267 0
+ 581 00aa 634B     		ldr	r3, .L43+16
+ 582 00ac 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 583 00ae 322B     		cmp	r3, #50
+ 584 00b0 23D1     		bne	.L28
+ 268:main.c        **** if(cadena[4]=='T'){
+ 585              		.loc 1 268 0
+ 586 00b2 614B     		ldr	r3, .L43+16
+ 587 00b4 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 16
+
+
+ 588 00b6 542B     		cmp	r3, #84
+ 589 00b8 0DD1     		bne	.L33
+ 269:main.c        **** if(cadena[6]=='\r'){
+ 590              		.loc 1 269 0
+ 591 00ba 5F4B     		ldr	r3, .L43+16
+ 592 00bc 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 593 00be 0D2B     		cmp	r3, #13
+ 594 00c0 09D1     		bne	.L33
+ 270:main.c        ****         SalidaD2_Write(1);
+ 595              		.loc 1 270 0
+ 596 00c2 0120     		movs	r0, #1
+ 597 00c4 FFF7FEFF 		bl	SalidaD2_Write
+ 598              	.LVL57:
+ 271:main.c        ****         UART_PutString("Salida D2=T \n \r"); 
+ 599              		.loc 1 271 0
+ 600 00c8 6048     		ldr	r0, .L43+36
+ 601 00ca FFF7FEFF 		bl	UART_PutString
+ 602              	.LVL58:
+ 272:main.c        ****         CyDelay(500);
+ 603              		.loc 1 272 0
+ 604 00ce 4FF4FA70 		mov	r0, #500
+ 605 00d2 FFF7FEFF 		bl	CyDelay
+ 606              	.LVL59:
+ 607              	.L33:
+ 273:main.c        ****         }
+ 274:main.c        ****     }
+ 275:main.c        **** if(cadena[4]=='F'){
+ 608              		.loc 1 275 0
+ 609 00d6 584B     		ldr	r3, .L43+16
+ 610 00d8 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 611 00da 462B     		cmp	r3, #70
+ 612 00dc 0DD1     		bne	.L28
+ 276:main.c        **** if(cadena[6]=='\r'){
+ 613              		.loc 1 276 0
+ 614 00de 564B     		ldr	r3, .L43+16
+ 615 00e0 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 616 00e2 0D2B     		cmp	r3, #13
+ 617 00e4 09D1     		bne	.L28
+ 277:main.c        ****         SalidaD2_Write(0);
+ 618              		.loc 1 277 0
+ 619 00e6 0020     		movs	r0, #0
+ 620 00e8 FFF7FEFF 		bl	SalidaD2_Write
+ 621              	.LVL60:
+ 278:main.c        ****         UART_PutString("Salida D2=F \n \r"); 
+ 622              		.loc 1 278 0
+ 623 00ec 5848     		ldr	r0, .L43+40
+ 624 00ee FFF7FEFF 		bl	UART_PutString
+ 625              	.LVL61:
+ 279:main.c        ****         CyDelay(500);
+ 626              		.loc 1 279 0
+ 627 00f2 4FF4FA70 		mov	r0, #500
+ 628 00f6 FFF7FEFF 		bl	CyDelay
+ 629              	.LVL62:
+ 630              	.L28:
+ 280:main.c        ****         }
+ 281:main.c        ****     }
+ 282:main.c        ****  }
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 17
+
+
+ 283:main.c        **** 
+ 284:main.c        **** }
+ 285:main.c        **** if(cadena[1]=='a'){
+ 631              		.loc 1 285 0
+ 632 00fa 4F4B     		ldr	r3, .L43+16
+ 633 00fc 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 634 00fe 612B     		cmp	r3, #97
+ 635 0100 40F08F80 		bne	.L27
+ 286:main.c        ****     
+ 287:main.c        **** if(cadena[2]=='0'){
+ 636              		.loc 1 287 0
+ 637 0104 4C4B     		ldr	r3, .L43+16
+ 638 0106 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 639 0108 302B     		cmp	r3, #48
+ 640 010a 44D1     		bne	.L36
+ 641 010c 06E0     		b	.L40
+ 642              	.LVL63:
+ 643              	.L37:
+ 644              	.LBB2:
+ 288:main.c        ****      for(int i=0;i<=3;i++){
+ 289:main.c        ****      cadena2[i]=cadena[i+3];
+ 645              		.loc 1 289 0 discriminator 3
+ 646 010e DA1C     		adds	r2, r3, #3
+ 647 0110 4949     		ldr	r1, .L43+16
+ 648 0112 895C     		ldrb	r1, [r1, r2]	@ zero_extendqisi2
+ 649 0114 4F4A     		ldr	r2, .L43+44
+ 650 0116 D154     		strb	r1, [r2, r3]
+ 288:main.c        ****      for(int i=0;i<=3;i++){
+ 651              		.loc 1 288 0 discriminator 3
+ 652 0118 0133     		adds	r3, r3, #1
+ 653              	.LVL64:
+ 654 011a 00E0     		b	.L35
+ 655              	.LVL65:
+ 656              	.L40:
+ 657              	.LBE2:
+ 658 011c 0023     		movs	r3, #0
+ 659              	.L35:
+ 660              	.LVL66:
+ 661              	.LBB3:
+ 288:main.c        ****      for(int i=0;i<=3;i++){
+ 662              		.loc 1 288 0 is_stmt 0 discriminator 1
+ 663 011e 032B     		cmp	r3, #3
+ 664 0120 F5DD     		ble	.L37
+ 665              	.LBE3:
+ 290:main.c        ****    }
+ 291:main.c        ****      
+ 292:main.c        ****     DAC=atoi(cadena2);
+ 666              		.loc 1 292 0 is_stmt 1
+ 667 0122 4C48     		ldr	r0, .L43+44
+ 668 0124 FFF7FEFF 		bl	atoi
+ 669              	.LVL67:
+ 670 0128 4B4B     		ldr	r3, .L43+48
+ 671 012a 1860     		str	r0, [r3]
+ 293:main.c        ****     VDAC=(DAC*255)/4095;
+ 672              		.loc 1 293 0
+ 673 012c C0EB0020 		rsb	r0, r0, r0, lsl #8
+ 674 0130 4A4B     		ldr	r3, .L43+52
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 18
+
+
+ 675 0132 83FB0023 		smull	r2, r3, r3, r0
+ 676 0136 0344     		add	r3, r3, r0
+ 677 0138 C017     		asrs	r0, r0, #31
+ 678 013a C0EBE320 		rsb	r0, r0, r3, asr #11
+ 679 013e 484B     		ldr	r3, .L43+56
+ 680 0140 1860     		str	r0, [r3]
+ 294:main.c        ****     
+ 295:main.c        **** if(cadena[0]=='\r'){
+ 681              		.loc 1 295 0
+ 682 0142 3D4B     		ldr	r3, .L43+16
+ 683 0144 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 684 0146 0D2B     		cmp	r3, #13
+ 685 0148 25D1     		bne	.L36
+ 296:main.c        ****      Vin=(VDAC*4.3)/255;
+ 686              		.loc 1 296 0
+ 687 014a FFF7FEFF 		bl	__aeabi_i2d
+ 688              	.LVL68:
+ 689 014e 36A3     		adr	r3, .L43
+ 690 0150 D3E90023 		ldrd	r2, [r3]
+ 691 0154 FFF7FEFF 		bl	__aeabi_dmul
+ 692              	.LVL69:
+ 693 0158 35A3     		adr	r3, .L43+8
+ 694 015a D3E90023 		ldrd	r2, [r3]
+ 695 015e FFF7FEFF 		bl	__aeabi_ddiv
+ 696              	.LVL70:
+ 697 0162 FFF7FEFF 		bl	__aeabi_d2f
+ 698              	.LVL71:
+ 699 0166 3F4B     		ldr	r3, .L43+60
+ 700 0168 1860     		str	r0, [r3]	@ float
+ 297:main.c        ****      sprintf(publicar,"%0.3fA0 \n \r" ,Vin);
+ 701              		.loc 1 297 0
+ 702 016a FFF7FEFF 		bl	__aeabi_f2d
+ 703              	.LVL72:
+ 704 016e 3E4D     		ldr	r5, .L43+64
+ 705 0170 0246     		mov	r2, r0
+ 706 0172 0B46     		mov	r3, r1
+ 707 0174 3D49     		ldr	r1, .L43+68
+ 708 0176 2846     		mov	r0, r5
+ 709 0178 FFF7FEFF 		bl	sprintf
+ 710              	.LVL73:
+ 298:main.c        ****         VDAC1_SetValue(VDAC);
+ 711              		.loc 1 298 0
+ 712 017c 384C     		ldr	r4, .L43+56
+ 713 017e 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+ 714 0180 FFF7FEFF 		bl	VDAC1_SetValue
+ 715              	.LVL74:
+ 299:main.c        ****         UART_PutString(publicar);
+ 716              		.loc 1 299 0
+ 717 0184 2846     		mov	r0, r5
+ 718 0186 FFF7FEFF 		bl	UART_PutString
+ 719              	.LVL75:
+ 300:main.c        ****         CyDelay(100);
+ 720              		.loc 1 300 0
+ 721 018a 6420     		movs	r0, #100
+ 722 018c FFF7FEFF 		bl	CyDelay
+ 723              	.LVL76:
+ 301:main.c        ****       VDAC1_SetValue(VDAC);
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 19
+
+
+ 724              		.loc 1 301 0
+ 725 0190 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+ 726 0192 FFF7FEFF 		bl	VDAC1_SetValue
+ 727              	.LVL77:
+ 728              	.L36:
+ 302:main.c        ****       }
+ 303:main.c        ****     }
+ 304:main.c        ****     
+ 305:main.c        **** if(cadena[2]=='1'){
+ 729              		.loc 1 305 0
+ 730 0196 284B     		ldr	r3, .L43+16
+ 731 0198 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 732 019a 312B     		cmp	r3, #49
+ 733 019c 41D1     		bne	.L27
+ 734 019e 06E0     		b	.L41
+ 735              	.LVL78:
+ 736              	.L39:
+ 737              	.LBB4:
+ 306:main.c        ****      for(int i=0;i<=3;i++){
+ 307:main.c        ****      cadena2[i]=cadena[i+3];
+ 738              		.loc 1 307 0 discriminator 3
+ 739 01a0 DA1C     		adds	r2, r3, #3
+ 740 01a2 2549     		ldr	r1, .L43+16
+ 741 01a4 895C     		ldrb	r1, [r1, r2]	@ zero_extendqisi2
+ 742 01a6 2B4A     		ldr	r2, .L43+44
+ 743 01a8 D154     		strb	r1, [r2, r3]
+ 306:main.c        ****      for(int i=0;i<=3;i++){
+ 744              		.loc 1 306 0 discriminator 3
+ 745 01aa 0133     		adds	r3, r3, #1
+ 746              	.LVL79:
+ 747 01ac 00E0     		b	.L38
+ 748              	.LVL80:
+ 749              	.L41:
+ 750              	.LBE4:
+ 751 01ae 0023     		movs	r3, #0
+ 752              	.L38:
+ 753              	.LVL81:
+ 754              	.LBB5:
+ 306:main.c        ****      for(int i=0;i<=3;i++){
+ 755              		.loc 1 306 0 is_stmt 0 discriminator 1
+ 756 01b0 032B     		cmp	r3, #3
+ 757 01b2 F5DD     		ble	.L39
+ 758              	.LBE5:
+ 308:main.c        ****    }
+ 309:main.c        ****      
+ 310:main.c        ****     DAC=atoi(cadena2);
+ 759              		.loc 1 310 0 is_stmt 1
+ 760 01b4 2748     		ldr	r0, .L43+44
+ 761 01b6 FFF7FEFF 		bl	atoi
+ 762              	.LVL82:
+ 763 01ba 274B     		ldr	r3, .L43+48
+ 764 01bc 1860     		str	r0, [r3]
+ 311:main.c        ****     VDAC=(DAC*255)/4095;
+ 765              		.loc 1 311 0
+ 766 01be C0EB0020 		rsb	r0, r0, r0, lsl #8
+ 767 01c2 264B     		ldr	r3, .L43+52
+ 768 01c4 83FB0023 		smull	r2, r3, r3, r0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 20
+
+
+ 769 01c8 0344     		add	r3, r3, r0
+ 770 01ca C017     		asrs	r0, r0, #31
+ 771 01cc C0EBE320 		rsb	r0, r0, r3, asr #11
+ 772 01d0 234B     		ldr	r3, .L43+56
+ 773 01d2 1860     		str	r0, [r3]
+ 312:main.c        ****     
+ 313:main.c        **** if(cadena[0]=='\r'){
+ 774              		.loc 1 313 0
+ 775 01d4 184B     		ldr	r3, .L43+16
+ 776 01d6 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 777 01d8 0D2B     		cmp	r3, #13
+ 778 01da 22D1     		bne	.L27
+ 314:main.c        ****         Vin=(VDAC*4.3)/255;
+ 779              		.loc 1 314 0
+ 780 01dc FFF7FEFF 		bl	__aeabi_i2d
+ 781              	.LVL83:
+ 782 01e0 11A3     		adr	r3, .L43
+ 783 01e2 D3E90023 		ldrd	r2, [r3]
+ 784 01e6 FFF7FEFF 		bl	__aeabi_dmul
+ 785              	.LVL84:
+ 786 01ea 11A3     		adr	r3, .L43+8
+ 787 01ec D3E90023 		ldrd	r2, [r3]
+ 788 01f0 FFF7FEFF 		bl	__aeabi_ddiv
+ 789              	.LVL85:
+ 790 01f4 FFF7FEFF 		bl	__aeabi_d2f
+ 791              	.LVL86:
+ 792 01f8 1A4B     		ldr	r3, .L43+60
+ 793 01fa 1860     		str	r0, [r3]	@ float
+ 315:main.c        ****      sprintf(publicar,"%0.3fA1 \n \r" ,Vin);
+ 794              		.loc 1 315 0
+ 795 01fc FFF7FEFF 		bl	__aeabi_f2d
+ 796              	.LVL87:
+ 797 0200 194C     		ldr	r4, .L43+64
+ 798 0202 0246     		mov	r2, r0
+ 799 0204 0B46     		mov	r3, r1
+ 800 0206 1A49     		ldr	r1, .L43+72
+ 801 0208 2046     		mov	r0, r4
+ 802 020a FFF7FEFF 		bl	sprintf
+ 803              	.LVL88:
+ 316:main.c        ****         VDAC2_SetValue(VDAC);
+ 804              		.loc 1 316 0
+ 805 020e 144B     		ldr	r3, .L43+56
+ 806 0210 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 807 0212 FFF7FEFF 		bl	VDAC2_SetValue
+ 808              	.LVL89:
+ 317:main.c        ****         UART_PutString(publicar);
+ 809              		.loc 1 317 0
+ 810 0216 2046     		mov	r0, r4
+ 811 0218 FFF7FEFF 		bl	UART_PutString
+ 812              	.LVL90:
+ 318:main.c        ****         CyDelay(100);
+ 813              		.loc 1 318 0
+ 814 021c 6420     		movs	r0, #100
+ 815 021e FFF7FEFF 		bl	CyDelay
+ 816              	.LVL91:
+ 817              	.L27:
+ 818 0222 38BD     		pop	{r3, r4, r5, pc}
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 21
+
+
+ 819              	.L44:
+ 820 0224 AFF30080 		.align	3
+ 821              	.L43:
+ 822 0228 33333333 		.word	858993459
+ 823 022c 33331140 		.word	1074869043
+ 824 0230 00000000 		.word	0
+ 825 0234 00E06F40 		.word	1081073664
+ 826 0238 00000000 		.word	cadena
+ 827 023c 9C000000 		.word	.LC9
+ 828 0240 AC000000 		.word	.LC10
+ 829 0244 BC000000 		.word	.LC11
+ 830 0248 CC000000 		.word	.LC12
+ 831 024c DC000000 		.word	.LC13
+ 832 0250 EC000000 		.word	.LC14
+ 833 0254 00000000 		.word	cadena2
+ 834 0258 00000000 		.word	DAC
+ 835 025c 81000880 		.word	-2146959231
+ 836 0260 00000000 		.word	VDAC
+ 837 0264 00000000 		.word	Vin
+ 838 0268 00000000 		.word	publicar
+ 839 026c FC000000 		.word	.LC15
+ 840 0270 08010000 		.word	.LC16
+ 841              		.cfi_endproc
+ 842              	.LFE67:
+ 843              		.size	Output, .-Output
+ 844              		.section	.text.Contador,"ax",%progbits
+ 845              		.align	2
+ 846              		.global	Contador
+ 847              		.thumb
+ 848              		.thumb_func
+ 849              		.type	Contador, %function
+ 850              	Contador:
+ 851              	.LFB68:
+ 319:main.c        ****       }
+ 320:main.c        ****     }
+ 321:main.c        **** }
+ 322:main.c        **** }
+ 323:main.c        **** 
+ 324:main.c        **** 
+ 325:main.c        **** void Contador(){
+ 852              		.loc 1 325 0
+ 853              		.cfi_startproc
+ 854              		@ args = 0, pretend = 0, frame = 0
+ 855              		@ frame_needed = 0, uses_anonymous_args = 0
+ 856 0000 10B5     		push	{r4, lr}
+ 857              		.cfi_def_cfa_offset 8
+ 858              		.cfi_offset 4, -8
+ 859              		.cfi_offset 14, -4
+ 326:main.c        **** if(cadena[1]=='i'){
+ 860              		.loc 1 326 0
+ 861 0002 484B     		ldr	r3, .L53
+ 862 0004 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 863 0006 692B     		cmp	r3, #105
+ 864 0008 37D1     		bne	.L46
+ 327:main.c        **** if(cadena[3]=='0'){
+ 865              		.loc 1 327 0
+ 866 000a 464B     		ldr	r3, .L53
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 22
+
+
+ 867 000c DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 868 000e 302B     		cmp	r3, #48
+ 869 0010 17D1     		bne	.L47
+ 328:main.c        ****      Counter1_Start();
+ 870              		.loc 1 328 0
+ 871 0012 FFF7FEFF 		bl	Counter1_Start
+ 872              	.LVL92:
+ 329:main.c        **** Counter1_ReadCounter();
+ 873              		.loc 1 329 0
+ 874 0016 FFF7FEFF 		bl	Counter1_ReadCounter
+ 875              	.LVL93:
+ 330:main.c        **** guardado1=Counter1_ReadCapture();
+ 876              		.loc 1 330 0
+ 877 001a FFF7FEFF 		bl	Counter1_ReadCapture
+ 878              	.LVL94:
+ 879 001e 424B     		ldr	r3, .L53+4
+ 880 0020 1860     		str	r0, [r3]
+ 331:main.c        **** if(cadena[5]=='\r'){
+ 881              		.loc 1 331 0
+ 882 0022 404B     		ldr	r3, .L53
+ 883 0024 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
+ 884 0026 0D2B     		cmp	r3, #13
+ 885 0028 0BD1     		bne	.L47
+ 332:main.c        ****  sprintf(publicar1,"%3dC0 \n \r" ,guardado1);
+ 886              		.loc 1 332 0
+ 887 002a 404C     		ldr	r4, .L53+8
+ 888 002c 0246     		mov	r2, r0
+ 889 002e 4049     		ldr	r1, .L53+12
+ 890 0030 2046     		mov	r0, r4
+ 891 0032 FFF7FEFF 		bl	sprintf
+ 892              	.LVL95:
+ 333:main.c        ****  UART_PutString(publicar1);
+ 893              		.loc 1 333 0
+ 894 0036 2046     		mov	r0, r4
+ 895 0038 FFF7FEFF 		bl	UART_PutString
+ 896              	.LVL96:
+ 334:main.c        ****  CyDelay(100);
+ 897              		.loc 1 334 0
+ 898 003c 6420     		movs	r0, #100
+ 899 003e FFF7FEFF 		bl	CyDelay
+ 900              	.LVL97:
+ 901              	.L47:
+ 335:main.c        **** 
+ 336:main.c        **** }
+ 337:main.c        **** 
+ 338:main.c        **** }
+ 339:main.c        **** if(cadena[3]=='1'){
+ 902              		.loc 1 339 0
+ 903 0042 384B     		ldr	r3, .L53
+ 904 0044 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 905 0046 312B     		cmp	r3, #49
+ 906 0048 17D1     		bne	.L46
+ 340:main.c        ****      Counter2_Start();
+ 907              		.loc 1 340 0
+ 908 004a FFF7FEFF 		bl	Counter2_Start
+ 909              	.LVL98:
+ 341:main.c        **** Counter2_ReadCounter();
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 23
+
+
+ 910              		.loc 1 341 0
+ 911 004e FFF7FEFF 		bl	Counter2_ReadCounter
+ 912              	.LVL99:
+ 342:main.c        **** guardado2=Counter2_ReadCapture();
+ 913              		.loc 1 342 0
+ 914 0052 FFF7FEFF 		bl	Counter2_ReadCapture
+ 915              	.LVL100:
+ 916 0056 374B     		ldr	r3, .L53+16
+ 917 0058 1860     		str	r0, [r3]
+ 343:main.c        **** if(cadena[5]=='\r'){
+ 918              		.loc 1 343 0
+ 919 005a 324B     		ldr	r3, .L53
+ 920 005c 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
+ 921 005e 0D2B     		cmp	r3, #13
+ 922 0060 0BD1     		bne	.L46
+ 344:main.c        ****  sprintf(publicar2,"%3dC1 \n \r" ,guardado2);
+ 923              		.loc 1 344 0
+ 924 0062 354C     		ldr	r4, .L53+20
+ 925 0064 0246     		mov	r2, r0
+ 926 0066 3549     		ldr	r1, .L53+24
+ 927 0068 2046     		mov	r0, r4
+ 928 006a FFF7FEFF 		bl	sprintf
+ 929              	.LVL101:
+ 345:main.c        ****  UART_PutString(publicar2);
+ 930              		.loc 1 345 0
+ 931 006e 2046     		mov	r0, r4
+ 932 0070 FFF7FEFF 		bl	UART_PutString
+ 933              	.LVL102:
+ 346:main.c        ****  CyDelay(100);
+ 934              		.loc 1 346 0
+ 935 0074 6420     		movs	r0, #100
+ 936 0076 FFF7FEFF 		bl	CyDelay
+ 937              	.LVL103:
+ 938              	.L46:
+ 347:main.c        **** 
+ 348:main.c        **** }
+ 349:main.c        **** 
+ 350:main.c        **** }
+ 351:main.c        **** }
+ 352:main.c        **** if(cadena[1]=='s'){
+ 939              		.loc 1 352 0
+ 940 007a 2A4B     		ldr	r3, .L53
+ 941 007c 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 942 007e 732B     		cmp	r3, #115
+ 943 0080 1FD1     		bne	.L48
+ 353:main.c        **** if(cadena[3]=='0'){  
+ 944              		.loc 1 353 0
+ 945 0082 284B     		ldr	r3, .L53
+ 946 0084 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 947 0086 302B     		cmp	r3, #48
+ 948 0088 0BD1     		bne	.L49
+ 354:main.c        **** if(cadena[5]=='\r'){
+ 949              		.loc 1 354 0
+ 950 008a 264B     		ldr	r3, .L53
+ 951 008c 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
+ 952 008e 0D2B     		cmp	r3, #13
+ 953 0090 07D1     		bne	.L49
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 24
+
+
+ 355:main.c        **** Counter1_Stop();
+ 954              		.loc 1 355 0
+ 955 0092 FFF7FEFF 		bl	Counter1_Stop
+ 956              	.LVL104:
+ 356:main.c        **** UART_PutString(publicar1);
+ 957              		.loc 1 356 0
+ 958 0096 2548     		ldr	r0, .L53+8
+ 959 0098 FFF7FEFF 		bl	UART_PutString
+ 960              	.LVL105:
+ 357:main.c        ****  CyDelay(100);
+ 961              		.loc 1 357 0
+ 962 009c 6420     		movs	r0, #100
+ 963 009e FFF7FEFF 		bl	CyDelay
+ 964              	.LVL106:
+ 965              	.L49:
+ 358:main.c        **** }
+ 359:main.c        **** }
+ 360:main.c        **** if(cadena[3]=='1'){  
+ 966              		.loc 1 360 0
+ 967 00a2 204B     		ldr	r3, .L53
+ 968 00a4 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 969 00a6 312B     		cmp	r3, #49
+ 970 00a8 0BD1     		bne	.L48
+ 361:main.c        **** if(cadena[5]=='\r'){
+ 971              		.loc 1 361 0
+ 972 00aa 1E4B     		ldr	r3, .L53
+ 973 00ac 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
+ 974 00ae 0D2B     		cmp	r3, #13
+ 975 00b0 07D1     		bne	.L48
+ 362:main.c        **** Counter2_Stop();
+ 976              		.loc 1 362 0
+ 977 00b2 FFF7FEFF 		bl	Counter2_Stop
+ 978              	.LVL107:
+ 363:main.c        **** UART_PutString(publicar2);
+ 979              		.loc 1 363 0
+ 980 00b6 2048     		ldr	r0, .L53+20
+ 981 00b8 FFF7FEFF 		bl	UART_PutString
+ 982              	.LVL108:
+ 364:main.c        ****  CyDelay(100);
+ 983              		.loc 1 364 0
+ 984 00bc 6420     		movs	r0, #100
+ 985 00be FFF7FEFF 		bl	CyDelay
+ 986              	.LVL109:
+ 987              	.L48:
+ 365:main.c        **** }
+ 366:main.c        **** }
+ 367:main.c        **** }
+ 368:main.c        **** if(cadena[1]=='r'){
+ 988              		.loc 1 368 0
+ 989 00c2 184B     		ldr	r3, .L53
+ 990 00c4 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 991 00c6 722B     		cmp	r3, #114
+ 992 00c8 2BD1     		bne	.L45
+ 369:main.c        **** if(cadena[3]=='0'){
+ 993              		.loc 1 369 0
+ 994 00ca 164B     		ldr	r3, .L53
+ 995 00cc DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 25
+
+
+ 996 00ce 302B     		cmp	r3, #48
+ 997 00d0 11D1     		bne	.L51
+ 370:main.c        **** if(cadena[5]=='\r'){
+ 998              		.loc 1 370 0
+ 999 00d2 144B     		ldr	r3, .L53
+ 1000 00d4 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
+ 1001 00d6 0D2B     		cmp	r3, #13
+ 1002 00d8 0DD1     		bne	.L51
+ 371:main.c        **** Counter1_WriteCounter(0);
+ 1003              		.loc 1 371 0
+ 1004 00da 0020     		movs	r0, #0
+ 1005 00dc FFF7FEFF 		bl	Counter1_WriteCounter
+ 1006              	.LVL110:
+ 372:main.c        **** sprintf(publicar1,"%3dC0 \n \r" ,0);
+ 1007              		.loc 1 372 0
+ 1008 00e0 0022     		movs	r2, #0
+ 1009 00e2 1349     		ldr	r1, .L53+12
+ 1010 00e4 1148     		ldr	r0, .L53+8
+ 1011 00e6 FFF7FEFF 		bl	sprintf
+ 1012              	.LVL111:
+ 373:main.c        **** UART_PutString("  0C0 \n \r");
+ 1013              		.loc 1 373 0
+ 1014 00ea 1548     		ldr	r0, .L53+28
+ 1015 00ec FFF7FEFF 		bl	UART_PutString
+ 1016              	.LVL112:
+ 374:main.c        **** CyDelay(100);
+ 1017              		.loc 1 374 0
+ 1018 00f0 6420     		movs	r0, #100
+ 1019 00f2 FFF7FEFF 		bl	CyDelay
+ 1020              	.LVL113:
+ 1021              	.L51:
+ 375:main.c        **** }
+ 376:main.c        **** }
+ 377:main.c        **** if(cadena[3]=='1'){
+ 1022              		.loc 1 377 0
+ 1023 00f6 0B4B     		ldr	r3, .L53
+ 1024 00f8 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 1025 00fa 312B     		cmp	r3, #49
+ 1026 00fc 11D1     		bne	.L45
+ 378:main.c        **** if(cadena[5]=='\r'){
+ 1027              		.loc 1 378 0
+ 1028 00fe 094B     		ldr	r3, .L53
+ 1029 0100 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
+ 1030 0102 0D2B     		cmp	r3, #13
+ 1031 0104 0DD1     		bne	.L45
+ 379:main.c        **** Counter2_WriteCounter(0);
+ 1032              		.loc 1 379 0
+ 1033 0106 0020     		movs	r0, #0
+ 1034 0108 FFF7FEFF 		bl	Counter2_WriteCounter
+ 1035              	.LVL114:
+ 380:main.c        **** sprintf(publicar2,"%3dC0 \n \r" ,0);
+ 1036              		.loc 1 380 0
+ 1037 010c 0022     		movs	r2, #0
+ 1038 010e 0849     		ldr	r1, .L53+12
+ 1039 0110 0948     		ldr	r0, .L53+20
+ 1040 0112 FFF7FEFF 		bl	sprintf
+ 1041              	.LVL115:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 26
+
+
+ 381:main.c        **** UART_PutString("  0C1 \n \r");
+ 1042              		.loc 1 381 0
+ 1043 0116 0B48     		ldr	r0, .L53+32
+ 1044 0118 FFF7FEFF 		bl	UART_PutString
+ 1045              	.LVL116:
+ 382:main.c        **** CyDelay(100);
+ 1046              		.loc 1 382 0
+ 1047 011c 6420     		movs	r0, #100
+ 1048 011e FFF7FEFF 		bl	CyDelay
+ 1049              	.LVL117:
+ 1050              	.L45:
+ 1051 0122 10BD     		pop	{r4, pc}
+ 1052              	.L54:
+ 1053              		.align	2
+ 1054              	.L53:
+ 1055 0124 00000000 		.word	cadena
+ 1056 0128 00000000 		.word	guardado1
+ 1057 012c 00000000 		.word	publicar1
+ 1058 0130 14010000 		.word	.LC17
+ 1059 0134 00000000 		.word	guardado2
+ 1060 0138 00000000 		.word	publicar2
+ 1061 013c 20010000 		.word	.LC18
+ 1062 0140 2C010000 		.word	.LC19
+ 1063 0144 38010000 		.word	.LC20
+ 1064              		.cfi_endproc
+ 1065              	.LFE68:
+ 1066              		.size	Contador, .-Contador
+ 1067              		.section	.text.main,"ax",%progbits
+ 1068              		.align	2
+ 1069              		.global	main
+ 1070              		.thumb
+ 1071              		.thumb_func
+ 1072              		.type	main, %function
+ 1073              	main:
+ 1074              	.LFB65:
+  75:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ 1075              		.loc 1 75 0
+ 1076              		.cfi_startproc
+ 1077              		@ Volatile: function does not return.
+ 1078              		@ args = 0, pretend = 0, frame = 0
+ 1079              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1080 0000 08B5     		push	{r3, lr}
+ 1081              		.cfi_def_cfa_offset 8
+ 1082              		.cfi_offset 3, -8
+ 1083              		.cfi_offset 14, -4
+  76:main.c        ****     ADC_Start(); 
+ 1084              		.loc 1 76 0
+ 1085              		.syntax unified
+ 1086              	@ 76 "main.c" 1
+ 1087 0002 62B6     		CPSIE   i
+ 1088              	@ 0 "" 2
+  77:main.c        ****     PGA_Start();
+ 1089              		.loc 1 77 0
+ 1090              		.thumb
+ 1091              		.syntax unified
+ 1092 0004 FFF7FEFF 		bl	ADC_Start
+ 1093              	.LVL118:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 27
+
+
+  78:main.c        ****     MUX_Start();
+ 1094              		.loc 1 78 0
+ 1095 0008 FFF7FEFF 		bl	PGA_Start
+ 1096              	.LVL119:
+  79:main.c        ****     UART_Start();
+ 1097              		.loc 1 79 0
+ 1098 000c FFF7FEFF 		bl	MUX_Start
+ 1099              	.LVL120:
+  80:main.c        ****     VDAC1_Start();
+ 1100              		.loc 1 80 0
+ 1101 0010 FFF7FEFF 		bl	UART_Start
+ 1102              	.LVL121:
+  81:main.c        ****     VDAC1_SetRange(VDAC1_RANGE_4V);
+ 1103              		.loc 1 81 0
+ 1104 0014 FFF7FEFF 		bl	VDAC1_Start
+ 1105              	.LVL122:
+  82:main.c        ****     VDAC2_Start();
+ 1106              		.loc 1 82 0
+ 1107 0018 0420     		movs	r0, #4
+ 1108 001a FFF7FEFF 		bl	VDAC1_SetRange
+ 1109              	.LVL123:
+  83:main.c        ****     VDAC2_SetRange(VDAC2_RANGE_4V);
+ 1110              		.loc 1 83 0
+ 1111 001e FFF7FEFF 		bl	VDAC2_Start
+ 1112              	.LVL124:
+  84:main.c        ****     isrRx_Start();
+ 1113              		.loc 1 84 0
+ 1114 0022 0420     		movs	r0, #4
+ 1115 0024 FFF7FEFF 		bl	VDAC2_SetRange
+ 1116              	.LVL125:
+  85:main.c        ****     isrRx_StartEx(interrupcion);
+ 1117              		.loc 1 85 0
+ 1118 0028 FFF7FEFF 		bl	isrRx_Start
+ 1119              	.LVL126:
+  86:main.c        ****     
+ 1120              		.loc 1 86 0
+ 1121 002c 0948     		ldr	r0, .L63
+ 1122 002e FFF7FEFF 		bl	isrRx_StartEx
+ 1123              	.LVL127:
+ 1124              	.L57:
+  95:main.c        ****             case 0:
+ 1125              		.loc 1 95 0
+ 1126 0032 094B     		ldr	r3, .L63+4
+ 1127 0034 1B68     		ldr	r3, [r3]
+ 1128 0036 022B     		cmp	r3, #2
+ 1129 0038 06D0     		beq	.L58
+ 1130 003a 032B     		cmp	r3, #3
+ 1131 003c 07D0     		beq	.L59
+ 1132 003e 012B     		cmp	r3, #1
+ 1133 0040 F7D1     		bne	.L57
+ 100:main.c        ****             break;
+ 1134              		.loc 1 100 0
+ 1135 0042 FFF7FEFF 		bl	Input
+ 1136              	.LVL128:
+ 101:main.c        ****             
+ 1137              		.loc 1 101 0
+ 1138 0046 F4E7     		b	.L57
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 28
+
+
+ 1139              	.L58:
+ 104:main.c        ****             break;
+ 1140              		.loc 1 104 0
+ 1141 0048 FFF7FEFF 		bl	Output
+ 1142              	.LVL129:
+ 105:main.c        ****             
+ 1143              		.loc 1 105 0
+ 1144 004c F1E7     		b	.L57
+ 1145              	.L59:
+ 108:main.c        ****             break;
+ 1146              		.loc 1 108 0
+ 1147 004e FFF7FEFF 		bl	Contador
+ 1148              	.LVL130:
+ 109:main.c        ****             
+ 1149              		.loc 1 109 0
+ 1150 0052 EEE7     		b	.L57
+ 1151              	.L64:
+ 1152              		.align	2
+ 1153              	.L63:
+ 1154 0054 00000000 		.word	interrupcion
+ 1155 0058 00000000 		.word	.LANCHOR0
+ 1156              		.cfi_endproc
+ 1157              	.LFE65:
+ 1158              		.size	main, .-main
+ 1159              		.comm	Vin,4,4
+ 1160              		.comm	guardado2,4,4
+ 1161              		.comm	guardado1,4,4
+ 1162              		.comm	VDAC,4,4
+ 1163              		.comm	DAC,4,4
+ 1164              		.global	acu
+ 1165              		.comm	cuenta,4,4
+ 1166              		.comm	valor,4,4
+ 1167              		.comm	dato,4,4
+ 1168              		.comm	numero,48,4
+ 1169              		.comm	signal,4,4
+ 1170              		.global	ganancia
+ 1171              		.global	canal
+ 1172              		.global	bandera
+ 1173              		.comm	publicar2,12,4
+ 1174              		.comm	publicar1,12,4
+ 1175              		.comm	publicar,12,4
+ 1176              		.comm	str,12,4
+ 1177              		.global	longitud
+ 1178              		.comm	cadena2,4,4
+ 1179              		.comm	cadena,1,4
+ 1180              		.comm	recibir,1,1
+ 1181              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 1182              		.align	2
+ 1183              	.LC0:
+ 1184 0000 25336441 		.ascii	"%3dA0 \012 \015\000"
+ 1184      30200A20 
+ 1184      0D00
+ 1185 000a 0000     		.space	2
+ 1186              	.LC1:
+ 1187 000c 25336441 		.ascii	"%3dA1 \012 \015\000"
+ 1187      31200A20 
+ 1187      0D00
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 29
+
+
+ 1188 0016 0000     		.space	2
+ 1189              	.LC2:
+ 1190 0018 25336441 		.ascii	"%3dA2 \012 \015\000"
+ 1190      32200A20 
+ 1190      0D00
+ 1191 0022 0000     		.space	2
+ 1192              	.LC3:
+ 1193 0024 456E7472 		.ascii	"Entrada D0=T \012 \015\000"
+ 1193      61646120 
+ 1193      44303D54 
+ 1193      200A200D 
+ 1193      00
+ 1194 0035 000000   		.space	3
+ 1195              	.LC4:
+ 1196 0038 456E7472 		.ascii	"Entrada D0=F \012 \015\000"
+ 1196      61646120 
+ 1196      44303D46 
+ 1196      200A200D 
+ 1196      00
+ 1197 0049 000000   		.space	3
+ 1198              	.LC5:
+ 1199 004c 456E7472 		.ascii	"Entrada D1=T \012 \015\000"
+ 1199      61646120 
+ 1199      44313D54 
+ 1199      200A200D 
+ 1199      00
+ 1200 005d 000000   		.space	3
+ 1201              	.LC6:
+ 1202 0060 456E7472 		.ascii	"Entrada D1=F \012 \015\000"
+ 1202      61646120 
+ 1202      44313D46 
+ 1202      200A200D 
+ 1202      00
+ 1203 0071 000000   		.space	3
+ 1204              	.LC7:
+ 1205 0074 456E7472 		.ascii	"Entrada D2=T \012 \015\000"
+ 1205      61646120 
+ 1205      44323D54 
+ 1205      200A200D 
+ 1205      00
+ 1206 0085 000000   		.space	3
+ 1207              	.LC8:
+ 1208 0088 456E7472 		.ascii	"Entrada D2=F \012 \015\000"
+ 1208      61646120 
+ 1208      44323D46 
+ 1208      200A200D 
+ 1208      00
+ 1209 0099 000000   		.space	3
+ 1210              	.LC9:
+ 1211 009c 53616C69 		.ascii	"Salida D0=T \012 \015\000"
+ 1211      64612044 
+ 1211      303D5420 
+ 1211      0A200D00 
+ 1212              	.LC10:
+ 1213 00ac 53616C69 		.ascii	"Salida D0=F \012 \015\000"
+ 1213      64612044 
+ 1213      303D4620 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 30
+
+
+ 1213      0A200D00 
+ 1214              	.LC11:
+ 1215 00bc 53616C69 		.ascii	"Salida D1=T \012 \015\000"
+ 1215      64612044 
+ 1215      313D5420 
+ 1215      0A200D00 
+ 1216              	.LC12:
+ 1217 00cc 53616C69 		.ascii	"Salida D1=F \012 \015\000"
+ 1217      64612044 
+ 1217      313D4620 
+ 1217      0A200D00 
+ 1218              	.LC13:
+ 1219 00dc 53616C69 		.ascii	"Salida D2=T \012 \015\000"
+ 1219      64612044 
+ 1219      323D5420 
+ 1219      0A200D00 
+ 1220              	.LC14:
+ 1221 00ec 53616C69 		.ascii	"Salida D2=F \012 \015\000"
+ 1221      64612044 
+ 1221      323D4620 
+ 1221      0A200D00 
+ 1222              	.LC15:
+ 1223 00fc 25302E33 		.ascii	"%0.3fA0 \012 \015\000"
+ 1223      66413020 
+ 1223      0A200D00 
+ 1224              	.LC16:
+ 1225 0108 25302E33 		.ascii	"%0.3fA1 \012 \015\000"
+ 1225      66413120 
+ 1225      0A200D00 
+ 1226              	.LC17:
+ 1227 0114 25336443 		.ascii	"%3dC0 \012 \015\000"
+ 1227      30200A20 
+ 1227      0D00
+ 1228 011e 0000     		.space	2
+ 1229              	.LC18:
+ 1230 0120 25336443 		.ascii	"%3dC1 \012 \015\000"
+ 1230      31200A20 
+ 1230      0D00
+ 1231 012a 0000     		.space	2
+ 1232              	.LC19:
+ 1233 012c 20203043 		.ascii	"  0C0 \012 \015\000"
+ 1233      30200A20 
+ 1233      0D00
+ 1234 0136 0000     		.space	2
+ 1235              	.LC20:
+ 1236 0138 20203043 		.ascii	"  0C1 \012 \015\000"
+ 1236      31200A20 
+ 1236      0D00
+ 1237              		.bss
+ 1238              		.align	2
+ 1239              		.set	.LANCHOR0,. + 0
+ 1240              		.type	bandera, %object
+ 1241              		.size	bandera, 4
+ 1242              	bandera:
+ 1243 0000 00000000 		.space	4
+ 1244              		.type	longitud, %object
+ 1245              		.size	longitud, 1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 31
+
+
+ 1246              	longitud:
+ 1247 0004 00       		.space	1
+ 1248 0005 000000   		.space	3
+ 1249              		.type	acu, %object
+ 1250              		.size	acu, 4
+ 1251              	acu:
+ 1252 0008 00000000 		.space	4
+ 1253              		.type	ganancia, %object
+ 1254              		.size	ganancia, 4
+ 1255              	ganancia:
+ 1256 000c 00000000 		.space	4
+ 1257              		.type	canal, %object
+ 1258              		.size	canal, 4
+ 1259              	canal:
+ 1260 0010 00000000 		.space	4
+ 1261              		.text
+ 1262              	.Letext0:
+ 1263              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1264              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1265              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 1266              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 1267              		.file 6 "Generated_Source\\PSoC5/UART.h"
+ 1268              		.file 7 "Generated_Source\\PSoC5/MUX.h"
+ 1269              		.file 8 "Generated_Source\\PSoC5/ADC.h"
+ 1270              		.file 9 "Generated_Source\\PSoC5/PGA.h"
+ 1271              		.file 10 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4
+ 1272              		.file 11 "Generated_Source\\PSoC5/CyLib.h"
+ 1273              		.file 12 "Generated_Source\\PSoC5/D0.h"
+ 1274              		.file 13 "Generated_Source\\PSoC5/D1.h"
+ 1275              		.file 14 "Generated_Source\\PSoC5/D2.h"
+ 1276              		.file 15 "Generated_Source\\PSoC5/SalidaD0.h"
+ 1277              		.file 16 "Generated_Source\\PSoC5/SalidaD1.h"
+ 1278              		.file 17 "Generated_Source\\PSoC5/SalidaD2.h"
+ 1279              		.file 18 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4
+ 1280              		.file 19 "Generated_Source\\PSoC5/VDAC1.h"
+ 1281              		.file 20 "Generated_Source\\PSoC5/VDAC2.h"
+ 1282              		.file 21 "Generated_Source\\PSoC5/Counter1.h"
+ 1283              		.file 22 "Generated_Source\\PSoC5/Counter2.h"
+ 1284              		.file 23 "Generated_Source\\PSoC5/isrRx.h"
+ 1285              		.section	.debug_info,"",%progbits
+ 1286              	.Ldebug_info0:
+ 1287 0000 A80C0000 		.4byte	0xca8
+ 1288 0004 0400     		.2byte	0x4
+ 1289 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1290 000a 04       		.byte	0x4
+ 1291 000b 01       		.uleb128 0x1
+ 1292 000c D4030000 		.4byte	.LASF79
+ 1293 0010 0C       		.byte	0xc
+ 1294 0011 23030000 		.4byte	.LASF80
+ 1295 0015 95000000 		.4byte	.LASF81
+ 1296 0019 30000000 		.4byte	.Ldebug_ranges0+0x30
+ 1297 001d 00000000 		.4byte	0
+ 1298 0021 00000000 		.4byte	.Ldebug_line0
+ 1299 0025 02       		.uleb128 0x2
+ 1300 0026 01       		.byte	0x1
+ 1301 0027 06       		.byte	0x6
+ 1302 0028 19020000 		.4byte	.LASF0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 32
+
+
+ 1303 002c 02       		.uleb128 0x2
+ 1304 002d 01       		.byte	0x1
+ 1305 002e 08       		.byte	0x8
+ 1306 002f FD010000 		.4byte	.LASF1
+ 1307 0033 02       		.uleb128 0x2
+ 1308 0034 02       		.byte	0x2
+ 1309 0035 05       		.byte	0x5
+ 1310 0036 4C000000 		.4byte	.LASF2
+ 1311 003a 02       		.uleb128 0x2
+ 1312 003b 02       		.byte	0x2
+ 1313 003c 07       		.byte	0x7
+ 1314 003d AE020000 		.4byte	.LASF3
+ 1315 0041 03       		.uleb128 0x3
+ 1316 0042 5E030000 		.4byte	.LASF9
+ 1317 0046 02       		.byte	0x2
+ 1318 0047 3F       		.byte	0x3f
+ 1319 0048 4C000000 		.4byte	0x4c
+ 1320 004c 02       		.uleb128 0x2
+ 1321 004d 04       		.byte	0x4
+ 1322 004e 05       		.byte	0x5
+ 1323 004f 99010000 		.4byte	.LASF4
+ 1324 0053 02       		.uleb128 0x2
+ 1325 0054 04       		.byte	0x4
+ 1326 0055 07       		.byte	0x7
+ 1327 0056 2A030000 		.4byte	.LASF5
+ 1328 005a 02       		.uleb128 0x2
+ 1329 005b 08       		.byte	0x8
+ 1330 005c 05       		.byte	0x5
+ 1331 005d 6D010000 		.4byte	.LASF6
+ 1332 0061 02       		.uleb128 0x2
+ 1333 0062 08       		.byte	0x8
+ 1334 0063 07       		.byte	0x7
+ 1335 0064 2F020000 		.4byte	.LASF7
+ 1336 0068 04       		.uleb128 0x4
+ 1337 0069 04       		.byte	0x4
+ 1338 006a 05       		.byte	0x5
+ 1339 006b 696E7400 		.ascii	"int\000"
+ 1340 006f 02       		.uleb128 0x2
+ 1341 0070 04       		.byte	0x4
+ 1342 0071 07       		.byte	0x7
+ 1343 0072 62020000 		.4byte	.LASF8
+ 1344 0076 03       		.uleb128 0x3
+ 1345 0077 A2010000 		.4byte	.LASF10
+ 1346 007b 03       		.byte	0x3
+ 1347 007c 2C       		.byte	0x2c
+ 1348 007d 41000000 		.4byte	0x41
+ 1349 0081 05       		.uleb128 0x5
+ 1350 0082 35000000 		.4byte	.LASF11
+ 1351 0086 04       		.byte	0x4
+ 1352 0087 EA01     		.2byte	0x1ea
+ 1353 0089 8D000000 		.4byte	0x8d
+ 1354 008d 02       		.uleb128 0x2
+ 1355 008e 04       		.byte	0x4
+ 1356 008f 04       		.byte	0x4
+ 1357 0090 5B010000 		.4byte	.LASF12
+ 1358 0094 02       		.uleb128 0x2
+ 1359 0095 08       		.byte	0x8
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 33
+
+
+ 1360 0096 04       		.byte	0x4
+ 1361 0097 B2030000 		.4byte	.LASF13
+ 1362 009b 02       		.uleb128 0x2
+ 1363 009c 01       		.byte	0x1
+ 1364 009d 08       		.byte	0x8
+ 1365 009e C1020000 		.4byte	.LASF14
+ 1366 00a2 02       		.uleb128 0x2
+ 1367 00a3 08       		.byte	0x8
+ 1368 00a4 04       		.byte	0x4
+ 1369 00a5 DB010000 		.4byte	.LASF15
+ 1370 00a9 02       		.uleb128 0x2
+ 1371 00aa 04       		.byte	0x4
+ 1372 00ab 07       		.byte	0x7
+ 1373 00ac A3030000 		.4byte	.LASF16
+ 1374 00b0 06       		.uleb128 0x6
+ 1375 00b1 55020000 		.4byte	.LASF82
+ 1376 00b5 01       		.byte	0x1
+ 1377 00b6 1A       		.byte	0x1a
+ 1378 00b7 00000000 		.4byte	.LFB64
+ 1379 00bb 84000000 		.4byte	.LFE64-.LFB64
+ 1380 00bf 01       		.uleb128 0x1
+ 1381 00c0 9C       		.byte	0x9c
+ 1382 00c1 D8000000 		.4byte	0xd8
+ 1383 00c5 07       		.uleb128 0x7
+ 1384 00c6 06000000 		.4byte	.LVL0
+ 1385 00ca F30A0000 		.4byte	0xaf3
+ 1386 00ce 07       		.uleb128 0x7
+ 1387 00cf 0E000000 		.4byte	.LVL1
+ 1388 00d3 FE0A0000 		.4byte	0xafe
+ 1389 00d7 00       		.byte	0
+ 1390 00d8 08       		.uleb128 0x8
+ 1391 00d9 AC030000 		.4byte	.LASF17
+ 1392 00dd 01       		.byte	0x1
+ 1393 00de 7B       		.byte	0x7b
+ 1394 00df 00000000 		.4byte	.LFB66
+ 1395 00e3 F0010000 		.4byte	.LFE66-.LFB66
+ 1396 00e7 01       		.uleb128 0x1
+ 1397 00e8 9C       		.byte	0x9c
+ 1398 00e9 EB030000 		.4byte	0x3eb
+ 1399 00ed 09       		.uleb128 0x9
+ 1400 00ee 12000000 		.4byte	.LVL2
+ 1401 00f2 090B0000 		.4byte	0xb09
+ 1402 00f6 00010000 		.4byte	0x100
+ 1403 00fa 0A       		.uleb128 0xa
+ 1404 00fb 01       		.uleb128 0x1
+ 1405 00fc 50       		.byte	0x50
+ 1406 00fd 01       		.uleb128 0x1
+ 1407 00fe 30       		.byte	0x30
+ 1408 00ff 00       		.byte	0
+ 1409 0100 07       		.uleb128 0x7
+ 1410 0101 16000000 		.4byte	.LVL3
+ 1411 0105 140B0000 		.4byte	0xb14
+ 1412 0109 09       		.uleb128 0x9
+ 1413 010a 1C000000 		.4byte	.LVL4
+ 1414 010e 1F0B0000 		.4byte	0xb1f
+ 1415 0112 1C010000 		.4byte	0x11c
+ 1416 0116 0A       		.uleb128 0xa
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 34
+
+
+ 1417 0117 01       		.uleb128 0x1
+ 1418 0118 50       		.byte	0x50
+ 1419 0119 01       		.uleb128 0x1
+ 1420 011a 30       		.byte	0x30
+ 1421 011b 00       		.byte	0
+ 1422 011c 07       		.uleb128 0x7
+ 1423 011d 20000000 		.4byte	.LVL5
+ 1424 0121 2A0B0000 		.4byte	0xb2a
+ 1425 0125 07       		.uleb128 0x7
+ 1426 0126 28000000 		.4byte	.LVL6
+ 1427 012a 350B0000 		.4byte	0xb35
+ 1428 012e 09       		.uleb128 0x9
+ 1429 012f 2E000000 		.4byte	.LVL7
+ 1430 0133 090B0000 		.4byte	0xb09
+ 1431 0137 41010000 		.4byte	0x141
+ 1432 013b 0A       		.uleb128 0xa
+ 1433 013c 01       		.uleb128 0x1
+ 1434 013d 50       		.byte	0x50
+ 1435 013e 01       		.uleb128 0x1
+ 1436 013f 31       		.byte	0x31
+ 1437 0140 00       		.byte	0
+ 1438 0141 07       		.uleb128 0x7
+ 1439 0142 32000000 		.4byte	.LVL8
+ 1440 0146 140B0000 		.4byte	0xb14
+ 1441 014a 09       		.uleb128 0x9
+ 1442 014b 38000000 		.4byte	.LVL9
+ 1443 014f 1F0B0000 		.4byte	0xb1f
+ 1444 0153 5D010000 		.4byte	0x15d
+ 1445 0157 0A       		.uleb128 0xa
+ 1446 0158 01       		.uleb128 0x1
+ 1447 0159 50       		.byte	0x50
+ 1448 015a 01       		.uleb128 0x1
+ 1449 015b 30       		.byte	0x30
+ 1450 015c 00       		.byte	0
+ 1451 015d 07       		.uleb128 0x7
+ 1452 015e 3C000000 		.4byte	.LVL10
+ 1453 0162 2A0B0000 		.4byte	0xb2a
+ 1454 0166 07       		.uleb128 0x7
+ 1455 0167 42000000 		.4byte	.LVL11
+ 1456 016b 350B0000 		.4byte	0xb35
+ 1457 016f 09       		.uleb128 0x9
+ 1458 0170 48000000 		.4byte	.LVL12
+ 1459 0174 090B0000 		.4byte	0xb09
+ 1460 0178 82010000 		.4byte	0x182
+ 1461 017c 0A       		.uleb128 0xa
+ 1462 017d 01       		.uleb128 0x1
+ 1463 017e 50       		.byte	0x50
+ 1464 017f 01       		.uleb128 0x1
+ 1465 0180 32       		.byte	0x32
+ 1466 0181 00       		.byte	0
+ 1467 0182 07       		.uleb128 0x7
+ 1468 0183 4C000000 		.4byte	.LVL13
+ 1469 0187 140B0000 		.4byte	0xb14
+ 1470 018b 09       		.uleb128 0x9
+ 1471 018c 52000000 		.4byte	.LVL14
+ 1472 0190 1F0B0000 		.4byte	0xb1f
+ 1473 0194 9E010000 		.4byte	0x19e
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 35
+
+
+ 1474 0198 0A       		.uleb128 0xa
+ 1475 0199 01       		.uleb128 0x1
+ 1476 019a 50       		.byte	0x50
+ 1477 019b 01       		.uleb128 0x1
+ 1478 019c 30       		.byte	0x30
+ 1479 019d 00       		.byte	0
+ 1480 019e 07       		.uleb128 0x7
+ 1481 019f 56000000 		.4byte	.LVL15
+ 1482 01a3 2A0B0000 		.4byte	0xb2a
+ 1483 01a7 07       		.uleb128 0x7
+ 1484 01a8 5C000000 		.4byte	.LVL16
+ 1485 01ac 350B0000 		.4byte	0xb35
+ 1486 01b0 09       		.uleb128 0x9
+ 1487 01b1 6A000000 		.4byte	.LVL17
+ 1488 01b5 400B0000 		.4byte	0xb40
+ 1489 01b9 C3010000 		.4byte	0x1c3
+ 1490 01bd 0A       		.uleb128 0xa
+ 1491 01be 01       		.uleb128 0x1
+ 1492 01bf 50       		.byte	0x50
+ 1493 01c0 01       		.uleb128 0x1
+ 1494 01c1 31       		.byte	0x31
+ 1495 01c2 00       		.byte	0
+ 1496 01c3 09       		.uleb128 0x9
+ 1497 01c4 78000000 		.4byte	.LVL18
+ 1498 01c8 400B0000 		.4byte	0xb40
+ 1499 01cc D6010000 		.4byte	0x1d6
+ 1500 01d0 0A       		.uleb128 0xa
+ 1501 01d1 01       		.uleb128 0x1
+ 1502 01d2 50       		.byte	0x50
+ 1503 01d3 01       		.uleb128 0x1
+ 1504 01d4 32       		.byte	0x32
+ 1505 01d5 00       		.byte	0
+ 1506 01d6 09       		.uleb128 0x9
+ 1507 01d7 86000000 		.4byte	.LVL19
+ 1508 01db 400B0000 		.4byte	0xb40
+ 1509 01df E9010000 		.4byte	0x1e9
+ 1510 01e3 0A       		.uleb128 0xa
+ 1511 01e4 01       		.uleb128 0x1
+ 1512 01e5 50       		.byte	0x50
+ 1513 01e6 01       		.uleb128 0x1
+ 1514 01e7 34       		.byte	0x34
+ 1515 01e8 00       		.byte	0
+ 1516 01e9 09       		.uleb128 0x9
+ 1517 01ea 94000000 		.4byte	.LVL20
+ 1518 01ee 400B0000 		.4byte	0xb40
+ 1519 01f2 FC010000 		.4byte	0x1fc
+ 1520 01f6 0A       		.uleb128 0xa
+ 1521 01f7 01       		.uleb128 0x1
+ 1522 01f8 50       		.byte	0x50
+ 1523 01f9 01       		.uleb128 0x1
+ 1524 01fa 38       		.byte	0x38
+ 1525 01fb 00       		.byte	0
+ 1526 01fc 09       		.uleb128 0x9
+ 1527 01fd B2000000 		.4byte	.LVL21
+ 1528 0201 4B0B0000 		.4byte	0xb4b
+ 1529 0205 19020000 		.4byte	0x219
+ 1530 0209 0A       		.uleb128 0xa
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 36
+
+
+ 1531 020a 01       		.uleb128 0x1
+ 1532 020b 50       		.byte	0x50
+ 1533 020c 02       		.uleb128 0x2
+ 1534 020d 74       		.byte	0x74
+ 1535 020e 00       		.sleb128 0
+ 1536 020f 0A       		.uleb128 0xa
+ 1537 0210 01       		.uleb128 0x1
+ 1538 0211 51       		.byte	0x51
+ 1539 0212 05       		.uleb128 0x5
+ 1540 0213 03       		.byte	0x3
+ 1541 0214 00000000 		.4byte	.LC0
+ 1542 0218 00       		.byte	0
+ 1543 0219 09       		.uleb128 0x9
+ 1544 021a B8000000 		.4byte	.LVL22
+ 1545 021e 560B0000 		.4byte	0xb56
+ 1546 0222 2D020000 		.4byte	0x22d
+ 1547 0226 0A       		.uleb128 0xa
+ 1548 0227 01       		.uleb128 0x1
+ 1549 0228 50       		.byte	0x50
+ 1550 0229 02       		.uleb128 0x2
+ 1551 022a 74       		.byte	0x74
+ 1552 022b 00       		.sleb128 0
+ 1553 022c 00       		.byte	0
+ 1554 022d 09       		.uleb128 0x9
+ 1555 022e BE000000 		.4byte	.LVL23
+ 1556 0232 610B0000 		.4byte	0xb61
+ 1557 0236 41020000 		.4byte	0x241
+ 1558 023a 0A       		.uleb128 0xa
+ 1559 023b 01       		.uleb128 0x1
+ 1560 023c 50       		.byte	0x50
+ 1561 023d 02       		.uleb128 0x2
+ 1562 023e 08       		.byte	0x8
+ 1563 023f 64       		.byte	0x64
+ 1564 0240 00       		.byte	0
+ 1565 0241 09       		.uleb128 0x9
+ 1566 0242 DC000000 		.4byte	.LVL24
+ 1567 0246 4B0B0000 		.4byte	0xb4b
+ 1568 024a 5E020000 		.4byte	0x25e
+ 1569 024e 0A       		.uleb128 0xa
+ 1570 024f 01       		.uleb128 0x1
+ 1571 0250 50       		.byte	0x50
+ 1572 0251 02       		.uleb128 0x2
+ 1573 0252 74       		.byte	0x74
+ 1574 0253 00       		.sleb128 0
+ 1575 0254 0A       		.uleb128 0xa
+ 1576 0255 01       		.uleb128 0x1
+ 1577 0256 51       		.byte	0x51
+ 1578 0257 05       		.uleb128 0x5
+ 1579 0258 03       		.byte	0x3
+ 1580 0259 0C000000 		.4byte	.LC1
+ 1581 025d 00       		.byte	0
+ 1582 025e 09       		.uleb128 0x9
+ 1583 025f E2000000 		.4byte	.LVL25
+ 1584 0263 560B0000 		.4byte	0xb56
+ 1585 0267 72020000 		.4byte	0x272
+ 1586 026b 0A       		.uleb128 0xa
+ 1587 026c 01       		.uleb128 0x1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 37
+
+
+ 1588 026d 50       		.byte	0x50
+ 1589 026e 02       		.uleb128 0x2
+ 1590 026f 74       		.byte	0x74
+ 1591 0270 00       		.sleb128 0
+ 1592 0271 00       		.byte	0
+ 1593 0272 09       		.uleb128 0x9
+ 1594 0273 E8000000 		.4byte	.LVL26
+ 1595 0277 610B0000 		.4byte	0xb61
+ 1596 027b 86020000 		.4byte	0x286
+ 1597 027f 0A       		.uleb128 0xa
+ 1598 0280 01       		.uleb128 0x1
+ 1599 0281 50       		.byte	0x50
+ 1600 0282 02       		.uleb128 0x2
+ 1601 0283 08       		.byte	0x8
+ 1602 0284 64       		.byte	0x64
+ 1603 0285 00       		.byte	0
+ 1604 0286 09       		.uleb128 0x9
+ 1605 0287 06010000 		.4byte	.LVL27
+ 1606 028b 4B0B0000 		.4byte	0xb4b
+ 1607 028f A3020000 		.4byte	0x2a3
+ 1608 0293 0A       		.uleb128 0xa
+ 1609 0294 01       		.uleb128 0x1
+ 1610 0295 50       		.byte	0x50
+ 1611 0296 02       		.uleb128 0x2
+ 1612 0297 74       		.byte	0x74
+ 1613 0298 00       		.sleb128 0
+ 1614 0299 0A       		.uleb128 0xa
+ 1615 029a 01       		.uleb128 0x1
+ 1616 029b 51       		.byte	0x51
+ 1617 029c 05       		.uleb128 0x5
+ 1618 029d 03       		.byte	0x3
+ 1619 029e 18000000 		.4byte	.LC2
+ 1620 02a2 00       		.byte	0
+ 1621 02a3 09       		.uleb128 0x9
+ 1622 02a4 0C010000 		.4byte	.LVL28
+ 1623 02a8 560B0000 		.4byte	0xb56
+ 1624 02ac B7020000 		.4byte	0x2b7
+ 1625 02b0 0A       		.uleb128 0xa
+ 1626 02b1 01       		.uleb128 0x1
+ 1627 02b2 50       		.byte	0x50
+ 1628 02b3 02       		.uleb128 0x2
+ 1629 02b4 74       		.byte	0x74
+ 1630 02b5 00       		.sleb128 0
+ 1631 02b6 00       		.byte	0
+ 1632 02b7 09       		.uleb128 0x9
+ 1633 02b8 12010000 		.4byte	.LVL29
+ 1634 02bc 610B0000 		.4byte	0xb61
+ 1635 02c0 CB020000 		.4byte	0x2cb
+ 1636 02c4 0A       		.uleb128 0xa
+ 1637 02c5 01       		.uleb128 0x1
+ 1638 02c6 50       		.byte	0x50
+ 1639 02c7 02       		.uleb128 0x2
+ 1640 02c8 08       		.byte	0x8
+ 1641 02c9 64       		.byte	0x64
+ 1642 02ca 00       		.byte	0
+ 1643 02cb 07       		.uleb128 0x7
+ 1644 02cc 2E010000 		.4byte	.LVL30
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 38
+
+
+ 1645 02d0 6C0B0000 		.4byte	0xb6c
+ 1646 02d4 09       		.uleb128 0x9
+ 1647 02d5 38010000 		.4byte	.LVL31
+ 1648 02d9 560B0000 		.4byte	0xb56
+ 1649 02dd EB020000 		.4byte	0x2eb
+ 1650 02e1 0A       		.uleb128 0xa
+ 1651 02e2 01       		.uleb128 0x1
+ 1652 02e3 50       		.byte	0x50
+ 1653 02e4 05       		.uleb128 0x5
+ 1654 02e5 03       		.byte	0x3
+ 1655 02e6 24000000 		.4byte	.LC3
+ 1656 02ea 00       		.byte	0
+ 1657 02eb 09       		.uleb128 0x9
+ 1658 02ec 40010000 		.4byte	.LVL32
+ 1659 02f0 610B0000 		.4byte	0xb61
+ 1660 02f4 00030000 		.4byte	0x300
+ 1661 02f8 0A       		.uleb128 0xa
+ 1662 02f9 01       		.uleb128 0x1
+ 1663 02fa 50       		.byte	0x50
+ 1664 02fb 03       		.uleb128 0x3
+ 1665 02fc 0A       		.byte	0xa
+ 1666 02fd F401     		.2byte	0x1f4
+ 1667 02ff 00       		.byte	0
+ 1668 0300 09       		.uleb128 0x9
+ 1669 0301 48010000 		.4byte	.LVL33
+ 1670 0305 560B0000 		.4byte	0xb56
+ 1671 0309 17030000 		.4byte	0x317
+ 1672 030d 0A       		.uleb128 0xa
+ 1673 030e 01       		.uleb128 0x1
+ 1674 030f 50       		.byte	0x50
+ 1675 0310 05       		.uleb128 0x5
+ 1676 0311 03       		.byte	0x3
+ 1677 0312 38000000 		.4byte	.LC4
+ 1678 0316 00       		.byte	0
+ 1679 0317 09       		.uleb128 0x9
+ 1680 0318 50010000 		.4byte	.LVL34
+ 1681 031c 610B0000 		.4byte	0xb61
+ 1682 0320 2C030000 		.4byte	0x32c
+ 1683 0324 0A       		.uleb128 0xa
+ 1684 0325 01       		.uleb128 0x1
+ 1685 0326 50       		.byte	0x50
+ 1686 0327 03       		.uleb128 0x3
+ 1687 0328 0A       		.byte	0xa
+ 1688 0329 F401     		.2byte	0x1f4
+ 1689 032b 00       		.byte	0
+ 1690 032c 07       		.uleb128 0x7
+ 1691 032d 64010000 		.4byte	.LVL35
+ 1692 0331 770B0000 		.4byte	0xb77
+ 1693 0335 09       		.uleb128 0x9
+ 1694 0336 6E010000 		.4byte	.LVL36
+ 1695 033a 560B0000 		.4byte	0xb56
+ 1696 033e 4C030000 		.4byte	0x34c
+ 1697 0342 0A       		.uleb128 0xa
+ 1698 0343 01       		.uleb128 0x1
+ 1699 0344 50       		.byte	0x50
+ 1700 0345 05       		.uleb128 0x5
+ 1701 0346 03       		.byte	0x3
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 39
+
+
+ 1702 0347 4C000000 		.4byte	.LC5
+ 1703 034b 00       		.byte	0
+ 1704 034c 09       		.uleb128 0x9
+ 1705 034d 76010000 		.4byte	.LVL37
+ 1706 0351 610B0000 		.4byte	0xb61
+ 1707 0355 61030000 		.4byte	0x361
+ 1708 0359 0A       		.uleb128 0xa
+ 1709 035a 01       		.uleb128 0x1
+ 1710 035b 50       		.byte	0x50
+ 1711 035c 03       		.uleb128 0x3
+ 1712 035d 0A       		.byte	0xa
+ 1713 035e F401     		.2byte	0x1f4
+ 1714 0360 00       		.byte	0
+ 1715 0361 09       		.uleb128 0x9
+ 1716 0362 7E010000 		.4byte	.LVL38
+ 1717 0366 560B0000 		.4byte	0xb56
+ 1718 036a 78030000 		.4byte	0x378
+ 1719 036e 0A       		.uleb128 0xa
+ 1720 036f 01       		.uleb128 0x1
+ 1721 0370 50       		.byte	0x50
+ 1722 0371 05       		.uleb128 0x5
+ 1723 0372 03       		.byte	0x3
+ 1724 0373 60000000 		.4byte	.LC6
+ 1725 0377 00       		.byte	0
+ 1726 0378 09       		.uleb128 0x9
+ 1727 0379 86010000 		.4byte	.LVL39
+ 1728 037d 610B0000 		.4byte	0xb61
+ 1729 0381 8D030000 		.4byte	0x38d
+ 1730 0385 0A       		.uleb128 0xa
+ 1731 0386 01       		.uleb128 0x1
+ 1732 0387 50       		.byte	0x50
+ 1733 0388 03       		.uleb128 0x3
+ 1734 0389 0A       		.byte	0xa
+ 1735 038a F401     		.2byte	0x1f4
+ 1736 038c 00       		.byte	0
+ 1737 038d 07       		.uleb128 0x7
+ 1738 038e 9A010000 		.4byte	.LVL40
+ 1739 0392 820B0000 		.4byte	0xb82
+ 1740 0396 09       		.uleb128 0x9
+ 1741 0397 A4010000 		.4byte	.LVL41
+ 1742 039b 560B0000 		.4byte	0xb56
+ 1743 039f AD030000 		.4byte	0x3ad
+ 1744 03a3 0A       		.uleb128 0xa
+ 1745 03a4 01       		.uleb128 0x1
+ 1746 03a5 50       		.byte	0x50
+ 1747 03a6 05       		.uleb128 0x5
+ 1748 03a7 03       		.byte	0x3
+ 1749 03a8 74000000 		.4byte	.LC7
+ 1750 03ac 00       		.byte	0
+ 1751 03ad 09       		.uleb128 0x9
+ 1752 03ae AC010000 		.4byte	.LVL42
+ 1753 03b2 610B0000 		.4byte	0xb61
+ 1754 03b6 C2030000 		.4byte	0x3c2
+ 1755 03ba 0A       		.uleb128 0xa
+ 1756 03bb 01       		.uleb128 0x1
+ 1757 03bc 50       		.byte	0x50
+ 1758 03bd 03       		.uleb128 0x3
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 40
+
+
+ 1759 03be 0A       		.byte	0xa
+ 1760 03bf F401     		.2byte	0x1f4
+ 1761 03c1 00       		.byte	0
+ 1762 03c2 09       		.uleb128 0x9
+ 1763 03c3 B4010000 		.4byte	.LVL43
+ 1764 03c7 560B0000 		.4byte	0xb56
+ 1765 03cb D9030000 		.4byte	0x3d9
+ 1766 03cf 0A       		.uleb128 0xa
+ 1767 03d0 01       		.uleb128 0x1
+ 1768 03d1 50       		.byte	0x50
+ 1769 03d2 05       		.uleb128 0x5
+ 1770 03d3 03       		.byte	0x3
+ 1771 03d4 88000000 		.4byte	.LC8
+ 1772 03d8 00       		.byte	0
+ 1773 03d9 0B       		.uleb128 0xb
+ 1774 03da BC010000 		.4byte	.LVL44
+ 1775 03de 610B0000 		.4byte	0xb61
+ 1776 03e2 0A       		.uleb128 0xa
+ 1777 03e3 01       		.uleb128 0x1
+ 1778 03e4 50       		.byte	0x50
+ 1779 03e5 03       		.uleb128 0x3
+ 1780 03e6 0A       		.byte	0xa
+ 1781 03e7 F401     		.2byte	0x1f4
+ 1782 03e9 00       		.byte	0
+ 1783 03ea 00       		.byte	0
+ 1784 03eb 0C       		.uleb128 0xc
+ 1785 03ec 56000000 		.4byte	.LASF18
+ 1786 03f0 01       		.byte	0x1
+ 1787 03f1 E9       		.byte	0xe9
+ 1788 03f2 00000000 		.4byte	.LFB67
+ 1789 03f6 74020000 		.4byte	.LFE67-.LFB67
+ 1790 03fa 01       		.uleb128 0x1
+ 1791 03fb 9C       		.byte	0x9c
+ 1792 03fc 7A060000 		.4byte	0x67a
+ 1793 0400 0D       		.uleb128 0xd
+ 1794 0401 00000000 		.4byte	.Ldebug_ranges0+0
+ 1795 0405 18040000 		.4byte	0x418
+ 1796 0409 0E       		.uleb128 0xe
+ 1797 040a 6900     		.ascii	"i\000"
+ 1798 040c 01       		.byte	0x1
+ 1799 040d 2001     		.2byte	0x120
+ 1800 040f 68000000 		.4byte	0x68
+ 1801 0413 00000000 		.4byte	.LLST0
+ 1802 0417 00       		.byte	0
+ 1803 0418 0D       		.uleb128 0xd
+ 1804 0419 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 1805 041d 30040000 		.4byte	0x430
+ 1806 0421 0E       		.uleb128 0xe
+ 1807 0422 6900     		.ascii	"i\000"
+ 1808 0424 01       		.byte	0x1
+ 1809 0425 3201     		.2byte	0x132
+ 1810 0427 68000000 		.4byte	0x68
+ 1811 042b 1E000000 		.4byte	.LLST1
+ 1812 042f 00       		.byte	0
+ 1813 0430 09       		.uleb128 0x9
+ 1814 0431 28000000 		.4byte	.LVL45
+ 1815 0435 8D0B0000 		.4byte	0xb8d
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 41
+
+
+ 1816 0439 43040000 		.4byte	0x443
+ 1817 043d 0A       		.uleb128 0xa
+ 1818 043e 01       		.uleb128 0x1
+ 1819 043f 50       		.byte	0x50
+ 1820 0440 01       		.uleb128 0x1
+ 1821 0441 31       		.byte	0x31
+ 1822 0442 00       		.byte	0
+ 1823 0443 09       		.uleb128 0x9
+ 1824 0444 2E000000 		.4byte	.LVL46
+ 1825 0448 560B0000 		.4byte	0xb56
+ 1826 044c 5A040000 		.4byte	0x45a
+ 1827 0450 0A       		.uleb128 0xa
+ 1828 0451 01       		.uleb128 0x1
+ 1829 0452 50       		.byte	0x50
+ 1830 0453 05       		.uleb128 0x5
+ 1831 0454 03       		.byte	0x3
+ 1832 0455 9C000000 		.4byte	.LC9
+ 1833 0459 00       		.byte	0
+ 1834 045a 09       		.uleb128 0x9
+ 1835 045b 36000000 		.4byte	.LVL47
+ 1836 045f 610B0000 		.4byte	0xb61
+ 1837 0463 6F040000 		.4byte	0x46f
+ 1838 0467 0A       		.uleb128 0xa
+ 1839 0468 01       		.uleb128 0x1
+ 1840 0469 50       		.byte	0x50
+ 1841 046a 03       		.uleb128 0x3
+ 1842 046b 0A       		.byte	0xa
+ 1843 046c F401     		.2byte	0x1f4
+ 1844 046e 00       		.byte	0
+ 1845 046f 09       		.uleb128 0x9
+ 1846 0470 4C000000 		.4byte	.LVL48
+ 1847 0474 8D0B0000 		.4byte	0xb8d
+ 1848 0478 82040000 		.4byte	0x482
+ 1849 047c 0A       		.uleb128 0xa
+ 1850 047d 01       		.uleb128 0x1
+ 1851 047e 50       		.byte	0x50
+ 1852 047f 01       		.uleb128 0x1
+ 1853 0480 30       		.byte	0x30
+ 1854 0481 00       		.byte	0
+ 1855 0482 09       		.uleb128 0x9
+ 1856 0483 52000000 		.4byte	.LVL49
+ 1857 0487 560B0000 		.4byte	0xb56
+ 1858 048b 99040000 		.4byte	0x499
+ 1859 048f 0A       		.uleb128 0xa
+ 1860 0490 01       		.uleb128 0x1
+ 1861 0491 50       		.byte	0x50
+ 1862 0492 05       		.uleb128 0x5
+ 1863 0493 03       		.byte	0x3
+ 1864 0494 AC000000 		.4byte	.LC10
+ 1865 0498 00       		.byte	0
+ 1866 0499 09       		.uleb128 0x9
+ 1867 049a 5A000000 		.4byte	.LVL50
+ 1868 049e 610B0000 		.4byte	0xb61
+ 1869 04a2 AE040000 		.4byte	0x4ae
+ 1870 04a6 0A       		.uleb128 0xa
+ 1871 04a7 01       		.uleb128 0x1
+ 1872 04a8 50       		.byte	0x50
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 42
+
+
+ 1873 04a9 03       		.uleb128 0x3
+ 1874 04aa 0A       		.byte	0xa
+ 1875 04ab F401     		.2byte	0x1f4
+ 1876 04ad 00       		.byte	0
+ 1877 04ae 09       		.uleb128 0x9
+ 1878 04af 78000000 		.4byte	.LVL51
+ 1879 04b3 980B0000 		.4byte	0xb98
+ 1880 04b7 C1040000 		.4byte	0x4c1
+ 1881 04bb 0A       		.uleb128 0xa
+ 1882 04bc 01       		.uleb128 0x1
+ 1883 04bd 50       		.byte	0x50
+ 1884 04be 01       		.uleb128 0x1
+ 1885 04bf 31       		.byte	0x31
+ 1886 04c0 00       		.byte	0
+ 1887 04c1 09       		.uleb128 0x9
+ 1888 04c2 7E000000 		.4byte	.LVL52
+ 1889 04c6 560B0000 		.4byte	0xb56
+ 1890 04ca D8040000 		.4byte	0x4d8
+ 1891 04ce 0A       		.uleb128 0xa
+ 1892 04cf 01       		.uleb128 0x1
+ 1893 04d0 50       		.byte	0x50
+ 1894 04d1 05       		.uleb128 0x5
+ 1895 04d2 03       		.byte	0x3
+ 1896 04d3 BC000000 		.4byte	.LC11
+ 1897 04d7 00       		.byte	0
+ 1898 04d8 09       		.uleb128 0x9
+ 1899 04d9 86000000 		.4byte	.LVL53
+ 1900 04dd 610B0000 		.4byte	0xb61
+ 1901 04e1 ED040000 		.4byte	0x4ed
+ 1902 04e5 0A       		.uleb128 0xa
+ 1903 04e6 01       		.uleb128 0x1
+ 1904 04e7 50       		.byte	0x50
+ 1905 04e8 03       		.uleb128 0x3
+ 1906 04e9 0A       		.byte	0xa
+ 1907 04ea F401     		.2byte	0x1f4
+ 1908 04ec 00       		.byte	0
+ 1909 04ed 09       		.uleb128 0x9
+ 1910 04ee 9C000000 		.4byte	.LVL54
+ 1911 04f2 980B0000 		.4byte	0xb98
+ 1912 04f6 00050000 		.4byte	0x500
+ 1913 04fa 0A       		.uleb128 0xa
+ 1914 04fb 01       		.uleb128 0x1
+ 1915 04fc 50       		.byte	0x50
+ 1916 04fd 01       		.uleb128 0x1
+ 1917 04fe 30       		.byte	0x30
+ 1918 04ff 00       		.byte	0
+ 1919 0500 09       		.uleb128 0x9
+ 1920 0501 A2000000 		.4byte	.LVL55
+ 1921 0505 560B0000 		.4byte	0xb56
+ 1922 0509 17050000 		.4byte	0x517
+ 1923 050d 0A       		.uleb128 0xa
+ 1924 050e 01       		.uleb128 0x1
+ 1925 050f 50       		.byte	0x50
+ 1926 0510 05       		.uleb128 0x5
+ 1927 0511 03       		.byte	0x3
+ 1928 0512 CC000000 		.4byte	.LC12
+ 1929 0516 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 43
+
+
+ 1930 0517 09       		.uleb128 0x9
+ 1931 0518 AA000000 		.4byte	.LVL56
+ 1932 051c 610B0000 		.4byte	0xb61
+ 1933 0520 2C050000 		.4byte	0x52c
+ 1934 0524 0A       		.uleb128 0xa
+ 1935 0525 01       		.uleb128 0x1
+ 1936 0526 50       		.byte	0x50
+ 1937 0527 03       		.uleb128 0x3
+ 1938 0528 0A       		.byte	0xa
+ 1939 0529 F401     		.2byte	0x1f4
+ 1940 052b 00       		.byte	0
+ 1941 052c 09       		.uleb128 0x9
+ 1942 052d C8000000 		.4byte	.LVL57
+ 1943 0531 A30B0000 		.4byte	0xba3
+ 1944 0535 3F050000 		.4byte	0x53f
+ 1945 0539 0A       		.uleb128 0xa
+ 1946 053a 01       		.uleb128 0x1
+ 1947 053b 50       		.byte	0x50
+ 1948 053c 01       		.uleb128 0x1
+ 1949 053d 31       		.byte	0x31
+ 1950 053e 00       		.byte	0
+ 1951 053f 09       		.uleb128 0x9
+ 1952 0540 CE000000 		.4byte	.LVL58
+ 1953 0544 560B0000 		.4byte	0xb56
+ 1954 0548 56050000 		.4byte	0x556
+ 1955 054c 0A       		.uleb128 0xa
+ 1956 054d 01       		.uleb128 0x1
+ 1957 054e 50       		.byte	0x50
+ 1958 054f 05       		.uleb128 0x5
+ 1959 0550 03       		.byte	0x3
+ 1960 0551 DC000000 		.4byte	.LC13
+ 1961 0555 00       		.byte	0
+ 1962 0556 09       		.uleb128 0x9
+ 1963 0557 D6000000 		.4byte	.LVL59
+ 1964 055b 610B0000 		.4byte	0xb61
+ 1965 055f 6B050000 		.4byte	0x56b
+ 1966 0563 0A       		.uleb128 0xa
+ 1967 0564 01       		.uleb128 0x1
+ 1968 0565 50       		.byte	0x50
+ 1969 0566 03       		.uleb128 0x3
+ 1970 0567 0A       		.byte	0xa
+ 1971 0568 F401     		.2byte	0x1f4
+ 1972 056a 00       		.byte	0
+ 1973 056b 09       		.uleb128 0x9
+ 1974 056c EC000000 		.4byte	.LVL60
+ 1975 0570 A30B0000 		.4byte	0xba3
+ 1976 0574 7E050000 		.4byte	0x57e
+ 1977 0578 0A       		.uleb128 0xa
+ 1978 0579 01       		.uleb128 0x1
+ 1979 057a 50       		.byte	0x50
+ 1980 057b 01       		.uleb128 0x1
+ 1981 057c 30       		.byte	0x30
+ 1982 057d 00       		.byte	0
+ 1983 057e 09       		.uleb128 0x9
+ 1984 057f F2000000 		.4byte	.LVL61
+ 1985 0583 560B0000 		.4byte	0xb56
+ 1986 0587 95050000 		.4byte	0x595
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 44
+
+
+ 1987 058b 0A       		.uleb128 0xa
+ 1988 058c 01       		.uleb128 0x1
+ 1989 058d 50       		.byte	0x50
+ 1990 058e 05       		.uleb128 0x5
+ 1991 058f 03       		.byte	0x3
+ 1992 0590 EC000000 		.4byte	.LC14
+ 1993 0594 00       		.byte	0
+ 1994 0595 09       		.uleb128 0x9
+ 1995 0596 FA000000 		.4byte	.LVL62
+ 1996 059a 610B0000 		.4byte	0xb61
+ 1997 059e AA050000 		.4byte	0x5aa
+ 1998 05a2 0A       		.uleb128 0xa
+ 1999 05a3 01       		.uleb128 0x1
+ 2000 05a4 50       		.byte	0x50
+ 2001 05a5 03       		.uleb128 0x3
+ 2002 05a6 0A       		.byte	0xa
+ 2003 05a7 F401     		.2byte	0x1f4
+ 2004 05a9 00       		.byte	0
+ 2005 05aa 09       		.uleb128 0x9
+ 2006 05ab 28010000 		.4byte	.LVL67
+ 2007 05af AE0B0000 		.4byte	0xbae
+ 2008 05b3 C1050000 		.4byte	0x5c1
+ 2009 05b7 0A       		.uleb128 0xa
+ 2010 05b8 01       		.uleb128 0x1
+ 2011 05b9 50       		.byte	0x50
+ 2012 05ba 05       		.uleb128 0x5
+ 2013 05bb 03       		.byte	0x3
+ 2014 05bc 00000000 		.4byte	cadena2
+ 2015 05c0 00       		.byte	0
+ 2016 05c1 09       		.uleb128 0x9
+ 2017 05c2 7C010000 		.4byte	.LVL73
+ 2018 05c6 4B0B0000 		.4byte	0xb4b
+ 2019 05ca DE050000 		.4byte	0x5de
+ 2020 05ce 0A       		.uleb128 0xa
+ 2021 05cf 01       		.uleb128 0x1
+ 2022 05d0 50       		.byte	0x50
+ 2023 05d1 02       		.uleb128 0x2
+ 2024 05d2 75       		.byte	0x75
+ 2025 05d3 00       		.sleb128 0
+ 2026 05d4 0A       		.uleb128 0xa
+ 2027 05d5 01       		.uleb128 0x1
+ 2028 05d6 51       		.byte	0x51
+ 2029 05d7 05       		.uleb128 0x5
+ 2030 05d8 03       		.byte	0x3
+ 2031 05d9 FC000000 		.4byte	.LC15
+ 2032 05dd 00       		.byte	0
+ 2033 05de 07       		.uleb128 0x7
+ 2034 05df 84010000 		.4byte	.LVL74
+ 2035 05e3 B90B0000 		.4byte	0xbb9
+ 2036 05e7 09       		.uleb128 0x9
+ 2037 05e8 8A010000 		.4byte	.LVL75
+ 2038 05ec 560B0000 		.4byte	0xb56
+ 2039 05f0 FB050000 		.4byte	0x5fb
+ 2040 05f4 0A       		.uleb128 0xa
+ 2041 05f5 01       		.uleb128 0x1
+ 2042 05f6 50       		.byte	0x50
+ 2043 05f7 02       		.uleb128 0x2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 45
+
+
+ 2044 05f8 75       		.byte	0x75
+ 2045 05f9 00       		.sleb128 0
+ 2046 05fa 00       		.byte	0
+ 2047 05fb 09       		.uleb128 0x9
+ 2048 05fc 90010000 		.4byte	.LVL76
+ 2049 0600 610B0000 		.4byte	0xb61
+ 2050 0604 0F060000 		.4byte	0x60f
+ 2051 0608 0A       		.uleb128 0xa
+ 2052 0609 01       		.uleb128 0x1
+ 2053 060a 50       		.byte	0x50
+ 2054 060b 02       		.uleb128 0x2
+ 2055 060c 08       		.byte	0x8
+ 2056 060d 64       		.byte	0x64
+ 2057 060e 00       		.byte	0
+ 2058 060f 07       		.uleb128 0x7
+ 2059 0610 96010000 		.4byte	.LVL77
+ 2060 0614 B90B0000 		.4byte	0xbb9
+ 2061 0618 09       		.uleb128 0x9
+ 2062 0619 BA010000 		.4byte	.LVL82
+ 2063 061d AE0B0000 		.4byte	0xbae
+ 2064 0621 2F060000 		.4byte	0x62f
+ 2065 0625 0A       		.uleb128 0xa
+ 2066 0626 01       		.uleb128 0x1
+ 2067 0627 50       		.byte	0x50
+ 2068 0628 05       		.uleb128 0x5
+ 2069 0629 03       		.byte	0x3
+ 2070 062a 00000000 		.4byte	cadena2
+ 2071 062e 00       		.byte	0
+ 2072 062f 09       		.uleb128 0x9
+ 2073 0630 0E020000 		.4byte	.LVL88
+ 2074 0634 4B0B0000 		.4byte	0xb4b
+ 2075 0638 4C060000 		.4byte	0x64c
+ 2076 063c 0A       		.uleb128 0xa
+ 2077 063d 01       		.uleb128 0x1
+ 2078 063e 50       		.byte	0x50
+ 2079 063f 02       		.uleb128 0x2
+ 2080 0640 74       		.byte	0x74
+ 2081 0641 00       		.sleb128 0
+ 2082 0642 0A       		.uleb128 0xa
+ 2083 0643 01       		.uleb128 0x1
+ 2084 0644 51       		.byte	0x51
+ 2085 0645 05       		.uleb128 0x5
+ 2086 0646 03       		.byte	0x3
+ 2087 0647 08010000 		.4byte	.LC16
+ 2088 064b 00       		.byte	0
+ 2089 064c 07       		.uleb128 0x7
+ 2090 064d 16020000 		.4byte	.LVL89
+ 2091 0651 C40B0000 		.4byte	0xbc4
+ 2092 0655 09       		.uleb128 0x9
+ 2093 0656 1C020000 		.4byte	.LVL90
+ 2094 065a 560B0000 		.4byte	0xb56
+ 2095 065e 69060000 		.4byte	0x669
+ 2096 0662 0A       		.uleb128 0xa
+ 2097 0663 01       		.uleb128 0x1
+ 2098 0664 50       		.byte	0x50
+ 2099 0665 02       		.uleb128 0x2
+ 2100 0666 74       		.byte	0x74
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 46
+
+
+ 2101 0667 00       		.sleb128 0
+ 2102 0668 00       		.byte	0
+ 2103 0669 0B       		.uleb128 0xb
+ 2104 066a 22020000 		.4byte	.LVL91
+ 2105 066e 610B0000 		.4byte	0xb61
+ 2106 0672 0A       		.uleb128 0xa
+ 2107 0673 01       		.uleb128 0x1
+ 2108 0674 50       		.byte	0x50
+ 2109 0675 02       		.uleb128 0x2
+ 2110 0676 08       		.byte	0x8
+ 2111 0677 64       		.byte	0x64
+ 2112 0678 00       		.byte	0
+ 2113 0679 00       		.byte	0
+ 2114 067a 0F       		.uleb128 0xf
+ 2115 067b 8D040000 		.4byte	.LASF19
+ 2116 067f 01       		.byte	0x1
+ 2117 0680 4501     		.2byte	0x145
+ 2118 0682 00000000 		.4byte	.LFB68
+ 2119 0686 48010000 		.4byte	.LFE68-.LFB68
+ 2120 068a 01       		.uleb128 0x1
+ 2121 068b 9C       		.byte	0x9c
+ 2122 068c 7B080000 		.4byte	0x87b
+ 2123 0690 07       		.uleb128 0x7
+ 2124 0691 16000000 		.4byte	.LVL92
+ 2125 0695 CF0B0000 		.4byte	0xbcf
+ 2126 0699 07       		.uleb128 0x7
+ 2127 069a 1A000000 		.4byte	.LVL93
+ 2128 069e DA0B0000 		.4byte	0xbda
+ 2129 06a2 07       		.uleb128 0x7
+ 2130 06a3 1E000000 		.4byte	.LVL94
+ 2131 06a7 E50B0000 		.4byte	0xbe5
+ 2132 06ab 09       		.uleb128 0x9
+ 2133 06ac 36000000 		.4byte	.LVL95
+ 2134 06b0 4B0B0000 		.4byte	0xb4b
+ 2135 06b4 C8060000 		.4byte	0x6c8
+ 2136 06b8 0A       		.uleb128 0xa
+ 2137 06b9 01       		.uleb128 0x1
+ 2138 06ba 50       		.byte	0x50
+ 2139 06bb 02       		.uleb128 0x2
+ 2140 06bc 74       		.byte	0x74
+ 2141 06bd 00       		.sleb128 0
+ 2142 06be 0A       		.uleb128 0xa
+ 2143 06bf 01       		.uleb128 0x1
+ 2144 06c0 51       		.byte	0x51
+ 2145 06c1 05       		.uleb128 0x5
+ 2146 06c2 03       		.byte	0x3
+ 2147 06c3 14010000 		.4byte	.LC17
+ 2148 06c7 00       		.byte	0
+ 2149 06c8 09       		.uleb128 0x9
+ 2150 06c9 3C000000 		.4byte	.LVL96
+ 2151 06cd 560B0000 		.4byte	0xb56
+ 2152 06d1 DC060000 		.4byte	0x6dc
+ 2153 06d5 0A       		.uleb128 0xa
+ 2154 06d6 01       		.uleb128 0x1
+ 2155 06d7 50       		.byte	0x50
+ 2156 06d8 02       		.uleb128 0x2
+ 2157 06d9 74       		.byte	0x74
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 47
+
+
+ 2158 06da 00       		.sleb128 0
+ 2159 06db 00       		.byte	0
+ 2160 06dc 09       		.uleb128 0x9
+ 2161 06dd 42000000 		.4byte	.LVL97
+ 2162 06e1 610B0000 		.4byte	0xb61
+ 2163 06e5 F0060000 		.4byte	0x6f0
+ 2164 06e9 0A       		.uleb128 0xa
+ 2165 06ea 01       		.uleb128 0x1
+ 2166 06eb 50       		.byte	0x50
+ 2167 06ec 02       		.uleb128 0x2
+ 2168 06ed 08       		.byte	0x8
+ 2169 06ee 64       		.byte	0x64
+ 2170 06ef 00       		.byte	0
+ 2171 06f0 07       		.uleb128 0x7
+ 2172 06f1 4E000000 		.4byte	.LVL98
+ 2173 06f5 F00B0000 		.4byte	0xbf0
+ 2174 06f9 07       		.uleb128 0x7
+ 2175 06fa 52000000 		.4byte	.LVL99
+ 2176 06fe FB0B0000 		.4byte	0xbfb
+ 2177 0702 07       		.uleb128 0x7
+ 2178 0703 56000000 		.4byte	.LVL100
+ 2179 0707 060C0000 		.4byte	0xc06
+ 2180 070b 09       		.uleb128 0x9
+ 2181 070c 6E000000 		.4byte	.LVL101
+ 2182 0710 4B0B0000 		.4byte	0xb4b
+ 2183 0714 28070000 		.4byte	0x728
+ 2184 0718 0A       		.uleb128 0xa
+ 2185 0719 01       		.uleb128 0x1
+ 2186 071a 50       		.byte	0x50
+ 2187 071b 02       		.uleb128 0x2
+ 2188 071c 74       		.byte	0x74
+ 2189 071d 00       		.sleb128 0
+ 2190 071e 0A       		.uleb128 0xa
+ 2191 071f 01       		.uleb128 0x1
+ 2192 0720 51       		.byte	0x51
+ 2193 0721 05       		.uleb128 0x5
+ 2194 0722 03       		.byte	0x3
+ 2195 0723 20010000 		.4byte	.LC18
+ 2196 0727 00       		.byte	0
+ 2197 0728 09       		.uleb128 0x9
+ 2198 0729 74000000 		.4byte	.LVL102
+ 2199 072d 560B0000 		.4byte	0xb56
+ 2200 0731 3C070000 		.4byte	0x73c
+ 2201 0735 0A       		.uleb128 0xa
+ 2202 0736 01       		.uleb128 0x1
+ 2203 0737 50       		.byte	0x50
+ 2204 0738 02       		.uleb128 0x2
+ 2205 0739 74       		.byte	0x74
+ 2206 073a 00       		.sleb128 0
+ 2207 073b 00       		.byte	0
+ 2208 073c 09       		.uleb128 0x9
+ 2209 073d 7A000000 		.4byte	.LVL103
+ 2210 0741 610B0000 		.4byte	0xb61
+ 2211 0745 50070000 		.4byte	0x750
+ 2212 0749 0A       		.uleb128 0xa
+ 2213 074a 01       		.uleb128 0x1
+ 2214 074b 50       		.byte	0x50
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 48
+
+
+ 2215 074c 02       		.uleb128 0x2
+ 2216 074d 08       		.byte	0x8
+ 2217 074e 64       		.byte	0x64
+ 2218 074f 00       		.byte	0
+ 2219 0750 07       		.uleb128 0x7
+ 2220 0751 96000000 		.4byte	.LVL104
+ 2221 0755 110C0000 		.4byte	0xc11
+ 2222 0759 09       		.uleb128 0x9
+ 2223 075a 9C000000 		.4byte	.LVL105
+ 2224 075e 560B0000 		.4byte	0xb56
+ 2225 0762 70070000 		.4byte	0x770
+ 2226 0766 0A       		.uleb128 0xa
+ 2227 0767 01       		.uleb128 0x1
+ 2228 0768 50       		.byte	0x50
+ 2229 0769 05       		.uleb128 0x5
+ 2230 076a 03       		.byte	0x3
+ 2231 076b 00000000 		.4byte	publicar1
+ 2232 076f 00       		.byte	0
+ 2233 0770 09       		.uleb128 0x9
+ 2234 0771 A2000000 		.4byte	.LVL106
+ 2235 0775 610B0000 		.4byte	0xb61
+ 2236 0779 84070000 		.4byte	0x784
+ 2237 077d 0A       		.uleb128 0xa
+ 2238 077e 01       		.uleb128 0x1
+ 2239 077f 50       		.byte	0x50
+ 2240 0780 02       		.uleb128 0x2
+ 2241 0781 08       		.byte	0x8
+ 2242 0782 64       		.byte	0x64
+ 2243 0783 00       		.byte	0
+ 2244 0784 07       		.uleb128 0x7
+ 2245 0785 B6000000 		.4byte	.LVL107
+ 2246 0789 1C0C0000 		.4byte	0xc1c
+ 2247 078d 09       		.uleb128 0x9
+ 2248 078e BC000000 		.4byte	.LVL108
+ 2249 0792 560B0000 		.4byte	0xb56
+ 2250 0796 A4070000 		.4byte	0x7a4
+ 2251 079a 0A       		.uleb128 0xa
+ 2252 079b 01       		.uleb128 0x1
+ 2253 079c 50       		.byte	0x50
+ 2254 079d 05       		.uleb128 0x5
+ 2255 079e 03       		.byte	0x3
+ 2256 079f 00000000 		.4byte	publicar2
+ 2257 07a3 00       		.byte	0
+ 2258 07a4 09       		.uleb128 0x9
+ 2259 07a5 C2000000 		.4byte	.LVL109
+ 2260 07a9 610B0000 		.4byte	0xb61
+ 2261 07ad B8070000 		.4byte	0x7b8
+ 2262 07b1 0A       		.uleb128 0xa
+ 2263 07b2 01       		.uleb128 0x1
+ 2264 07b3 50       		.byte	0x50
+ 2265 07b4 02       		.uleb128 0x2
+ 2266 07b5 08       		.byte	0x8
+ 2267 07b6 64       		.byte	0x64
+ 2268 07b7 00       		.byte	0
+ 2269 07b8 09       		.uleb128 0x9
+ 2270 07b9 E0000000 		.4byte	.LVL110
+ 2271 07bd 270C0000 		.4byte	0xc27
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 49
+
+
+ 2272 07c1 CB070000 		.4byte	0x7cb
+ 2273 07c5 0A       		.uleb128 0xa
+ 2274 07c6 01       		.uleb128 0x1
+ 2275 07c7 50       		.byte	0x50
+ 2276 07c8 01       		.uleb128 0x1
+ 2277 07c9 30       		.byte	0x30
+ 2278 07ca 00       		.byte	0
+ 2279 07cb 09       		.uleb128 0x9
+ 2280 07cc EA000000 		.4byte	.LVL111
+ 2281 07d0 4B0B0000 		.4byte	0xb4b
+ 2282 07d4 F0070000 		.4byte	0x7f0
+ 2283 07d8 0A       		.uleb128 0xa
+ 2284 07d9 01       		.uleb128 0x1
+ 2285 07da 50       		.byte	0x50
+ 2286 07db 05       		.uleb128 0x5
+ 2287 07dc 03       		.byte	0x3
+ 2288 07dd 00000000 		.4byte	publicar1
+ 2289 07e1 0A       		.uleb128 0xa
+ 2290 07e2 01       		.uleb128 0x1
+ 2291 07e3 51       		.byte	0x51
+ 2292 07e4 05       		.uleb128 0x5
+ 2293 07e5 03       		.byte	0x3
+ 2294 07e6 14010000 		.4byte	.LC17
+ 2295 07ea 0A       		.uleb128 0xa
+ 2296 07eb 01       		.uleb128 0x1
+ 2297 07ec 52       		.byte	0x52
+ 2298 07ed 01       		.uleb128 0x1
+ 2299 07ee 30       		.byte	0x30
+ 2300 07ef 00       		.byte	0
+ 2301 07f0 09       		.uleb128 0x9
+ 2302 07f1 F0000000 		.4byte	.LVL112
+ 2303 07f5 560B0000 		.4byte	0xb56
+ 2304 07f9 07080000 		.4byte	0x807
+ 2305 07fd 0A       		.uleb128 0xa
+ 2306 07fe 01       		.uleb128 0x1
+ 2307 07ff 50       		.byte	0x50
+ 2308 0800 05       		.uleb128 0x5
+ 2309 0801 03       		.byte	0x3
+ 2310 0802 2C010000 		.4byte	.LC19
+ 2311 0806 00       		.byte	0
+ 2312 0807 09       		.uleb128 0x9
+ 2313 0808 F6000000 		.4byte	.LVL113
+ 2314 080c 610B0000 		.4byte	0xb61
+ 2315 0810 1B080000 		.4byte	0x81b
+ 2316 0814 0A       		.uleb128 0xa
+ 2317 0815 01       		.uleb128 0x1
+ 2318 0816 50       		.byte	0x50
+ 2319 0817 02       		.uleb128 0x2
+ 2320 0818 08       		.byte	0x8
+ 2321 0819 64       		.byte	0x64
+ 2322 081a 00       		.byte	0
+ 2323 081b 09       		.uleb128 0x9
+ 2324 081c 0C010000 		.4byte	.LVL114
+ 2325 0820 320C0000 		.4byte	0xc32
+ 2326 0824 2E080000 		.4byte	0x82e
+ 2327 0828 0A       		.uleb128 0xa
+ 2328 0829 01       		.uleb128 0x1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 50
+
+
+ 2329 082a 50       		.byte	0x50
+ 2330 082b 01       		.uleb128 0x1
+ 2331 082c 30       		.byte	0x30
+ 2332 082d 00       		.byte	0
+ 2333 082e 09       		.uleb128 0x9
+ 2334 082f 16010000 		.4byte	.LVL115
+ 2335 0833 4B0B0000 		.4byte	0xb4b
+ 2336 0837 53080000 		.4byte	0x853
+ 2337 083b 0A       		.uleb128 0xa
+ 2338 083c 01       		.uleb128 0x1
+ 2339 083d 50       		.byte	0x50
+ 2340 083e 05       		.uleb128 0x5
+ 2341 083f 03       		.byte	0x3
+ 2342 0840 00000000 		.4byte	publicar2
+ 2343 0844 0A       		.uleb128 0xa
+ 2344 0845 01       		.uleb128 0x1
+ 2345 0846 51       		.byte	0x51
+ 2346 0847 05       		.uleb128 0x5
+ 2347 0848 03       		.byte	0x3
+ 2348 0849 14010000 		.4byte	.LC17
+ 2349 084d 0A       		.uleb128 0xa
+ 2350 084e 01       		.uleb128 0x1
+ 2351 084f 52       		.byte	0x52
+ 2352 0850 01       		.uleb128 0x1
+ 2353 0851 30       		.byte	0x30
+ 2354 0852 00       		.byte	0
+ 2355 0853 09       		.uleb128 0x9
+ 2356 0854 1C010000 		.4byte	.LVL116
+ 2357 0858 560B0000 		.4byte	0xb56
+ 2358 085c 6A080000 		.4byte	0x86a
+ 2359 0860 0A       		.uleb128 0xa
+ 2360 0861 01       		.uleb128 0x1
+ 2361 0862 50       		.byte	0x50
+ 2362 0863 05       		.uleb128 0x5
+ 2363 0864 03       		.byte	0x3
+ 2364 0865 38010000 		.4byte	.LC20
+ 2365 0869 00       		.byte	0
+ 2366 086a 0B       		.uleb128 0xb
+ 2367 086b 22010000 		.4byte	.LVL117
+ 2368 086f 610B0000 		.4byte	0xb61
+ 2369 0873 0A       		.uleb128 0xa
+ 2370 0874 01       		.uleb128 0x1
+ 2371 0875 50       		.byte	0x50
+ 2372 0876 02       		.uleb128 0x2
+ 2373 0877 08       		.byte	0x8
+ 2374 0878 64       		.byte	0x64
+ 2375 0879 00       		.byte	0
+ 2376 087a 00       		.byte	0
+ 2377 087b 10       		.uleb128 0x10
+ 2378 087c 7B000000 		.4byte	.LASF83
+ 2379 0880 01       		.byte	0x1
+ 2380 0881 4A       		.byte	0x4a
+ 2381 0882 68000000 		.4byte	0x68
+ 2382 0886 00000000 		.4byte	.LFB65
+ 2383 088a 5C000000 		.4byte	.LFE65-.LFB65
+ 2384 088e 01       		.uleb128 0x1
+ 2385 088f 9C       		.byte	0x9c
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 51
+
+
+ 2386 0890 2C090000 		.4byte	0x92c
+ 2387 0894 07       		.uleb128 0x7
+ 2388 0895 08000000 		.4byte	.LVL118
+ 2389 0899 3D0C0000 		.4byte	0xc3d
+ 2390 089d 07       		.uleb128 0x7
+ 2391 089e 0C000000 		.4byte	.LVL119
+ 2392 08a2 480C0000 		.4byte	0xc48
+ 2393 08a6 07       		.uleb128 0x7
+ 2394 08a7 10000000 		.4byte	.LVL120
+ 2395 08ab 530C0000 		.4byte	0xc53
+ 2396 08af 07       		.uleb128 0x7
+ 2397 08b0 14000000 		.4byte	.LVL121
+ 2398 08b4 5E0C0000 		.4byte	0xc5e
+ 2399 08b8 07       		.uleb128 0x7
+ 2400 08b9 18000000 		.4byte	.LVL122
+ 2401 08bd 690C0000 		.4byte	0xc69
+ 2402 08c1 09       		.uleb128 0x9
+ 2403 08c2 1E000000 		.4byte	.LVL123
+ 2404 08c6 740C0000 		.4byte	0xc74
+ 2405 08ca D4080000 		.4byte	0x8d4
+ 2406 08ce 0A       		.uleb128 0xa
+ 2407 08cf 01       		.uleb128 0x1
+ 2408 08d0 50       		.byte	0x50
+ 2409 08d1 01       		.uleb128 0x1
+ 2410 08d2 34       		.byte	0x34
+ 2411 08d3 00       		.byte	0
+ 2412 08d4 07       		.uleb128 0x7
+ 2413 08d5 22000000 		.4byte	.LVL124
+ 2414 08d9 7F0C0000 		.4byte	0xc7f
+ 2415 08dd 09       		.uleb128 0x9
+ 2416 08de 28000000 		.4byte	.LVL125
+ 2417 08e2 8A0C0000 		.4byte	0xc8a
+ 2418 08e6 F0080000 		.4byte	0x8f0
+ 2419 08ea 0A       		.uleb128 0xa
+ 2420 08eb 01       		.uleb128 0x1
+ 2421 08ec 50       		.byte	0x50
+ 2422 08ed 01       		.uleb128 0x1
+ 2423 08ee 34       		.byte	0x34
+ 2424 08ef 00       		.byte	0
+ 2425 08f0 07       		.uleb128 0x7
+ 2426 08f1 2C000000 		.4byte	.LVL126
+ 2427 08f5 950C0000 		.4byte	0xc95
+ 2428 08f9 09       		.uleb128 0x9
+ 2429 08fa 32000000 		.4byte	.LVL127
+ 2430 08fe A00C0000 		.4byte	0xca0
+ 2431 0902 10090000 		.4byte	0x910
+ 2432 0906 0A       		.uleb128 0xa
+ 2433 0907 01       		.uleb128 0x1
+ 2434 0908 50       		.byte	0x50
+ 2435 0909 05       		.uleb128 0x5
+ 2436 090a 03       		.byte	0x3
+ 2437 090b 00000000 		.4byte	interrupcion
+ 2438 090f 00       		.byte	0
+ 2439 0910 07       		.uleb128 0x7
+ 2440 0911 46000000 		.4byte	.LVL128
+ 2441 0915 D8000000 		.4byte	0xd8
+ 2442 0919 07       		.uleb128 0x7
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 52
+
+
+ 2443 091a 4C000000 		.4byte	.LVL129
+ 2444 091e EB030000 		.4byte	0x3eb
+ 2445 0922 07       		.uleb128 0x7
+ 2446 0923 52000000 		.4byte	.LVL130
+ 2447 0927 7A060000 		.4byte	0x67a
+ 2448 092b 00       		.byte	0
+ 2449 092c 11       		.uleb128 0x11
+ 2450 092d C7030000 		.4byte	.LASF20
+ 2451 0931 05       		.byte	0x5
+ 2452 0932 1207     		.2byte	0x712
+ 2453 0934 38090000 		.4byte	0x938
+ 2454 0938 12       		.uleb128 0x12
+ 2455 0939 76000000 		.4byte	0x76
+ 2456 093d 13       		.uleb128 0x13
+ 2457 093e 19010000 		.4byte	.LASF21
+ 2458 0942 01       		.byte	0x1
+ 2459 0943 12       		.byte	0x12
+ 2460 0944 9B000000 		.4byte	0x9b
+ 2461 0948 05       		.uleb128 0x5
+ 2462 0949 03       		.byte	0x3
+ 2463 094a 00000000 		.4byte	recibir
+ 2464 094e 14       		.uleb128 0x14
+ 2465 094f 9B000000 		.4byte	0x9b
+ 2466 0953 5E090000 		.4byte	0x95e
+ 2467 0957 15       		.uleb128 0x15
+ 2468 0958 A9000000 		.4byte	0xa9
+ 2469 095c 00       		.byte	0
+ 2470 095d 00       		.byte	0
+ 2471 095e 13       		.uleb128 0x13
+ 2472 095f 6C000000 		.4byte	.LASF22
+ 2473 0963 01       		.byte	0x1
+ 2474 0964 12       		.byte	0x12
+ 2475 0965 4E090000 		.4byte	0x94e
+ 2476 0969 05       		.uleb128 0x5
+ 2477 096a 03       		.byte	0x3
+ 2478 096b 00000000 		.4byte	cadena
+ 2479 096f 14       		.uleb128 0x14
+ 2480 0970 9B000000 		.4byte	0x9b
+ 2481 0974 7F090000 		.4byte	0x97f
+ 2482 0978 15       		.uleb128 0x15
+ 2483 0979 A9000000 		.4byte	0xa9
+ 2484 097d 03       		.byte	0x3
+ 2485 097e 00       		.byte	0
+ 2486 097f 13       		.uleb128 0x13
+ 2487 0980 FF020000 		.4byte	.LASF23
+ 2488 0984 01       		.byte	0x1
+ 2489 0985 12       		.byte	0x12
+ 2490 0986 6F090000 		.4byte	0x96f
+ 2491 098a 05       		.uleb128 0x5
+ 2492 098b 03       		.byte	0x3
+ 2493 098c 00000000 		.4byte	cadena2
+ 2494 0990 13       		.uleb128 0x13
+ 2495 0991 4D030000 		.4byte	.LASF24
+ 2496 0995 01       		.byte	0x1
+ 2497 0996 12       		.byte	0x12
+ 2498 0997 9B000000 		.4byte	0x9b
+ 2499 099b 05       		.uleb128 0x5
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 53
+
+
+ 2500 099c 03       		.byte	0x3
+ 2501 099d 00000000 		.4byte	longitud
+ 2502 09a1 14       		.uleb128 0x14
+ 2503 09a2 9B000000 		.4byte	0x9b
+ 2504 09a6 B1090000 		.4byte	0x9b1
+ 2505 09aa 15       		.uleb128 0x15
+ 2506 09ab A9000000 		.4byte	0xa9
+ 2507 09af 0B       		.byte	0xb
+ 2508 09b0 00       		.byte	0
+ 2509 09b1 16       		.uleb128 0x16
+ 2510 09b2 73747200 		.ascii	"str\000"
+ 2511 09b6 01       		.byte	0x1
+ 2512 09b7 12       		.byte	0x12
+ 2513 09b8 A1090000 		.4byte	0x9a1
+ 2514 09bc 05       		.uleb128 0x5
+ 2515 09bd 03       		.byte	0x3
+ 2516 09be 00000000 		.4byte	str
+ 2517 09c2 13       		.uleb128 0x13
+ 2518 09c3 D2010000 		.4byte	.LASF25
+ 2519 09c7 01       		.byte	0x1
+ 2520 09c8 12       		.byte	0x12
+ 2521 09c9 A1090000 		.4byte	0x9a1
+ 2522 09cd 05       		.uleb128 0x5
+ 2523 09ce 03       		.byte	0x3
+ 2524 09cf 00000000 		.4byte	publicar
+ 2525 09d3 13       		.uleb128 0x13
+ 2526 09d4 DC020000 		.4byte	.LASF26
+ 2527 09d8 01       		.byte	0x1
+ 2528 09d9 12       		.byte	0x12
+ 2529 09da A1090000 		.4byte	0x9a1
+ 2530 09de 05       		.uleb128 0x5
+ 2531 09df 03       		.byte	0x3
+ 2532 09e0 00000000 		.4byte	publicar1
+ 2533 09e4 13       		.uleb128 0x13
+ 2534 09e5 E6020000 		.4byte	.LASF27
+ 2535 09e9 01       		.byte	0x1
+ 2536 09ea 12       		.byte	0x12
+ 2537 09eb A1090000 		.4byte	0x9a1
+ 2538 09ef 05       		.uleb128 0x5
+ 2539 09f0 03       		.byte	0x3
+ 2540 09f1 00000000 		.4byte	publicar2
+ 2541 09f5 13       		.uleb128 0x13
+ 2542 09f6 73000000 		.4byte	.LASF28
+ 2543 09fa 01       		.byte	0x1
+ 2544 09fb 13       		.byte	0x13
+ 2545 09fc 68000000 		.4byte	0x68
+ 2546 0a00 05       		.uleb128 0x5
+ 2547 0a01 03       		.byte	0x3
+ 2548 0a02 00000000 		.4byte	bandera
+ 2549 0a06 13       		.uleb128 0x13
+ 2550 0a07 0B020000 		.4byte	.LASF29
+ 2551 0a0b 01       		.byte	0x1
+ 2552 0a0c 13       		.byte	0x13
+ 2553 0a0d 68000000 		.4byte	0x68
+ 2554 0a11 05       		.uleb128 0x5
+ 2555 0a12 03       		.byte	0x3
+ 2556 0a13 00000000 		.4byte	canal
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 54
+
+
+ 2557 0a17 13       		.uleb128 0x13
+ 2558 0a18 AA010000 		.4byte	.LASF30
+ 2559 0a1c 01       		.byte	0x1
+ 2560 0a1d 13       		.byte	0x13
+ 2561 0a1e 68000000 		.4byte	0x68
+ 2562 0a22 05       		.uleb128 0x5
+ 2563 0a23 03       		.byte	0x3
+ 2564 0a24 00000000 		.4byte	ganancia
+ 2565 0a28 13       		.uleb128 0x13
+ 2566 0a29 C6020000 		.4byte	.LASF31
+ 2567 0a2d 01       		.byte	0x1
+ 2568 0a2e 13       		.byte	0x13
+ 2569 0a2f 68000000 		.4byte	0x68
+ 2570 0a33 05       		.uleb128 0x5
+ 2571 0a34 03       		.byte	0x3
+ 2572 0a35 00000000 		.4byte	signal
+ 2573 0a39 14       		.uleb128 0x14
+ 2574 0a3a 68000000 		.4byte	0x68
+ 2575 0a3e 490A0000 		.4byte	0xa49
+ 2576 0a42 15       		.uleb128 0x15
+ 2577 0a43 A9000000 		.4byte	0xa9
+ 2578 0a47 0B       		.byte	0xb
+ 2579 0a48 00       		.byte	0
+ 2580 0a49 13       		.uleb128 0x13
+ 2581 0a4a 1F000000 		.4byte	.LASF32
+ 2582 0a4e 01       		.byte	0x1
+ 2583 0a4f 13       		.byte	0x13
+ 2584 0a50 390A0000 		.4byte	0xa39
+ 2585 0a54 05       		.uleb128 0x5
+ 2586 0a55 03       		.byte	0x3
+ 2587 0a56 00000000 		.4byte	numero
+ 2588 0a5a 13       		.uleb128 0x13
+ 2589 0a5b 3C030000 		.4byte	.LASF33
+ 2590 0a5f 01       		.byte	0x1
+ 2591 0a60 13       		.byte	0x13
+ 2592 0a61 68000000 		.4byte	0x68
+ 2593 0a65 05       		.uleb128 0x5
+ 2594 0a66 03       		.byte	0x3
+ 2595 0a67 00000000 		.4byte	dato
+ 2596 0a6b 13       		.uleb128 0x13
+ 2597 0a6c 7E030000 		.4byte	.LASF34
+ 2598 0a70 01       		.byte	0x1
+ 2599 0a71 13       		.byte	0x13
+ 2600 0a72 68000000 		.4byte	0x68
+ 2601 0a76 05       		.uleb128 0x5
+ 2602 0a77 03       		.byte	0x3
+ 2603 0a78 00000000 		.4byte	valor
+ 2604 0a7c 13       		.uleb128 0x13
+ 2605 0a7d 6A040000 		.4byte	.LASF35
+ 2606 0a81 01       		.byte	0x1
+ 2607 0a82 13       		.byte	0x13
+ 2608 0a83 68000000 		.4byte	0x68
+ 2609 0a87 05       		.uleb128 0x5
+ 2610 0a88 03       		.byte	0x3
+ 2611 0a89 00000000 		.4byte	cuenta
+ 2612 0a8d 16       		.uleb128 0x16
+ 2613 0a8e 61637500 		.ascii	"acu\000"
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 55
+
+
+ 2614 0a92 01       		.byte	0x1
+ 2615 0a93 13       		.byte	0x13
+ 2616 0a94 68000000 		.4byte	0x68
+ 2617 0a98 05       		.uleb128 0x5
+ 2618 0a99 03       		.byte	0x3
+ 2619 0a9a 00000000 		.4byte	acu
+ 2620 0a9e 16       		.uleb128 0x16
+ 2621 0a9f 44414300 		.ascii	"DAC\000"
+ 2622 0aa3 01       		.byte	0x1
+ 2623 0aa4 13       		.byte	0x13
+ 2624 0aa5 68000000 		.4byte	0x68
+ 2625 0aa9 05       		.uleb128 0x5
+ 2626 0aaa 03       		.byte	0x3
+ 2627 0aab 00000000 		.4byte	DAC
+ 2628 0aaf 13       		.uleb128 0x13
+ 2629 0ab0 07030000 		.4byte	.LASF36
+ 2630 0ab4 01       		.byte	0x1
+ 2631 0ab5 13       		.byte	0x13
+ 2632 0ab6 68000000 		.4byte	0x68
+ 2633 0aba 05       		.uleb128 0x5
+ 2634 0abb 03       		.byte	0x3
+ 2635 0abc 00000000 		.4byte	VDAC
+ 2636 0ac0 13       		.uleb128 0x13
+ 2637 0ac1 7B010000 		.4byte	.LASF37
+ 2638 0ac5 01       		.byte	0x1
+ 2639 0ac6 13       		.byte	0x13
+ 2640 0ac7 68000000 		.4byte	0x68
+ 2641 0acb 05       		.uleb128 0x5
+ 2642 0acc 03       		.byte	0x3
+ 2643 0acd 00000000 		.4byte	guardado1
+ 2644 0ad1 13       		.uleb128 0x13
+ 2645 0ad2 85010000 		.4byte	.LASF38
+ 2646 0ad6 01       		.byte	0x1
+ 2647 0ad7 13       		.byte	0x13
+ 2648 0ad8 68000000 		.4byte	0x68
+ 2649 0adc 05       		.uleb128 0x5
+ 2650 0add 03       		.byte	0x3
+ 2651 0ade 00000000 		.4byte	guardado2
+ 2652 0ae2 16       		.uleb128 0x16
+ 2653 0ae3 56696E00 		.ascii	"Vin\000"
+ 2654 0ae7 01       		.byte	0x1
+ 2655 0ae8 14       		.byte	0x14
+ 2656 0ae9 81000000 		.4byte	0x81
+ 2657 0aed 05       		.uleb128 0x5
+ 2658 0aee 03       		.byte	0x3
+ 2659 0aef 00000000 		.4byte	Vin
+ 2660 0af3 17       		.uleb128 0x17
+ 2661 0af4 EF000000 		.4byte	.LASF39
+ 2662 0af8 EF000000 		.4byte	.LASF39
+ 2663 0afc 06       		.byte	0x6
+ 2664 0afd 71       		.byte	0x71
+ 2665 0afe 17       		.uleb128 0x17
+ 2666 0aff 71040000 		.4byte	.LASF40
+ 2667 0b03 71040000 		.4byte	.LASF40
+ 2668 0b07 06       		.byte	0x6
+ 2669 0b08 8A       		.byte	0x8a
+ 2670 0b09 17       		.uleb128 0x17
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 56
+
+
+ 2671 0b0a 00000000 		.4byte	.LASF41
+ 2672 0b0e 00000000 		.4byte	.LASF41
+ 2673 0b12 07       		.byte	0x7
+ 2674 0b13 27       		.byte	0x27
+ 2675 0b14 17       		.uleb128 0x17
+ 2676 0b15 4A010000 		.4byte	.LASF42
+ 2677 0b19 4A010000 		.4byte	.LASF42
+ 2678 0b1d 08       		.byte	0x8
+ 2679 0b1e 3D       		.byte	0x3d
+ 2680 0b1f 17       		.uleb128 0x17
+ 2681 0b20 DB000000 		.4byte	.LASF43
+ 2682 0b24 DB000000 		.4byte	.LASF43
+ 2683 0b28 08       		.byte	0x8
+ 2684 0b29 3F       		.byte	0x3f
+ 2685 0b2a 17       		.uleb128 0x17
+ 2686 0b2b 0F000000 		.4byte	.LASF44
+ 2687 0b2f 0F000000 		.4byte	.LASF44
+ 2688 0b33 08       		.byte	0x8
+ 2689 0b34 42       		.byte	0x42
+ 2690 0b35 17       		.uleb128 0x17
+ 2691 0b36 92020000 		.4byte	.LASF45
+ 2692 0b3a 92020000 		.4byte	.LASF45
+ 2693 0b3e 08       		.byte	0x8
+ 2694 0b3f 3E       		.byte	0x3e
+ 2695 0b40 17       		.uleb128 0x17
+ 2696 0b41 A2020000 		.4byte	.LASF46
+ 2697 0b45 A2020000 		.4byte	.LASF46
+ 2698 0b49 09       		.byte	0x9
+ 2699 0b4a 41       		.byte	0x41
+ 2700 0b4b 17       		.uleb128 0x17
+ 2701 0b4c 11020000 		.4byte	.LASF47
+ 2702 0b50 11020000 		.4byte	.LASF47
+ 2703 0b54 0A       		.byte	0xa
+ 2704 0b55 E7       		.byte	0xe7
+ 2705 0b56 17       		.uleb128 0x17
+ 2706 0b57 FC000000 		.4byte	.LASF48
+ 2707 0b5b FC000000 		.4byte	.LASF48
+ 2708 0b5f 06       		.byte	0x6
+ 2709 0b60 8B       		.byte	0x8b
+ 2710 0b61 17       		.uleb128 0x17
+ 2711 0b62 62040000 		.4byte	.LASF49
+ 2712 0b66 62040000 		.4byte	.LASF49
+ 2713 0b6a 0B       		.byte	0xb
+ 2714 0b6b 76       		.byte	0x76
+ 2715 0b6c 17       		.uleb128 0x17
+ 2716 0b6d 21010000 		.4byte	.LASF50
+ 2717 0b71 21010000 		.4byte	.LASF50
+ 2718 0b75 0C       		.byte	0xc
+ 2719 0b76 29       		.byte	0x29
+ 2720 0b77 17       		.uleb128 0x17
+ 2721 0b78 56030000 		.4byte	.LASF51
+ 2722 0b7c 56030000 		.4byte	.LASF51
+ 2723 0b80 0D       		.byte	0xd
+ 2724 0b81 29       		.byte	0x29
+ 2725 0b82 17       		.uleb128 0x17
+ 2726 0b83 1B030000 		.4byte	.LASF52
+ 2727 0b87 1B030000 		.4byte	.LASF52
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 57
+
+
+ 2728 0b8b 0E       		.byte	0xe
+ 2729 0b8c 29       		.byte	0x29
+ 2730 0b8d 17       		.uleb128 0x17
+ 2731 0b8e 5D000000 		.4byte	.LASF53
+ 2732 0b92 5D000000 		.4byte	.LASF53
+ 2733 0b96 0F       		.byte	0xf
+ 2734 0b97 26       		.byte	0x26
+ 2735 0b98 17       		.uleb128 0x17
+ 2736 0b99 CD020000 		.4byte	.LASF54
+ 2737 0b9d CD020000 		.4byte	.LASF54
+ 2738 0ba1 10       		.byte	0x10
+ 2739 0ba2 26       		.byte	0x26
+ 2740 0ba3 17       		.uleb128 0x17
+ 2741 0ba4 0C030000 		.4byte	.LASF55
+ 2742 0ba8 0C030000 		.4byte	.LASF55
+ 2743 0bac 11       		.byte	0x11
+ 2744 0bad 26       		.byte	0x26
+ 2745 0bae 17       		.uleb128 0x17
+ 2746 0baf B3010000 		.4byte	.LASF56
+ 2747 0bb3 B3010000 		.4byte	.LASF56
+ 2748 0bb7 12       		.byte	0x12
+ 2749 0bb8 4D       		.byte	0x4d
+ 2750 0bb9 17       		.uleb128 0x17
+ 2751 0bba 26000000 		.4byte	.LASF57
+ 2752 0bbe 26000000 		.4byte	.LASF57
+ 2753 0bc2 13       		.byte	0x13
+ 2754 0bc3 37       		.byte	0x37
+ 2755 0bc4 17       		.uleb128 0x17
+ 2756 0bc5 B8010000 		.4byte	.LASF58
+ 2757 0bc9 B8010000 		.4byte	.LASF58
+ 2758 0bcd 14       		.byte	0x14
+ 2759 0bce 37       		.byte	0x37
+ 2760 0bcf 17       		.uleb128 0x17
+ 2761 0bd0 7E040000 		.4byte	.LASF59
+ 2762 0bd4 7E040000 		.4byte	.LASF59
+ 2763 0bd8 15       		.byte	0x15
+ 2764 0bd9 4F       		.byte	0x4f
+ 2765 0bda 17       		.uleb128 0x17
+ 2766 0bdb 7D020000 		.4byte	.LASF60
+ 2767 0bdf 7D020000 		.4byte	.LASF60
+ 2768 0be3 15       		.byte	0x15
+ 2769 0be4 5D       		.byte	0x5d
+ 2770 0be5 17       		.uleb128 0x17
+ 2771 0be6 35010000 		.4byte	.LASF61
+ 2772 0bea 35010000 		.4byte	.LASF61
+ 2773 0bee 15       		.byte	0x15
+ 2774 0bef 5E       		.byte	0x5e
+ 2775 0bf0 17       		.uleb128 0x17
+ 2776 0bf1 46020000 		.4byte	.LASF62
+ 2777 0bf5 46020000 		.4byte	.LASF62
+ 2778 0bf9 16       		.byte	0x16
+ 2779 0bfa 4F       		.byte	0x4f
+ 2780 0bfb 17       		.uleb128 0x17
+ 2781 0bfc 84030000 		.4byte	.LASF63
+ 2782 0c00 84030000 		.4byte	.LASF63
+ 2783 0c04 16       		.byte	0x16
+ 2784 0c05 5D       		.byte	0x5d
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 58
+
+
+ 2785 0c06 17       		.uleb128 0x17
+ 2786 0c07 80000000 		.4byte	.LASF64
+ 2787 0c0b 80000000 		.4byte	.LASF64
+ 2788 0c0f 16       		.byte	0x16
+ 2789 0c10 5E       		.byte	0x5e
+ 2790 0c11 17       		.uleb128 0x17
+ 2791 0c12 B9030000 		.4byte	.LASF65
+ 2792 0c16 B9030000 		.4byte	.LASF65
+ 2793 0c1a 15       		.byte	0x15
+ 2794 0c1b 50       		.byte	0x50
+ 2795 0c1c 17       		.uleb128 0x17
+ 2796 0c1d 6F020000 		.4byte	.LASF66
+ 2797 0c21 6F020000 		.4byte	.LASF66
+ 2798 0c25 16       		.byte	0x16
+ 2799 0c26 50       		.byte	0x50
+ 2800 0c27 17       		.uleb128 0x17
+ 2801 0c28 E7010000 		.4byte	.LASF67
+ 2802 0c2c E7010000 		.4byte	.LASF67
+ 2803 0c30 15       		.byte	0x15
+ 2804 0c31 5A       		.byte	0x5a
+ 2805 0c32 17       		.uleb128 0x17
+ 2806 0c33 68030000 		.4byte	.LASF68
+ 2807 0c37 68030000 		.4byte	.LASF68
+ 2808 0c3b 16       		.byte	0x16
+ 2809 0c3c 5A       		.byte	0x5a
+ 2810 0c3d 17       		.uleb128 0x17
+ 2811 0c3e 8F010000 		.4byte	.LASF69
+ 2812 0c42 8F010000 		.4byte	.LASF69
+ 2813 0c46 08       		.byte	0x8
+ 2814 0c47 3A       		.byte	0x3a
+ 2815 0c48 17       		.uleb128 0x17
+ 2816 0c49 99030000 		.4byte	.LASF70
+ 2817 0c4d 99030000 		.4byte	.LASF70
+ 2818 0c51 09       		.byte	0x9
+ 2819 0c52 3E       		.byte	0x3e
+ 2820 0c53 17       		.uleb128 0x17
+ 2821 0c54 25020000 		.4byte	.LASF71
+ 2822 0c58 25020000 		.4byte	.LASF71
+ 2823 0c5c 07       		.byte	0x7
+ 2824 0c5d 25       		.byte	0x25
+ 2825 0c5e 17       		.uleb128 0x17
+ 2826 0c5f C7010000 		.4byte	.LASF72
+ 2827 0c63 C7010000 		.4byte	.LASF72
+ 2828 0c67 06       		.byte	0x6
+ 2829 0c68 54       		.byte	0x54
+ 2830 0c69 17       		.uleb128 0x17
+ 2831 0c6a 41030000 		.4byte	.LASF73
+ 2832 0c6e 41030000 		.4byte	.LASF73
+ 2833 0c72 13       		.byte	0x13
+ 2834 0c73 33       		.byte	0x33
+ 2835 0c74 17       		.uleb128 0x17
+ 2836 0c75 F0020000 		.4byte	.LASF74
+ 2837 0c79 F0020000 		.4byte	.LASF74
+ 2838 0c7d 13       		.byte	0x13
+ 2839 0c7e 36       		.byte	0x36
+ 2840 0c7f 17       		.uleb128 0x17
+ 2841 0c80 61010000 		.4byte	.LASF75
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 59
+
+
+ 2842 0c84 61010000 		.4byte	.LASF75
+ 2843 0c88 14       		.byte	0x14
+ 2844 0c89 33       		.byte	0x33
+ 2845 0c8a 17       		.uleb128 0x17
+ 2846 0c8b 3D000000 		.4byte	.LASF76
+ 2847 0c8f 3D000000 		.4byte	.LASF76
+ 2848 0c93 14       		.byte	0x14
+ 2849 0c94 36       		.byte	0x36
+ 2850 0c95 17       		.uleb128 0x17
+ 2851 0c96 29010000 		.4byte	.LASF77
+ 2852 0c9a 29010000 		.4byte	.LASF77
+ 2853 0c9e 17       		.byte	0x17
+ 2854 0c9f 17       		.byte	0x17
+ 2855 0ca0 17       		.uleb128 0x17
+ 2856 0ca1 0B010000 		.4byte	.LASF78
+ 2857 0ca5 0B010000 		.4byte	.LASF78
+ 2858 0ca9 17       		.byte	0x17
+ 2859 0caa 18       		.byte	0x18
+ 2860 0cab 00       		.byte	0
+ 2861              		.section	.debug_abbrev,"",%progbits
+ 2862              	.Ldebug_abbrev0:
+ 2863 0000 01       		.uleb128 0x1
+ 2864 0001 11       		.uleb128 0x11
+ 2865 0002 01       		.byte	0x1
+ 2866 0003 25       		.uleb128 0x25
+ 2867 0004 0E       		.uleb128 0xe
+ 2868 0005 13       		.uleb128 0x13
+ 2869 0006 0B       		.uleb128 0xb
+ 2870 0007 03       		.uleb128 0x3
+ 2871 0008 0E       		.uleb128 0xe
+ 2872 0009 1B       		.uleb128 0x1b
+ 2873 000a 0E       		.uleb128 0xe
+ 2874 000b 55       		.uleb128 0x55
+ 2875 000c 17       		.uleb128 0x17
+ 2876 000d 11       		.uleb128 0x11
+ 2877 000e 01       		.uleb128 0x1
+ 2878 000f 10       		.uleb128 0x10
+ 2879 0010 17       		.uleb128 0x17
+ 2880 0011 00       		.byte	0
+ 2881 0012 00       		.byte	0
+ 2882 0013 02       		.uleb128 0x2
+ 2883 0014 24       		.uleb128 0x24
+ 2884 0015 00       		.byte	0
+ 2885 0016 0B       		.uleb128 0xb
+ 2886 0017 0B       		.uleb128 0xb
+ 2887 0018 3E       		.uleb128 0x3e
+ 2888 0019 0B       		.uleb128 0xb
+ 2889 001a 03       		.uleb128 0x3
+ 2890 001b 0E       		.uleb128 0xe
+ 2891 001c 00       		.byte	0
+ 2892 001d 00       		.byte	0
+ 2893 001e 03       		.uleb128 0x3
+ 2894 001f 16       		.uleb128 0x16
+ 2895 0020 00       		.byte	0
+ 2896 0021 03       		.uleb128 0x3
+ 2897 0022 0E       		.uleb128 0xe
+ 2898 0023 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 60
+
+
+ 2899 0024 0B       		.uleb128 0xb
+ 2900 0025 3B       		.uleb128 0x3b
+ 2901 0026 0B       		.uleb128 0xb
+ 2902 0027 49       		.uleb128 0x49
+ 2903 0028 13       		.uleb128 0x13
+ 2904 0029 00       		.byte	0
+ 2905 002a 00       		.byte	0
+ 2906 002b 04       		.uleb128 0x4
+ 2907 002c 24       		.uleb128 0x24
+ 2908 002d 00       		.byte	0
+ 2909 002e 0B       		.uleb128 0xb
+ 2910 002f 0B       		.uleb128 0xb
+ 2911 0030 3E       		.uleb128 0x3e
+ 2912 0031 0B       		.uleb128 0xb
+ 2913 0032 03       		.uleb128 0x3
+ 2914 0033 08       		.uleb128 0x8
+ 2915 0034 00       		.byte	0
+ 2916 0035 00       		.byte	0
+ 2917 0036 05       		.uleb128 0x5
+ 2918 0037 16       		.uleb128 0x16
+ 2919 0038 00       		.byte	0
+ 2920 0039 03       		.uleb128 0x3
+ 2921 003a 0E       		.uleb128 0xe
+ 2922 003b 3A       		.uleb128 0x3a
+ 2923 003c 0B       		.uleb128 0xb
+ 2924 003d 3B       		.uleb128 0x3b
+ 2925 003e 05       		.uleb128 0x5
+ 2926 003f 49       		.uleb128 0x49
+ 2927 0040 13       		.uleb128 0x13
+ 2928 0041 00       		.byte	0
+ 2929 0042 00       		.byte	0
+ 2930 0043 06       		.uleb128 0x6
+ 2931 0044 2E       		.uleb128 0x2e
+ 2932 0045 01       		.byte	0x1
+ 2933 0046 3F       		.uleb128 0x3f
+ 2934 0047 19       		.uleb128 0x19
+ 2935 0048 03       		.uleb128 0x3
+ 2936 0049 0E       		.uleb128 0xe
+ 2937 004a 3A       		.uleb128 0x3a
+ 2938 004b 0B       		.uleb128 0xb
+ 2939 004c 3B       		.uleb128 0x3b
+ 2940 004d 0B       		.uleb128 0xb
+ 2941 004e 27       		.uleb128 0x27
+ 2942 004f 19       		.uleb128 0x19
+ 2943 0050 11       		.uleb128 0x11
+ 2944 0051 01       		.uleb128 0x1
+ 2945 0052 12       		.uleb128 0x12
+ 2946 0053 06       		.uleb128 0x6
+ 2947 0054 40       		.uleb128 0x40
+ 2948 0055 18       		.uleb128 0x18
+ 2949 0056 9742     		.uleb128 0x2117
+ 2950 0058 19       		.uleb128 0x19
+ 2951 0059 01       		.uleb128 0x1
+ 2952 005a 13       		.uleb128 0x13
+ 2953 005b 00       		.byte	0
+ 2954 005c 00       		.byte	0
+ 2955 005d 07       		.uleb128 0x7
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 61
+
+
+ 2956 005e 898201   		.uleb128 0x4109
+ 2957 0061 00       		.byte	0
+ 2958 0062 11       		.uleb128 0x11
+ 2959 0063 01       		.uleb128 0x1
+ 2960 0064 31       		.uleb128 0x31
+ 2961 0065 13       		.uleb128 0x13
+ 2962 0066 00       		.byte	0
+ 2963 0067 00       		.byte	0
+ 2964 0068 08       		.uleb128 0x8
+ 2965 0069 2E       		.uleb128 0x2e
+ 2966 006a 01       		.byte	0x1
+ 2967 006b 3F       		.uleb128 0x3f
+ 2968 006c 19       		.uleb128 0x19
+ 2969 006d 03       		.uleb128 0x3
+ 2970 006e 0E       		.uleb128 0xe
+ 2971 006f 3A       		.uleb128 0x3a
+ 2972 0070 0B       		.uleb128 0xb
+ 2973 0071 3B       		.uleb128 0x3b
+ 2974 0072 0B       		.uleb128 0xb
+ 2975 0073 11       		.uleb128 0x11
+ 2976 0074 01       		.uleb128 0x1
+ 2977 0075 12       		.uleb128 0x12
+ 2978 0076 06       		.uleb128 0x6
+ 2979 0077 40       		.uleb128 0x40
+ 2980 0078 18       		.uleb128 0x18
+ 2981 0079 9742     		.uleb128 0x2117
+ 2982 007b 19       		.uleb128 0x19
+ 2983 007c 01       		.uleb128 0x1
+ 2984 007d 13       		.uleb128 0x13
+ 2985 007e 00       		.byte	0
+ 2986 007f 00       		.byte	0
+ 2987 0080 09       		.uleb128 0x9
+ 2988 0081 898201   		.uleb128 0x4109
+ 2989 0084 01       		.byte	0x1
+ 2990 0085 11       		.uleb128 0x11
+ 2991 0086 01       		.uleb128 0x1
+ 2992 0087 31       		.uleb128 0x31
+ 2993 0088 13       		.uleb128 0x13
+ 2994 0089 01       		.uleb128 0x1
+ 2995 008a 13       		.uleb128 0x13
+ 2996 008b 00       		.byte	0
+ 2997 008c 00       		.byte	0
+ 2998 008d 0A       		.uleb128 0xa
+ 2999 008e 8A8201   		.uleb128 0x410a
+ 3000 0091 00       		.byte	0
+ 3001 0092 02       		.uleb128 0x2
+ 3002 0093 18       		.uleb128 0x18
+ 3003 0094 9142     		.uleb128 0x2111
+ 3004 0096 18       		.uleb128 0x18
+ 3005 0097 00       		.byte	0
+ 3006 0098 00       		.byte	0
+ 3007 0099 0B       		.uleb128 0xb
+ 3008 009a 898201   		.uleb128 0x4109
+ 3009 009d 01       		.byte	0x1
+ 3010 009e 11       		.uleb128 0x11
+ 3011 009f 01       		.uleb128 0x1
+ 3012 00a0 31       		.uleb128 0x31
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 62
+
+
+ 3013 00a1 13       		.uleb128 0x13
+ 3014 00a2 00       		.byte	0
+ 3015 00a3 00       		.byte	0
+ 3016 00a4 0C       		.uleb128 0xc
+ 3017 00a5 2E       		.uleb128 0x2e
+ 3018 00a6 01       		.byte	0x1
+ 3019 00a7 3F       		.uleb128 0x3f
+ 3020 00a8 19       		.uleb128 0x19
+ 3021 00a9 03       		.uleb128 0x3
+ 3022 00aa 0E       		.uleb128 0xe
+ 3023 00ab 3A       		.uleb128 0x3a
+ 3024 00ac 0B       		.uleb128 0xb
+ 3025 00ad 3B       		.uleb128 0x3b
+ 3026 00ae 0B       		.uleb128 0xb
+ 3027 00af 11       		.uleb128 0x11
+ 3028 00b0 01       		.uleb128 0x1
+ 3029 00b1 12       		.uleb128 0x12
+ 3030 00b2 06       		.uleb128 0x6
+ 3031 00b3 40       		.uleb128 0x40
+ 3032 00b4 18       		.uleb128 0x18
+ 3033 00b5 9642     		.uleb128 0x2116
+ 3034 00b7 19       		.uleb128 0x19
+ 3035 00b8 01       		.uleb128 0x1
+ 3036 00b9 13       		.uleb128 0x13
+ 3037 00ba 00       		.byte	0
+ 3038 00bb 00       		.byte	0
+ 3039 00bc 0D       		.uleb128 0xd
+ 3040 00bd 0B       		.uleb128 0xb
+ 3041 00be 01       		.byte	0x1
+ 3042 00bf 55       		.uleb128 0x55
+ 3043 00c0 17       		.uleb128 0x17
+ 3044 00c1 01       		.uleb128 0x1
+ 3045 00c2 13       		.uleb128 0x13
+ 3046 00c3 00       		.byte	0
+ 3047 00c4 00       		.byte	0
+ 3048 00c5 0E       		.uleb128 0xe
+ 3049 00c6 34       		.uleb128 0x34
+ 3050 00c7 00       		.byte	0
+ 3051 00c8 03       		.uleb128 0x3
+ 3052 00c9 08       		.uleb128 0x8
+ 3053 00ca 3A       		.uleb128 0x3a
+ 3054 00cb 0B       		.uleb128 0xb
+ 3055 00cc 3B       		.uleb128 0x3b
+ 3056 00cd 05       		.uleb128 0x5
+ 3057 00ce 49       		.uleb128 0x49
+ 3058 00cf 13       		.uleb128 0x13
+ 3059 00d0 02       		.uleb128 0x2
+ 3060 00d1 17       		.uleb128 0x17
+ 3061 00d2 00       		.byte	0
+ 3062 00d3 00       		.byte	0
+ 3063 00d4 0F       		.uleb128 0xf
+ 3064 00d5 2E       		.uleb128 0x2e
+ 3065 00d6 01       		.byte	0x1
+ 3066 00d7 3F       		.uleb128 0x3f
+ 3067 00d8 19       		.uleb128 0x19
+ 3068 00d9 03       		.uleb128 0x3
+ 3069 00da 0E       		.uleb128 0xe
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 63
+
+
+ 3070 00db 3A       		.uleb128 0x3a
+ 3071 00dc 0B       		.uleb128 0xb
+ 3072 00dd 3B       		.uleb128 0x3b
+ 3073 00de 05       		.uleb128 0x5
+ 3074 00df 11       		.uleb128 0x11
+ 3075 00e0 01       		.uleb128 0x1
+ 3076 00e1 12       		.uleb128 0x12
+ 3077 00e2 06       		.uleb128 0x6
+ 3078 00e3 40       		.uleb128 0x40
+ 3079 00e4 18       		.uleb128 0x18
+ 3080 00e5 9742     		.uleb128 0x2117
+ 3081 00e7 19       		.uleb128 0x19
+ 3082 00e8 01       		.uleb128 0x1
+ 3083 00e9 13       		.uleb128 0x13
+ 3084 00ea 00       		.byte	0
+ 3085 00eb 00       		.byte	0
+ 3086 00ec 10       		.uleb128 0x10
+ 3087 00ed 2E       		.uleb128 0x2e
+ 3088 00ee 01       		.byte	0x1
+ 3089 00ef 3F       		.uleb128 0x3f
+ 3090 00f0 19       		.uleb128 0x19
+ 3091 00f1 03       		.uleb128 0x3
+ 3092 00f2 0E       		.uleb128 0xe
+ 3093 00f3 3A       		.uleb128 0x3a
+ 3094 00f4 0B       		.uleb128 0xb
+ 3095 00f5 3B       		.uleb128 0x3b
+ 3096 00f6 0B       		.uleb128 0xb
+ 3097 00f7 27       		.uleb128 0x27
+ 3098 00f8 19       		.uleb128 0x19
+ 3099 00f9 49       		.uleb128 0x49
+ 3100 00fa 13       		.uleb128 0x13
+ 3101 00fb 8701     		.uleb128 0x87
+ 3102 00fd 19       		.uleb128 0x19
+ 3103 00fe 11       		.uleb128 0x11
+ 3104 00ff 01       		.uleb128 0x1
+ 3105 0100 12       		.uleb128 0x12
+ 3106 0101 06       		.uleb128 0x6
+ 3107 0102 40       		.uleb128 0x40
+ 3108 0103 18       		.uleb128 0x18
+ 3109 0104 9742     		.uleb128 0x2117
+ 3110 0106 19       		.uleb128 0x19
+ 3111 0107 01       		.uleb128 0x1
+ 3112 0108 13       		.uleb128 0x13
+ 3113 0109 00       		.byte	0
+ 3114 010a 00       		.byte	0
+ 3115 010b 11       		.uleb128 0x11
+ 3116 010c 34       		.uleb128 0x34
+ 3117 010d 00       		.byte	0
+ 3118 010e 03       		.uleb128 0x3
+ 3119 010f 0E       		.uleb128 0xe
+ 3120 0110 3A       		.uleb128 0x3a
+ 3121 0111 0B       		.uleb128 0xb
+ 3122 0112 3B       		.uleb128 0x3b
+ 3123 0113 05       		.uleb128 0x5
+ 3124 0114 49       		.uleb128 0x49
+ 3125 0115 13       		.uleb128 0x13
+ 3126 0116 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 64
+
+
+ 3127 0117 19       		.uleb128 0x19
+ 3128 0118 3C       		.uleb128 0x3c
+ 3129 0119 19       		.uleb128 0x19
+ 3130 011a 00       		.byte	0
+ 3131 011b 00       		.byte	0
+ 3132 011c 12       		.uleb128 0x12
+ 3133 011d 35       		.uleb128 0x35
+ 3134 011e 00       		.byte	0
+ 3135 011f 49       		.uleb128 0x49
+ 3136 0120 13       		.uleb128 0x13
+ 3137 0121 00       		.byte	0
+ 3138 0122 00       		.byte	0
+ 3139 0123 13       		.uleb128 0x13
+ 3140 0124 34       		.uleb128 0x34
+ 3141 0125 00       		.byte	0
+ 3142 0126 03       		.uleb128 0x3
+ 3143 0127 0E       		.uleb128 0xe
+ 3144 0128 3A       		.uleb128 0x3a
+ 3145 0129 0B       		.uleb128 0xb
+ 3146 012a 3B       		.uleb128 0x3b
+ 3147 012b 0B       		.uleb128 0xb
+ 3148 012c 49       		.uleb128 0x49
+ 3149 012d 13       		.uleb128 0x13
+ 3150 012e 3F       		.uleb128 0x3f
+ 3151 012f 19       		.uleb128 0x19
+ 3152 0130 02       		.uleb128 0x2
+ 3153 0131 18       		.uleb128 0x18
+ 3154 0132 00       		.byte	0
+ 3155 0133 00       		.byte	0
+ 3156 0134 14       		.uleb128 0x14
+ 3157 0135 01       		.uleb128 0x1
+ 3158 0136 01       		.byte	0x1
+ 3159 0137 49       		.uleb128 0x49
+ 3160 0138 13       		.uleb128 0x13
+ 3161 0139 01       		.uleb128 0x1
+ 3162 013a 13       		.uleb128 0x13
+ 3163 013b 00       		.byte	0
+ 3164 013c 00       		.byte	0
+ 3165 013d 15       		.uleb128 0x15
+ 3166 013e 21       		.uleb128 0x21
+ 3167 013f 00       		.byte	0
+ 3168 0140 49       		.uleb128 0x49
+ 3169 0141 13       		.uleb128 0x13
+ 3170 0142 2F       		.uleb128 0x2f
+ 3171 0143 0B       		.uleb128 0xb
+ 3172 0144 00       		.byte	0
+ 3173 0145 00       		.byte	0
+ 3174 0146 16       		.uleb128 0x16
+ 3175 0147 34       		.uleb128 0x34
+ 3176 0148 00       		.byte	0
+ 3177 0149 03       		.uleb128 0x3
+ 3178 014a 08       		.uleb128 0x8
+ 3179 014b 3A       		.uleb128 0x3a
+ 3180 014c 0B       		.uleb128 0xb
+ 3181 014d 3B       		.uleb128 0x3b
+ 3182 014e 0B       		.uleb128 0xb
+ 3183 014f 49       		.uleb128 0x49
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 65
+
+
+ 3184 0150 13       		.uleb128 0x13
+ 3185 0151 3F       		.uleb128 0x3f
+ 3186 0152 19       		.uleb128 0x19
+ 3187 0153 02       		.uleb128 0x2
+ 3188 0154 18       		.uleb128 0x18
+ 3189 0155 00       		.byte	0
+ 3190 0156 00       		.byte	0
+ 3191 0157 17       		.uleb128 0x17
+ 3192 0158 2E       		.uleb128 0x2e
+ 3193 0159 00       		.byte	0
+ 3194 015a 3F       		.uleb128 0x3f
+ 3195 015b 19       		.uleb128 0x19
+ 3196 015c 3C       		.uleb128 0x3c
+ 3197 015d 19       		.uleb128 0x19
+ 3198 015e 6E       		.uleb128 0x6e
+ 3199 015f 0E       		.uleb128 0xe
+ 3200 0160 03       		.uleb128 0x3
+ 3201 0161 0E       		.uleb128 0xe
+ 3202 0162 3A       		.uleb128 0x3a
+ 3203 0163 0B       		.uleb128 0xb
+ 3204 0164 3B       		.uleb128 0x3b
+ 3205 0165 0B       		.uleb128 0xb
+ 3206 0166 00       		.byte	0
+ 3207 0167 00       		.byte	0
+ 3208 0168 00       		.byte	0
+ 3209              		.section	.debug_loc,"",%progbits
+ 3210              	.Ldebug_loc0:
+ 3211              	.LLST0:
+ 3212 0000 0E010000 		.4byte	.LVL63
+ 3213 0004 1C010000 		.4byte	.LVL65
+ 3214 0008 0100     		.2byte	0x1
+ 3215 000a 53       		.byte	0x53
+ 3216 000b 1E010000 		.4byte	.LVL66
+ 3217 000f 27010000 		.4byte	.LVL67-1
+ 3218 0013 0100     		.2byte	0x1
+ 3219 0015 53       		.byte	0x53
+ 3220 0016 00000000 		.4byte	0
+ 3221 001a 00000000 		.4byte	0
+ 3222              	.LLST1:
+ 3223 001e A0010000 		.4byte	.LVL78
+ 3224 0022 AE010000 		.4byte	.LVL80
+ 3225 0026 0100     		.2byte	0x1
+ 3226 0028 53       		.byte	0x53
+ 3227 0029 B0010000 		.4byte	.LVL81
+ 3228 002d B9010000 		.4byte	.LVL82-1
+ 3229 0031 0100     		.2byte	0x1
+ 3230 0033 53       		.byte	0x53
+ 3231 0034 00000000 		.4byte	0
+ 3232 0038 00000000 		.4byte	0
+ 3233              		.section	.debug_aranges,"",%progbits
+ 3234 0000 3C000000 		.4byte	0x3c
+ 3235 0004 0200     		.2byte	0x2
+ 3236 0006 00000000 		.4byte	.Ldebug_info0
+ 3237 000a 04       		.byte	0x4
+ 3238 000b 00       		.byte	0
+ 3239 000c 0000     		.2byte	0
+ 3240 000e 0000     		.2byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 66
+
+
+ 3241 0010 00000000 		.4byte	.LFB64
+ 3242 0014 84000000 		.4byte	.LFE64-.LFB64
+ 3243 0018 00000000 		.4byte	.LFB66
+ 3244 001c F0010000 		.4byte	.LFE66-.LFB66
+ 3245 0020 00000000 		.4byte	.LFB67
+ 3246 0024 74020000 		.4byte	.LFE67-.LFB67
+ 3247 0028 00000000 		.4byte	.LFB68
+ 3248 002c 48010000 		.4byte	.LFE68-.LFB68
+ 3249 0030 00000000 		.4byte	.LFB65
+ 3250 0034 5C000000 		.4byte	.LFE65-.LFB65
+ 3251 0038 00000000 		.4byte	0
+ 3252 003c 00000000 		.4byte	0
+ 3253              		.section	.debug_ranges,"",%progbits
+ 3254              	.Ldebug_ranges0:
+ 3255 0000 0E010000 		.4byte	.LBB2
+ 3256 0004 1C010000 		.4byte	.LBE2
+ 3257 0008 1E010000 		.4byte	.LBB3
+ 3258 000c 22010000 		.4byte	.LBE3
+ 3259 0010 00000000 		.4byte	0
+ 3260 0014 00000000 		.4byte	0
+ 3261 0018 A0010000 		.4byte	.LBB4
+ 3262 001c AE010000 		.4byte	.LBE4
+ 3263 0020 B0010000 		.4byte	.LBB5
+ 3264 0024 B4010000 		.4byte	.LBE5
+ 3265 0028 00000000 		.4byte	0
+ 3266 002c 00000000 		.4byte	0
+ 3267 0030 00000000 		.4byte	.LFB64
+ 3268 0034 84000000 		.4byte	.LFE64
+ 3269 0038 00000000 		.4byte	.LFB66
+ 3270 003c F0010000 		.4byte	.LFE66
+ 3271 0040 00000000 		.4byte	.LFB67
+ 3272 0044 74020000 		.4byte	.LFE67
+ 3273 0048 00000000 		.4byte	.LFB68
+ 3274 004c 48010000 		.4byte	.LFE68
+ 3275 0050 00000000 		.4byte	.LFB65
+ 3276 0054 5C000000 		.4byte	.LFE65
+ 3277 0058 00000000 		.4byte	0
+ 3278 005c 00000000 		.4byte	0
+ 3279              		.section	.debug_line,"",%progbits
+ 3280              	.Ldebug_line0:
+ 3281 0000 B5030000 		.section	.debug_str,"MS",%progbits,1
+ 3281      02007A02 
+ 3281      00000201 
+ 3281      FB0E0D00 
+ 3281      01010101 
+ 3282              	.LASF41:
+ 3283 0000 4D55585F 		.ascii	"MUX_FastSelect\000"
+ 3283      46617374 
+ 3283      53656C65 
+ 3283      637400
+ 3284              	.LASF44:
+ 3285 000f 4144435F 		.ascii	"ADC_GetResult32\000"
+ 3285      47657452 
+ 3285      6573756C 
+ 3285      74333200 
+ 3286              	.LASF32:
+ 3287 001f 6E756D65 		.ascii	"numero\000"
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 67
+
+
+ 3287      726F00
+ 3288              	.LASF57:
+ 3289 0026 56444143 		.ascii	"VDAC1_SetValue\000"
+ 3289      315F5365 
+ 3289      7456616C 
+ 3289      756500
+ 3290              	.LASF11:
+ 3291 0035 666C6F61 		.ascii	"float32\000"
+ 3291      74333200 
+ 3292              	.LASF76:
+ 3293 003d 56444143 		.ascii	"VDAC2_SetRange\000"
+ 3293      325F5365 
+ 3293      7452616E 
+ 3293      676500
+ 3294              	.LASF2:
+ 3295 004c 73686F72 		.ascii	"short int\000"
+ 3295      7420696E 
+ 3295      7400
+ 3296              	.LASF18:
+ 3297 0056 4F757470 		.ascii	"Output\000"
+ 3297      757400
+ 3298              	.LASF53:
+ 3299 005d 53616C69 		.ascii	"SalidaD0_Write\000"
+ 3299      64614430 
+ 3299      5F577269 
+ 3299      746500
+ 3300              	.LASF22:
+ 3301 006c 63616465 		.ascii	"cadena\000"
+ 3301      6E6100
+ 3302              	.LASF28:
+ 3303 0073 62616E64 		.ascii	"bandera\000"
+ 3303      65726100 
+ 3304              	.LASF83:
+ 3305 007b 6D61696E 		.ascii	"main\000"
+ 3305      00
+ 3306              	.LASF64:
+ 3307 0080 436F756E 		.ascii	"Counter2_ReadCapture\000"
+ 3307      74657232 
+ 3307      5F526561 
+ 3307      64436170 
+ 3307      74757265 
+ 3308              	.LASF81:
+ 3309 0095 443A5C55 		.ascii	"D:\\Users\\ESTEBAN\\Desktop\\Materias\\Codigos\\Psc"
+ 3309      73657273 
+ 3309      5C455354 
+ 3309      4542414E 
+ 3309      5C446573 
+ 3310 00c2 6F635C4C 		.ascii	"oc\\LABVIEW\\labview.cydsn\000"
+ 3310      41425649 
+ 3310      45575C6C 
+ 3310      61627669 
+ 3310      65772E63 
+ 3311              	.LASF43:
+ 3312 00db 4144435F 		.ascii	"ADC_IsEndConversion\000"
+ 3312      4973456E 
+ 3312      64436F6E 
+ 3312      76657273 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 68
+
+
+ 3312      696F6E00 
+ 3313              	.LASF39:
+ 3314 00ef 55415254 		.ascii	"UART_GetChar\000"
+ 3314      5F476574 
+ 3314      43686172 
+ 3314      00
+ 3315              	.LASF48:
+ 3316 00fc 55415254 		.ascii	"UART_PutString\000"
+ 3316      5F507574 
+ 3316      53747269 
+ 3316      6E6700
+ 3317              	.LASF78:
+ 3318 010b 69737252 		.ascii	"isrRx_StartEx\000"
+ 3318      785F5374 
+ 3318      61727445 
+ 3318      7800
+ 3319              	.LASF21:
+ 3320 0119 72656369 		.ascii	"recibir\000"
+ 3320      62697200 
+ 3321              	.LASF50:
+ 3322 0121 44305F52 		.ascii	"D0_Read\000"
+ 3322      65616400 
+ 3323              	.LASF77:
+ 3324 0129 69737252 		.ascii	"isrRx_Start\000"
+ 3324      785F5374 
+ 3324      61727400 
+ 3325              	.LASF61:
+ 3326 0135 436F756E 		.ascii	"Counter1_ReadCapture\000"
+ 3326      74657231 
+ 3326      5F526561 
+ 3326      64436170 
+ 3326      74757265 
+ 3327              	.LASF42:
+ 3328 014a 4144435F 		.ascii	"ADC_StartConvert\000"
+ 3328      53746172 
+ 3328      74436F6E 
+ 3328      76657274 
+ 3328      00
+ 3329              	.LASF12:
+ 3330 015b 666C6F61 		.ascii	"float\000"
+ 3330      7400
+ 3331              	.LASF75:
+ 3332 0161 56444143 		.ascii	"VDAC2_Start\000"
+ 3332      325F5374 
+ 3332      61727400 
+ 3333              	.LASF6:
+ 3334 016d 6C6F6E67 		.ascii	"long long int\000"
+ 3334      206C6F6E 
+ 3334      6720696E 
+ 3334      7400
+ 3335              	.LASF37:
+ 3336 017b 67756172 		.ascii	"guardado1\000"
+ 3336      6461646F 
+ 3336      3100
+ 3337              	.LASF38:
+ 3338 0185 67756172 		.ascii	"guardado2\000"
+ 3338      6461646F 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 69
+
+
+ 3338      3200
+ 3339              	.LASF69:
+ 3340 018f 4144435F 		.ascii	"ADC_Start\000"
+ 3340      53746172 
+ 3340      7400
+ 3341              	.LASF4:
+ 3342 0199 6C6F6E67 		.ascii	"long int\000"
+ 3342      20696E74 
+ 3342      00
+ 3343              	.LASF10:
+ 3344 01a2 696E7433 		.ascii	"int32_t\000"
+ 3344      325F7400 
+ 3345              	.LASF30:
+ 3346 01aa 67616E61 		.ascii	"ganancia\000"
+ 3346      6E636961 
+ 3346      00
+ 3347              	.LASF56:
+ 3348 01b3 61746F69 		.ascii	"atoi\000"
+ 3348      00
+ 3349              	.LASF58:
+ 3350 01b8 56444143 		.ascii	"VDAC2_SetValue\000"
+ 3350      325F5365 
+ 3350      7456616C 
+ 3350      756500
+ 3351              	.LASF72:
+ 3352 01c7 55415254 		.ascii	"UART_Start\000"
+ 3352      5F537461 
+ 3352      727400
+ 3353              	.LASF25:
+ 3354 01d2 7075626C 		.ascii	"publicar\000"
+ 3354      69636172 
+ 3354      00
+ 3355              	.LASF15:
+ 3356 01db 6C6F6E67 		.ascii	"long double\000"
+ 3356      20646F75 
+ 3356      626C6500 
+ 3357              	.LASF67:
+ 3358 01e7 436F756E 		.ascii	"Counter1_WriteCounter\000"
+ 3358      74657231 
+ 3358      5F577269 
+ 3358      7465436F 
+ 3358      756E7465 
+ 3359              	.LASF1:
+ 3360 01fd 756E7369 		.ascii	"unsigned char\000"
+ 3360      676E6564 
+ 3360      20636861 
+ 3360      7200
+ 3361              	.LASF29:
+ 3362 020b 63616E61 		.ascii	"canal\000"
+ 3362      6C00
+ 3363              	.LASF47:
+ 3364 0211 73707269 		.ascii	"sprintf\000"
+ 3364      6E746600 
+ 3365              	.LASF0:
+ 3366 0219 7369676E 		.ascii	"signed char\000"
+ 3366      65642063 
+ 3366      68617200 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 70
+
+
+ 3367              	.LASF71:
+ 3368 0225 4D55585F 		.ascii	"MUX_Start\000"
+ 3368      53746172 
+ 3368      7400
+ 3369              	.LASF7:
+ 3370 022f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3370      206C6F6E 
+ 3370      6720756E 
+ 3370      7369676E 
+ 3370      65642069 
+ 3371              	.LASF62:
+ 3372 0246 436F756E 		.ascii	"Counter2_Start\000"
+ 3372      74657232 
+ 3372      5F537461 
+ 3372      727400
+ 3373              	.LASF82:
+ 3374 0255 696E7465 		.ascii	"interrupcion\000"
+ 3374      72727570 
+ 3374      63696F6E 
+ 3374      00
+ 3375              	.LASF8:
+ 3376 0262 756E7369 		.ascii	"unsigned int\000"
+ 3376      676E6564 
+ 3376      20696E74 
+ 3376      00
+ 3377              	.LASF66:
+ 3378 026f 436F756E 		.ascii	"Counter2_Stop\000"
+ 3378      74657232 
+ 3378      5F53746F 
+ 3378      7000
+ 3379              	.LASF60:
+ 3380 027d 436F756E 		.ascii	"Counter1_ReadCounter\000"
+ 3380      74657231 
+ 3380      5F526561 
+ 3380      64436F75 
+ 3380      6E746572 
+ 3381              	.LASF45:
+ 3382 0292 4144435F 		.ascii	"ADC_StopConvert\000"
+ 3382      53746F70 
+ 3382      436F6E76 
+ 3382      65727400 
+ 3383              	.LASF46:
+ 3384 02a2 5047415F 		.ascii	"PGA_SetGain\000"
+ 3384      53657447 
+ 3384      61696E00 
+ 3385              	.LASF3:
+ 3386 02ae 73686F72 		.ascii	"short unsigned int\000"
+ 3386      7420756E 
+ 3386      7369676E 
+ 3386      65642069 
+ 3386      6E7400
+ 3387              	.LASF14:
+ 3388 02c1 63686172 		.ascii	"char\000"
+ 3388      00
+ 3389              	.LASF31:
+ 3390 02c6 7369676E 		.ascii	"signal\000"
+ 3390      616C00
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 71
+
+
+ 3391              	.LASF54:
+ 3392 02cd 53616C69 		.ascii	"SalidaD1_Write\000"
+ 3392      64614431 
+ 3392      5F577269 
+ 3392      746500
+ 3393              	.LASF26:
+ 3394 02dc 7075626C 		.ascii	"publicar1\000"
+ 3394      69636172 
+ 3394      3100
+ 3395              	.LASF27:
+ 3396 02e6 7075626C 		.ascii	"publicar2\000"
+ 3396      69636172 
+ 3396      3200
+ 3397              	.LASF74:
+ 3398 02f0 56444143 		.ascii	"VDAC1_SetRange\000"
+ 3398      315F5365 
+ 3398      7452616E 
+ 3398      676500
+ 3399              	.LASF23:
+ 3400 02ff 63616465 		.ascii	"cadena2\000"
+ 3400      6E613200 
+ 3401              	.LASF36:
+ 3402 0307 56444143 		.ascii	"VDAC\000"
+ 3402      00
+ 3403              	.LASF55:
+ 3404 030c 53616C69 		.ascii	"SalidaD2_Write\000"
+ 3404      64614432 
+ 3404      5F577269 
+ 3404      746500
+ 3405              	.LASF52:
+ 3406 031b 44325F52 		.ascii	"D2_Read\000"
+ 3406      65616400 
+ 3407              	.LASF80:
+ 3408 0323 6D61696E 		.ascii	"main.c\000"
+ 3408      2E6300
+ 3409              	.LASF5:
+ 3410 032a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3410      20756E73 
+ 3410      69676E65 
+ 3410      6420696E 
+ 3410      7400
+ 3411              	.LASF33:
+ 3412 033c 6461746F 		.ascii	"dato\000"
+ 3412      00
+ 3413              	.LASF73:
+ 3414 0341 56444143 		.ascii	"VDAC1_Start\000"
+ 3414      315F5374 
+ 3414      61727400 
+ 3415              	.LASF24:
+ 3416 034d 6C6F6E67 		.ascii	"longitud\000"
+ 3416      69747564 
+ 3416      00
+ 3417              	.LASF51:
+ 3418 0356 44315F52 		.ascii	"D1_Read\000"
+ 3418      65616400 
+ 3419              	.LASF9:
+ 3420 035e 5F5F696E 		.ascii	"__int32_t\000"
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 72
+
+
+ 3420      7433325F 
+ 3420      7400
+ 3421              	.LASF68:
+ 3422 0368 436F756E 		.ascii	"Counter2_WriteCounter\000"
+ 3422      74657232 
+ 3422      5F577269 
+ 3422      7465436F 
+ 3422      756E7465 
+ 3423              	.LASF34:
+ 3424 037e 76616C6F 		.ascii	"valor\000"
+ 3424      7200
+ 3425              	.LASF63:
+ 3426 0384 436F756E 		.ascii	"Counter2_ReadCounter\000"
+ 3426      74657232 
+ 3426      5F526561 
+ 3426      64436F75 
+ 3426      6E746572 
+ 3427              	.LASF70:
+ 3428 0399 5047415F 		.ascii	"PGA_Start\000"
+ 3428      53746172 
+ 3428      7400
+ 3429              	.LASF16:
+ 3430 03a3 73697A65 		.ascii	"sizetype\000"
+ 3430      74797065 
+ 3430      00
+ 3431              	.LASF17:
+ 3432 03ac 496E7075 		.ascii	"Input\000"
+ 3432      7400
+ 3433              	.LASF13:
+ 3434 03b2 646F7562 		.ascii	"double\000"
+ 3434      6C6500
+ 3435              	.LASF65:
+ 3436 03b9 436F756E 		.ascii	"Counter1_Stop\000"
+ 3436      74657231 
+ 3436      5F53746F 
+ 3436      7000
+ 3437              	.LASF20:
+ 3438 03c7 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 3438      52784275 
+ 3438      66666572 
+ 3438      00
+ 3439              	.LASF79:
+ 3440 03d4 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 3440      43313120 
+ 3440      352E342E 
+ 3440      31203230 
+ 3440      31363036 
+ 3441 0407 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 3441      20726576 
+ 3441      6973696F 
+ 3441      6E203233 
+ 3441      37373135 
+ 3442 043a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 3442      66756E63 
+ 3442      74696F6E 
+ 3442      2D736563 
+ 3442      74696F6E 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccLaTPNf.s 			page 73
+
+
+ 3443              	.LASF49:
+ 3444 0462 43794465 		.ascii	"CyDelay\000"
+ 3444      6C617900 
+ 3445              	.LASF35:
+ 3446 046a 6375656E 		.ascii	"cuenta\000"
+ 3446      746100
+ 3447              	.LASF40:
+ 3448 0471 55415254 		.ascii	"UART_PutChar\000"
+ 3448      5F507574 
+ 3448      43686172 
+ 3448      00
+ 3449              	.LASF59:
+ 3450 047e 436F756E 		.ascii	"Counter1_Start\000"
+ 3450      74657231 
+ 3450      5F537461 
+ 3450      727400
+ 3451              	.LASF19:
+ 3452 048d 436F6E74 		.ascii	"Contador\000"
+ 3452      61646F72 
+ 3452      00
+ 3453              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

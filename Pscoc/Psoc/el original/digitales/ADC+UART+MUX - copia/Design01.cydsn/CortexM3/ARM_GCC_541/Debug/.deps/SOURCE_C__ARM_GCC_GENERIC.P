@@ -1,0 +1,58 @@
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/CortexM3/ARM_GCC_541/Debug/main.o : F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/CyDmac.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/CyFlash.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/CyLib.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/CySpc.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/D0.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/D0_aliases.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/D1.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/D1_aliases.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/D2.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/D2_aliases.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/UART.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/UART_IntClock.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cmsis_armcc.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cmsis_compiler.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cmsis_gcc.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/core_cm3.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cyPm.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cydevice.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cydevice_trm.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cydisabledsheets.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cyfitter.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cypins.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cytypes.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/project.h F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/main.c 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/CyDmac.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/CyFlash.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/CyLib.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/CySpc.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/D0.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/D0_aliases.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/D1.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/D1_aliases.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/D2.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/D2_aliases.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/UART.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/UART_IntClock.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cmsis_armcc.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cmsis_compiler.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cmsis_gcc.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/core_cm3.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cyPm.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cydevice.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cydevice_trm.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cydisabledsheets.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cyfitter.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cypins.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/cytypes.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/Generated_Source/PSoC5/project.h : 
+
+F:/Psoc/el\ original/digitales/ADC+UART+MUX\ -\ copia/Design01.cydsn/main.c : 
+

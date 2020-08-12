@@ -1,0 +1,30 @@
+--------------- Build Started: 07/03/2019 19:33:17 Project: carro_arcos, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+The code generation step is up to date.
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
+main.c: In function 'main':
+main.c:19:12: warning: unused variable 'Texto' [-Wunused-variable]
+      char8 Texto[20];
+            ^
+main.c:18:22: warning: unused variable 't3' [-Wunused-variable]
+      float t1=0,t2=0,t3=0;
+                      ^
+main.c:18:17: warning: unused variable 't2' [-Wunused-variable]
+      float t1=0,t2=0,t3=0;
+                 ^
+main.c:18:12: warning: unused variable 't1' [-Wunused-variable]
+      float t1=0,t2=0,t3=0;
+            ^
+main.c:17:12: warning: unused variable 'Valor_ADC1' [-Wunused-variable]
+ {   uint32 Valor_ADC1=0;
+            ^
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\carro_arcos.a .\CortexM3\ARM_GCC_541\Debug\PWM_1.o .\CortexM3\ARM_GCC_541\Debug\PWM_1_PM.o .\CortexM3\ARM_GCC_541\Debug\PWMS1_1.o .\CortexM3\ARM_GCC_541\Debug\PWMS1_2.o .\CortexM3\ARM_GCC_541\Debug\Reloj.o .\CortexM3\ARM_GCC_541\Debug\E1.o .\CortexM3\ARM_GCC_541\Debug\PWM_2.o .\CortexM3\ARM_GCC_541\Debug\PWM_2_PM.o .\CortexM3\ARM_GCC_541\Debug\PWMS2_1.o .\CortexM3\ARM_GCC_541\Debug\PWMS2_2.o .\CortexM3\ARM_GCC_541\Debug\Reloj_1.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\led.o .\CortexM3\ARM_GCC_541\Debug\PWM_3.o .\CortexM3\ARM_GCC_541\Debug\PWM_3_PM.o .\CortexM3\ARM_GCC_541\Debug\Reloj_2.o .\CortexM3\ARM_GCC_541\Debug\PWM_4.o .\CortexM3\ARM_GCC_541\Debug\PWM_4_PM.o .\CortexM3\ARM_GCC_541\Debug\Reloj_3.o .\CortexM3\ARM_GCC_541\Debug\Temperatura.o .\CortexM3\ARM_GCC_541\Debug\ADC1.o .\CortexM3\ARM_GCC_541\Debug\ADC1_INT.o .\CortexM3\ARM_GCC_541\Debug\ADC1_PM.o .\CortexM3\ARM_GCC_541\Debug\ADC1_IRQ.o .\CortexM3\ARM_GCC_541\Debug\ADC1_theACLK.o .\CortexM3\ARM_GCC_541\Debug\UART.o .\CortexM3\ARM_GCC_541\Debug\UART_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_BOOT.o .\CortexM3\ARM_GCC_541\Debug\UART_IntClock.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\carro_arcos.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o D:\Users\ESTEBAN\Desktop\Materias\Codigos\Pscoc\Carrito_arcos\carro_arcos.cydsn\CortexM3\ARM_GCC_541\Debug\carro_arcos.elf .\CortexM3\ARM_GCC_541\Debug\main.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\carro_arcos.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/carro_arcos.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -u_prinft_float -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
+cyelftool.exe -C D:\Users\ESTEBAN\Desktop\Materias\Codigos\Pscoc\Carrito_arcos\carro_arcos.cydsn\CortexM3\ARM_GCC_541\Debug\carro_arcos.elf --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
+No ELF section .cychecksum found, creating one
+Application checksum calculated and stored in ELF section .cychecksum
+Checksum calculated and stored in ELF section .cymeta
+cyelftool.exe -S D:\Users\ESTEBAN\Desktop\Materias\Codigos\Pscoc\Carrito_arcos\carro_arcos.cydsn\CortexM3\ARM_GCC_541\Debug\carro_arcos.elf
+Flash used: 2206 of 262144 bytes (0,8 %).
+SRAM used: 5481 of 65536 bytes (8,4 %). Stack: 4096 bytes. Heap: 1024 bytes.
+--------------- Build Succeeded: 07/03/2019 19:33:18 ---------------

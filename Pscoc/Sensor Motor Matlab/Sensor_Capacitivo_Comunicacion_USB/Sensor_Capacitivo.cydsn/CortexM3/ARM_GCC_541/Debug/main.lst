@@ -1,0 +1,2451 @@
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Conta,"ax",%progbits
+  20              		.align	2
+  21              		.global	Conta
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	Conta, %function
+  25              	Conta:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include "stdio.h"
+  14:main.c        **** uint16 dato=0;
+  15:main.c        **** char8 texto[10];
+  16:main.c        **** int contador=0;
+  17:main.c        **** int f=0,entrar=0,g=0;
+  18:main.c        **** int rpm=0;
+  19:main.c        **** float rev;
+  20:main.c        **** uint8 Boton_1=0;
+  21:main.c        **** uint8 Boton_2=0;
+  22:main.c        **** uint16 Slider=0;
+  23:main.c        **** uint8  dutty1=0;
+  24:main.c        **** uint8  dutty2=0;
+  25:main.c        **** 
+  26:main.c        **** CY_ISR (Conta){
+  28              		.loc 1 26 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 2
+
+
+  32              		@ link register save eliminated.
+  27:main.c        ****    
+  28:main.c        ****     contador++;
+  33              		.loc 1 28 0
+  34 0000 024A     		ldr	r2, .L2
+  35 0002 1368     		ldr	r3, [r2]
+  36 0004 0133     		adds	r3, r3, #1
+  37 0006 1360     		str	r3, [r2]
+  29:main.c        ****      rpm=contador;
+  38              		.loc 1 29 0
+  39 0008 5360     		str	r3, [r2, #4]
+  40 000a 7047     		bx	lr
+  41              	.L3:
+  42              		.align	2
+  43              	.L2:
+  44 000c 00000000 		.word	.LANCHOR0
+  45              		.cfi_endproc
+  46              	.LFE64:
+  47              		.size	Conta, .-Conta
+  48              		.section	.text.Tempo,"ax",%progbits
+  49              		.align	2
+  50              		.global	Tempo
+  51              		.thumb
+  52              		.thumb_func
+  53              		.type	Tempo, %function
+  54              	Tempo:
+  55              	.LFB65:
+  30:main.c        ****     //USB_PutString("c");
+  31:main.c        **** }
+  32:main.c        **** 
+  33:main.c        **** CY_ISR (Tempo){
+  56              		.loc 1 33 0
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 0
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60              		@ link register save eliminated.
+  34:main.c        ****     
+  35:main.c        ****     contador=0;
+  61              		.loc 1 35 0
+  62 0000 0022     		movs	r2, #0
+  63 0002 014B     		ldr	r3, .L5
+  64 0004 1A60     		str	r2, [r3]
+  65 0006 7047     		bx	lr
+  66              	.L6:
+  67              		.align	2
+  68              	.L5:
+  69 0008 00000000 		.word	.LANCHOR0
+  70              		.cfi_endproc
+  71              	.LFE65:
+  72              		.size	Tempo, .-Tempo
+  73              		.section	.text.publicar,"ax",%progbits
+  74              		.align	2
+  75              		.global	publicar
+  76              		.thumb
+  77              		.thumb_func
+  78              		.type	publicar, %function
+  79              	publicar:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 3
+
+
+  80              	.LFB66:
+  36:main.c        ****     //USB_PutString("a");
+  37:main.c        **** }
+  38:main.c        **** 
+  39:main.c        **** CY_ISR (publicar){
+  81              		.loc 1 39 0
+  82              		.cfi_startproc
+  83              		@ args = 0, pretend = 0, frame = 0
+  84              		@ frame_needed = 0, uses_anonymous_args = 0
+  85 0000 08B5     		push	{r3, lr}
+  86              		.cfi_def_cfa_offset 8
+  87              		.cfi_offset 3, -8
+  88              		.cfi_offset 14, -4
+  40:main.c        ****     
+  41:main.c        ****     USB_PutString(texto);
+  89              		.loc 1 41 0
+  90 0002 0248     		ldr	r0, .L9
+  91 0004 FFF7FEFF 		bl	USB_PutString
+  92              	.LVL0:
+  93 0008 08BD     		pop	{r3, pc}
+  94              	.L10:
+  95 000a 00BF     		.align	2
+  96              	.L9:
+  97 000c 00000000 		.word	texto
+  98              		.cfi_endproc
+  99              	.LFE66:
+ 100              		.size	publicar, .-publicar
+ 101              		.global	__aeabi_i2d
+ 102              		.global	__aeabi_dmul
+ 103              		.global	__aeabi_ddiv
+ 104              		.global	__aeabi_d2f
+ 105              		.global	__aeabi_f2d
+ 106              		.global	__aeabi_f2uiz
+ 107              		.section	.text.main,"ax",%progbits
+ 108              		.align	2
+ 109              		.global	main
+ 110              		.thumb
+ 111              		.thumb_func
+ 112              		.type	main, %function
+ 113              	main:
+ 114              	.LFB67:
+  42:main.c        ****     
+  43:main.c        ****  
+  44:main.c        ****     
+  45:main.c        **** }
+  46:main.c        **** 
+  47:main.c        **** 
+  48:main.c        **** int main(void)
+  49:main.c        **** {
+ 115              		.loc 1 49 0
+ 116              		.cfi_startproc
+ 117              		@ Volatile: function does not return.
+ 118              		@ args = 0, pretend = 0, frame = 0
+ 119              		@ frame_needed = 0, uses_anonymous_args = 0
+ 120 0000 00B5     		push	{lr}
+ 121              		.cfi_def_cfa_offset 4
+ 122              		.cfi_offset 14, -4
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 4
+
+
+ 123 0002 83B0     		sub	sp, sp, #12
+ 124              		.cfi_def_cfa_offset 16
+  50:main.c        ****     CyGlobalIntEnable; 
+ 125              		.loc 1 50 0
+ 126              		.syntax unified
+ 127              	@ 50 "main.c" 1
+ 128 0004 62B6     		CPSIE   i
+ 129              	@ 0 "" 2
+  51:main.c        ****     /* Iniciar Perifericos */
+  52:main.c        ****     USB_Start(0u,USB_3V_OPERATION);
+ 130              		.loc 1 52 0
+ 131              		.thumb
+ 132              		.syntax unified
+ 133 0006 0021     		movs	r1, #0
+ 134 0008 0846     		mov	r0, r1
+ 135 000a FFF7FEFF 		bl	USB_Start
+ 136              	.LVL1:
+ 137              	.L12:
+  53:main.c        ****     while(!USB_GetConfiguration());
+ 138              		.loc 1 53 0 discriminator 1
+ 139 000e FFF7FEFF 		bl	USB_GetConfiguration
+ 140              	.LVL2:
+ 141 0012 0028     		cmp	r0, #0
+ 142 0014 FBD0     		beq	.L12
+  54:main.c        ****     USB_CDC_Init();
+ 143              		.loc 1 54 0
+ 144 0016 FFF7FEFF 		bl	USB_CDC_Init
+ 145              	.LVL3:
+  55:main.c        ****     
+  56:main.c        ****     LCD_Start();
+ 146              		.loc 1 56 0
+ 147 001a FFF7FEFF 		bl	LCD_Start
+ 148              	.LVL4:
+  57:main.c        ****     PWM_1_Start();
+ 149              		.loc 1 57 0
+ 150 001e FFF7FEFF 		bl	PWM_1_Start
+ 151              	.LVL5:
+  58:main.c        ****     PWM_2_Start();
+ 152              		.loc 1 58 0
+ 153 0022 FFF7FEFF 		bl	PWM_2_Start
+ 154              	.LVL6:
+  59:main.c        ****     CapSense_Start();
+ 155              		.loc 1 59 0
+ 156 0026 FFF7FEFF 		bl	CapSense_Start
+ 157              	.LVL7:
+  60:main.c        ****     CapSense_InitializeAllBaselines();
+ 158              		.loc 1 60 0
+ 159 002a FFF7FEFF 		bl	CapSense_InitializeAllBaselines
+ 160              	.LVL8:
+  61:main.c        ****   
+  62:main.c        ****     
+  63:main.c        ****     Timer_Start();
+ 161              		.loc 1 63 0
+ 162 002e FFF7FEFF 		bl	Timer_Start
+ 163              	.LVL9:
+  64:main.c        ****    Timer_1_Start();
+ 164              		.loc 1 64 0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 5
+
+
+ 165 0032 FFF7FEFF 		bl	Timer_1_Start
+ 166              	.LVL10:
+  65:main.c        ****     isr_3_Start();
+ 167              		.loc 1 65 0
+ 168 0036 FFF7FEFF 		bl	isr_3_Start
+ 169              	.LVL11:
+  66:main.c        ****     isr_3_StartEx(publicar);
+ 170              		.loc 1 66 0
+ 171 003a 8B48     		ldr	r0, .L24
+ 172 003c FFF7FEFF 		bl	isr_3_StartEx
+ 173              	.LVL12:
+  67:main.c        ****     isr_2_Start();
+ 174              		.loc 1 67 0
+ 175 0040 FFF7FEFF 		bl	isr_2_Start
+ 176              	.LVL13:
+  68:main.c        ****     isr_2_StartEx(Tempo);
+ 177              		.loc 1 68 0
+ 178 0044 8948     		ldr	r0, .L24+4
+ 179 0046 FFF7FEFF 		bl	isr_2_StartEx
+ 180              	.LVL14:
+  69:main.c        ****     isr_1_Start();
+ 181              		.loc 1 69 0
+ 182 004a FFF7FEFF 		bl	isr_1_Start
+ 183              	.LVL15:
+  70:main.c        ****     isr_1_StartEx(Conta);
+ 184              		.loc 1 70 0
+ 185 004e 8848     		ldr	r0, .L24+8
+ 186 0050 FFF7FEFF 		bl	isr_1_StartEx
+ 187              	.LVL16:
+ 188              	.L19:
+  71:main.c        ****     
+  72:main.c        ****     for(;;)
+  73:main.c        ****     {
+  74:main.c        ****         
+  75:main.c        ****      
+  76:main.c        ****         
+  77:main.c        ****         
+  78:main.c        ****         //Actuzalizar Estado del Sensor Capacitivo
+  79:main.c        ****         CapSense_UpdateEnabledBaselines();	
+ 189              		.loc 1 79 0
+ 190 0054 FFF7FEFF 		bl	CapSense_UpdateEnabledBaselines
+ 191              	.LVL17:
+  80:main.c        **** 	    CapSense_ScanEnabledWidgets();
+ 192              		.loc 1 80 0
+ 193 0058 FFF7FEFF 		bl	CapSense_ScanEnabledWidgets
+ 194              	.LVL18:
+  81:main.c        ****         while(CapSense_IsBusy() != 0){
+ 195              		.loc 1 81 0
+ 196 005c 93E0     		b	.L17
+ 197              	.L18:
+  82:main.c        ****               //Leer Estado de los botones
+  83:main.c        ****               
+  84:main.c        ****               //Leer estado del Slider
+  85:main.c        ****               Slider =(uint8)CapSense_GetCentroidPos(CapSense_LS__LS);
+ 198              		.loc 1 85 0
+ 199 005e 0020     		movs	r0, #0
+ 200 0060 FFF7FEFF 		bl	CapSense_GetCentroidPos
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 6
+
+
+ 201              	.LVL19:
+ 202 0064 C0B2     		uxtb	r0, r0
+ 203 0066 834B     		ldr	r3, .L24+12
+ 204 0068 1881     		strh	r0, [r3, #8]	@ movhi
+  86:main.c        ****          
+  87:main.c        ****        if(Slider==255){
+ 205              		.loc 1 87 0
+ 206 006a FF28     		cmp	r0, #255
+ 207 006c 26D1     		bne	.L14
+  88:main.c        ****        dutty1=0;
+ 208              		.loc 1 88 0
+ 209 006e 1C46     		mov	r4, r3
+ 210 0070 0020     		movs	r0, #0
+ 211 0072 9872     		strb	r0, [r3, #10]
+  89:main.c        ****        dutty2=0;
+ 212              		.loc 1 89 0
+ 213 0074 D872     		strb	r0, [r3, #11]
+  90:main.c        ****          LCD_Position(0,1);  
+ 214              		.loc 1 90 0
+ 215 0076 0121     		movs	r1, #1
+ 216 0078 FFF7FEFF 		bl	LCD_Position
+ 217              	.LVL20:
+  91:main.c        ****          LCD_PrintString("        ");
+ 218              		.loc 1 91 0
+ 219 007c 7E4D     		ldr	r5, .L24+16
+ 220 007e 2846     		mov	r0, r5
+ 221 0080 FFF7FEFF 		bl	LCD_PrintString
+ 222              	.LVL21:
+  92:main.c        ****          LCD_Position(1,1);  
+ 223              		.loc 1 92 0
+ 224 0084 0121     		movs	r1, #1
+ 225 0086 0846     		mov	r0, r1
+ 226 0088 FFF7FEFF 		bl	LCD_Position
+ 227              	.LVL22:
+  93:main.c        ****          LCD_PrintString("        ");
+ 228              		.loc 1 93 0
+ 229 008c 2846     		mov	r0, r5
+ 230 008e FFF7FEFF 		bl	LCD_PrintString
+ 231              	.LVL23:
+  94:main.c        ****         PWM_1_WriteCompare(dutty1);
+ 232              		.loc 1 94 0
+ 233 0092 A07A     		ldrb	r0, [r4, #10]	@ zero_extendqisi2
+ 234 0094 FFF7FEFF 		bl	PWM_1_WriteCompare
+ 235              	.LVL24:
+  95:main.c        ****         PWM_2_WriteCompare(dutty2);
+ 236              		.loc 1 95 0
+ 237 0098 E07A     		ldrb	r0, [r4, #11]	@ zero_extendqisi2
+ 238 009a FFF7FEFF 		bl	PWM_2_WriteCompare
+ 239              	.LVL25:
+  96:main.c        ****         CyDelay(30);
+ 240              		.loc 1 96 0
+ 241 009e 1E20     		movs	r0, #30
+ 242 00a0 FFF7FEFF 		bl	CyDelay
+ 243              	.LVL26:
+  97:main.c        ****         sprintf(texto,"%0.3f,%0.3f\n",0.000,0.000);
+ 244              		.loc 1 97 0
+ 245 00a4 0022     		movs	r2, #0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 7
+
+
+ 246 00a6 0023     		movs	r3, #0
+ 247 00a8 744C     		ldr	r4, .L24+20
+ 248 00aa CDE90023 		strd	r2, [sp]
+ 249 00ae 7449     		ldr	r1, .L24+24
+ 250 00b0 2046     		mov	r0, r4
+ 251 00b2 FFF7FEFF 		bl	sprintf
+ 252              	.LVL27:
+  98:main.c        ****     
+  99:main.c        ****         USB_PutString(texto);
+ 253              		.loc 1 99 0
+ 254 00b6 2046     		mov	r0, r4
+ 255 00b8 FFF7FEFF 		bl	USB_PutString
+ 256              	.LVL28:
+ 257              	.L14:
+ 100:main.c        ****       }
+ 101:main.c        **** 
+ 102:main.c        ****             if (Slider>60&&Slider!=255){
+ 258              		.loc 1 102 0
+ 259 00bc 6D4B     		ldr	r3, .L24+12
+ 260 00be 1B89     		ldrh	r3, [r3, #8]
+ 261 00c0 3C2B     		cmp	r3, #60
+ 262 00c2 22D9     		bls	.L15
+ 263              		.loc 1 102 0 is_stmt 0 discriminator 1
+ 264 00c4 FF2B     		cmp	r3, #255
+ 265 00c6 20D0     		beq	.L15
+ 103:main.c        ****             dutty1=(int)Slider-50;
+ 266              		.loc 1 103 0 is_stmt 1
+ 267 00c8 6A4C     		ldr	r4, .L24+12
+ 268 00ca 323B     		subs	r3, r3, #50
+ 269 00cc A372     		strb	r3, [r4, #10]
+ 104:main.c        ****              LCD_Position(1,1);           
+ 270              		.loc 1 104 0
+ 271 00ce 0121     		movs	r1, #1
+ 272 00d0 0846     		mov	r0, r1
+ 273 00d2 FFF7FEFF 		bl	LCD_Position
+ 274              	.LVL29:
+ 105:main.c        ****             LCD_PrintNumber(dutty1);
+ 275              		.loc 1 105 0
+ 276 00d6 A07A     		ldrb	r0, [r4, #10]	@ zero_extendqisi2
+ 277 00d8 FFF7FEFF 		bl	LCD_PrintU32Number
+ 278              	.LVL30:
+ 106:main.c        ****              LCD_Position(1,5);           
+ 279              		.loc 1 106 0
+ 280 00dc 0521     		movs	r1, #5
+ 281 00de 0120     		movs	r0, #1
+ 282 00e0 FFF7FEFF 		bl	LCD_Position
+ 283              	.LVL31:
+ 107:main.c        ****             LCD_PrintNumber(Slider);
+ 284              		.loc 1 107 0
+ 285 00e4 2089     		ldrh	r0, [r4, #8]
+ 286 00e6 FFF7FEFF 		bl	LCD_PrintU32Number
+ 287              	.LVL32:
+ 108:main.c        ****             LCD_Position(0,1);  
+ 288              		.loc 1 108 0
+ 289 00ea 0121     		movs	r1, #1
+ 290 00ec 0020     		movs	r0, #0
+ 291 00ee FFF7FEFF 		bl	LCD_Position
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 8
+
+
+ 292              	.LVL33:
+ 109:main.c        ****             LCD_PrintString("derecha");
+ 293              		.loc 1 109 0
+ 294 00f2 6448     		ldr	r0, .L24+28
+ 295 00f4 FFF7FEFF 		bl	LCD_PrintString
+ 296              	.LVL34:
+ 110:main.c        ****             PWM_1_WriteCompare(dutty1*5);
+ 297              		.loc 1 110 0
+ 298 00f8 A07A     		ldrb	r0, [r4, #10]	@ zero_extendqisi2
+ 299 00fa 00EB8000 		add	r0, r0, r0, lsl #2
+ 300 00fe C0B2     		uxtb	r0, r0
+ 301 0100 FFF7FEFF 		bl	PWM_1_WriteCompare
+ 302              	.LVL35:
+ 111:main.c        ****             PWM_2_WriteCompare(0);
+ 303              		.loc 1 111 0
+ 304 0104 0020     		movs	r0, #0
+ 305 0106 FFF7FEFF 		bl	PWM_2_WriteCompare
+ 306              	.LVL36:
+ 307              	.L15:
+ 112:main.c        ****             }
+ 113:main.c        ****             if((Slider>50)&&(Slider<65)){
+ 308              		.loc 1 113 0
+ 309 010a 5A4B     		ldr	r3, .L24+12
+ 310 010c 1B89     		ldrh	r3, [r3, #8]
+ 311 010e 333B     		subs	r3, r3, #51
+ 312 0110 9BB2     		uxth	r3, r3
+ 313 0112 0D2B     		cmp	r3, #13
+ 314 0114 16D8     		bhi	.L16
+ 114:main.c        ****                   LCD_Position(0,1);  
+ 315              		.loc 1 114 0
+ 316 0116 0121     		movs	r1, #1
+ 317 0118 0020     		movs	r0, #0
+ 318 011a FFF7FEFF 		bl	LCD_Position
+ 319              	.LVL37:
+ 115:main.c        ****                   LCD_PrintString("centro");
+ 320              		.loc 1 115 0
+ 321 011e 5A48     		ldr	r0, .L24+32
+ 322 0120 FFF7FEFF 		bl	LCD_PrintString
+ 323              	.LVL38:
+ 116:main.c        ****                   LCD_Position(1,1); 
+ 324              		.loc 1 116 0
+ 325 0124 0121     		movs	r1, #1
+ 326 0126 0846     		mov	r0, r1
+ 327 0128 FFF7FEFF 		bl	LCD_Position
+ 328              	.LVL39:
+ 117:main.c        ****                   dutty1=0;
+ 329              		.loc 1 117 0
+ 330 012c 514C     		ldr	r4, .L24+12
+ 331 012e 0020     		movs	r0, #0
+ 332 0130 A072     		strb	r0, [r4, #10]
+ 118:main.c        ****                   dutty2=0;
+ 333              		.loc 1 118 0
+ 334 0132 E072     		strb	r0, [r4, #11]
+ 119:main.c        ****                   //LCD_PrintNumber(Slider);
+ 120:main.c        ****                   //LCD_Position(1,5);           
+ 121:main.c        ****                   LCD_PrintNumber(dutty1);
+ 335              		.loc 1 121 0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 9
+
+
+ 336 0134 FFF7FEFF 		bl	LCD_PrintU32Number
+ 337              	.LVL40:
+ 122:main.c        ****                   PWM_1_WriteCompare(dutty1);
+ 338              		.loc 1 122 0
+ 339 0138 A07A     		ldrb	r0, [r4, #10]	@ zero_extendqisi2
+ 340 013a FFF7FEFF 		bl	PWM_1_WriteCompare
+ 341              	.LVL41:
+ 123:main.c        ****                   PWM_2_WriteCompare(dutty2);}
+ 342              		.loc 1 123 0
+ 343 013e E07A     		ldrb	r0, [r4, #11]	@ zero_extendqisi2
+ 344 0140 FFF7FEFF 		bl	PWM_2_WriteCompare
+ 345              	.LVL42:
+ 346              	.L16:
+ 124:main.c        ****                 if((Slider<30&&Slider>0)){
+ 347              		.loc 1 124 0
+ 348 0144 4B4B     		ldr	r3, .L24+12
+ 349 0146 1A89     		ldrh	r2, [r3, #8]
+ 350 0148 531E     		subs	r3, r2, #1
+ 351 014a 9BB2     		uxth	r3, r3
+ 352 014c 1C2B     		cmp	r3, #28
+ 353 014e 1AD8     		bhi	.L17
+ 125:main.c        ****                    dutty2=30-Slider;
+ 354              		.loc 1 125 0
+ 355 0150 484C     		ldr	r4, .L24+12
+ 356 0152 C2F11E02 		rsb	r2, r2, #30
+ 357 0156 E272     		strb	r2, [r4, #11]
+ 126:main.c        ****                    LCD_Position(0,1);  
+ 358              		.loc 1 126 0
+ 359 0158 0121     		movs	r1, #1
+ 360 015a 0020     		movs	r0, #0
+ 361 015c FFF7FEFF 		bl	LCD_Position
+ 362              	.LVL43:
+ 127:main.c        ****                    LCD_PrintString("izquierda");
+ 363              		.loc 1 127 0
+ 364 0160 4A48     		ldr	r0, .L24+36
+ 365 0162 FFF7FEFF 		bl	LCD_PrintString
+ 366              	.LVL44:
+ 128:main.c        ****                    LCD_Position(1,1);           
+ 367              		.loc 1 128 0
+ 368 0166 0121     		movs	r1, #1
+ 369 0168 0846     		mov	r0, r1
+ 370 016a FFF7FEFF 		bl	LCD_Position
+ 371              	.LVL45:
+ 129:main.c        ****                  //LCD_PrintNumber(Slider);
+ 130:main.c        ****                  //LCD_Position(1,5);
+ 131:main.c        ****                   LCD_PrintNumber(dutty2);
+ 372              		.loc 1 131 0
+ 373 016e E07A     		ldrb	r0, [r4, #11]	@ zero_extendqisi2
+ 374 0170 FFF7FEFF 		bl	LCD_PrintU32Number
+ 375              	.LVL46:
+ 132:main.c        ****                   PWM_1_WriteCompare(0);
+ 376              		.loc 1 132 0
+ 377 0174 0020     		movs	r0, #0
+ 378 0176 FFF7FEFF 		bl	PWM_1_WriteCompare
+ 379              	.LVL47:
+ 133:main.c        ****                   PWM_2_WriteCompare(dutty2*5);\
+ 380              		.loc 1 133 0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 10
+
+
+ 381 017a E07A     		ldrb	r0, [r4, #11]	@ zero_extendqisi2
+ 382 017c 00EB8000 		add	r0, r0, r0, lsl #2
+ 383 0180 C0B2     		uxtb	r0, r0
+ 384 0182 FFF7FEFF 		bl	PWM_2_WriteCompare
+ 385              	.LVL48:
+ 386              	.L17:
+  81:main.c        ****               //Leer Estado de los botones
+ 387              		.loc 1 81 0
+ 388 0186 FFF7FEFF 		bl	CapSense_IsBusy
+ 389              	.LVL49:
+ 390 018a 0028     		cmp	r0, #0
+ 391 018c 7FF467AF 		bne	.L18
+ 134:main.c        ****                   }
+ 135:main.c        ****                   }
+ 136:main.c        ****             CyDelay(100);
+ 392              		.loc 1 136 0
+ 393 0190 6420     		movs	r0, #100
+ 394 0192 FFF7FEFF 		bl	CyDelay
+ 395              	.LVL50:
+ 137:main.c        ****             LCD_ClearDisplay();
+ 396              		.loc 1 137 0
+ 397 0196 0120     		movs	r0, #1
+ 398 0198 FFF7FEFF 		bl	LCD_WriteControl
+ 399              	.LVL51:
+ 138:main.c        ****             
+ 139:main.c        ****               if(contador==0){
+ 400              		.loc 1 139 0
+ 401 019c 354B     		ldr	r3, .L24+12
+ 402 019e 1B68     		ldr	r3, [r3]
+ 403 01a0 002B     		cmp	r3, #0
+ 404 01a2 7FF457AF 		bne	.L19
+ 140:main.c        ****                 
+ 141:main.c        ****                 
+ 142:main.c        ****         if (Slider>60&&Slider!=255){
+ 405              		.loc 1 142 0
+ 406 01a6 334B     		ldr	r3, .L24+12
+ 407 01a8 1B89     		ldrh	r3, [r3, #8]
+ 408 01aa 3C2B     		cmp	r3, #60
+ 409 01ac 26D9     		bls	.L20
+ 410              		.loc 1 142 0 is_stmt 0 discriminator 1
+ 411 01ae FF2B     		cmp	r3, #255
+ 412 01b0 24D0     		beq	.L20
+ 143:main.c        ****         
+ 144:main.c        ****        rev=(rpm*256.0)/60.0;
+ 413              		.loc 1 144 0 is_stmt 1
+ 414 01b2 304B     		ldr	r3, .L24+12
+ 415 01b4 5868     		ldr	r0, [r3, #4]
+ 416 01b6 FFF7FEFF 		bl	__aeabi_i2d
+ 417              	.LVL52:
+ 418 01ba 0022     		movs	r2, #0
+ 419 01bc 344B     		ldr	r3, .L24+40
+ 420 01be FFF7FEFF 		bl	__aeabi_dmul
+ 421              	.LVL53:
+ 422 01c2 0022     		movs	r2, #0
+ 423 01c4 334B     		ldr	r3, .L24+44
+ 424 01c6 FFF7FEFF 		bl	__aeabi_ddiv
+ 425              	.LVL54:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 11
+
+
+ 426 01ca FFF7FEFF 		bl	__aeabi_d2f
+ 427              	.LVL55:
+ 428 01ce 324B     		ldr	r3, .L24+48
+ 429 01d0 1860     		str	r0, [r3]	@ float
+ 145:main.c        ****        if(pulsador_Read()==1){        
+ 430              		.loc 1 145 0
+ 431 01d2 FFF7FEFF 		bl	pulsador_Read
+ 432              	.LVL56:
+ 433 01d6 0128     		cmp	r0, #1
+ 434 01d8 10D1     		bne	.L20
+ 146:main.c        ****        sprintf(texto,"%0.3f,%0.3f\n",rev,0.000);
+ 435              		.loc 1 146 0
+ 436 01da 2F4B     		ldr	r3, .L24+48
+ 437 01dc 1868     		ldr	r0, [r3]	@ float
+ 438 01de FFF7FEFF 		bl	__aeabi_f2d
+ 439              	.LVL57:
+ 440 01e2 0022     		movs	r2, #0
+ 441 01e4 0023     		movs	r3, #0
+ 442 01e6 CDE90023 		strd	r2, [sp]
+ 443 01ea 0246     		mov	r2, r0
+ 444 01ec 0B46     		mov	r3, r1
+ 445 01ee 2449     		ldr	r1, .L24+24
+ 446 01f0 2248     		ldr	r0, .L24+20
+ 447 01f2 FFF7FEFF 		bl	sprintf
+ 448              	.LVL58:
+ 147:main.c        ****     
+ 148:main.c        ****       
+ 149:main.c        ****         //USB_PutString(texto);
+ 150:main.c        ****      //   CyDelay(30);
+ 151:main.c        ****         //rev=0;
+ 152:main.c        ****         rpm=0;}}
+ 449              		.loc 1 152 0
+ 450 01f6 0022     		movs	r2, #0
+ 451 01f8 1E4B     		ldr	r3, .L24+12
+ 452 01fa 5A60     		str	r2, [r3, #4]
+ 453              	.L20:
+ 153:main.c        ****     
+ 154:main.c        ****     
+ 155:main.c        ****        if((Slider<30&&Slider>0)){
+ 454              		.loc 1 155 0
+ 455 01fc 1D4B     		ldr	r3, .L24+12
+ 456 01fe 1B89     		ldrh	r3, [r3, #8]
+ 457 0200 013B     		subs	r3, r3, #1
+ 458 0202 9BB2     		uxth	r3, r3
+ 459 0204 1C2B     		cmp	r3, #28
+ 460 0206 22D8     		bhi	.L21
+ 156:main.c        ****     
+ 157:main.c        ****        rev=(rpm*256.0)/60.0;
+ 461              		.loc 1 157 0
+ 462 0208 1A4B     		ldr	r3, .L24+12
+ 463 020a 5868     		ldr	r0, [r3, #4]
+ 464 020c FFF7FEFF 		bl	__aeabi_i2d
+ 465              	.LVL59:
+ 466 0210 0022     		movs	r2, #0
+ 467 0212 1F4B     		ldr	r3, .L24+40
+ 468 0214 FFF7FEFF 		bl	__aeabi_dmul
+ 469              	.LVL60:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 12
+
+
+ 470 0218 0022     		movs	r2, #0
+ 471 021a 1E4B     		ldr	r3, .L24+44
+ 472 021c FFF7FEFF 		bl	__aeabi_ddiv
+ 473              	.LVL61:
+ 474 0220 FFF7FEFF 		bl	__aeabi_d2f
+ 475              	.LVL62:
+ 476 0224 1C4B     		ldr	r3, .L24+48
+ 477 0226 1860     		str	r0, [r3]	@ float
+ 158:main.c        ****        if(pulsador_Read()==1){        
+ 478              		.loc 1 158 0
+ 479 0228 FFF7FEFF 		bl	pulsador_Read
+ 480              	.LVL63:
+ 481 022c 0128     		cmp	r0, #1
+ 482 022e 0ED1     		bne	.L21
+ 159:main.c        ****        sprintf(texto,"%0.3f,%0.3f\n",0.000,rev);
+ 483              		.loc 1 159 0
+ 484 0230 194B     		ldr	r3, .L24+48
+ 485 0232 1868     		ldr	r0, [r3]	@ float
+ 486 0234 FFF7FEFF 		bl	__aeabi_f2d
+ 487              	.LVL64:
+ 488 0238 CDE90001 		strd	r0, [sp]
+ 489 023c 0022     		movs	r2, #0
+ 490 023e 0023     		movs	r3, #0
+ 491 0240 0F49     		ldr	r1, .L24+24
+ 492 0242 0E48     		ldr	r0, .L24+20
+ 493 0244 FFF7FEFF 		bl	sprintf
+ 494              	.LVL65:
+ 160:main.c        ****     
+ 161:main.c        ****        
+ 162:main.c        ****         //USB_PutString(texto);
+ 163:main.c        ****      //   CyDelay(30);
+ 164:main.c        ****         //rev=0;
+ 165:main.c        ****         rpm=0;}
+ 495              		.loc 1 165 0
+ 496 0248 0022     		movs	r2, #0
+ 497 024a 0A4B     		ldr	r3, .L24+12
+ 498 024c 5A60     		str	r2, [r3, #4]
+ 499              	.L21:
+ 166:main.c        ****     
+ 167:main.c        ****     }
+ 168:main.c        ****         LCD_Position(1,4);
+ 500              		.loc 1 168 0
+ 501 024e 0421     		movs	r1, #4
+ 502 0250 0120     		movs	r0, #1
+ 503 0252 FFF7FEFF 		bl	LCD_Position
+ 504              	.LVL66:
+ 169:main.c        ****         LCD_PrintDecUint16(rev);
+ 505              		.loc 1 169 0
+ 506 0256 104B     		ldr	r3, .L24+48
+ 507 0258 1868     		ldr	r0, [r3]	@ float
+ 508 025a FFF7FEFF 		bl	__aeabi_f2uiz
+ 509              	.LVL67:
+ 510 025e 80B2     		uxth	r0, r0
+ 511 0260 FFF7FEFF 		bl	LCD_PrintU32Number
+ 512              	.LVL68:
+ 513 0264 F6E6     		b	.L19
+ 514              	.L25:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 13
+
+
+ 515 0266 00BF     		.align	2
+ 516              	.L24:
+ 517 0268 00000000 		.word	publicar
+ 518 026c 00000000 		.word	Tempo
+ 519 0270 00000000 		.word	Conta
+ 520 0274 00000000 		.word	.LANCHOR0
+ 521 0278 00000000 		.word	.LC0
+ 522 027c 00000000 		.word	texto
+ 523 0280 0C000000 		.word	.LC1
+ 524 0284 1C000000 		.word	.LC2
+ 525 0288 24000000 		.word	.LC3
+ 526 028c 2C000000 		.word	.LC4
+ 527 0290 00007040 		.word	1081081856
+ 528 0294 00004E40 		.word	1078853632
+ 529 0298 00000000 		.word	rev
+ 530              		.cfi_endproc
+ 531              	.LFE67:
+ 532              		.size	main, .-main
+ 533              		.global	dutty2
+ 534              		.global	dutty1
+ 535              		.global	Slider
+ 536              		.global	Boton_2
+ 537              		.global	Boton_1
+ 538              		.comm	rev,4,4
+ 539              		.global	rpm
+ 540              		.global	g
+ 541              		.global	entrar
+ 542              		.global	f
+ 543              		.global	contador
+ 544              		.comm	texto,10,4
+ 545              		.global	dato
+ 546              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 547              		.align	2
+ 548              	.LC0:
+ 549 0000 20202020 		.ascii	"        \000"
+ 549      20202020 
+ 549      00
+ 550 0009 000000   		.space	3
+ 551              	.LC1:
+ 552 000c 25302E33 		.ascii	"%0.3f,%0.3f\012\000"
+ 552      662C2530 
+ 552      2E33660A 
+ 552      00
+ 553 0019 000000   		.space	3
+ 554              	.LC2:
+ 555 001c 64657265 		.ascii	"derecha\000"
+ 555      63686100 
+ 556              	.LC3:
+ 557 0024 63656E74 		.ascii	"centro\000"
+ 557      726F00
+ 558 002b 00       		.space	1
+ 559              	.LC4:
+ 560 002c 697A7175 		.ascii	"izquierda\000"
+ 560      69657264 
+ 560      6100
+ 561              		.bss
+ 562              		.align	2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 14
+
+
+ 563              		.set	.LANCHOR0,. + 0
+ 564              		.type	contador, %object
+ 565              		.size	contador, 4
+ 566              	contador:
+ 567 0000 00000000 		.space	4
+ 568              		.type	rpm, %object
+ 569              		.size	rpm, 4
+ 570              	rpm:
+ 571 0004 00000000 		.space	4
+ 572              		.type	Slider, %object
+ 573              		.size	Slider, 2
+ 574              	Slider:
+ 575 0008 0000     		.space	2
+ 576              		.type	dutty1, %object
+ 577              		.size	dutty1, 1
+ 578              	dutty1:
+ 579 000a 00       		.space	1
+ 580              		.type	dutty2, %object
+ 581              		.size	dutty2, 1
+ 582              	dutty2:
+ 583 000b 00       		.space	1
+ 584              		.type	Boton_2, %object
+ 585              		.size	Boton_2, 1
+ 586              	Boton_2:
+ 587 000c 00       		.space	1
+ 588              		.type	Boton_1, %object
+ 589              		.size	Boton_1, 1
+ 590              	Boton_1:
+ 591 000d 00       		.space	1
+ 592 000e 0000     		.space	2
+ 593              		.type	g, %object
+ 594              		.size	g, 4
+ 595              	g:
+ 596 0010 00000000 		.space	4
+ 597              		.type	entrar, %object
+ 598              		.size	entrar, 4
+ 599              	entrar:
+ 600 0014 00000000 		.space	4
+ 601              		.type	f, %object
+ 602              		.size	f, 4
+ 603              	f:
+ 604 0018 00000000 		.space	4
+ 605              		.type	dato, %object
+ 606              		.size	dato, 2
+ 607              	dato:
+ 608 001c 0000     		.space	2
+ 609              		.text
+ 610              	.Letext0:
+ 611              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 612              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 613              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 614              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 615              		.file 6 "Generated_Source\\PSoC5/USB_cdc.h"
+ 616              		.file 7 "Generated_Source\\PSoC5/USB.h"
+ 617              		.file 8 "Generated_Source\\PSoC5/LCD.h"
+ 618              		.file 9 "Generated_Source\\PSoC5/PWM_1.h"
+ 619              		.file 10 "Generated_Source\\PSoC5/PWM_2.h"
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 15
+
+
+ 620              		.file 11 "Generated_Source\\PSoC5/CapSense.h"
+ 621              		.file 12 "Generated_Source\\PSoC5/CapSense_CSHL.h"
+ 622              		.file 13 "Generated_Source\\PSoC5/Timer.h"
+ 623              		.file 14 "Generated_Source\\PSoC5/Timer_1.h"
+ 624              		.file 15 "Generated_Source\\PSoC5/isr_3.h"
+ 625              		.file 16 "Generated_Source\\PSoC5/isr_2.h"
+ 626              		.file 17 "Generated_Source\\PSoC5/isr_1.h"
+ 627              		.file 18 "Generated_Source\\PSoC5/CyLib.h"
+ 628              		.file 19 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4
+ 629              		.file 20 "Generated_Source\\PSoC5/pulsador.h"
+ 630              		.section	.debug_info,"",%progbits
+ 631              	.Ldebug_info0:
+ 632 0000 14070000 		.4byte	0x714
+ 633 0004 0400     		.2byte	0x4
+ 634 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 635 000a 04       		.byte	0x4
+ 636 000b 01       		.uleb128 0x1
+ 637 000c 7D030000 		.4byte	.LASF61
+ 638 0010 0C       		.byte	0xc
+ 639 0011 01030000 		.4byte	.LASF62
+ 640 0015 D7000000 		.4byte	.LASF63
+ 641 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 642 001d 00000000 		.4byte	0
+ 643 0021 00000000 		.4byte	.Ldebug_line0
+ 644 0025 02       		.uleb128 0x2
+ 645 0026 01       		.byte	0x1
+ 646 0027 06       		.byte	0x6
+ 647 0028 10020000 		.4byte	.LASF0
+ 648 002c 02       		.uleb128 0x2
+ 649 002d 01       		.byte	0x1
+ 650 002e 08       		.byte	0x8
+ 651 002f E0010000 		.4byte	.LASF1
+ 652 0033 02       		.uleb128 0x2
+ 653 0034 02       		.byte	0x2
+ 654 0035 05       		.byte	0x5
+ 655 0036 6E000000 		.4byte	.LASF2
+ 656 003a 02       		.uleb128 0x2
+ 657 003b 02       		.byte	0x2
+ 658 003c 07       		.byte	0x7
+ 659 003d 78020000 		.4byte	.LASF3
+ 660 0041 03       		.uleb128 0x3
+ 661 0042 3F030000 		.4byte	.LASF9
+ 662 0046 02       		.byte	0x2
+ 663 0047 3F       		.byte	0x3f
+ 664 0048 4C000000 		.4byte	0x4c
+ 665 004c 02       		.uleb128 0x2
+ 666 004d 04       		.byte	0x4
+ 667 004e 05       		.byte	0x5
+ 668 004f AD010000 		.4byte	.LASF4
+ 669 0053 02       		.uleb128 0x2
+ 670 0054 04       		.byte	0x4
+ 671 0055 07       		.byte	0x7
+ 672 0056 08030000 		.4byte	.LASF5
+ 673 005a 02       		.uleb128 0x2
+ 674 005b 08       		.byte	0x8
+ 675 005c 05       		.byte	0x5
+ 676 005d 77010000 		.4byte	.LASF6
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 16
+
+
+ 677 0061 02       		.uleb128 0x2
+ 678 0062 08       		.byte	0x8
+ 679 0063 07       		.byte	0x7
+ 680 0064 1C020000 		.4byte	.LASF7
+ 681 0068 04       		.uleb128 0x4
+ 682 0069 04       		.byte	0x4
+ 683 006a 05       		.byte	0x5
+ 684 006b 696E7400 		.ascii	"int\000"
+ 685 006f 02       		.uleb128 0x2
+ 686 0070 04       		.byte	0x4
+ 687 0071 07       		.byte	0x7
+ 688 0072 42020000 		.4byte	.LASF8
+ 689 0076 03       		.uleb128 0x3
+ 690 0077 B6020000 		.4byte	.LASF10
+ 691 007b 03       		.byte	0x3
+ 692 007c 2C       		.byte	0x2c
+ 693 007d 41000000 		.4byte	0x41
+ 694 0081 05       		.uleb128 0x5
+ 695 0082 C5020000 		.4byte	.LASF11
+ 696 0086 04       		.byte	0x4
+ 697 0087 9201     		.2byte	0x192
+ 698 0089 2C000000 		.4byte	0x2c
+ 699 008d 05       		.uleb128 0x5
+ 700 008e C2000000 		.4byte	.LASF12
+ 701 0092 04       		.byte	0x4
+ 702 0093 9301     		.2byte	0x193
+ 703 0095 3A000000 		.4byte	0x3a
+ 704 0099 02       		.uleb128 0x2
+ 705 009a 04       		.byte	0x4
+ 706 009b 04       		.byte	0x4
+ 707 009c 71010000 		.4byte	.LASF13
+ 708 00a0 02       		.uleb128 0x2
+ 709 00a1 08       		.byte	0x8
+ 710 00a2 04       		.byte	0x4
+ 711 00a3 70030000 		.4byte	.LASF14
+ 712 00a7 05       		.uleb128 0x5
+ 713 00a8 8D000000 		.4byte	.LASF15
+ 714 00ac 04       		.byte	0x4
+ 715 00ad A301     		.2byte	0x1a3
+ 716 00af B3000000 		.4byte	0xb3
+ 717 00b3 02       		.uleb128 0x2
+ 718 00b4 01       		.byte	0x1
+ 719 00b5 08       		.byte	0x8
+ 720 00b6 B1020000 		.4byte	.LASF16
+ 721 00ba 02       		.uleb128 0x2
+ 722 00bb 08       		.byte	0x8
+ 723 00bc 04       		.byte	0x4
+ 724 00bd EE010000 		.4byte	.LASF17
+ 725 00c1 02       		.uleb128 0x2
+ 726 00c2 04       		.byte	0x4
+ 727 00c3 07       		.byte	0x7
+ 728 00c4 B6010000 		.4byte	.LASF18
+ 729 00c8 06       		.uleb128 0x6
+ 730 00c9 C5010000 		.4byte	.LASF19
+ 731 00cd 01       		.byte	0x1
+ 732 00ce 1A       		.byte	0x1a
+ 733 00cf 00000000 		.4byte	.LFB64
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 17
+
+
+ 734 00d3 10000000 		.4byte	.LFE64-.LFB64
+ 735 00d7 01       		.uleb128 0x1
+ 736 00d8 9C       		.byte	0x9c
+ 737 00d9 06       		.uleb128 0x6
+ 738 00da BF010000 		.4byte	.LASF20
+ 739 00de 01       		.byte	0x1
+ 740 00df 21       		.byte	0x21
+ 741 00e0 00000000 		.4byte	.LFB65
+ 742 00e4 0C000000 		.4byte	.LFE65-.LFB65
+ 743 00e8 01       		.uleb128 0x1
+ 744 00e9 9C       		.byte	0x9c
+ 745 00ea 07       		.uleb128 0x7
+ 746 00eb 28000000 		.4byte	.LASF64
+ 747 00ef 01       		.byte	0x1
+ 748 00f0 27       		.byte	0x27
+ 749 00f1 00000000 		.4byte	.LFB66
+ 750 00f5 10000000 		.4byte	.LFE66-.LFB66
+ 751 00f9 01       		.uleb128 0x1
+ 752 00fa 9C       		.byte	0x9c
+ 753 00fb 13010000 		.4byte	0x113
+ 754 00ff 08       		.uleb128 0x8
+ 755 0100 08000000 		.4byte	.LVL0
+ 756 0104 CB050000 		.4byte	0x5cb
+ 757 0108 09       		.uleb128 0x9
+ 758 0109 01       		.uleb128 0x1
+ 759 010a 50       		.byte	0x50
+ 760 010b 05       		.uleb128 0x5
+ 761 010c 03       		.byte	0x3
+ 762 010d 00000000 		.4byte	texto
+ 763 0111 00       		.byte	0
+ 764 0112 00       		.byte	0
+ 765 0113 0A       		.uleb128 0xa
+ 766 0114 93000000 		.4byte	.LASF65
+ 767 0118 01       		.byte	0x1
+ 768 0119 30       		.byte	0x30
+ 769 011a 68000000 		.4byte	0x68
+ 770 011e 00000000 		.4byte	.LFB67
+ 771 0122 9C020000 		.4byte	.LFE67-.LFB67
+ 772 0126 01       		.uleb128 0x1
+ 773 0127 9C       		.byte	0x9c
+ 774 0128 D1040000 		.4byte	0x4d1
+ 775 012c 0B       		.uleb128 0xb
+ 776 012d 0E000000 		.4byte	.LVL1
+ 777 0131 D6050000 		.4byte	0x5d6
+ 778 0135 44010000 		.4byte	0x144
+ 779 0139 09       		.uleb128 0x9
+ 780 013a 01       		.uleb128 0x1
+ 781 013b 50       		.byte	0x50
+ 782 013c 01       		.uleb128 0x1
+ 783 013d 30       		.byte	0x30
+ 784 013e 09       		.uleb128 0x9
+ 785 013f 01       		.uleb128 0x1
+ 786 0140 51       		.byte	0x51
+ 787 0141 01       		.uleb128 0x1
+ 788 0142 30       		.byte	0x30
+ 789 0143 00       		.byte	0
+ 790 0144 0C       		.uleb128 0xc
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 18
+
+
+ 791 0145 12000000 		.4byte	.LVL2
+ 792 0149 E2050000 		.4byte	0x5e2
+ 793 014d 0C       		.uleb128 0xc
+ 794 014e 1A000000 		.4byte	.LVL3
+ 795 0152 EE050000 		.4byte	0x5ee
+ 796 0156 0C       		.uleb128 0xc
+ 797 0157 1E000000 		.4byte	.LVL4
+ 798 015b F9050000 		.4byte	0x5f9
+ 799 015f 0C       		.uleb128 0xc
+ 800 0160 22000000 		.4byte	.LVL5
+ 801 0164 04060000 		.4byte	0x604
+ 802 0168 0C       		.uleb128 0xc
+ 803 0169 26000000 		.4byte	.LVL6
+ 804 016d 0F060000 		.4byte	0x60f
+ 805 0171 0C       		.uleb128 0xc
+ 806 0172 2A000000 		.4byte	.LVL7
+ 807 0176 1A060000 		.4byte	0x61a
+ 808 017a 0C       		.uleb128 0xc
+ 809 017b 2E000000 		.4byte	.LVL8
+ 810 017f 25060000 		.4byte	0x625
+ 811 0183 0C       		.uleb128 0xc
+ 812 0184 32000000 		.4byte	.LVL9
+ 813 0188 30060000 		.4byte	0x630
+ 814 018c 0C       		.uleb128 0xc
+ 815 018d 36000000 		.4byte	.LVL10
+ 816 0191 3B060000 		.4byte	0x63b
+ 817 0195 0C       		.uleb128 0xc
+ 818 0196 3A000000 		.4byte	.LVL11
+ 819 019a 46060000 		.4byte	0x646
+ 820 019e 0B       		.uleb128 0xb
+ 821 019f 40000000 		.4byte	.LVL12
+ 822 01a3 51060000 		.4byte	0x651
+ 823 01a7 B5010000 		.4byte	0x1b5
+ 824 01ab 09       		.uleb128 0x9
+ 825 01ac 01       		.uleb128 0x1
+ 826 01ad 50       		.byte	0x50
+ 827 01ae 05       		.uleb128 0x5
+ 828 01af 03       		.byte	0x3
+ 829 01b0 00000000 		.4byte	publicar
+ 830 01b4 00       		.byte	0
+ 831 01b5 0C       		.uleb128 0xc
+ 832 01b6 44000000 		.4byte	.LVL13
+ 833 01ba 5C060000 		.4byte	0x65c
+ 834 01be 0B       		.uleb128 0xb
+ 835 01bf 4A000000 		.4byte	.LVL14
+ 836 01c3 67060000 		.4byte	0x667
+ 837 01c7 D5010000 		.4byte	0x1d5
+ 838 01cb 09       		.uleb128 0x9
+ 839 01cc 01       		.uleb128 0x1
+ 840 01cd 50       		.byte	0x50
+ 841 01ce 05       		.uleb128 0x5
+ 842 01cf 03       		.byte	0x3
+ 843 01d0 00000000 		.4byte	Tempo
+ 844 01d4 00       		.byte	0
+ 845 01d5 0C       		.uleb128 0xc
+ 846 01d6 4E000000 		.4byte	.LVL15
+ 847 01da 72060000 		.4byte	0x672
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 19
+
+
+ 848 01de 0B       		.uleb128 0xb
+ 849 01df 54000000 		.4byte	.LVL16
+ 850 01e3 7D060000 		.4byte	0x67d
+ 851 01e7 F5010000 		.4byte	0x1f5
+ 852 01eb 09       		.uleb128 0x9
+ 853 01ec 01       		.uleb128 0x1
+ 854 01ed 50       		.byte	0x50
+ 855 01ee 05       		.uleb128 0x5
+ 856 01ef 03       		.byte	0x3
+ 857 01f0 00000000 		.4byte	Conta
+ 858 01f4 00       		.byte	0
+ 859 01f5 0C       		.uleb128 0xc
+ 860 01f6 58000000 		.4byte	.LVL17
+ 861 01fa 88060000 		.4byte	0x688
+ 862 01fe 0C       		.uleb128 0xc
+ 863 01ff 5C000000 		.4byte	.LVL18
+ 864 0203 93060000 		.4byte	0x693
+ 865 0207 0B       		.uleb128 0xb
+ 866 0208 64000000 		.4byte	.LVL19
+ 867 020c 9E060000 		.4byte	0x69e
+ 868 0210 1A020000 		.4byte	0x21a
+ 869 0214 09       		.uleb128 0x9
+ 870 0215 01       		.uleb128 0x1
+ 871 0216 50       		.byte	0x50
+ 872 0217 01       		.uleb128 0x1
+ 873 0218 30       		.byte	0x30
+ 874 0219 00       		.byte	0
+ 875 021a 0B       		.uleb128 0xb
+ 876 021b 7C000000 		.4byte	.LVL20
+ 877 021f A9060000 		.4byte	0x6a9
+ 878 0223 32020000 		.4byte	0x232
+ 879 0227 09       		.uleb128 0x9
+ 880 0228 01       		.uleb128 0x1
+ 881 0229 50       		.byte	0x50
+ 882 022a 01       		.uleb128 0x1
+ 883 022b 30       		.byte	0x30
+ 884 022c 09       		.uleb128 0x9
+ 885 022d 01       		.uleb128 0x1
+ 886 022e 51       		.byte	0x51
+ 887 022f 01       		.uleb128 0x1
+ 888 0230 31       		.byte	0x31
+ 889 0231 00       		.byte	0
+ 890 0232 0B       		.uleb128 0xb
+ 891 0233 84000000 		.4byte	.LVL21
+ 892 0237 B4060000 		.4byte	0x6b4
+ 893 023b 46020000 		.4byte	0x246
+ 894 023f 09       		.uleb128 0x9
+ 895 0240 01       		.uleb128 0x1
+ 896 0241 50       		.byte	0x50
+ 897 0242 02       		.uleb128 0x2
+ 898 0243 75       		.byte	0x75
+ 899 0244 00       		.sleb128 0
+ 900 0245 00       		.byte	0
+ 901 0246 0B       		.uleb128 0xb
+ 902 0247 8C000000 		.4byte	.LVL22
+ 903 024b A9060000 		.4byte	0x6a9
+ 904 024f 5E020000 		.4byte	0x25e
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 20
+
+
+ 905 0253 09       		.uleb128 0x9
+ 906 0254 01       		.uleb128 0x1
+ 907 0255 50       		.byte	0x50
+ 908 0256 01       		.uleb128 0x1
+ 909 0257 31       		.byte	0x31
+ 910 0258 09       		.uleb128 0x9
+ 911 0259 01       		.uleb128 0x1
+ 912 025a 51       		.byte	0x51
+ 913 025b 01       		.uleb128 0x1
+ 914 025c 31       		.byte	0x31
+ 915 025d 00       		.byte	0
+ 916 025e 0B       		.uleb128 0xb
+ 917 025f 92000000 		.4byte	.LVL23
+ 918 0263 B4060000 		.4byte	0x6b4
+ 919 0267 72020000 		.4byte	0x272
+ 920 026b 09       		.uleb128 0x9
+ 921 026c 01       		.uleb128 0x1
+ 922 026d 50       		.byte	0x50
+ 923 026e 02       		.uleb128 0x2
+ 924 026f 75       		.byte	0x75
+ 925 0270 00       		.sleb128 0
+ 926 0271 00       		.byte	0
+ 927 0272 0C       		.uleb128 0xc
+ 928 0273 98000000 		.4byte	.LVL24
+ 929 0277 BF060000 		.4byte	0x6bf
+ 930 027b 0C       		.uleb128 0xc
+ 931 027c 9E000000 		.4byte	.LVL25
+ 932 0280 CA060000 		.4byte	0x6ca
+ 933 0284 0B       		.uleb128 0xb
+ 934 0285 A4000000 		.4byte	.LVL26
+ 935 0289 D5060000 		.4byte	0x6d5
+ 936 028d 97020000 		.4byte	0x297
+ 937 0291 09       		.uleb128 0x9
+ 938 0292 01       		.uleb128 0x1
+ 939 0293 50       		.byte	0x50
+ 940 0294 01       		.uleb128 0x1
+ 941 0295 4E       		.byte	0x4e
+ 942 0296 00       		.byte	0
+ 943 0297 0B       		.uleb128 0xb
+ 944 0298 B6000000 		.4byte	.LVL27
+ 945 029c E0060000 		.4byte	0x6e0
+ 946 02a0 B4020000 		.4byte	0x2b4
+ 947 02a4 09       		.uleb128 0x9
+ 948 02a5 01       		.uleb128 0x1
+ 949 02a6 50       		.byte	0x50
+ 950 02a7 02       		.uleb128 0x2
+ 951 02a8 74       		.byte	0x74
+ 952 02a9 00       		.sleb128 0
+ 953 02aa 09       		.uleb128 0x9
+ 954 02ab 01       		.uleb128 0x1
+ 955 02ac 51       		.byte	0x51
+ 956 02ad 05       		.uleb128 0x5
+ 957 02ae 03       		.byte	0x3
+ 958 02af 0C000000 		.4byte	.LC1
+ 959 02b3 00       		.byte	0
+ 960 02b4 0B       		.uleb128 0xb
+ 961 02b5 BC000000 		.4byte	.LVL28
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 21
+
+
+ 962 02b9 CB050000 		.4byte	0x5cb
+ 963 02bd C8020000 		.4byte	0x2c8
+ 964 02c1 09       		.uleb128 0x9
+ 965 02c2 01       		.uleb128 0x1
+ 966 02c3 50       		.byte	0x50
+ 967 02c4 02       		.uleb128 0x2
+ 968 02c5 74       		.byte	0x74
+ 969 02c6 00       		.sleb128 0
+ 970 02c7 00       		.byte	0
+ 971 02c8 0B       		.uleb128 0xb
+ 972 02c9 D6000000 		.4byte	.LVL29
+ 973 02cd A9060000 		.4byte	0x6a9
+ 974 02d1 E0020000 		.4byte	0x2e0
+ 975 02d5 09       		.uleb128 0x9
+ 976 02d6 01       		.uleb128 0x1
+ 977 02d7 50       		.byte	0x50
+ 978 02d8 01       		.uleb128 0x1
+ 979 02d9 31       		.byte	0x31
+ 980 02da 09       		.uleb128 0x9
+ 981 02db 01       		.uleb128 0x1
+ 982 02dc 51       		.byte	0x51
+ 983 02dd 01       		.uleb128 0x1
+ 984 02de 31       		.byte	0x31
+ 985 02df 00       		.byte	0
+ 986 02e0 0C       		.uleb128 0xc
+ 987 02e1 DC000000 		.4byte	.LVL30
+ 988 02e5 EB060000 		.4byte	0x6eb
+ 989 02e9 0B       		.uleb128 0xb
+ 990 02ea E4000000 		.4byte	.LVL31
+ 991 02ee A9060000 		.4byte	0x6a9
+ 992 02f2 01030000 		.4byte	0x301
+ 993 02f6 09       		.uleb128 0x9
+ 994 02f7 01       		.uleb128 0x1
+ 995 02f8 50       		.byte	0x50
+ 996 02f9 01       		.uleb128 0x1
+ 997 02fa 31       		.byte	0x31
+ 998 02fb 09       		.uleb128 0x9
+ 999 02fc 01       		.uleb128 0x1
+ 1000 02fd 51       		.byte	0x51
+ 1001 02fe 01       		.uleb128 0x1
+ 1002 02ff 35       		.byte	0x35
+ 1003 0300 00       		.byte	0
+ 1004 0301 0C       		.uleb128 0xc
+ 1005 0302 EA000000 		.4byte	.LVL32
+ 1006 0306 EB060000 		.4byte	0x6eb
+ 1007 030a 0B       		.uleb128 0xb
+ 1008 030b F2000000 		.4byte	.LVL33
+ 1009 030f A9060000 		.4byte	0x6a9
+ 1010 0313 22030000 		.4byte	0x322
+ 1011 0317 09       		.uleb128 0x9
+ 1012 0318 01       		.uleb128 0x1
+ 1013 0319 50       		.byte	0x50
+ 1014 031a 01       		.uleb128 0x1
+ 1015 031b 30       		.byte	0x30
+ 1016 031c 09       		.uleb128 0x9
+ 1017 031d 01       		.uleb128 0x1
+ 1018 031e 51       		.byte	0x51
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 22
+
+
+ 1019 031f 01       		.uleb128 0x1
+ 1020 0320 31       		.byte	0x31
+ 1021 0321 00       		.byte	0
+ 1022 0322 0B       		.uleb128 0xb
+ 1023 0323 F8000000 		.4byte	.LVL34
+ 1024 0327 B4060000 		.4byte	0x6b4
+ 1025 032b 39030000 		.4byte	0x339
+ 1026 032f 09       		.uleb128 0x9
+ 1027 0330 01       		.uleb128 0x1
+ 1028 0331 50       		.byte	0x50
+ 1029 0332 05       		.uleb128 0x5
+ 1030 0333 03       		.byte	0x3
+ 1031 0334 1C000000 		.4byte	.LC2
+ 1032 0338 00       		.byte	0
+ 1033 0339 0C       		.uleb128 0xc
+ 1034 033a 04010000 		.4byte	.LVL35
+ 1035 033e BF060000 		.4byte	0x6bf
+ 1036 0342 0B       		.uleb128 0xb
+ 1037 0343 0A010000 		.4byte	.LVL36
+ 1038 0347 CA060000 		.4byte	0x6ca
+ 1039 034b 55030000 		.4byte	0x355
+ 1040 034f 09       		.uleb128 0x9
+ 1041 0350 01       		.uleb128 0x1
+ 1042 0351 50       		.byte	0x50
+ 1043 0352 01       		.uleb128 0x1
+ 1044 0353 30       		.byte	0x30
+ 1045 0354 00       		.byte	0
+ 1046 0355 0B       		.uleb128 0xb
+ 1047 0356 1E010000 		.4byte	.LVL37
+ 1048 035a A9060000 		.4byte	0x6a9
+ 1049 035e 6D030000 		.4byte	0x36d
+ 1050 0362 09       		.uleb128 0x9
+ 1051 0363 01       		.uleb128 0x1
+ 1052 0364 50       		.byte	0x50
+ 1053 0365 01       		.uleb128 0x1
+ 1054 0366 30       		.byte	0x30
+ 1055 0367 09       		.uleb128 0x9
+ 1056 0368 01       		.uleb128 0x1
+ 1057 0369 51       		.byte	0x51
+ 1058 036a 01       		.uleb128 0x1
+ 1059 036b 31       		.byte	0x31
+ 1060 036c 00       		.byte	0
+ 1061 036d 0B       		.uleb128 0xb
+ 1062 036e 24010000 		.4byte	.LVL38
+ 1063 0372 B4060000 		.4byte	0x6b4
+ 1064 0376 84030000 		.4byte	0x384
+ 1065 037a 09       		.uleb128 0x9
+ 1066 037b 01       		.uleb128 0x1
+ 1067 037c 50       		.byte	0x50
+ 1068 037d 05       		.uleb128 0x5
+ 1069 037e 03       		.byte	0x3
+ 1070 037f 24000000 		.4byte	.LC3
+ 1071 0383 00       		.byte	0
+ 1072 0384 0B       		.uleb128 0xb
+ 1073 0385 2C010000 		.4byte	.LVL39
+ 1074 0389 A9060000 		.4byte	0x6a9
+ 1075 038d 9C030000 		.4byte	0x39c
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 23
+
+
+ 1076 0391 09       		.uleb128 0x9
+ 1077 0392 01       		.uleb128 0x1
+ 1078 0393 50       		.byte	0x50
+ 1079 0394 01       		.uleb128 0x1
+ 1080 0395 31       		.byte	0x31
+ 1081 0396 09       		.uleb128 0x9
+ 1082 0397 01       		.uleb128 0x1
+ 1083 0398 51       		.byte	0x51
+ 1084 0399 01       		.uleb128 0x1
+ 1085 039a 31       		.byte	0x31
+ 1086 039b 00       		.byte	0
+ 1087 039c 0B       		.uleb128 0xb
+ 1088 039d 38010000 		.4byte	.LVL40
+ 1089 03a1 EB060000 		.4byte	0x6eb
+ 1090 03a5 AF030000 		.4byte	0x3af
+ 1091 03a9 09       		.uleb128 0x9
+ 1092 03aa 01       		.uleb128 0x1
+ 1093 03ab 50       		.byte	0x50
+ 1094 03ac 01       		.uleb128 0x1
+ 1095 03ad 30       		.byte	0x30
+ 1096 03ae 00       		.byte	0
+ 1097 03af 0C       		.uleb128 0xc
+ 1098 03b0 3E010000 		.4byte	.LVL41
+ 1099 03b4 BF060000 		.4byte	0x6bf
+ 1100 03b8 0C       		.uleb128 0xc
+ 1101 03b9 44010000 		.4byte	.LVL42
+ 1102 03bd CA060000 		.4byte	0x6ca
+ 1103 03c1 0B       		.uleb128 0xb
+ 1104 03c2 60010000 		.4byte	.LVL43
+ 1105 03c6 A9060000 		.4byte	0x6a9
+ 1106 03ca D9030000 		.4byte	0x3d9
+ 1107 03ce 09       		.uleb128 0x9
+ 1108 03cf 01       		.uleb128 0x1
+ 1109 03d0 50       		.byte	0x50
+ 1110 03d1 01       		.uleb128 0x1
+ 1111 03d2 30       		.byte	0x30
+ 1112 03d3 09       		.uleb128 0x9
+ 1113 03d4 01       		.uleb128 0x1
+ 1114 03d5 51       		.byte	0x51
+ 1115 03d6 01       		.uleb128 0x1
+ 1116 03d7 31       		.byte	0x31
+ 1117 03d8 00       		.byte	0
+ 1118 03d9 0B       		.uleb128 0xb
+ 1119 03da 66010000 		.4byte	.LVL44
+ 1120 03de B4060000 		.4byte	0x6b4
+ 1121 03e2 F0030000 		.4byte	0x3f0
+ 1122 03e6 09       		.uleb128 0x9
+ 1123 03e7 01       		.uleb128 0x1
+ 1124 03e8 50       		.byte	0x50
+ 1125 03e9 05       		.uleb128 0x5
+ 1126 03ea 03       		.byte	0x3
+ 1127 03eb 2C000000 		.4byte	.LC4
+ 1128 03ef 00       		.byte	0
+ 1129 03f0 0B       		.uleb128 0xb
+ 1130 03f1 6E010000 		.4byte	.LVL45
+ 1131 03f5 A9060000 		.4byte	0x6a9
+ 1132 03f9 08040000 		.4byte	0x408
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 24
+
+
+ 1133 03fd 09       		.uleb128 0x9
+ 1134 03fe 01       		.uleb128 0x1
+ 1135 03ff 50       		.byte	0x50
+ 1136 0400 01       		.uleb128 0x1
+ 1137 0401 31       		.byte	0x31
+ 1138 0402 09       		.uleb128 0x9
+ 1139 0403 01       		.uleb128 0x1
+ 1140 0404 51       		.byte	0x51
+ 1141 0405 01       		.uleb128 0x1
+ 1142 0406 31       		.byte	0x31
+ 1143 0407 00       		.byte	0
+ 1144 0408 0C       		.uleb128 0xc
+ 1145 0409 74010000 		.4byte	.LVL46
+ 1146 040d EB060000 		.4byte	0x6eb
+ 1147 0411 0B       		.uleb128 0xb
+ 1148 0412 7A010000 		.4byte	.LVL47
+ 1149 0416 BF060000 		.4byte	0x6bf
+ 1150 041a 24040000 		.4byte	0x424
+ 1151 041e 09       		.uleb128 0x9
+ 1152 041f 01       		.uleb128 0x1
+ 1153 0420 50       		.byte	0x50
+ 1154 0421 01       		.uleb128 0x1
+ 1155 0422 30       		.byte	0x30
+ 1156 0423 00       		.byte	0
+ 1157 0424 0C       		.uleb128 0xc
+ 1158 0425 86010000 		.4byte	.LVL48
+ 1159 0429 CA060000 		.4byte	0x6ca
+ 1160 042d 0C       		.uleb128 0xc
+ 1161 042e 8A010000 		.4byte	.LVL49
+ 1162 0432 F6060000 		.4byte	0x6f6
+ 1163 0436 0B       		.uleb128 0xb
+ 1164 0437 96010000 		.4byte	.LVL50
+ 1165 043b D5060000 		.4byte	0x6d5
+ 1166 043f 4A040000 		.4byte	0x44a
+ 1167 0443 09       		.uleb128 0x9
+ 1168 0444 01       		.uleb128 0x1
+ 1169 0445 50       		.byte	0x50
+ 1170 0446 02       		.uleb128 0x2
+ 1171 0447 08       		.byte	0x8
+ 1172 0448 64       		.byte	0x64
+ 1173 0449 00       		.byte	0
+ 1174 044a 0B       		.uleb128 0xb
+ 1175 044b 9C010000 		.4byte	.LVL51
+ 1176 044f 01070000 		.4byte	0x701
+ 1177 0453 5D040000 		.4byte	0x45d
+ 1178 0457 09       		.uleb128 0x9
+ 1179 0458 01       		.uleb128 0x1
+ 1180 0459 50       		.byte	0x50
+ 1181 045a 01       		.uleb128 0x1
+ 1182 045b 31       		.byte	0x31
+ 1183 045c 00       		.byte	0
+ 1184 045d 0C       		.uleb128 0xc
+ 1185 045e D6010000 		.4byte	.LVL56
+ 1186 0462 0C070000 		.4byte	0x70c
+ 1187 0466 0B       		.uleb128 0xb
+ 1188 0467 F6010000 		.4byte	.LVL58
+ 1189 046b E0060000 		.4byte	0x6e0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 25
+
+
+ 1190 046f 86040000 		.4byte	0x486
+ 1191 0473 09       		.uleb128 0x9
+ 1192 0474 01       		.uleb128 0x1
+ 1193 0475 50       		.byte	0x50
+ 1194 0476 05       		.uleb128 0x5
+ 1195 0477 03       		.byte	0x3
+ 1196 0478 00000000 		.4byte	texto
+ 1197 047c 09       		.uleb128 0x9
+ 1198 047d 01       		.uleb128 0x1
+ 1199 047e 51       		.byte	0x51
+ 1200 047f 05       		.uleb128 0x5
+ 1201 0480 03       		.byte	0x3
+ 1202 0481 0C000000 		.4byte	.LC1
+ 1203 0485 00       		.byte	0
+ 1204 0486 0C       		.uleb128 0xc
+ 1205 0487 2C020000 		.4byte	.LVL63
+ 1206 048b 0C070000 		.4byte	0x70c
+ 1207 048f 0B       		.uleb128 0xb
+ 1208 0490 48020000 		.4byte	.LVL65
+ 1209 0494 E0060000 		.4byte	0x6e0
+ 1210 0498 AF040000 		.4byte	0x4af
+ 1211 049c 09       		.uleb128 0x9
+ 1212 049d 01       		.uleb128 0x1
+ 1213 049e 50       		.byte	0x50
+ 1214 049f 05       		.uleb128 0x5
+ 1215 04a0 03       		.byte	0x3
+ 1216 04a1 00000000 		.4byte	texto
+ 1217 04a5 09       		.uleb128 0x9
+ 1218 04a6 01       		.uleb128 0x1
+ 1219 04a7 51       		.byte	0x51
+ 1220 04a8 05       		.uleb128 0x5
+ 1221 04a9 03       		.byte	0x3
+ 1222 04aa 0C000000 		.4byte	.LC1
+ 1223 04ae 00       		.byte	0
+ 1224 04af 0B       		.uleb128 0xb
+ 1225 04b0 56020000 		.4byte	.LVL66
+ 1226 04b4 A9060000 		.4byte	0x6a9
+ 1227 04b8 C7040000 		.4byte	0x4c7
+ 1228 04bc 09       		.uleb128 0x9
+ 1229 04bd 01       		.uleb128 0x1
+ 1230 04be 50       		.byte	0x50
+ 1231 04bf 01       		.uleb128 0x1
+ 1232 04c0 31       		.byte	0x31
+ 1233 04c1 09       		.uleb128 0x9
+ 1234 04c2 01       		.uleb128 0x1
+ 1235 04c3 51       		.byte	0x51
+ 1236 04c4 01       		.uleb128 0x1
+ 1237 04c5 34       		.byte	0x34
+ 1238 04c6 00       		.byte	0
+ 1239 04c7 0C       		.uleb128 0xc
+ 1240 04c8 64020000 		.4byte	.LVL68
+ 1241 04cc EB060000 		.4byte	0x6eb
+ 1242 04d0 00       		.byte	0
+ 1243 04d1 0D       		.uleb128 0xd
+ 1244 04d2 1F030000 		.4byte	.LASF21
+ 1245 04d6 05       		.byte	0x5
+ 1246 04d7 9606     		.2byte	0x696
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 26
+
+
+ 1247 04d9 DD040000 		.4byte	0x4dd
+ 1248 04dd 0E       		.uleb128 0xe
+ 1249 04de 76000000 		.4byte	0x76
+ 1250 04e2 0F       		.uleb128 0xf
+ 1251 04e3 1A030000 		.4byte	.LASF22
+ 1252 04e7 01       		.byte	0x1
+ 1253 04e8 0E       		.byte	0xe
+ 1254 04e9 8D000000 		.4byte	0x8d
+ 1255 04ed 05       		.uleb128 0x5
+ 1256 04ee 03       		.byte	0x3
+ 1257 04ef 00000000 		.4byte	dato
+ 1258 04f3 10       		.uleb128 0x10
+ 1259 04f4 A7000000 		.4byte	0xa7
+ 1260 04f8 03050000 		.4byte	0x503
+ 1261 04fc 11       		.uleb128 0x11
+ 1262 04fd C1000000 		.4byte	0xc1
+ 1263 0501 09       		.byte	0x9
+ 1264 0502 00       		.byte	0
+ 1265 0503 0F       		.uleb128 0xf
+ 1266 0504 77030000 		.4byte	.LASF23
+ 1267 0508 01       		.byte	0x1
+ 1268 0509 0F       		.byte	0xf
+ 1269 050a F3040000 		.4byte	0x4f3
+ 1270 050e 05       		.uleb128 0x5
+ 1271 050f 03       		.byte	0x3
+ 1272 0510 00000000 		.4byte	texto
+ 1273 0514 0F       		.uleb128 0xf
+ 1274 0515 00000000 		.4byte	.LASF24
+ 1275 0519 01       		.byte	0x1
+ 1276 051a 10       		.byte	0x10
+ 1277 051b 68000000 		.4byte	0x68
+ 1278 051f 05       		.uleb128 0x5
+ 1279 0520 03       		.byte	0x3
+ 1280 0521 00000000 		.4byte	contador
+ 1281 0525 12       		.uleb128 0x12
+ 1282 0526 6600     		.ascii	"f\000"
+ 1283 0528 01       		.byte	0x1
+ 1284 0529 11       		.byte	0x11
+ 1285 052a 68000000 		.4byte	0x68
+ 1286 052e 05       		.uleb128 0x5
+ 1287 052f 03       		.byte	0x3
+ 1288 0530 00000000 		.4byte	f
+ 1289 0534 0F       		.uleb128 0xf
+ 1290 0535 D9010000 		.4byte	.LASF25
+ 1291 0539 01       		.byte	0x1
+ 1292 053a 11       		.byte	0x11
+ 1293 053b 68000000 		.4byte	0x68
+ 1294 053f 05       		.uleb128 0x5
+ 1295 0540 03       		.byte	0x3
+ 1296 0541 00000000 		.4byte	entrar
+ 1297 0545 12       		.uleb128 0x12
+ 1298 0546 6700     		.ascii	"g\000"
+ 1299 0548 01       		.byte	0x1
+ 1300 0549 11       		.byte	0x11
+ 1301 054a 68000000 		.4byte	0x68
+ 1302 054e 05       		.uleb128 0x5
+ 1303 054f 03       		.byte	0x3
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 27
+
+
+ 1304 0550 00000000 		.4byte	g
+ 1305 0554 12       		.uleb128 0x12
+ 1306 0555 72706D00 		.ascii	"rpm\000"
+ 1307 0559 01       		.byte	0x1
+ 1308 055a 12       		.byte	0x12
+ 1309 055b 68000000 		.4byte	0x68
+ 1310 055f 05       		.uleb128 0x5
+ 1311 0560 03       		.byte	0x3
+ 1312 0561 00000000 		.4byte	rpm
+ 1313 0565 12       		.uleb128 0x12
+ 1314 0566 72657600 		.ascii	"rev\000"
+ 1315 056a 01       		.byte	0x1
+ 1316 056b 13       		.byte	0x13
+ 1317 056c 99000000 		.4byte	0x99
+ 1318 0570 05       		.uleb128 0x5
+ 1319 0571 03       		.byte	0x3
+ 1320 0572 00000000 		.4byte	rev
+ 1321 0576 0F       		.uleb128 0xf
+ 1322 0577 85010000 		.4byte	.LASF26
+ 1323 057b 01       		.byte	0x1
+ 1324 057c 14       		.byte	0x14
+ 1325 057d 81000000 		.4byte	0x81
+ 1326 0581 05       		.uleb128 0x5
+ 1327 0582 03       		.byte	0x3
+ 1328 0583 00000000 		.4byte	Boton_1
+ 1329 0587 0F       		.uleb128 0xf
+ 1330 0588 8D010000 		.4byte	.LASF27
+ 1331 058c 01       		.byte	0x1
+ 1332 058d 15       		.byte	0x15
+ 1333 058e 81000000 		.4byte	0x81
+ 1334 0592 05       		.uleb128 0x5
+ 1335 0593 03       		.byte	0x3
+ 1336 0594 00000000 		.4byte	Boton_2
+ 1337 0598 0F       		.uleb128 0xf
+ 1338 0599 BE020000 		.4byte	.LASF28
+ 1339 059d 01       		.byte	0x1
+ 1340 059e 16       		.byte	0x16
+ 1341 059f 8D000000 		.4byte	0x8d
+ 1342 05a3 05       		.uleb128 0x5
+ 1343 05a4 03       		.byte	0x3
+ 1344 05a5 00000000 		.4byte	Slider
+ 1345 05a9 0F       		.uleb128 0xf
+ 1346 05aa 21000000 		.4byte	.LASF29
+ 1347 05ae 01       		.byte	0x1
+ 1348 05af 17       		.byte	0x17
+ 1349 05b0 81000000 		.4byte	0x81
+ 1350 05b4 05       		.uleb128 0x5
+ 1351 05b5 03       		.byte	0x3
+ 1352 05b6 00000000 		.4byte	dutty1
+ 1353 05ba 0F       		.uleb128 0xf
+ 1354 05bb 38030000 		.4byte	.LASF30
+ 1355 05bf 01       		.byte	0x1
+ 1356 05c0 18       		.byte	0x18
+ 1357 05c1 81000000 		.4byte	0x81
+ 1358 05c5 05       		.uleb128 0x5
+ 1359 05c6 03       		.byte	0x3
+ 1360 05c7 00000000 		.4byte	dutty2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 28
+
+
+ 1361 05cb 13       		.uleb128 0x13
+ 1362 05cc C9000000 		.4byte	.LASF31
+ 1363 05d0 C9000000 		.4byte	.LASF31
+ 1364 05d4 06       		.byte	0x6
+ 1365 05d5 24       		.byte	0x24
+ 1366 05d6 14       		.uleb128 0x14
+ 1367 05d7 B8000000 		.4byte	.LASF32
+ 1368 05db B8000000 		.4byte	.LASF32
+ 1369 05df 07       		.byte	0x7
+ 1370 05e0 2A01     		.2byte	0x12a
+ 1371 05e2 14       		.uleb128 0x14
+ 1372 05e3 78000000 		.4byte	.LASF33
+ 1373 05e7 78000000 		.4byte	.LASF33
+ 1374 05eb 07       		.byte	0x7
+ 1375 05ec 2D01     		.2byte	0x12d
+ 1376 05ee 13       		.uleb128 0x13
+ 1377 05ef 5F020000 		.4byte	.LASF34
+ 1378 05f3 5F020000 		.4byte	.LASF34
+ 1379 05f7 06       		.byte	0x6
+ 1380 05f8 22       		.byte	0x22
+ 1381 05f9 13       		.uleb128 0x13
+ 1382 05fa 59030000 		.4byte	.LASF35
+ 1383 05fe 59030000 		.4byte	.LASF35
+ 1384 0602 08       		.byte	0x8
+ 1385 0603 38       		.byte	0x38
+ 1386 0604 13       		.uleb128 0x13
+ 1387 0605 31000000 		.4byte	.LASF36
+ 1388 0609 31000000 		.4byte	.LASF36
+ 1389 060d 09       		.byte	0x9
+ 1390 060e 92       		.byte	0x92
+ 1391 060f 13       		.uleb128 0x13
+ 1392 0610 6C020000 		.4byte	.LASF37
+ 1393 0614 6C020000 		.4byte	.LASF37
+ 1394 0618 0A       		.byte	0xa
+ 1395 0619 92       		.byte	0x92
+ 1396 061a 13       		.uleb128 0x13
+ 1397 061b 33020000 		.4byte	.LASF38
+ 1398 061f 33020000 		.4byte	.LASF38
+ 1399 0623 0B       		.byte	0xb
+ 1400 0624 93       		.byte	0x93
+ 1401 0625 13       		.uleb128 0x13
+ 1402 0626 3D000000 		.4byte	.LASF39
+ 1403 062a 3D000000 		.4byte	.LASF39
+ 1404 062e 0C       		.byte	0xc
+ 1405 062f 97       		.byte	0x97
+ 1406 0630 13       		.uleb128 0x13
+ 1407 0631 A1010000 		.4byte	.LASF40
+ 1408 0635 A1010000 		.4byte	.LASF40
+ 1409 0639 0D       		.byte	0xd
+ 1410 063a 5A       		.byte	0x5a
+ 1411 063b 13       		.uleb128 0x13
+ 1412 063c CB020000 		.4byte	.LASF41
+ 1413 0640 CB020000 		.4byte	.LASF41
+ 1414 0644 0E       		.byte	0xe
+ 1415 0645 5A       		.byte	0x5a
+ 1416 0646 13       		.uleb128 0x13
+ 1417 0647 2C030000 		.4byte	.LASF42
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 29
+
+
+ 1418 064b 2C030000 		.4byte	.LASF42
+ 1419 064f 0F       		.byte	0xf
+ 1420 0650 17       		.byte	0x17
+ 1421 0651 13       		.uleb128 0x13
+ 1422 0652 FA010000 		.4byte	.LASF43
+ 1423 0656 FA010000 		.4byte	.LASF43
+ 1424 065a 0F       		.byte	0xf
+ 1425 065b 18       		.byte	0x18
+ 1426 065c 13       		.uleb128 0x13
+ 1427 065d 95010000 		.4byte	.LASF44
+ 1428 0661 95010000 		.4byte	.LASF44
+ 1429 0665 10       		.byte	0x10
+ 1430 0666 17       		.byte	0x17
+ 1431 0667 13       		.uleb128 0x13
+ 1432 0668 E5020000 		.4byte	.LASF45
+ 1433 066c E5020000 		.4byte	.LASF45
+ 1434 0670 10       		.byte	0x10
+ 1435 0671 18       		.byte	0x18
+ 1436 0672 13       		.uleb128 0x13
+ 1437 0673 D9020000 		.4byte	.LASF46
+ 1438 0677 D9020000 		.4byte	.LASF46
+ 1439 067b 11       		.byte	0x11
+ 1440 067c 17       		.byte	0x17
+ 1441 067d 13       		.uleb128 0x13
+ 1442 067e CB010000 		.4byte	.LASF47
+ 1443 0682 CB010000 		.4byte	.LASF47
+ 1444 0686 11       		.byte	0x11
+ 1445 0687 18       		.byte	0x18
+ 1446 0688 13       		.uleb128 0x13
+ 1447 0689 98000000 		.4byte	.LASF48
+ 1448 068d 98000000 		.4byte	.LASF48
+ 1449 0691 0C       		.byte	0xc
+ 1450 0692 9B       		.byte	0x9b
+ 1451 0693 13       		.uleb128 0x13
+ 1452 0694 42010000 		.4byte	.LASF49
+ 1453 0698 42010000 		.4byte	.LASF49
+ 1454 069c 0B       		.byte	0xb
+ 1455 069d 9B       		.byte	0x9b
+ 1456 069e 13       		.uleb128 0x13
+ 1457 069f 09000000 		.4byte	.LASF50
+ 1458 06a3 09000000 		.4byte	.LASF50
+ 1459 06a7 0C       		.byte	0xc
+ 1460 06a8 A7       		.byte	0xa7
+ 1461 06a9 13       		.uleb128 0x13
+ 1462 06aa 63030000 		.4byte	.LASF51
+ 1463 06ae 63030000 		.4byte	.LASF51
+ 1464 06b2 08       		.byte	0x8
+ 1465 06b3 3D       		.byte	0x3d
+ 1466 06b4 13       		.uleb128 0x13
+ 1467 06b5 4F020000 		.4byte	.LASF52
+ 1468 06b9 4F020000 		.4byte	.LASF52
+ 1469 06bd 08       		.byte	0x8
+ 1470 06be 3C       		.byte	0x3c
+ 1471 06bf 13       		.uleb128 0x13
+ 1472 06c0 9E020000 		.4byte	.LASF53
+ 1473 06c4 9E020000 		.4byte	.LASF53
+ 1474 06c8 09       		.byte	0x9
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 30
+
+
+ 1475 06c9 C3       		.byte	0xc3
+ 1476 06ca 13       		.uleb128 0x13
+ 1477 06cb 5E010000 		.4byte	.LASF54
+ 1478 06cf 5E010000 		.4byte	.LASF54
+ 1479 06d3 0A       		.byte	0xa
+ 1480 06d4 C3       		.byte	0xc3
+ 1481 06d5 13       		.uleb128 0x13
+ 1482 06d6 0B040000 		.4byte	.LASF55
+ 1483 06da 0B040000 		.4byte	.LASF55
+ 1484 06de 12       		.byte	0x12
+ 1485 06df 76       		.byte	0x76
+ 1486 06e0 13       		.uleb128 0x13
+ 1487 06e1 08020000 		.4byte	.LASF56
+ 1488 06e5 08020000 		.4byte	.LASF56
+ 1489 06e9 13       		.byte	0x13
+ 1490 06ea E7       		.byte	0xe7
+ 1491 06eb 13       		.uleb128 0x13
+ 1492 06ec 8B020000 		.4byte	.LASF57
+ 1493 06f0 8B020000 		.4byte	.LASF57
+ 1494 06f4 08       		.byte	0x8
+ 1495 06f5 61       		.byte	0x61
+ 1496 06f6 13       		.uleb128 0x13
+ 1497 06f7 49030000 		.4byte	.LASF58
+ 1498 06fb 49030000 		.4byte	.LASF58
+ 1499 06ff 0B       		.byte	0xb
+ 1500 0700 99       		.byte	0x99
+ 1501 0701 13       		.uleb128 0x13
+ 1502 0702 5D000000 		.4byte	.LASF59
+ 1503 0706 5D000000 		.4byte	.LASF59
+ 1504 070a 08       		.byte	0x8
+ 1505 070b 3A       		.byte	0x3a
+ 1506 070c 13       		.uleb128 0x13
+ 1507 070d F3020000 		.4byte	.LASF60
+ 1508 0711 F3020000 		.4byte	.LASF60
+ 1509 0715 14       		.byte	0x14
+ 1510 0716 29       		.byte	0x29
+ 1511 0717 00       		.byte	0
+ 1512              		.section	.debug_abbrev,"",%progbits
+ 1513              	.Ldebug_abbrev0:
+ 1514 0000 01       		.uleb128 0x1
+ 1515 0001 11       		.uleb128 0x11
+ 1516 0002 01       		.byte	0x1
+ 1517 0003 25       		.uleb128 0x25
+ 1518 0004 0E       		.uleb128 0xe
+ 1519 0005 13       		.uleb128 0x13
+ 1520 0006 0B       		.uleb128 0xb
+ 1521 0007 03       		.uleb128 0x3
+ 1522 0008 0E       		.uleb128 0xe
+ 1523 0009 1B       		.uleb128 0x1b
+ 1524 000a 0E       		.uleb128 0xe
+ 1525 000b 55       		.uleb128 0x55
+ 1526 000c 17       		.uleb128 0x17
+ 1527 000d 11       		.uleb128 0x11
+ 1528 000e 01       		.uleb128 0x1
+ 1529 000f 10       		.uleb128 0x10
+ 1530 0010 17       		.uleb128 0x17
+ 1531 0011 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 31
+
+
+ 1532 0012 00       		.byte	0
+ 1533 0013 02       		.uleb128 0x2
+ 1534 0014 24       		.uleb128 0x24
+ 1535 0015 00       		.byte	0
+ 1536 0016 0B       		.uleb128 0xb
+ 1537 0017 0B       		.uleb128 0xb
+ 1538 0018 3E       		.uleb128 0x3e
+ 1539 0019 0B       		.uleb128 0xb
+ 1540 001a 03       		.uleb128 0x3
+ 1541 001b 0E       		.uleb128 0xe
+ 1542 001c 00       		.byte	0
+ 1543 001d 00       		.byte	0
+ 1544 001e 03       		.uleb128 0x3
+ 1545 001f 16       		.uleb128 0x16
+ 1546 0020 00       		.byte	0
+ 1547 0021 03       		.uleb128 0x3
+ 1548 0022 0E       		.uleb128 0xe
+ 1549 0023 3A       		.uleb128 0x3a
+ 1550 0024 0B       		.uleb128 0xb
+ 1551 0025 3B       		.uleb128 0x3b
+ 1552 0026 0B       		.uleb128 0xb
+ 1553 0027 49       		.uleb128 0x49
+ 1554 0028 13       		.uleb128 0x13
+ 1555 0029 00       		.byte	0
+ 1556 002a 00       		.byte	0
+ 1557 002b 04       		.uleb128 0x4
+ 1558 002c 24       		.uleb128 0x24
+ 1559 002d 00       		.byte	0
+ 1560 002e 0B       		.uleb128 0xb
+ 1561 002f 0B       		.uleb128 0xb
+ 1562 0030 3E       		.uleb128 0x3e
+ 1563 0031 0B       		.uleb128 0xb
+ 1564 0032 03       		.uleb128 0x3
+ 1565 0033 08       		.uleb128 0x8
+ 1566 0034 00       		.byte	0
+ 1567 0035 00       		.byte	0
+ 1568 0036 05       		.uleb128 0x5
+ 1569 0037 16       		.uleb128 0x16
+ 1570 0038 00       		.byte	0
+ 1571 0039 03       		.uleb128 0x3
+ 1572 003a 0E       		.uleb128 0xe
+ 1573 003b 3A       		.uleb128 0x3a
+ 1574 003c 0B       		.uleb128 0xb
+ 1575 003d 3B       		.uleb128 0x3b
+ 1576 003e 05       		.uleb128 0x5
+ 1577 003f 49       		.uleb128 0x49
+ 1578 0040 13       		.uleb128 0x13
+ 1579 0041 00       		.byte	0
+ 1580 0042 00       		.byte	0
+ 1581 0043 06       		.uleb128 0x6
+ 1582 0044 2E       		.uleb128 0x2e
+ 1583 0045 00       		.byte	0
+ 1584 0046 3F       		.uleb128 0x3f
+ 1585 0047 19       		.uleb128 0x19
+ 1586 0048 03       		.uleb128 0x3
+ 1587 0049 0E       		.uleb128 0xe
+ 1588 004a 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 32
+
+
+ 1589 004b 0B       		.uleb128 0xb
+ 1590 004c 3B       		.uleb128 0x3b
+ 1591 004d 0B       		.uleb128 0xb
+ 1592 004e 27       		.uleb128 0x27
+ 1593 004f 19       		.uleb128 0x19
+ 1594 0050 11       		.uleb128 0x11
+ 1595 0051 01       		.uleb128 0x1
+ 1596 0052 12       		.uleb128 0x12
+ 1597 0053 06       		.uleb128 0x6
+ 1598 0054 40       		.uleb128 0x40
+ 1599 0055 18       		.uleb128 0x18
+ 1600 0056 9742     		.uleb128 0x2117
+ 1601 0058 19       		.uleb128 0x19
+ 1602 0059 00       		.byte	0
+ 1603 005a 00       		.byte	0
+ 1604 005b 07       		.uleb128 0x7
+ 1605 005c 2E       		.uleb128 0x2e
+ 1606 005d 01       		.byte	0x1
+ 1607 005e 3F       		.uleb128 0x3f
+ 1608 005f 19       		.uleb128 0x19
+ 1609 0060 03       		.uleb128 0x3
+ 1610 0061 0E       		.uleb128 0xe
+ 1611 0062 3A       		.uleb128 0x3a
+ 1612 0063 0B       		.uleb128 0xb
+ 1613 0064 3B       		.uleb128 0x3b
+ 1614 0065 0B       		.uleb128 0xb
+ 1615 0066 27       		.uleb128 0x27
+ 1616 0067 19       		.uleb128 0x19
+ 1617 0068 11       		.uleb128 0x11
+ 1618 0069 01       		.uleb128 0x1
+ 1619 006a 12       		.uleb128 0x12
+ 1620 006b 06       		.uleb128 0x6
+ 1621 006c 40       		.uleb128 0x40
+ 1622 006d 18       		.uleb128 0x18
+ 1623 006e 9742     		.uleb128 0x2117
+ 1624 0070 19       		.uleb128 0x19
+ 1625 0071 01       		.uleb128 0x1
+ 1626 0072 13       		.uleb128 0x13
+ 1627 0073 00       		.byte	0
+ 1628 0074 00       		.byte	0
+ 1629 0075 08       		.uleb128 0x8
+ 1630 0076 898201   		.uleb128 0x4109
+ 1631 0079 01       		.byte	0x1
+ 1632 007a 11       		.uleb128 0x11
+ 1633 007b 01       		.uleb128 0x1
+ 1634 007c 31       		.uleb128 0x31
+ 1635 007d 13       		.uleb128 0x13
+ 1636 007e 00       		.byte	0
+ 1637 007f 00       		.byte	0
+ 1638 0080 09       		.uleb128 0x9
+ 1639 0081 8A8201   		.uleb128 0x410a
+ 1640 0084 00       		.byte	0
+ 1641 0085 02       		.uleb128 0x2
+ 1642 0086 18       		.uleb128 0x18
+ 1643 0087 9142     		.uleb128 0x2111
+ 1644 0089 18       		.uleb128 0x18
+ 1645 008a 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 33
+
+
+ 1646 008b 00       		.byte	0
+ 1647 008c 0A       		.uleb128 0xa
+ 1648 008d 2E       		.uleb128 0x2e
+ 1649 008e 01       		.byte	0x1
+ 1650 008f 3F       		.uleb128 0x3f
+ 1651 0090 19       		.uleb128 0x19
+ 1652 0091 03       		.uleb128 0x3
+ 1653 0092 0E       		.uleb128 0xe
+ 1654 0093 3A       		.uleb128 0x3a
+ 1655 0094 0B       		.uleb128 0xb
+ 1656 0095 3B       		.uleb128 0x3b
+ 1657 0096 0B       		.uleb128 0xb
+ 1658 0097 27       		.uleb128 0x27
+ 1659 0098 19       		.uleb128 0x19
+ 1660 0099 49       		.uleb128 0x49
+ 1661 009a 13       		.uleb128 0x13
+ 1662 009b 8701     		.uleb128 0x87
+ 1663 009d 19       		.uleb128 0x19
+ 1664 009e 11       		.uleb128 0x11
+ 1665 009f 01       		.uleb128 0x1
+ 1666 00a0 12       		.uleb128 0x12
+ 1667 00a1 06       		.uleb128 0x6
+ 1668 00a2 40       		.uleb128 0x40
+ 1669 00a3 18       		.uleb128 0x18
+ 1670 00a4 9642     		.uleb128 0x2116
+ 1671 00a6 19       		.uleb128 0x19
+ 1672 00a7 01       		.uleb128 0x1
+ 1673 00a8 13       		.uleb128 0x13
+ 1674 00a9 00       		.byte	0
+ 1675 00aa 00       		.byte	0
+ 1676 00ab 0B       		.uleb128 0xb
+ 1677 00ac 898201   		.uleb128 0x4109
+ 1678 00af 01       		.byte	0x1
+ 1679 00b0 11       		.uleb128 0x11
+ 1680 00b1 01       		.uleb128 0x1
+ 1681 00b2 31       		.uleb128 0x31
+ 1682 00b3 13       		.uleb128 0x13
+ 1683 00b4 01       		.uleb128 0x1
+ 1684 00b5 13       		.uleb128 0x13
+ 1685 00b6 00       		.byte	0
+ 1686 00b7 00       		.byte	0
+ 1687 00b8 0C       		.uleb128 0xc
+ 1688 00b9 898201   		.uleb128 0x4109
+ 1689 00bc 00       		.byte	0
+ 1690 00bd 11       		.uleb128 0x11
+ 1691 00be 01       		.uleb128 0x1
+ 1692 00bf 31       		.uleb128 0x31
+ 1693 00c0 13       		.uleb128 0x13
+ 1694 00c1 00       		.byte	0
+ 1695 00c2 00       		.byte	0
+ 1696 00c3 0D       		.uleb128 0xd
+ 1697 00c4 34       		.uleb128 0x34
+ 1698 00c5 00       		.byte	0
+ 1699 00c6 03       		.uleb128 0x3
+ 1700 00c7 0E       		.uleb128 0xe
+ 1701 00c8 3A       		.uleb128 0x3a
+ 1702 00c9 0B       		.uleb128 0xb
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 34
+
+
+ 1703 00ca 3B       		.uleb128 0x3b
+ 1704 00cb 05       		.uleb128 0x5
+ 1705 00cc 49       		.uleb128 0x49
+ 1706 00cd 13       		.uleb128 0x13
+ 1707 00ce 3F       		.uleb128 0x3f
+ 1708 00cf 19       		.uleb128 0x19
+ 1709 00d0 3C       		.uleb128 0x3c
+ 1710 00d1 19       		.uleb128 0x19
+ 1711 00d2 00       		.byte	0
+ 1712 00d3 00       		.byte	0
+ 1713 00d4 0E       		.uleb128 0xe
+ 1714 00d5 35       		.uleb128 0x35
+ 1715 00d6 00       		.byte	0
+ 1716 00d7 49       		.uleb128 0x49
+ 1717 00d8 13       		.uleb128 0x13
+ 1718 00d9 00       		.byte	0
+ 1719 00da 00       		.byte	0
+ 1720 00db 0F       		.uleb128 0xf
+ 1721 00dc 34       		.uleb128 0x34
+ 1722 00dd 00       		.byte	0
+ 1723 00de 03       		.uleb128 0x3
+ 1724 00df 0E       		.uleb128 0xe
+ 1725 00e0 3A       		.uleb128 0x3a
+ 1726 00e1 0B       		.uleb128 0xb
+ 1727 00e2 3B       		.uleb128 0x3b
+ 1728 00e3 0B       		.uleb128 0xb
+ 1729 00e4 49       		.uleb128 0x49
+ 1730 00e5 13       		.uleb128 0x13
+ 1731 00e6 3F       		.uleb128 0x3f
+ 1732 00e7 19       		.uleb128 0x19
+ 1733 00e8 02       		.uleb128 0x2
+ 1734 00e9 18       		.uleb128 0x18
+ 1735 00ea 00       		.byte	0
+ 1736 00eb 00       		.byte	0
+ 1737 00ec 10       		.uleb128 0x10
+ 1738 00ed 01       		.uleb128 0x1
+ 1739 00ee 01       		.byte	0x1
+ 1740 00ef 49       		.uleb128 0x49
+ 1741 00f0 13       		.uleb128 0x13
+ 1742 00f1 01       		.uleb128 0x1
+ 1743 00f2 13       		.uleb128 0x13
+ 1744 00f3 00       		.byte	0
+ 1745 00f4 00       		.byte	0
+ 1746 00f5 11       		.uleb128 0x11
+ 1747 00f6 21       		.uleb128 0x21
+ 1748 00f7 00       		.byte	0
+ 1749 00f8 49       		.uleb128 0x49
+ 1750 00f9 13       		.uleb128 0x13
+ 1751 00fa 2F       		.uleb128 0x2f
+ 1752 00fb 0B       		.uleb128 0xb
+ 1753 00fc 00       		.byte	0
+ 1754 00fd 00       		.byte	0
+ 1755 00fe 12       		.uleb128 0x12
+ 1756 00ff 34       		.uleb128 0x34
+ 1757 0100 00       		.byte	0
+ 1758 0101 03       		.uleb128 0x3
+ 1759 0102 08       		.uleb128 0x8
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 35
+
+
+ 1760 0103 3A       		.uleb128 0x3a
+ 1761 0104 0B       		.uleb128 0xb
+ 1762 0105 3B       		.uleb128 0x3b
+ 1763 0106 0B       		.uleb128 0xb
+ 1764 0107 49       		.uleb128 0x49
+ 1765 0108 13       		.uleb128 0x13
+ 1766 0109 3F       		.uleb128 0x3f
+ 1767 010a 19       		.uleb128 0x19
+ 1768 010b 02       		.uleb128 0x2
+ 1769 010c 18       		.uleb128 0x18
+ 1770 010d 00       		.byte	0
+ 1771 010e 00       		.byte	0
+ 1772 010f 13       		.uleb128 0x13
+ 1773 0110 2E       		.uleb128 0x2e
+ 1774 0111 00       		.byte	0
+ 1775 0112 3F       		.uleb128 0x3f
+ 1776 0113 19       		.uleb128 0x19
+ 1777 0114 3C       		.uleb128 0x3c
+ 1778 0115 19       		.uleb128 0x19
+ 1779 0116 6E       		.uleb128 0x6e
+ 1780 0117 0E       		.uleb128 0xe
+ 1781 0118 03       		.uleb128 0x3
+ 1782 0119 0E       		.uleb128 0xe
+ 1783 011a 3A       		.uleb128 0x3a
+ 1784 011b 0B       		.uleb128 0xb
+ 1785 011c 3B       		.uleb128 0x3b
+ 1786 011d 0B       		.uleb128 0xb
+ 1787 011e 00       		.byte	0
+ 1788 011f 00       		.byte	0
+ 1789 0120 14       		.uleb128 0x14
+ 1790 0121 2E       		.uleb128 0x2e
+ 1791 0122 00       		.byte	0
+ 1792 0123 3F       		.uleb128 0x3f
+ 1793 0124 19       		.uleb128 0x19
+ 1794 0125 3C       		.uleb128 0x3c
+ 1795 0126 19       		.uleb128 0x19
+ 1796 0127 6E       		.uleb128 0x6e
+ 1797 0128 0E       		.uleb128 0xe
+ 1798 0129 03       		.uleb128 0x3
+ 1799 012a 0E       		.uleb128 0xe
+ 1800 012b 3A       		.uleb128 0x3a
+ 1801 012c 0B       		.uleb128 0xb
+ 1802 012d 3B       		.uleb128 0x3b
+ 1803 012e 05       		.uleb128 0x5
+ 1804 012f 00       		.byte	0
+ 1805 0130 00       		.byte	0
+ 1806 0131 00       		.byte	0
+ 1807              		.section	.debug_aranges,"",%progbits
+ 1808 0000 34000000 		.4byte	0x34
+ 1809 0004 0200     		.2byte	0x2
+ 1810 0006 00000000 		.4byte	.Ldebug_info0
+ 1811 000a 04       		.byte	0x4
+ 1812 000b 00       		.byte	0
+ 1813 000c 0000     		.2byte	0
+ 1814 000e 0000     		.2byte	0
+ 1815 0010 00000000 		.4byte	.LFB64
+ 1816 0014 10000000 		.4byte	.LFE64-.LFB64
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 36
+
+
+ 1817 0018 00000000 		.4byte	.LFB65
+ 1818 001c 0C000000 		.4byte	.LFE65-.LFB65
+ 1819 0020 00000000 		.4byte	.LFB66
+ 1820 0024 10000000 		.4byte	.LFE66-.LFB66
+ 1821 0028 00000000 		.4byte	.LFB67
+ 1822 002c 9C020000 		.4byte	.LFE67-.LFB67
+ 1823 0030 00000000 		.4byte	0
+ 1824 0034 00000000 		.4byte	0
+ 1825              		.section	.debug_ranges,"",%progbits
+ 1826              	.Ldebug_ranges0:
+ 1827 0000 00000000 		.4byte	.LFB64
+ 1828 0004 10000000 		.4byte	.LFE64
+ 1829 0008 00000000 		.4byte	.LFB65
+ 1830 000c 0C000000 		.4byte	.LFE65
+ 1831 0010 00000000 		.4byte	.LFB66
+ 1832 0014 10000000 		.4byte	.LFE66
+ 1833 0018 00000000 		.4byte	.LFB67
+ 1834 001c 9C020000 		.4byte	.LFE67
+ 1835 0020 00000000 		.4byte	0
+ 1836 0024 00000000 		.4byte	0
+ 1837              		.section	.debug_line,"",%progbits
+ 1838              	.Ldebug_line0:
+ 1839 0000 11030000 		.section	.debug_str,"MS",%progbits,1
+ 1839      02006702 
+ 1839      00000201 
+ 1839      FB0E0D00 
+ 1839      01010101 
+ 1840              	.LASF24:
+ 1841 0000 636F6E74 		.ascii	"contador\000"
+ 1841      61646F72 
+ 1841      00
+ 1842              	.LASF50:
+ 1843 0009 43617053 		.ascii	"CapSense_GetCentroidPos\000"
+ 1843      656E7365 
+ 1843      5F476574 
+ 1843      43656E74 
+ 1843      726F6964 
+ 1844              	.LASF29:
+ 1845 0021 64757474 		.ascii	"dutty1\000"
+ 1845      793100
+ 1846              	.LASF64:
+ 1847 0028 7075626C 		.ascii	"publicar\000"
+ 1847      69636172 
+ 1847      00
+ 1848              	.LASF36:
+ 1849 0031 50574D5F 		.ascii	"PWM_1_Start\000"
+ 1849      315F5374 
+ 1849      61727400 
+ 1850              	.LASF39:
+ 1851 003d 43617053 		.ascii	"CapSense_InitializeAllBaselines\000"
+ 1851      656E7365 
+ 1851      5F496E69 
+ 1851      7469616C 
+ 1851      697A6541 
+ 1852              	.LASF59:
+ 1853 005d 4C43445F 		.ascii	"LCD_WriteControl\000"
+ 1853      57726974 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 37
+
+
+ 1853      65436F6E 
+ 1853      74726F6C 
+ 1853      00
+ 1854              	.LASF2:
+ 1855 006e 73686F72 		.ascii	"short int\000"
+ 1855      7420696E 
+ 1855      7400
+ 1856              	.LASF33:
+ 1857 0078 5553425F 		.ascii	"USB_GetConfiguration\000"
+ 1857      47657443 
+ 1857      6F6E6669 
+ 1857      67757261 
+ 1857      74696F6E 
+ 1858              	.LASF15:
+ 1859 008d 63686172 		.ascii	"char8\000"
+ 1859      3800
+ 1860              	.LASF65:
+ 1861 0093 6D61696E 		.ascii	"main\000"
+ 1861      00
+ 1862              	.LASF48:
+ 1863 0098 43617053 		.ascii	"CapSense_UpdateEnabledBaselines\000"
+ 1863      656E7365 
+ 1863      5F557064 
+ 1863      61746545 
+ 1863      6E61626C 
+ 1864              	.LASF32:
+ 1865 00b8 5553425F 		.ascii	"USB_Start\000"
+ 1865      53746172 
+ 1865      7400
+ 1866              	.LASF12:
+ 1867 00c2 75696E74 		.ascii	"uint16\000"
+ 1867      313600
+ 1868              	.LASF31:
+ 1869 00c9 5553425F 		.ascii	"USB_PutString\000"
+ 1869      50757453 
+ 1869      7472696E 
+ 1869      6700
+ 1870              	.LASF63:
+ 1871 00d7 443A5C55 		.ascii	"D:\\Users\\ESTEBAN\\Desktop\\Materias\\Codigos\\Psc"
+ 1871      73657273 
+ 1871      5C455354 
+ 1871      4542414E 
+ 1871      5C446573 
+ 1872 0104 6F635C53 		.ascii	"oc\\Sensor_Capacitivo_Comunicacion_USB\\Sensor_Capa"
+ 1872      656E736F 
+ 1872      725F4361 
+ 1872      70616369 
+ 1872      7469766F 
+ 1873 0135 63697469 		.ascii	"citivo.cydsn\000"
+ 1873      766F2E63 
+ 1873      7964736E 
+ 1873      00
+ 1874              	.LASF49:
+ 1875 0142 43617053 		.ascii	"CapSense_ScanEnabledWidgets\000"
+ 1875      656E7365 
+ 1875      5F536361 
+ 1875      6E456E61 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 38
+
+
+ 1875      626C6564 
+ 1876              	.LASF54:
+ 1877 015e 50574D5F 		.ascii	"PWM_2_WriteCompare\000"
+ 1877      325F5772 
+ 1877      69746543 
+ 1877      6F6D7061 
+ 1877      726500
+ 1878              	.LASF13:
+ 1879 0171 666C6F61 		.ascii	"float\000"
+ 1879      7400
+ 1880              	.LASF6:
+ 1881 0177 6C6F6E67 		.ascii	"long long int\000"
+ 1881      206C6F6E 
+ 1881      6720696E 
+ 1881      7400
+ 1882              	.LASF26:
+ 1883 0185 426F746F 		.ascii	"Boton_1\000"
+ 1883      6E5F3100 
+ 1884              	.LASF27:
+ 1885 018d 426F746F 		.ascii	"Boton_2\000"
+ 1885      6E5F3200 
+ 1886              	.LASF44:
+ 1887 0195 6973725F 		.ascii	"isr_2_Start\000"
+ 1887      325F5374 
+ 1887      61727400 
+ 1888              	.LASF40:
+ 1889 01a1 54696D65 		.ascii	"Timer_Start\000"
+ 1889      725F5374 
+ 1889      61727400 
+ 1890              	.LASF4:
+ 1891 01ad 6C6F6E67 		.ascii	"long int\000"
+ 1891      20696E74 
+ 1891      00
+ 1892              	.LASF18:
+ 1893 01b6 73697A65 		.ascii	"sizetype\000"
+ 1893      74797065 
+ 1893      00
+ 1894              	.LASF20:
+ 1895 01bf 54656D70 		.ascii	"Tempo\000"
+ 1895      6F00
+ 1896              	.LASF19:
+ 1897 01c5 436F6E74 		.ascii	"Conta\000"
+ 1897      6100
+ 1898              	.LASF47:
+ 1899 01cb 6973725F 		.ascii	"isr_1_StartEx\000"
+ 1899      315F5374 
+ 1899      61727445 
+ 1899      7800
+ 1900              	.LASF25:
+ 1901 01d9 656E7472 		.ascii	"entrar\000"
+ 1901      617200
+ 1902              	.LASF1:
+ 1903 01e0 756E7369 		.ascii	"unsigned char\000"
+ 1903      676E6564 
+ 1903      20636861 
+ 1903      7200
+ 1904              	.LASF17:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 39
+
+
+ 1905 01ee 6C6F6E67 		.ascii	"long double\000"
+ 1905      20646F75 
+ 1905      626C6500 
+ 1906              	.LASF43:
+ 1907 01fa 6973725F 		.ascii	"isr_3_StartEx\000"
+ 1907      335F5374 
+ 1907      61727445 
+ 1907      7800
+ 1908              	.LASF56:
+ 1909 0208 73707269 		.ascii	"sprintf\000"
+ 1909      6E746600 
+ 1910              	.LASF0:
+ 1911 0210 7369676E 		.ascii	"signed char\000"
+ 1911      65642063 
+ 1911      68617200 
+ 1912              	.LASF7:
+ 1913 021c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1913      206C6F6E 
+ 1913      6720756E 
+ 1913      7369676E 
+ 1913      65642069 
+ 1914              	.LASF38:
+ 1915 0233 43617053 		.ascii	"CapSense_Start\000"
+ 1915      656E7365 
+ 1915      5F537461 
+ 1915      727400
+ 1916              	.LASF8:
+ 1917 0242 756E7369 		.ascii	"unsigned int\000"
+ 1917      676E6564 
+ 1917      20696E74 
+ 1917      00
+ 1918              	.LASF52:
+ 1919 024f 4C43445F 		.ascii	"LCD_PrintString\000"
+ 1919      5072696E 
+ 1919      74537472 
+ 1919      696E6700 
+ 1920              	.LASF34:
+ 1921 025f 5553425F 		.ascii	"USB_CDC_Init\000"
+ 1921      4344435F 
+ 1921      496E6974 
+ 1921      00
+ 1922              	.LASF37:
+ 1923 026c 50574D5F 		.ascii	"PWM_2_Start\000"
+ 1923      325F5374 
+ 1923      61727400 
+ 1924              	.LASF3:
+ 1925 0278 73686F72 		.ascii	"short unsigned int\000"
+ 1925      7420756E 
+ 1925      7369676E 
+ 1925      65642069 
+ 1925      6E7400
+ 1926              	.LASF57:
+ 1927 028b 4C43445F 		.ascii	"LCD_PrintU32Number\000"
+ 1927      5072696E 
+ 1927      74553332 
+ 1927      4E756D62 
+ 1927      657200
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 40
+
+
+ 1928              	.LASF53:
+ 1929 029e 50574D5F 		.ascii	"PWM_1_WriteCompare\000"
+ 1929      315F5772 
+ 1929      69746543 
+ 1929      6F6D7061 
+ 1929      726500
+ 1930              	.LASF16:
+ 1931 02b1 63686172 		.ascii	"char\000"
+ 1931      00
+ 1932              	.LASF10:
+ 1933 02b6 696E7433 		.ascii	"int32_t\000"
+ 1933      325F7400 
+ 1934              	.LASF28:
+ 1935 02be 536C6964 		.ascii	"Slider\000"
+ 1935      657200
+ 1936              	.LASF11:
+ 1937 02c5 75696E74 		.ascii	"uint8\000"
+ 1937      3800
+ 1938              	.LASF41:
+ 1939 02cb 54696D65 		.ascii	"Timer_1_Start\000"
+ 1939      725F315F 
+ 1939      53746172 
+ 1939      7400
+ 1940              	.LASF46:
+ 1941 02d9 6973725F 		.ascii	"isr_1_Start\000"
+ 1941      315F5374 
+ 1941      61727400 
+ 1942              	.LASF45:
+ 1943 02e5 6973725F 		.ascii	"isr_2_StartEx\000"
+ 1943      325F5374 
+ 1943      61727445 
+ 1943      7800
+ 1944              	.LASF60:
+ 1945 02f3 70756C73 		.ascii	"pulsador_Read\000"
+ 1945      61646F72 
+ 1945      5F526561 
+ 1945      6400
+ 1946              	.LASF62:
+ 1947 0301 6D61696E 		.ascii	"main.c\000"
+ 1947      2E6300
+ 1948              	.LASF5:
+ 1949 0308 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1949      20756E73 
+ 1949      69676E65 
+ 1949      6420696E 
+ 1949      7400
+ 1950              	.LASF22:
+ 1951 031a 6461746F 		.ascii	"dato\000"
+ 1951      00
+ 1952              	.LASF21:
+ 1953 031f 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1953      52784275 
+ 1953      66666572 
+ 1953      00
+ 1954              	.LASF42:
+ 1955 032c 6973725F 		.ascii	"isr_3_Start\000"
+ 1955      335F5374 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccewZgmc.s 			page 41
+
+
+ 1955      61727400 
+ 1956              	.LASF30:
+ 1957 0338 64757474 		.ascii	"dutty2\000"
+ 1957      793200
+ 1958              	.LASF9:
+ 1959 033f 5F5F696E 		.ascii	"__int32_t\000"
+ 1959      7433325F 
+ 1959      7400
+ 1960              	.LASF58:
+ 1961 0349 43617053 		.ascii	"CapSense_IsBusy\000"
+ 1961      656E7365 
+ 1961      5F497342 
+ 1961      75737900 
+ 1962              	.LASF35:
+ 1963 0359 4C43445F 		.ascii	"LCD_Start\000"
+ 1963      53746172 
+ 1963      7400
+ 1964              	.LASF51:
+ 1965 0363 4C43445F 		.ascii	"LCD_Position\000"
+ 1965      506F7369 
+ 1965      74696F6E 
+ 1965      00
+ 1966              	.LASF14:
+ 1967 0370 646F7562 		.ascii	"double\000"
+ 1967      6C6500
+ 1968              	.LASF23:
+ 1969 0377 74657874 		.ascii	"texto\000"
+ 1969      6F00
+ 1970              	.LASF61:
+ 1971 037d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1971      43313120 
+ 1971      352E342E 
+ 1971      31203230 
+ 1971      31363036 
+ 1972 03b0 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1972      20726576 
+ 1972      6973696F 
+ 1972      6E203233 
+ 1972      37373135 
+ 1973 03e3 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1973      66756E63 
+ 1973      74696F6E 
+ 1973      2D736563 
+ 1973      74696F6E 
+ 1974              	.LASF55:
+ 1975 040b 43794465 		.ascii	"CyDelay\000"
+ 1975      6C617900 
+ 1976              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

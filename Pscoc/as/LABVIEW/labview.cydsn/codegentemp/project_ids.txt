@@ -1,0 +1,7 @@
+D:\Users\ESTEBAN\Desktop\Materias\Codigos\Pscoc\as\LABVIEW\labview.cydsn\labview.cyprj|ee1b2ddf-7623-4c10-b0fb-9fe08b160842
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|4c6a47c9-edf4-4bde-a761-bbb6aeb64742
+D:\Users\ESTEBAN\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|72a68159-acf1-4cae-8133-60f8503835f0
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|16a82e6b-1a17-428f-af1c-2a14674bc245
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|09476ca0-64d7-4334-968c-fd3b50ad277b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|6268116a-8a4f-4bcb-a226-3bc0e5873b07
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc3\AnalogDevice\PSoC35AnalogDevice.cylib\PSoC35AnalogDevice.cyprj|2113886f-0062-416d-922d-69c1e0e70b87

@@ -1,0 +1,1297 @@
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	__aeabi_ui2f
+  20              		.global	__aeabi_f2d
+  21              		.section	.text.main,"ax",%progbits
+  22              		.align	2
+  23              		.global	main
+  24              		.thumb
+  25              		.thumb_func
+  26              		.type	main, %function
+  27              	main:
+  28              	.LFB64:
+  29              		.file 1 "main.c"
+   1:main.c        **** //Define Librerias
+   2:main.c        **** #include "project.h"
+   3:main.c        **** #include "stdio.h"
+   4:main.c        **** #define BUFFER_LEN  64u //Tamaño del buffer
+   5:main.c        **** 
+   6:main.c        **** int main(void)
+   7:main.c        **** {
+  30              		.loc 1 7 0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 24
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  35              		.cfi_def_cfa_offset 20
+  36              		.cfi_offset 4, -20
+  37              		.cfi_offset 5, -16
+  38              		.cfi_offset 6, -12
+  39              		.cfi_offset 7, -8
+  40              		.cfi_offset 14, -4
+  41 0002 8BB0     		sub	sp, sp, #44
+  42              		.cfi_def_cfa_offset 64
+  43              	.LVL0:
+   8:main.c        ****     //Variables para Manejar el Buffer
+   9:main.c        ****     uint32 Valor_ADC1=0;
+  10:main.c        ****     uint32 Valor_ADC2=0;
+  11:main.c        ****     uint16 Cuenta;
+  12:main.c        ****     uint8 buffer[BUFFER_LEN];
+  13:main.c        ****     char8 Texto[20];
+  14:main.c        ****     float t1=0,t2=0,t3=0;
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 2
+
+
+  15:main.c        ****     //Habilita las Interrupciones
+  16:main.c        ****     CyGlobalIntEnable;
+  44              		.loc 1 16 0
+  45              		.syntax unified
+  46              	@ 16 "main.c" 1
+  47 0004 62B6     		CPSIE   i
+  48              	@ 0 "" 2
+  17:main.c        ****     //Estos Tres parametros Van en grupo
+  18:main.c        ****     //Se encargar de que el computador detecte el USB-Serial
+  19:main.c        ****     ADC_1_Start();
+  49              		.loc 1 19 0
+  50              		.thumb
+  51              		.syntax unified
+  52 0006 FFF7FEFF 		bl	ADC_1_Start
+  53              	.LVL1:
+  20:main.c        ****     ADC_1_StartConvert();
+  54              		.loc 1 20 0
+  55 000a FFF7FEFF 		bl	ADC_1_StartConvert
+  56              	.LVL2:
+  21:main.c        ****     ADC_2_Start();
+  57              		.loc 1 21 0
+  58 000e FFF7FEFF 		bl	ADC_2_Start
+  59              	.LVL3:
+  22:main.c        ****     ADC_2_StartConvert();
+  60              		.loc 1 22 0
+  61 0012 FFF7FEFF 		bl	ADC_2_StartConvert
+  62              	.LVL4:
+  23:main.c        ****     USB_Start(0u, USB_3V_OPERATION);	
+  63              		.loc 1 23 0
+  64 0016 0021     		movs	r1, #0
+  65 0018 0846     		mov	r0, r1
+  66 001a FFF7FEFF 		bl	USB_Start
+  67              	.LVL5:
+  68              	.L2:
+  24:main.c        ****     while(!USB_GetConfiguration());
+  69              		.loc 1 24 0 discriminator 1
+  70 001e FFF7FEFF 		bl	USB_GetConfiguration
+  71              	.LVL6:
+  72 0022 0028     		cmp	r0, #0
+  73 0024 FBD0     		beq	.L2
+  25:main.c        ****     USB_CDC_Init();
+  74              		.loc 1 25 0
+  75 0026 FFF7FEFF 		bl	USB_CDC_Init
+  76              	.LVL7:
+  77              	.L3:
+  26:main.c        ****     /* Iniciar LCD */
+  27:main.c        ****    
+  28:main.c        ****     for(;;)
+  29:main.c        ****     {
+  30:main.c        ****        
+  31:main.c        ****      ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
+  78              		.loc 1 31 0
+  79 002a 0020     		movs	r0, #0
+  80 002c FFF7FEFF 		bl	ADC_1_IsEndConversion
+  81              	.LVL8:
+  32:main.c        ****         Valor_ADC1 = ADC_1_GetResult16();
+  82              		.loc 1 32 0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 3
+
+
+  83 0030 FFF7FEFF 		bl	ADC_1_GetResult16
+  84              	.LVL9:
+  33:main.c        ****       t1=  Valor_ADC1; 
+  85              		.loc 1 33 0
+  86 0034 FFF7FEFF 		bl	__aeabi_ui2f
+  87              	.LVL10:
+  88 0038 0546     		mov	r5, r0
+  89              	.LVL11:
+  34:main.c        ****         ADC_2_IsEndConversion(ADC_2_WAIT_FOR_RESULT);
+  90              		.loc 1 34 0
+  91 003a 0020     		movs	r0, #0
+  92              	.LVL12:
+  93 003c FFF7FEFF 		bl	ADC_2_IsEndConversion
+  94              	.LVL13:
+  35:main.c        ****         Valor_ADC2 = ADC_2_GetResult16();
+  95              		.loc 1 35 0
+  96 0040 FFF7FEFF 		bl	ADC_2_GetResult16
+  97              	.LVL14:
+  36:main.c        ****       t2=  Valor_ADC2; 
+  98              		.loc 1 36 0
+  99 0044 FFF7FEFF 		bl	__aeabi_ui2f
+ 100              	.LVL15:
+ 101 0048 0446     		mov	r4, r0
+ 102              	.LVL16:
+  37:main.c        ****                     
+  38:main.c        ****       
+  39:main.c        ****                              
+  40:main.c        ****       if(Pulsador_Read()==1){
+ 103              		.loc 1 40 0
+ 104 004a FFF7FEFF 		bl	Pulsador_Read
+ 105              	.LVL17:
+ 106 004e 0128     		cmp	r0, #1
+ 107 0050 1BD1     		bne	.L4
+ 108              	.LVL18:
+  41:main.c        ****         t3=1;
+  42:main.c        ****      sprintf(Texto,"%0.3f,%0.3f,%0.3f\n", t1,t2,t3); 
+ 109              		.loc 1 42 0
+ 110 0052 2846     		mov	r0, r5
+ 111 0054 FFF7FEFF 		bl	__aeabi_f2d
+ 112              	.LVL19:
+ 113 0058 0646     		mov	r6, r0
+ 114 005a 0F46     		mov	r7, r1
+ 115 005c 0022     		movs	r2, #0
+ 116 005e 174B     		ldr	r3, .L7
+ 117 0060 CDE90223 		strd	r2, [sp, #8]
+ 118 0064 2046     		mov	r0, r4
+ 119 0066 FFF7FEFF 		bl	__aeabi_f2d
+ 120              	.LVL20:
+ 121 006a CDE90001 		strd	r0, [sp]
+ 122 006e 3246     		mov	r2, r6
+ 123 0070 3B46     		mov	r3, r7
+ 124 0072 1349     		ldr	r1, .L7+4
+ 125 0074 05A8     		add	r0, sp, #20
+ 126 0076 FFF7FEFF 		bl	sprintf
+ 127              	.LVL21:
+  43:main.c        ****             USB_PutString(Texto);
+ 128              		.loc 1 43 0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 4
+
+
+ 129 007a 05A8     		add	r0, sp, #20
+ 130 007c FFF7FEFF 		bl	USB_PutString
+ 131              	.LVL22:
+  44:main.c        ****             CyDelay(1000);
+ 132              		.loc 1 44 0
+ 133 0080 4FF47A70 		mov	r0, #1000
+ 134 0084 FFF7FEFF 		bl	CyDelay
+ 135              	.LVL23:
+ 136 0088 CFE7     		b	.L3
+ 137              	.LVL24:
+ 138              	.L4:
+  45:main.c        ****     }
+  46:main.c        ****     else{
+  47:main.c        ****         
+  48:main.c        ****         t3=0;
+  49:main.c        ****         sprintf(Texto,"%0.3f,%0.3f,%0.3f", t1,t2,t3); 
+ 139              		.loc 1 49 0
+ 140 008a 2846     		mov	r0, r5
+ 141 008c FFF7FEFF 		bl	__aeabi_f2d
+ 142              	.LVL25:
+ 143 0090 0646     		mov	r6, r0
+ 144 0092 0F46     		mov	r7, r1
+ 145 0094 0022     		movs	r2, #0
+ 146 0096 0023     		movs	r3, #0
+ 147 0098 CDE90223 		strd	r2, [sp, #8]
+ 148 009c 2046     		mov	r0, r4
+ 149 009e FFF7FEFF 		bl	__aeabi_f2d
+ 150              	.LVL26:
+ 151 00a2 CDE90001 		strd	r0, [sp]
+ 152 00a6 3246     		mov	r2, r6
+ 153 00a8 3B46     		mov	r3, r7
+ 154 00aa 0649     		ldr	r1, .L7+8
+ 155 00ac 05A8     		add	r0, sp, #20
+ 156 00ae FFF7FEFF 		bl	sprintf
+ 157              	.LVL27:
+  50:main.c        ****             USB_PutString(Texto);}
+ 158              		.loc 1 50 0
+ 159 00b2 05A8     		add	r0, sp, #20
+ 160 00b4 FFF7FEFF 		bl	USB_PutString
+ 161              	.LVL28:
+ 162 00b8 B7E7     		b	.L3
+ 163              	.L8:
+ 164 00ba 00BF     		.align	2
+ 165              	.L7:
+ 166 00bc 0000F03F 		.word	1072693248
+ 167 00c0 00000000 		.word	.LC0
+ 168 00c4 14000000 		.word	.LC1
+ 169              		.cfi_endproc
+ 170              	.LFE64:
+ 171              		.size	main, .-main
+ 172              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 173              		.align	2
+ 174              	.LC0:
+ 175 0000 25302E33 		.ascii	"%0.3f,%0.3f,%0.3f\012\000"
+ 175      662C2530 
+ 175      2E33662C 
+ 175      25302E33 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 5
+
+
+ 175      660A00
+ 176 0013 00       		.space	1
+ 177              	.LC1:
+ 178 0014 25302E33 		.ascii	"%0.3f,%0.3f,%0.3f\000"
+ 178      662C2530 
+ 178      2E33662C 
+ 178      25302E33 
+ 178      6600
+ 179              		.text
+ 180              	.Letext0:
+ 181              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 182              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 183              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 184              		.file 5 "Generated_Source\\PSoC5/ADC_1.h"
+ 185              		.file 6 "Generated_Source\\PSoC5/ADC_2.h"
+ 186              		.file 7 "Generated_Source\\PSoC5/USB.h"
+ 187              		.file 8 "Generated_Source\\PSoC5/USB_cdc.h"
+ 188              		.file 9 "Generated_Source\\PSoC5/Pulsador.h"
+ 189              		.file 10 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4
+ 190              		.file 11 "Generated_Source\\PSoC5/CyLib.h"
+ 191              		.file 12 "Generated_Source\\PSoC5/core_cm3.h"
+ 192              		.section	.debug_info,"",%progbits
+ 193              	.Ldebug_info0:
+ 194 0000 31030000 		.4byte	0x331
+ 195 0004 0400     		.2byte	0x4
+ 196 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 197 000a 04       		.byte	0x4
+ 198 000b 01       		.uleb128 0x1
+ 199 000c CD000000 		.4byte	.LASF40
+ 200 0010 0C       		.byte	0xc
+ 201 0011 53020000 		.4byte	.LASF41
+ 202 0015 3D000000 		.4byte	.LASF42
+ 203 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 204 001d 00000000 		.4byte	0
+ 205 0021 00000000 		.4byte	.Ldebug_line0
+ 206 0025 02       		.uleb128 0x2
+ 207 0026 01       		.byte	0x1
+ 208 0027 06       		.byte	0x6
+ 209 0028 CD020000 		.4byte	.LASF0
+ 210 002c 02       		.uleb128 0x2
+ 211 002d 01       		.byte	0x1
+ 212 002e 08       		.byte	0x8
+ 213 002f BF000000 		.4byte	.LASF1
+ 214 0033 02       		.uleb128 0x2
+ 215 0034 02       		.byte	0x2
+ 216 0035 05       		.byte	0x5
+ 217 0036 85020000 		.4byte	.LASF2
+ 218 003a 02       		.uleb128 0x2
+ 219 003b 02       		.byte	0x2
+ 220 003c 07       		.byte	0x7
+ 221 003d 7F010000 		.4byte	.LASF3
+ 222 0041 03       		.uleb128 0x3
+ 223 0042 25000000 		.4byte	.LASF9
+ 224 0046 02       		.byte	0x2
+ 225 0047 3F       		.byte	0x3f
+ 226 0048 4C000000 		.4byte	0x4c
+ 227 004c 02       		.uleb128 0x2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 6
+
+
+ 228 004d 04       		.byte	0x4
+ 229 004e 05       		.byte	0x5
+ 230 004f B3020000 		.4byte	.LASF4
+ 231 0053 02       		.uleb128 0x2
+ 232 0054 04       		.byte	0x4
+ 233 0055 07       		.byte	0x7
+ 234 0056 6D010000 		.4byte	.LASF5
+ 235 005a 02       		.uleb128 0x2
+ 236 005b 08       		.byte	0x8
+ 237 005c 05       		.byte	0x5
+ 238 005d 45020000 		.4byte	.LASF6
+ 239 0061 02       		.uleb128 0x2
+ 240 0062 08       		.byte	0x8
+ 241 0063 07       		.byte	0x7
+ 242 0064 F4010000 		.4byte	.LASF7
+ 243 0068 04       		.uleb128 0x4
+ 244 0069 04       		.byte	0x4
+ 245 006a 05       		.byte	0x5
+ 246 006b 696E7400 		.ascii	"int\000"
+ 247 006f 02       		.uleb128 0x2
+ 248 0070 04       		.byte	0x4
+ 249 0071 07       		.byte	0x7
+ 250 0072 E7010000 		.4byte	.LASF8
+ 251 0076 03       		.uleb128 0x3
+ 252 0077 2E020000 		.4byte	.LASF10
+ 253 007b 03       		.byte	0x3
+ 254 007c 2C       		.byte	0x2c
+ 255 007d 41000000 		.4byte	0x41
+ 256 0081 05       		.uleb128 0x5
+ 257 0082 A1020000 		.4byte	.LASF11
+ 258 0086 04       		.byte	0x4
+ 259 0087 9201     		.2byte	0x192
+ 260 0089 2C000000 		.4byte	0x2c
+ 261 008d 05       		.uleb128 0x5
+ 262 008e C1010000 		.4byte	.LASF12
+ 263 0092 04       		.byte	0x4
+ 264 0093 9301     		.2byte	0x193
+ 265 0095 3A000000 		.4byte	0x3a
+ 266 0099 05       		.uleb128 0x5
+ 267 009a DB010000 		.4byte	.LASF13
+ 268 009e 04       		.byte	0x4
+ 269 009f 9401     		.2byte	0x194
+ 270 00a1 53000000 		.4byte	0x53
+ 271 00a5 02       		.uleb128 0x2
+ 272 00a6 04       		.byte	0x4
+ 273 00a7 04       		.byte	0x4
+ 274 00a8 B9000000 		.4byte	.LASF14
+ 275 00ac 02       		.uleb128 0x2
+ 276 00ad 08       		.byte	0x8
+ 277 00ae 04       		.byte	0x4
+ 278 00af B4010000 		.4byte	.LASF15
+ 279 00b3 05       		.uleb128 0x5
+ 280 00b4 3F020000 		.4byte	.LASF16
+ 281 00b8 04       		.byte	0x4
+ 282 00b9 A301     		.2byte	0x1a3
+ 283 00bb BF000000 		.4byte	0xbf
+ 284 00bf 02       		.uleb128 0x2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 7
+
+
+ 285 00c0 01       		.byte	0x1
+ 286 00c1 08       		.byte	0x8
+ 287 00c2 BC020000 		.4byte	.LASF17
+ 288 00c6 02       		.uleb128 0x2
+ 289 00c7 08       		.byte	0x8
+ 290 00c8 04       		.byte	0x4
+ 291 00c9 C1020000 		.4byte	.LASF18
+ 292 00cd 02       		.uleb128 0x2
+ 293 00ce 04       		.byte	0x4
+ 294 00cf 07       		.byte	0x7
+ 295 00d0 36020000 		.4byte	.LASF19
+ 296 00d4 06       		.uleb128 0x6
+ 297 00d5 E2010000 		.4byte	.LASF43
+ 298 00d9 01       		.byte	0x1
+ 299 00da 06       		.byte	0x6
+ 300 00db 68000000 		.4byte	0x68
+ 301 00df 00000000 		.4byte	.LFB64
+ 302 00e3 C8000000 		.4byte	.LFE64-.LFB64
+ 303 00e7 01       		.uleb128 0x1
+ 304 00e8 9C       		.byte	0x9c
+ 305 00e9 5C020000 		.4byte	0x25c
+ 306 00ed 07       		.uleb128 0x7
+ 307 00ee 8F020000 		.4byte	.LASF20
+ 308 00f2 01       		.byte	0x1
+ 309 00f3 09       		.byte	0x9
+ 310 00f4 99000000 		.4byte	0x99
+ 311 00f8 00000000 		.4byte	.LLST0
+ 312 00fc 07       		.uleb128 0x7
+ 313 00fd AE000000 		.4byte	.LASF21
+ 314 0101 01       		.byte	0x1
+ 315 0102 0A       		.byte	0xa
+ 316 0103 99000000 		.4byte	0x99
+ 317 0107 1F000000 		.4byte	.LLST1
+ 318 010b 08       		.uleb128 0x8
+ 319 010c AD010000 		.4byte	.LASF22
+ 320 0110 01       		.byte	0x1
+ 321 0111 0B       		.byte	0xb
+ 322 0112 8D000000 		.4byte	0x8d
+ 323 0116 08       		.uleb128 0x8
+ 324 0117 9A020000 		.4byte	.LASF23
+ 325 011b 01       		.byte	0x1
+ 326 011c 0C       		.byte	0xc
+ 327 011d 5C020000 		.4byte	0x25c
+ 328 0121 09       		.uleb128 0x9
+ 329 0122 BB010000 		.4byte	.LASF24
+ 330 0126 01       		.byte	0x1
+ 331 0127 0D       		.byte	0xd
+ 332 0128 6C020000 		.4byte	0x26c
+ 333 012c 02       		.uleb128 0x2
+ 334 012d 91       		.byte	0x91
+ 335 012e 54       		.sleb128 -44
+ 336 012f 0A       		.uleb128 0xa
+ 337 0130 743100   		.ascii	"t1\000"
+ 338 0133 01       		.byte	0x1
+ 339 0134 0E       		.byte	0xe
+ 340 0135 A5000000 		.4byte	0xa5
+ 341 0139 3E000000 		.4byte	.LLST2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 8
+
+
+ 342 013d 0A       		.uleb128 0xa
+ 343 013e 743200   		.ascii	"t2\000"
+ 344 0141 01       		.byte	0x1
+ 345 0142 0E       		.byte	0xe
+ 346 0143 A5000000 		.4byte	0xa5
+ 347 0147 6C000000 		.4byte	.LLST3
+ 348 014b 0A       		.uleb128 0xa
+ 349 014c 743300   		.ascii	"t3\000"
+ 350 014f 01       		.byte	0x1
+ 351 0150 0E       		.byte	0xe
+ 352 0151 A5000000 		.4byte	0xa5
+ 353 0155 9A000000 		.4byte	.LLST4
+ 354 0159 0B       		.uleb128 0xb
+ 355 015a 0A000000 		.4byte	.LVL1
+ 356 015e 8D020000 		.4byte	0x28d
+ 357 0162 0B       		.uleb128 0xb
+ 358 0163 0E000000 		.4byte	.LVL2
+ 359 0167 98020000 		.4byte	0x298
+ 360 016b 0B       		.uleb128 0xb
+ 361 016c 12000000 		.4byte	.LVL3
+ 362 0170 A3020000 		.4byte	0x2a3
+ 363 0174 0B       		.uleb128 0xb
+ 364 0175 16000000 		.4byte	.LVL4
+ 365 0179 AE020000 		.4byte	0x2ae
+ 366 017d 0C       		.uleb128 0xc
+ 367 017e 1E000000 		.4byte	.LVL5
+ 368 0182 B9020000 		.4byte	0x2b9
+ 369 0186 95010000 		.4byte	0x195
+ 370 018a 0D       		.uleb128 0xd
+ 371 018b 01       		.uleb128 0x1
+ 372 018c 50       		.byte	0x50
+ 373 018d 01       		.uleb128 0x1
+ 374 018e 30       		.byte	0x30
+ 375 018f 0D       		.uleb128 0xd
+ 376 0190 01       		.uleb128 0x1
+ 377 0191 51       		.byte	0x51
+ 378 0192 01       		.uleb128 0x1
+ 379 0193 30       		.byte	0x30
+ 380 0194 00       		.byte	0
+ 381 0195 0B       		.uleb128 0xb
+ 382 0196 22000000 		.4byte	.LVL6
+ 383 019a C5020000 		.4byte	0x2c5
+ 384 019e 0B       		.uleb128 0xb
+ 385 019f 2A000000 		.4byte	.LVL7
+ 386 01a3 D1020000 		.4byte	0x2d1
+ 387 01a7 0C       		.uleb128 0xc
+ 388 01a8 30000000 		.4byte	.LVL8
+ 389 01ac DC020000 		.4byte	0x2dc
+ 390 01b0 BA010000 		.4byte	0x1ba
+ 391 01b4 0D       		.uleb128 0xd
+ 392 01b5 01       		.uleb128 0x1
+ 393 01b6 50       		.byte	0x50
+ 394 01b7 01       		.uleb128 0x1
+ 395 01b8 30       		.byte	0x30
+ 396 01b9 00       		.byte	0
+ 397 01ba 0B       		.uleb128 0xb
+ 398 01bb 34000000 		.4byte	.LVL9
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 9
+
+
+ 399 01bf E7020000 		.4byte	0x2e7
+ 400 01c3 0C       		.uleb128 0xc
+ 401 01c4 40000000 		.4byte	.LVL13
+ 402 01c8 F2020000 		.4byte	0x2f2
+ 403 01cc D6010000 		.4byte	0x1d6
+ 404 01d0 0D       		.uleb128 0xd
+ 405 01d1 01       		.uleb128 0x1
+ 406 01d2 50       		.byte	0x50
+ 407 01d3 01       		.uleb128 0x1
+ 408 01d4 30       		.byte	0x30
+ 409 01d5 00       		.byte	0
+ 410 01d6 0B       		.uleb128 0xb
+ 411 01d7 44000000 		.4byte	.LVL14
+ 412 01db FD020000 		.4byte	0x2fd
+ 413 01df 0B       		.uleb128 0xb
+ 414 01e0 4E000000 		.4byte	.LVL17
+ 415 01e4 08030000 		.4byte	0x308
+ 416 01e8 0C       		.uleb128 0xc
+ 417 01e9 7A000000 		.4byte	.LVL21
+ 418 01ed 13030000 		.4byte	0x313
+ 419 01f1 05020000 		.4byte	0x205
+ 420 01f5 0D       		.uleb128 0xd
+ 421 01f6 01       		.uleb128 0x1
+ 422 01f7 50       		.byte	0x50
+ 423 01f8 02       		.uleb128 0x2
+ 424 01f9 91       		.byte	0x91
+ 425 01fa 54       		.sleb128 -44
+ 426 01fb 0D       		.uleb128 0xd
+ 427 01fc 01       		.uleb128 0x1
+ 428 01fd 51       		.byte	0x51
+ 429 01fe 05       		.uleb128 0x5
+ 430 01ff 03       		.byte	0x3
+ 431 0200 00000000 		.4byte	.LC0
+ 432 0204 00       		.byte	0
+ 433 0205 0C       		.uleb128 0xc
+ 434 0206 80000000 		.4byte	.LVL22
+ 435 020a 1E030000 		.4byte	0x31e
+ 436 020e 19020000 		.4byte	0x219
+ 437 0212 0D       		.uleb128 0xd
+ 438 0213 01       		.uleb128 0x1
+ 439 0214 50       		.byte	0x50
+ 440 0215 02       		.uleb128 0x2
+ 441 0216 91       		.byte	0x91
+ 442 0217 54       		.sleb128 -44
+ 443 0218 00       		.byte	0
+ 444 0219 0C       		.uleb128 0xc
+ 445 021a 88000000 		.4byte	.LVL23
+ 446 021e 29030000 		.4byte	0x329
+ 447 0222 2E020000 		.4byte	0x22e
+ 448 0226 0D       		.uleb128 0xd
+ 449 0227 01       		.uleb128 0x1
+ 450 0228 50       		.byte	0x50
+ 451 0229 03       		.uleb128 0x3
+ 452 022a 0A       		.byte	0xa
+ 453 022b E803     		.2byte	0x3e8
+ 454 022d 00       		.byte	0
+ 455 022e 0C       		.uleb128 0xc
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 10
+
+
+ 456 022f B2000000 		.4byte	.LVL27
+ 457 0233 13030000 		.4byte	0x313
+ 458 0237 4B020000 		.4byte	0x24b
+ 459 023b 0D       		.uleb128 0xd
+ 460 023c 01       		.uleb128 0x1
+ 461 023d 50       		.byte	0x50
+ 462 023e 02       		.uleb128 0x2
+ 463 023f 91       		.byte	0x91
+ 464 0240 54       		.sleb128 -44
+ 465 0241 0D       		.uleb128 0xd
+ 466 0242 01       		.uleb128 0x1
+ 467 0243 51       		.byte	0x51
+ 468 0244 05       		.uleb128 0x5
+ 469 0245 03       		.byte	0x3
+ 470 0246 14000000 		.4byte	.LC1
+ 471 024a 00       		.byte	0
+ 472 024b 0E       		.uleb128 0xe
+ 473 024c B8000000 		.4byte	.LVL28
+ 474 0250 1E030000 		.4byte	0x31e
+ 475 0254 0D       		.uleb128 0xd
+ 476 0255 01       		.uleb128 0x1
+ 477 0256 50       		.byte	0x50
+ 478 0257 02       		.uleb128 0x2
+ 479 0258 91       		.byte	0x91
+ 480 0259 54       		.sleb128 -44
+ 481 025a 00       		.byte	0
+ 482 025b 00       		.byte	0
+ 483 025c 0F       		.uleb128 0xf
+ 484 025d 81000000 		.4byte	0x81
+ 485 0261 6C020000 		.4byte	0x26c
+ 486 0265 10       		.uleb128 0x10
+ 487 0266 CD000000 		.4byte	0xcd
+ 488 026a 3F       		.byte	0x3f
+ 489 026b 00       		.byte	0
+ 490 026c 0F       		.uleb128 0xf
+ 491 026d B3000000 		.4byte	0xb3
+ 492 0271 7C020000 		.4byte	0x27c
+ 493 0275 10       		.uleb128 0x10
+ 494 0276 CD000000 		.4byte	0xcd
+ 495 027a 13       		.byte	0x13
+ 496 027b 00       		.byte	0
+ 497 027c 11       		.uleb128 0x11
+ 498 027d A0010000 		.4byte	.LASF44
+ 499 0281 0C       		.byte	0xc
+ 500 0282 9606     		.2byte	0x696
+ 501 0284 88020000 		.4byte	0x288
+ 502 0288 12       		.uleb128 0x12
+ 503 0289 76000000 		.4byte	0x76
+ 504 028d 13       		.uleb128 0x13
+ 505 028e 6F020000 		.4byte	.LASF25
+ 506 0292 6F020000 		.4byte	.LASF25
+ 507 0296 05       		.byte	0x5
+ 508 0297 34       		.byte	0x34
+ 509 0298 13       		.uleb128 0x13
+ 510 0299 C8010000 		.4byte	.LASF26
+ 511 029d C8010000 		.4byte	.LASF26
+ 512 02a1 05       		.byte	0x5
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 11
+
+
+ 513 02a2 D1       		.byte	0xd1
+ 514 02a3 13       		.uleb128 0x13
+ 515 02a4 A7020000 		.4byte	.LASF27
+ 516 02a8 A7020000 		.4byte	.LASF27
+ 517 02ac 06       		.byte	0x6
+ 518 02ad 34       		.byte	0x34
+ 519 02ae 13       		.uleb128 0x13
+ 520 02af 00000000 		.4byte	.LASF28
+ 521 02b3 00000000 		.4byte	.LASF28
+ 522 02b7 06       		.byte	0x6
+ 523 02b8 D1       		.byte	0xd1
+ 524 02b9 14       		.uleb128 0x14
+ 525 02ba 7B020000 		.4byte	.LASF29
+ 526 02be 7B020000 		.4byte	.LASF29
+ 527 02c2 07       		.byte	0x7
+ 528 02c3 2A01     		.2byte	0x12a
+ 529 02c5 14       		.uleb128 0x14
+ 530 02c6 5A020000 		.4byte	.LASF30
+ 531 02ca 5A020000 		.4byte	.LASF30
+ 532 02ce 07       		.byte	0x7
+ 533 02cf 2D01     		.2byte	0x12d
+ 534 02d1 13       		.uleb128 0x13
+ 535 02d2 0B020000 		.4byte	.LASF31
+ 536 02d6 0B020000 		.4byte	.LASF31
+ 537 02da 08       		.byte	0x8
+ 538 02db 22       		.byte	0x22
+ 539 02dc 13       		.uleb128 0x13
+ 540 02dd D9020000 		.4byte	.LASF32
+ 541 02e1 D9020000 		.4byte	.LASF32
+ 542 02e5 05       		.byte	0x5
+ 543 02e6 39       		.byte	0x39
+ 544 02e7 13       		.uleb128 0x13
+ 545 02e8 5B010000 		.4byte	.LASF33
+ 546 02ec 5B010000 		.4byte	.LASF33
+ 547 02f0 05       		.byte	0x5
+ 548 02f1 3B       		.byte	0x3b
+ 549 02f2 13       		.uleb128 0x13
+ 550 02f3 18020000 		.4byte	.LASF34
+ 551 02f7 18020000 		.4byte	.LASF34
+ 552 02fb 06       		.byte	0x6
+ 553 02fc 39       		.byte	0x39
+ 554 02fd 13       		.uleb128 0x13
+ 555 02fe 13000000 		.4byte	.LASF35
+ 556 0302 13000000 		.4byte	.LASF35
+ 557 0306 06       		.byte	0x6
+ 558 0307 3B       		.byte	0x3b
+ 559 0308 13       		.uleb128 0x13
+ 560 0309 92010000 		.4byte	.LASF36
+ 561 030d 92010000 		.4byte	.LASF36
+ 562 0311 09       		.byte	0x9
+ 563 0312 29       		.byte	0x29
+ 564 0313 13       		.uleb128 0x13
+ 565 0314 EF020000 		.4byte	.LASF37
+ 566 0318 EF020000 		.4byte	.LASF37
+ 567 031c 0A       		.byte	0xa
+ 568 031d E7       		.byte	0xe7
+ 569 031e 13       		.uleb128 0x13
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 12
+
+
+ 570 031f 2F000000 		.4byte	.LASF38
+ 571 0323 2F000000 		.4byte	.LASF38
+ 572 0327 08       		.byte	0x8
+ 573 0328 24       		.byte	0x24
+ 574 0329 13       		.uleb128 0x13
+ 575 032a F7020000 		.4byte	.LASF39
+ 576 032e F7020000 		.4byte	.LASF39
+ 577 0332 0B       		.byte	0xb
+ 578 0333 76       		.byte	0x76
+ 579 0334 00       		.byte	0
+ 580              		.section	.debug_abbrev,"",%progbits
+ 581              	.Ldebug_abbrev0:
+ 582 0000 01       		.uleb128 0x1
+ 583 0001 11       		.uleb128 0x11
+ 584 0002 01       		.byte	0x1
+ 585 0003 25       		.uleb128 0x25
+ 586 0004 0E       		.uleb128 0xe
+ 587 0005 13       		.uleb128 0x13
+ 588 0006 0B       		.uleb128 0xb
+ 589 0007 03       		.uleb128 0x3
+ 590 0008 0E       		.uleb128 0xe
+ 591 0009 1B       		.uleb128 0x1b
+ 592 000a 0E       		.uleb128 0xe
+ 593 000b 55       		.uleb128 0x55
+ 594 000c 17       		.uleb128 0x17
+ 595 000d 11       		.uleb128 0x11
+ 596 000e 01       		.uleb128 0x1
+ 597 000f 10       		.uleb128 0x10
+ 598 0010 17       		.uleb128 0x17
+ 599 0011 00       		.byte	0
+ 600 0012 00       		.byte	0
+ 601 0013 02       		.uleb128 0x2
+ 602 0014 24       		.uleb128 0x24
+ 603 0015 00       		.byte	0
+ 604 0016 0B       		.uleb128 0xb
+ 605 0017 0B       		.uleb128 0xb
+ 606 0018 3E       		.uleb128 0x3e
+ 607 0019 0B       		.uleb128 0xb
+ 608 001a 03       		.uleb128 0x3
+ 609 001b 0E       		.uleb128 0xe
+ 610 001c 00       		.byte	0
+ 611 001d 00       		.byte	0
+ 612 001e 03       		.uleb128 0x3
+ 613 001f 16       		.uleb128 0x16
+ 614 0020 00       		.byte	0
+ 615 0021 03       		.uleb128 0x3
+ 616 0022 0E       		.uleb128 0xe
+ 617 0023 3A       		.uleb128 0x3a
+ 618 0024 0B       		.uleb128 0xb
+ 619 0025 3B       		.uleb128 0x3b
+ 620 0026 0B       		.uleb128 0xb
+ 621 0027 49       		.uleb128 0x49
+ 622 0028 13       		.uleb128 0x13
+ 623 0029 00       		.byte	0
+ 624 002a 00       		.byte	0
+ 625 002b 04       		.uleb128 0x4
+ 626 002c 24       		.uleb128 0x24
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 13
+
+
+ 627 002d 00       		.byte	0
+ 628 002e 0B       		.uleb128 0xb
+ 629 002f 0B       		.uleb128 0xb
+ 630 0030 3E       		.uleb128 0x3e
+ 631 0031 0B       		.uleb128 0xb
+ 632 0032 03       		.uleb128 0x3
+ 633 0033 08       		.uleb128 0x8
+ 634 0034 00       		.byte	0
+ 635 0035 00       		.byte	0
+ 636 0036 05       		.uleb128 0x5
+ 637 0037 16       		.uleb128 0x16
+ 638 0038 00       		.byte	0
+ 639 0039 03       		.uleb128 0x3
+ 640 003a 0E       		.uleb128 0xe
+ 641 003b 3A       		.uleb128 0x3a
+ 642 003c 0B       		.uleb128 0xb
+ 643 003d 3B       		.uleb128 0x3b
+ 644 003e 05       		.uleb128 0x5
+ 645 003f 49       		.uleb128 0x49
+ 646 0040 13       		.uleb128 0x13
+ 647 0041 00       		.byte	0
+ 648 0042 00       		.byte	0
+ 649 0043 06       		.uleb128 0x6
+ 650 0044 2E       		.uleb128 0x2e
+ 651 0045 01       		.byte	0x1
+ 652 0046 3F       		.uleb128 0x3f
+ 653 0047 19       		.uleb128 0x19
+ 654 0048 03       		.uleb128 0x3
+ 655 0049 0E       		.uleb128 0xe
+ 656 004a 3A       		.uleb128 0x3a
+ 657 004b 0B       		.uleb128 0xb
+ 658 004c 3B       		.uleb128 0x3b
+ 659 004d 0B       		.uleb128 0xb
+ 660 004e 27       		.uleb128 0x27
+ 661 004f 19       		.uleb128 0x19
+ 662 0050 49       		.uleb128 0x49
+ 663 0051 13       		.uleb128 0x13
+ 664 0052 8701     		.uleb128 0x87
+ 665 0054 19       		.uleb128 0x19
+ 666 0055 11       		.uleb128 0x11
+ 667 0056 01       		.uleb128 0x1
+ 668 0057 12       		.uleb128 0x12
+ 669 0058 06       		.uleb128 0x6
+ 670 0059 40       		.uleb128 0x40
+ 671 005a 18       		.uleb128 0x18
+ 672 005b 9642     		.uleb128 0x2116
+ 673 005d 19       		.uleb128 0x19
+ 674 005e 01       		.uleb128 0x1
+ 675 005f 13       		.uleb128 0x13
+ 676 0060 00       		.byte	0
+ 677 0061 00       		.byte	0
+ 678 0062 07       		.uleb128 0x7
+ 679 0063 34       		.uleb128 0x34
+ 680 0064 00       		.byte	0
+ 681 0065 03       		.uleb128 0x3
+ 682 0066 0E       		.uleb128 0xe
+ 683 0067 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 14
+
+
+ 684 0068 0B       		.uleb128 0xb
+ 685 0069 3B       		.uleb128 0x3b
+ 686 006a 0B       		.uleb128 0xb
+ 687 006b 49       		.uleb128 0x49
+ 688 006c 13       		.uleb128 0x13
+ 689 006d 02       		.uleb128 0x2
+ 690 006e 17       		.uleb128 0x17
+ 691 006f 00       		.byte	0
+ 692 0070 00       		.byte	0
+ 693 0071 08       		.uleb128 0x8
+ 694 0072 34       		.uleb128 0x34
+ 695 0073 00       		.byte	0
+ 696 0074 03       		.uleb128 0x3
+ 697 0075 0E       		.uleb128 0xe
+ 698 0076 3A       		.uleb128 0x3a
+ 699 0077 0B       		.uleb128 0xb
+ 700 0078 3B       		.uleb128 0x3b
+ 701 0079 0B       		.uleb128 0xb
+ 702 007a 49       		.uleb128 0x49
+ 703 007b 13       		.uleb128 0x13
+ 704 007c 00       		.byte	0
+ 705 007d 00       		.byte	0
+ 706 007e 09       		.uleb128 0x9
+ 707 007f 34       		.uleb128 0x34
+ 708 0080 00       		.byte	0
+ 709 0081 03       		.uleb128 0x3
+ 710 0082 0E       		.uleb128 0xe
+ 711 0083 3A       		.uleb128 0x3a
+ 712 0084 0B       		.uleb128 0xb
+ 713 0085 3B       		.uleb128 0x3b
+ 714 0086 0B       		.uleb128 0xb
+ 715 0087 49       		.uleb128 0x49
+ 716 0088 13       		.uleb128 0x13
+ 717 0089 02       		.uleb128 0x2
+ 718 008a 18       		.uleb128 0x18
+ 719 008b 00       		.byte	0
+ 720 008c 00       		.byte	0
+ 721 008d 0A       		.uleb128 0xa
+ 722 008e 34       		.uleb128 0x34
+ 723 008f 00       		.byte	0
+ 724 0090 03       		.uleb128 0x3
+ 725 0091 08       		.uleb128 0x8
+ 726 0092 3A       		.uleb128 0x3a
+ 727 0093 0B       		.uleb128 0xb
+ 728 0094 3B       		.uleb128 0x3b
+ 729 0095 0B       		.uleb128 0xb
+ 730 0096 49       		.uleb128 0x49
+ 731 0097 13       		.uleb128 0x13
+ 732 0098 02       		.uleb128 0x2
+ 733 0099 17       		.uleb128 0x17
+ 734 009a 00       		.byte	0
+ 735 009b 00       		.byte	0
+ 736 009c 0B       		.uleb128 0xb
+ 737 009d 898201   		.uleb128 0x4109
+ 738 00a0 00       		.byte	0
+ 739 00a1 11       		.uleb128 0x11
+ 740 00a2 01       		.uleb128 0x1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 15
+
+
+ 741 00a3 31       		.uleb128 0x31
+ 742 00a4 13       		.uleb128 0x13
+ 743 00a5 00       		.byte	0
+ 744 00a6 00       		.byte	0
+ 745 00a7 0C       		.uleb128 0xc
+ 746 00a8 898201   		.uleb128 0x4109
+ 747 00ab 01       		.byte	0x1
+ 748 00ac 11       		.uleb128 0x11
+ 749 00ad 01       		.uleb128 0x1
+ 750 00ae 31       		.uleb128 0x31
+ 751 00af 13       		.uleb128 0x13
+ 752 00b0 01       		.uleb128 0x1
+ 753 00b1 13       		.uleb128 0x13
+ 754 00b2 00       		.byte	0
+ 755 00b3 00       		.byte	0
+ 756 00b4 0D       		.uleb128 0xd
+ 757 00b5 8A8201   		.uleb128 0x410a
+ 758 00b8 00       		.byte	0
+ 759 00b9 02       		.uleb128 0x2
+ 760 00ba 18       		.uleb128 0x18
+ 761 00bb 9142     		.uleb128 0x2111
+ 762 00bd 18       		.uleb128 0x18
+ 763 00be 00       		.byte	0
+ 764 00bf 00       		.byte	0
+ 765 00c0 0E       		.uleb128 0xe
+ 766 00c1 898201   		.uleb128 0x4109
+ 767 00c4 01       		.byte	0x1
+ 768 00c5 11       		.uleb128 0x11
+ 769 00c6 01       		.uleb128 0x1
+ 770 00c7 31       		.uleb128 0x31
+ 771 00c8 13       		.uleb128 0x13
+ 772 00c9 00       		.byte	0
+ 773 00ca 00       		.byte	0
+ 774 00cb 0F       		.uleb128 0xf
+ 775 00cc 01       		.uleb128 0x1
+ 776 00cd 01       		.byte	0x1
+ 777 00ce 49       		.uleb128 0x49
+ 778 00cf 13       		.uleb128 0x13
+ 779 00d0 01       		.uleb128 0x1
+ 780 00d1 13       		.uleb128 0x13
+ 781 00d2 00       		.byte	0
+ 782 00d3 00       		.byte	0
+ 783 00d4 10       		.uleb128 0x10
+ 784 00d5 21       		.uleb128 0x21
+ 785 00d6 00       		.byte	0
+ 786 00d7 49       		.uleb128 0x49
+ 787 00d8 13       		.uleb128 0x13
+ 788 00d9 2F       		.uleb128 0x2f
+ 789 00da 0B       		.uleb128 0xb
+ 790 00db 00       		.byte	0
+ 791 00dc 00       		.byte	0
+ 792 00dd 11       		.uleb128 0x11
+ 793 00de 34       		.uleb128 0x34
+ 794 00df 00       		.byte	0
+ 795 00e0 03       		.uleb128 0x3
+ 796 00e1 0E       		.uleb128 0xe
+ 797 00e2 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 16
+
+
+ 798 00e3 0B       		.uleb128 0xb
+ 799 00e4 3B       		.uleb128 0x3b
+ 800 00e5 05       		.uleb128 0x5
+ 801 00e6 49       		.uleb128 0x49
+ 802 00e7 13       		.uleb128 0x13
+ 803 00e8 3F       		.uleb128 0x3f
+ 804 00e9 19       		.uleb128 0x19
+ 805 00ea 3C       		.uleb128 0x3c
+ 806 00eb 19       		.uleb128 0x19
+ 807 00ec 00       		.byte	0
+ 808 00ed 00       		.byte	0
+ 809 00ee 12       		.uleb128 0x12
+ 810 00ef 35       		.uleb128 0x35
+ 811 00f0 00       		.byte	0
+ 812 00f1 49       		.uleb128 0x49
+ 813 00f2 13       		.uleb128 0x13
+ 814 00f3 00       		.byte	0
+ 815 00f4 00       		.byte	0
+ 816 00f5 13       		.uleb128 0x13
+ 817 00f6 2E       		.uleb128 0x2e
+ 818 00f7 00       		.byte	0
+ 819 00f8 3F       		.uleb128 0x3f
+ 820 00f9 19       		.uleb128 0x19
+ 821 00fa 3C       		.uleb128 0x3c
+ 822 00fb 19       		.uleb128 0x19
+ 823 00fc 6E       		.uleb128 0x6e
+ 824 00fd 0E       		.uleb128 0xe
+ 825 00fe 03       		.uleb128 0x3
+ 826 00ff 0E       		.uleb128 0xe
+ 827 0100 3A       		.uleb128 0x3a
+ 828 0101 0B       		.uleb128 0xb
+ 829 0102 3B       		.uleb128 0x3b
+ 830 0103 0B       		.uleb128 0xb
+ 831 0104 00       		.byte	0
+ 832 0105 00       		.byte	0
+ 833 0106 14       		.uleb128 0x14
+ 834 0107 2E       		.uleb128 0x2e
+ 835 0108 00       		.byte	0
+ 836 0109 3F       		.uleb128 0x3f
+ 837 010a 19       		.uleb128 0x19
+ 838 010b 3C       		.uleb128 0x3c
+ 839 010c 19       		.uleb128 0x19
+ 840 010d 6E       		.uleb128 0x6e
+ 841 010e 0E       		.uleb128 0xe
+ 842 010f 03       		.uleb128 0x3
+ 843 0110 0E       		.uleb128 0xe
+ 844 0111 3A       		.uleb128 0x3a
+ 845 0112 0B       		.uleb128 0xb
+ 846 0113 3B       		.uleb128 0x3b
+ 847 0114 05       		.uleb128 0x5
+ 848 0115 00       		.byte	0
+ 849 0116 00       		.byte	0
+ 850 0117 00       		.byte	0
+ 851              		.section	.debug_loc,"",%progbits
+ 852              	.Ldebug_loc0:
+ 853              	.LLST0:
+ 854 0000 04000000 		.4byte	.LVL0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 17
+
+
+ 855 0004 2A000000 		.4byte	.LVL7
+ 856 0008 0200     		.2byte	0x2
+ 857 000a 30       		.byte	0x30
+ 858 000b 9F       		.byte	0x9f
+ 859 000c 34000000 		.4byte	.LVL9
+ 860 0010 37000000 		.4byte	.LVL10-1
+ 861 0014 0100     		.2byte	0x1
+ 862 0016 50       		.byte	0x50
+ 863 0017 00000000 		.4byte	0
+ 864 001b 00000000 		.4byte	0
+ 865              	.LLST1:
+ 866 001f 04000000 		.4byte	.LVL0
+ 867 0023 2A000000 		.4byte	.LVL7
+ 868 0027 0200     		.2byte	0x2
+ 869 0029 30       		.byte	0x30
+ 870 002a 9F       		.byte	0x9f
+ 871 002b 44000000 		.4byte	.LVL14
+ 872 002f 47000000 		.4byte	.LVL15-1
+ 873 0033 0100     		.2byte	0x1
+ 874 0035 50       		.byte	0x50
+ 875 0036 00000000 		.4byte	0
+ 876 003a 00000000 		.4byte	0
+ 877              	.LLST2:
+ 878 003e 04000000 		.4byte	.LVL0
+ 879 0042 2A000000 		.4byte	.LVL7
+ 880 0046 0600     		.2byte	0x6
+ 881 0048 9E       		.byte	0x9e
+ 882 0049 04       		.uleb128 0x4
+ 883 004a 00000000 		.4byte	0
+ 884 004e 3A000000 		.4byte	.LVL11
+ 885 0052 3C000000 		.4byte	.LVL12
+ 886 0056 0100     		.2byte	0x1
+ 887 0058 50       		.byte	0x50
+ 888 0059 3C000000 		.4byte	.LVL12
+ 889 005d C8000000 		.4byte	.LFE64
+ 890 0061 0100     		.2byte	0x1
+ 891 0063 55       		.byte	0x55
+ 892 0064 00000000 		.4byte	0
+ 893 0068 00000000 		.4byte	0
+ 894              	.LLST3:
+ 895 006c 04000000 		.4byte	.LVL0
+ 896 0070 2A000000 		.4byte	.LVL7
+ 897 0074 0600     		.2byte	0x6
+ 898 0076 9E       		.byte	0x9e
+ 899 0077 04       		.uleb128 0x4
+ 900 0078 00000000 		.4byte	0
+ 901 007c 4A000000 		.4byte	.LVL16
+ 902 0080 4D000000 		.4byte	.LVL17-1
+ 903 0084 0100     		.2byte	0x1
+ 904 0086 50       		.byte	0x50
+ 905 0087 4D000000 		.4byte	.LVL17-1
+ 906 008b C8000000 		.4byte	.LFE64
+ 907 008f 0100     		.2byte	0x1
+ 908 0091 54       		.byte	0x54
+ 909 0092 00000000 		.4byte	0
+ 910 0096 00000000 		.4byte	0
+ 911              	.LLST4:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 18
+
+
+ 912 009a 04000000 		.4byte	.LVL0
+ 913 009e 2A000000 		.4byte	.LVL7
+ 914 00a2 0600     		.2byte	0x6
+ 915 00a4 9E       		.byte	0x9e
+ 916 00a5 04       		.uleb128 0x4
+ 917 00a6 00000000 		.4byte	0
+ 918 00aa 52000000 		.4byte	.LVL18
+ 919 00ae 8A000000 		.4byte	.LVL24
+ 920 00b2 0600     		.2byte	0x6
+ 921 00b4 9E       		.byte	0x9e
+ 922 00b5 04       		.uleb128 0x4
+ 923 00b6 0000803F 		.4byte	0x3f800000
+ 924 00ba 8A000000 		.4byte	.LVL24
+ 925 00be C8000000 		.4byte	.LFE64
+ 926 00c2 0600     		.2byte	0x6
+ 927 00c4 9E       		.byte	0x9e
+ 928 00c5 04       		.uleb128 0x4
+ 929 00c6 00000000 		.4byte	0
+ 930 00ca 00000000 		.4byte	0
+ 931 00ce 00000000 		.4byte	0
+ 932              		.section	.debug_aranges,"",%progbits
+ 933 0000 1C000000 		.4byte	0x1c
+ 934 0004 0200     		.2byte	0x2
+ 935 0006 00000000 		.4byte	.Ldebug_info0
+ 936 000a 04       		.byte	0x4
+ 937 000b 00       		.byte	0
+ 938 000c 0000     		.2byte	0
+ 939 000e 0000     		.2byte	0
+ 940 0010 00000000 		.4byte	.LFB64
+ 941 0014 C8000000 		.4byte	.LFE64-.LFB64
+ 942 0018 00000000 		.4byte	0
+ 943 001c 00000000 		.4byte	0
+ 944              		.section	.debug_ranges,"",%progbits
+ 945              	.Ldebug_ranges0:
+ 946 0000 00000000 		.4byte	.LFB64
+ 947 0004 C8000000 		.4byte	.LFE64
+ 948 0008 00000000 		.4byte	0
+ 949 000c 00000000 		.4byte	0
+ 950              		.section	.debug_line,"",%progbits
+ 951              	.Ldebug_line0:
+ 952 0000 33020000 		.section	.debug_str,"MS",%progbits,1
+ 952      02000402 
+ 952      00000201 
+ 952      FB0E0D00 
+ 952      01010101 
+ 953              	.LASF28:
+ 954 0000 4144435F 		.ascii	"ADC_2_StartConvert\000"
+ 954      325F5374 
+ 954      61727443 
+ 954      6F6E7665 
+ 954      727400
+ 955              	.LASF35:
+ 956 0013 4144435F 		.ascii	"ADC_2_GetResult16\000"
+ 956      325F4765 
+ 956      74526573 
+ 956      756C7431 
+ 956      3600
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 19
+
+
+ 957              	.LASF9:
+ 958 0025 5F5F696E 		.ascii	"__int32_t\000"
+ 958      7433325F 
+ 958      7400
+ 959              	.LASF38:
+ 960 002f 5553425F 		.ascii	"USB_PutString\000"
+ 960      50757453 
+ 960      7472696E 
+ 960      6700
+ 961              	.LASF42:
+ 962 003d 443A5C55 		.ascii	"D:\\Users\\ESTEBAN\\Desktop\\Materias\\Codigos\\Psc"
+ 962      73657273 
+ 962      5C455354 
+ 962      4542414E 
+ 962      5C446573 
+ 963 006a 6F635C43 		.ascii	"oc\\Carro Matlab\\Sensor_Capacitivo_Comunicacion_US"
+ 963      6172726F 
+ 963      204D6174 
+ 963      6C61625C 
+ 963      53656E73 
+ 964 009b 425C5553 		.ascii	"B\\USB_Serial.cydsn\000"
+ 964      425F5365 
+ 964      7269616C 
+ 964      2E637964 
+ 964      736E00
+ 965              	.LASF21:
+ 966 00ae 56616C6F 		.ascii	"Valor_ADC2\000"
+ 966      725F4144 
+ 966      433200
+ 967              	.LASF14:
+ 968 00b9 666C6F61 		.ascii	"float\000"
+ 968      7400
+ 969              	.LASF1:
+ 970 00bf 756E7369 		.ascii	"unsigned char\000"
+ 970      676E6564 
+ 970      20636861 
+ 970      7200
+ 971              	.LASF40:
+ 972 00cd 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 972      43313120 
+ 972      352E342E 
+ 972      31203230 
+ 972      31363036 
+ 973 0100 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 973      20726576 
+ 973      6973696F 
+ 973      6E203233 
+ 973      37373135 
+ 974 0133 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 974      66756E63 
+ 974      74696F6E 
+ 974      2D736563 
+ 974      74696F6E 
+ 975              	.LASF33:
+ 976 015b 4144435F 		.ascii	"ADC_1_GetResult16\000"
+ 976      315F4765 
+ 976      74526573 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 20
+
+
+ 976      756C7431 
+ 976      3600
+ 977              	.LASF5:
+ 978 016d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 978      20756E73 
+ 978      69676E65 
+ 978      6420696E 
+ 978      7400
+ 979              	.LASF3:
+ 980 017f 73686F72 		.ascii	"short unsigned int\000"
+ 980      7420756E 
+ 980      7369676E 
+ 980      65642069 
+ 980      6E7400
+ 981              	.LASF36:
+ 982 0192 50756C73 		.ascii	"Pulsador_Read\000"
+ 982      61646F72 
+ 982      5F526561 
+ 982      6400
+ 983              	.LASF44:
+ 984 01a0 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 984      52784275 
+ 984      66666572 
+ 984      00
+ 985              	.LASF22:
+ 986 01ad 4375656E 		.ascii	"Cuenta\000"
+ 986      746100
+ 987              	.LASF15:
+ 988 01b4 646F7562 		.ascii	"double\000"
+ 988      6C6500
+ 989              	.LASF24:
+ 990 01bb 54657874 		.ascii	"Texto\000"
+ 990      6F00
+ 991              	.LASF12:
+ 992 01c1 75696E74 		.ascii	"uint16\000"
+ 992      313600
+ 993              	.LASF26:
+ 994 01c8 4144435F 		.ascii	"ADC_1_StartConvert\000"
+ 994      315F5374 
+ 994      61727443 
+ 994      6F6E7665 
+ 994      727400
+ 995              	.LASF13:
+ 996 01db 75696E74 		.ascii	"uint32\000"
+ 996      333200
+ 997              	.LASF43:
+ 998 01e2 6D61696E 		.ascii	"main\000"
+ 998      00
+ 999              	.LASF8:
+ 1000 01e7 756E7369 		.ascii	"unsigned int\000"
+ 1000      676E6564 
+ 1000      20696E74 
+ 1000      00
+ 1001              	.LASF7:
+ 1002 01f4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1002      206C6F6E 
+ 1002      6720756E 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 21
+
+
+ 1002      7369676E 
+ 1002      65642069 
+ 1003              	.LASF31:
+ 1004 020b 5553425F 		.ascii	"USB_CDC_Init\000"
+ 1004      4344435F 
+ 1004      496E6974 
+ 1004      00
+ 1005              	.LASF34:
+ 1006 0218 4144435F 		.ascii	"ADC_2_IsEndConversion\000"
+ 1006      325F4973 
+ 1006      456E6443 
+ 1006      6F6E7665 
+ 1006      7273696F 
+ 1007              	.LASF10:
+ 1008 022e 696E7433 		.ascii	"int32_t\000"
+ 1008      325F7400 
+ 1009              	.LASF19:
+ 1010 0236 73697A65 		.ascii	"sizetype\000"
+ 1010      74797065 
+ 1010      00
+ 1011              	.LASF16:
+ 1012 023f 63686172 		.ascii	"char8\000"
+ 1012      3800
+ 1013              	.LASF6:
+ 1014 0245 6C6F6E67 		.ascii	"long long int\000"
+ 1014      206C6F6E 
+ 1014      6720696E 
+ 1014      7400
+ 1015              	.LASF41:
+ 1016 0253 6D61696E 		.ascii	"main.c\000"
+ 1016      2E6300
+ 1017              	.LASF30:
+ 1018 025a 5553425F 		.ascii	"USB_GetConfiguration\000"
+ 1018      47657443 
+ 1018      6F6E6669 
+ 1018      67757261 
+ 1018      74696F6E 
+ 1019              	.LASF25:
+ 1020 026f 4144435F 		.ascii	"ADC_1_Start\000"
+ 1020      315F5374 
+ 1020      61727400 
+ 1021              	.LASF29:
+ 1022 027b 5553425F 		.ascii	"USB_Start\000"
+ 1022      53746172 
+ 1022      7400
+ 1023              	.LASF2:
+ 1024 0285 73686F72 		.ascii	"short int\000"
+ 1024      7420696E 
+ 1024      7400
+ 1025              	.LASF20:
+ 1026 028f 56616C6F 		.ascii	"Valor_ADC1\000"
+ 1026      725F4144 
+ 1026      433100
+ 1027              	.LASF23:
+ 1028 029a 62756666 		.ascii	"buffer\000"
+ 1028      657200
+ 1029              	.LASF11:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJzDwR9.s 			page 22
+
+
+ 1030 02a1 75696E74 		.ascii	"uint8\000"
+ 1030      3800
+ 1031              	.LASF27:
+ 1032 02a7 4144435F 		.ascii	"ADC_2_Start\000"
+ 1032      325F5374 
+ 1032      61727400 
+ 1033              	.LASF4:
+ 1034 02b3 6C6F6E67 		.ascii	"long int\000"
+ 1034      20696E74 
+ 1034      00
+ 1035              	.LASF17:
+ 1036 02bc 63686172 		.ascii	"char\000"
+ 1036      00
+ 1037              	.LASF18:
+ 1038 02c1 6C6F6E67 		.ascii	"long double\000"
+ 1038      20646F75 
+ 1038      626C6500 
+ 1039              	.LASF0:
+ 1040 02cd 7369676E 		.ascii	"signed char\000"
+ 1040      65642063 
+ 1040      68617200 
+ 1041              	.LASF32:
+ 1042 02d9 4144435F 		.ascii	"ADC_1_IsEndConversion\000"
+ 1042      315F4973 
+ 1042      456E6443 
+ 1042      6F6E7665 
+ 1042      7273696F 
+ 1043              	.LASF37:
+ 1044 02ef 73707269 		.ascii	"sprintf\000"
+ 1044      6E746600 
+ 1045              	.LASF39:
+ 1046 02f7 43794465 		.ascii	"CyDelay\000"
+ 1046      6C617900 
+ 1047              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

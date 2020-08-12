@@ -1,0 +1,93 @@
+# Sensor_Capacitivo
+# 2019-05-12 02:23:22Z
+
+# IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 0
+# IO_1@[IOP=(1)][IoId=(1)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 1
+# IO_3@[IOP=(1)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 3
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_io "\LCD:LCDPort(0)\" iocell 2 0
+set_io "\LCD:LCDPort(1)\" iocell 2 1
+set_io "\LCD:LCDPort(2)\" iocell 2 2
+set_io "\LCD:LCDPort(3)\" iocell 2 3
+set_io "\LCD:LCDPort(4)\" iocell 2 4
+set_io "\LCD:LCDPort(5)\" iocell 2 5
+set_io "\LCD:LCDPort(6)\" iocell 2 6
+set_io "\CapSense:CmodCH0(0)\" iocell 6 4
+set_io "\CapSense:PortCH0(0)\" iocell 5 5
+set_io "\CapSense:PortCH0(1)\" iocell 5 6
+set_io "\CapSense:PortCH0(2)\" iocell 5 0
+set_io "\CapSense:PortCH0(3)\" iocell 5 1
+set_io "\CapSense:PortCH0(4)\" iocell 5 2
+set_io "\CapSense:PortCH0(5)\" iocell 5 3
+set_io "\CapSense:PortCH0(6)\" iocell 5 4
+set_location "CapSense" capsensecell -1 -1 0
+set_io "salida1(0)" iocell 3 7
+set_io "salida2(0)" iocell 3 6
+set_io "\USB:Dm(0)\" iocell 15 7
+set_location "\USB:Dp\" logicalport -1 -1 15
+set_io "\USB:Dp(0)\" iocell 15 6
+set_io "pulsador(0)" iocell 6 1
+set_io "Pin_1(0)" iocell 3 5
+set_location "\CapSense:MeasureCH0:cs_addr_win_2\" 3 1 1 0
+set_location "\CapSense:MeasureCH0:cs_addr_win_1\" 3 1 1 2
+set_location "\CapSense:MeasureCH0:cs_addr_win_0\" 3 2 0 2
+set_location "\CapSense:MeasureCH0:cs_addr_cnt_2\" 3 1 1 3
+set_location "\CapSense:MeasureCH0:cs_addr_cnt_1\" 3 0 0 0
+set_location "\CapSense:MeasureCH0:cs_addr_cnt_0\" 3 0 1 2
+set_location "\CapSense:PreChargeClk\" 2 2 1 1
+set_location "\PWM_1:PWMUDB:status_2\" 2 1 1 2
+set_location "\PWM_2:PWMUDB:status_2\" 2 0 1 1
+set_location "\CapSense:BufCH0\" csabufcell -1 -1 0
+set_location "\CapSense:CompCH0:ctComp\" comparatorcell -1 -1 1
+set_location "\CapSense:IdacCH0:viDAC8\" vidaccell -1 -1 0
+set_location "__ONE__" 3 3 0 0
+set_location "\CapSense:MeasureCH0:genblk1:SyncCMPR\" 3 0 5 0
+set_location "\CapSense:MeasureCH0:UDB:Window:u0\" 3 1 2
+set_location "\CapSense:MeasureCH0:UDB:Counter:u0\" 3 0 2
+set_location "\CapSense:ClockGen:SyncCtrl:CtrlReg\" 3 2 6
+set_location "\CapSense:ClockGen:ScanSpeed\" 3 3 7
+set_location "\CapSense:ClockGen:UDB:PrescalerDp:u0\" 3 3 2
+set_location "\CapSense:ClockGen:sC16:PRSdp:u0\" 3 2 2
+set_location "\CapSense:ClockGen:sC16:PRSdp:u1\" 2 2 2
+set_location "\CapSense:IsrCH0\" interrupt -1 -1 0
+set_location "\PWM_1:PWMUDB:genblk1:ctrlreg\" 2 2 6
+set_location "\PWM_1:PWMUDB:genblk8:stsreg\" 2 2 4
+set_location "\PWM_1:PWMUDB:sP8:pwmdp:u0\" 2 1 2
+set_location "\PWM_2:PWMUDB:genblk1:ctrlreg\" 2 0 6
+set_location "\PWM_2:PWMUDB:genblk8:stsreg\" 2 0 4
+set_location "\PWM_2:PWMUDB:sP8:pwmdp:u0\" 2 0 2
+set_location "\USB:dp_int\" interrupt -1 -1 12
+set_location "\USB:USB\" usbcell -1 -1 0
+set_location "\USB:ep_3\" interrupt -1 -1 3
+set_location "\USB:ep_2\" interrupt -1 -1 2
+set_location "\USB:ep_1\" interrupt -1 -1 1
+set_location "\USB:ep_0\" interrupt -1 -1 24
+set_location "\USB:bus_reset\" interrupt -1 -1 23
+set_location "\USB:arb_int\" interrupt -1 -1 22
+set_location "\USB:sof_int\" interrupt -1 -1 21
+set_location "isr_2" interrupt -1 -1 5
+set_location "\Timer:TimerHW\" timercell -1 -1 0
+set_location "isr_1" interrupt -1 -1 4
+set_location "isr_3" interrupt -1 -1 6
+set_location "\Timer_1:TimerHW\" timercell -1 -1 1
+set_location "\CapSense:Net_1603\" 3 3 1 3
+set_location "\CapSense:MeasureCH0:wndState_2\" 3 0 1 0
+set_location "\CapSense:MeasureCH0:wndState_1\" 3 3 0 2
+set_location "\CapSense:MeasureCH0:wndState_0\" 3 1 1 1
+set_location "\CapSense:ClockGen:clock_detect_reg\" 2 3 1 3
+set_location "\CapSense:ClockGen:tmp_ppulse_reg\" 3 3 0 1
+set_location "\CapSense:ClockGen:tmp_ppulse_dly\" 2 3 0 0
+set_location "\CapSense:ClockGen:cstate_2\" 3 2 1 2
+set_location "\CapSense:mrst\" 3 1 0 1
+set_location "\CapSense:ClockGen:inter_reset\" 3 2 0 3
+set_location "\PWM_1:PWMUDB:runmode_enable\" 2 2 1 3
+set_location "\PWM_1:PWMUDB:prevCompare1\" 2 2 0 0
+set_location "\PWM_1:PWMUDB:status_0\" 2 2 0 2
+set_location "Net_135" 2 2 1 2
+set_location "\PWM_2:PWMUDB:runmode_enable\" 2 0 1 3
+set_location "\PWM_2:PWMUDB:prevCompare1\" 2 1 0 2
+set_location "\PWM_2:PWMUDB:status_0\" 2 1 1 1
+set_location "Net_40" 2 0 0 0

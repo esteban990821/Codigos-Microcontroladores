@@ -1,0 +1,7 @@
+D:\Users\ESTEBAN\Desktop\Materias\Codigos\Pscoc\Sensor_Capacitivo_Comunicacion_USB\USB_Serial.cydsn\USB_Serial.cyprj|f81378a6-169e-4a89-9d5c-0d6c5b36b839
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|157da1f1-f58f-46e2-8849-daa302ba04db
+D:\Users\ESTEBAN\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|656cb0ad-259a-4741-b67b-3632712ea909
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|35aee608-24c6-4baa-a500-c2ca3e3d2420
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|0b3127ce-9d04-44e2-a85c-a03d3a20b827
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|3306bcb1-ff3d-4d54-be3a-5aba4b5251f2
+D:\Users\ESTEBAN\Desktop\Materias\Codigos\Pscoc\Sensor_Capacitivo_Comunicacion_USB\Sensor_Capacitivo.cydsn\Sensor_Capacitivo.cyprj|25591b1f-0a9f-460c-9d8e-b80563792a23

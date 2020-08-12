@@ -1,0 +1,1475 @@
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	__aeabi_f2d
+  20              		.section	.text.Enviar,"ax",%progbits
+  21              		.align	2
+  22              		.global	Enviar
+  23              		.thumb
+  24              		.thumb_func
+  25              		.type	Enviar, %function
+  26              	Enviar:
+  27              	.LFB64:
+  28              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** 
+  15:main.c        **** int enteros[3];
+  16:main.c        **** float32 voltiosADC[3];
+  17:main.c        **** char str[12];
+  18:main.c        **** char recibir;
+  19:main.c        **** int canal=0;
+  20:main.c        **** CY_ISR(Enviar){
+  29              		.loc 1 20 0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 10B5     		push	{r4, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  21:main.c        **** if(canal==0){
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 2
+
+
+  37              		.loc 1 21 0
+  38 0002 1B4B     		ldr	r3, .L6
+  39 0004 1B68     		ldr	r3, [r3]
+  40 0006 6BB9     		cbnz	r3, .L2
+  22:main.c        ****   sprintf(str,"%.3f \n \r" ,voltiosADC[0]);
+  41              		.loc 1 22 0
+  42 0008 1A4B     		ldr	r3, .L6+4
+  43 000a 1868     		ldr	r0, [r3]	@ float
+  44 000c FFF7FEFF 		bl	__aeabi_f2d
+  45              	.LVL0:
+  46 0010 194C     		ldr	r4, .L6+8
+  47 0012 0246     		mov	r2, r0
+  48 0014 0B46     		mov	r3, r1
+  49 0016 1949     		ldr	r1, .L6+12
+  50 0018 2046     		mov	r0, r4
+  51 001a FFF7FEFF 		bl	sprintf
+  52              	.LVL1:
+  23:main.c        ****   UART_PutString(str);
+  53              		.loc 1 23 0
+  54 001e 2046     		mov	r0, r4
+  55 0020 FFF7FEFF 		bl	UART_PutString
+  56              	.LVL2:
+  57              	.L2:
+  24:main.c        **** }
+  25:main.c        **** if(canal==1){
+  58              		.loc 1 25 0
+  59 0024 124B     		ldr	r3, .L6
+  60 0026 1B68     		ldr	r3, [r3]
+  61 0028 012B     		cmp	r3, #1
+  62 002a 0DD1     		bne	.L3
+  26:main.c        ****   sprintf(str,"%.3f \n \r" ,voltiosADC[1]);
+  63              		.loc 1 26 0
+  64 002c 114B     		ldr	r3, .L6+4
+  65 002e 5868     		ldr	r0, [r3, #4]	@ float
+  66 0030 FFF7FEFF 		bl	__aeabi_f2d
+  67              	.LVL3:
+  68 0034 104C     		ldr	r4, .L6+8
+  69 0036 0246     		mov	r2, r0
+  70 0038 0B46     		mov	r3, r1
+  71 003a 1049     		ldr	r1, .L6+12
+  72 003c 2046     		mov	r0, r4
+  73 003e FFF7FEFF 		bl	sprintf
+  74              	.LVL4:
+  27:main.c        ****   UART_PutString(str);
+  75              		.loc 1 27 0
+  76 0042 2046     		mov	r0, r4
+  77 0044 FFF7FEFF 		bl	UART_PutString
+  78              	.LVL5:
+  79              	.L3:
+  28:main.c        **** }
+  29:main.c        **** if(canal==2){
+  80              		.loc 1 29 0
+  81 0048 094B     		ldr	r3, .L6
+  82 004a 1B68     		ldr	r3, [r3]
+  83 004c 022B     		cmp	r3, #2
+  84 004e 0DD1     		bne	.L1
+  30:main.c        ****   sprintf(str,"%.3f \n \r" ,voltiosADC[2]);
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 3
+
+
+  85              		.loc 1 30 0
+  86 0050 084B     		ldr	r3, .L6+4
+  87 0052 9868     		ldr	r0, [r3, #8]	@ float
+  88 0054 FFF7FEFF 		bl	__aeabi_f2d
+  89              	.LVL6:
+  90 0058 074C     		ldr	r4, .L6+8
+  91 005a 0246     		mov	r2, r0
+  92 005c 0B46     		mov	r3, r1
+  93 005e 0749     		ldr	r1, .L6+12
+  94 0060 2046     		mov	r0, r4
+  95 0062 FFF7FEFF 		bl	sprintf
+  96              	.LVL7:
+  31:main.c        ****   UART_PutString(str);
+  97              		.loc 1 31 0
+  98 0066 2046     		mov	r0, r4
+  99 0068 FFF7FEFF 		bl	UART_PutString
+ 100              	.LVL8:
+ 101              	.L1:
+ 102 006c 10BD     		pop	{r4, pc}
+ 103              	.L7:
+ 104 006e 00BF     		.align	2
+ 105              	.L6:
+ 106 0070 00000000 		.word	.LANCHOR0
+ 107 0074 00000000 		.word	voltiosADC
+ 108 0078 00000000 		.word	str
+ 109 007c 00000000 		.word	.LC0
+ 110              		.cfi_endproc
+ 111              	.LFE64:
+ 112              		.size	Enviar, .-Enviar
+ 113              		.section	.text.InterruptRX,"ax",%progbits
+ 114              		.align	2
+ 115              		.global	InterruptRX
+ 116              		.thumb
+ 117              		.thumb_func
+ 118              		.type	InterruptRX, %function
+ 119              	InterruptRX:
+ 120              	.LFB65:
+  32:main.c        **** }
+  33:main.c        **** }
+  34:main.c        **** 
+  35:main.c        **** 
+  36:main.c        **** CY_ISR(InterruptRX){
+ 121              		.loc 1 36 0
+ 122              		.cfi_startproc
+ 123              		@ args = 0, pretend = 0, frame = 0
+ 124              		@ frame_needed = 0, uses_anonymous_args = 0
+ 125 0000 08B5     		push	{r3, lr}
+ 126              		.cfi_def_cfa_offset 8
+ 127              		.cfi_offset 3, -8
+ 128              		.cfi_offset 14, -4
+  37:main.c        **** 
+  38:main.c        ****     recibir=UART_GetChar();
+ 129              		.loc 1 38 0
+ 130 0002 FFF7FEFF 		bl	UART_GetChar
+ 131              	.LVL9:
+ 132 0006 094B     		ldr	r3, .L13
+ 133 0008 1870     		strb	r0, [r3]
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 4
+
+
+  39:main.c        ****  if(recibir=='0'){
+ 134              		.loc 1 39 0
+ 135 000a 3028     		cmp	r0, #48
+ 136 000c 02D1     		bne	.L9
+  40:main.c        ****     canal=0;
+ 137              		.loc 1 40 0
+ 138 000e 0022     		movs	r2, #0
+ 139 0010 074B     		ldr	r3, .L13+4
+ 140 0012 1A60     		str	r2, [r3]
+ 141              	.L9:
+  41:main.c        ****  }
+  42:main.c        **** if(recibir=='1'){
+ 142              		.loc 1 42 0
+ 143 0014 3128     		cmp	r0, #49
+ 144 0016 02D1     		bne	.L10
+  43:main.c        ****     canal=1;
+ 145              		.loc 1 43 0
+ 146 0018 0122     		movs	r2, #1
+ 147 001a 054B     		ldr	r3, .L13+4
+ 148 001c 1A60     		str	r2, [r3]
+ 149              	.L10:
+  44:main.c        ****  }
+  45:main.c        **** if(recibir=='2'){
+ 150              		.loc 1 45 0
+ 151 001e 3228     		cmp	r0, #50
+ 152 0020 02D1     		bne	.L8
+  46:main.c        ****     canal=2;
+ 153              		.loc 1 46 0
+ 154 0022 0222     		movs	r2, #2
+ 155 0024 024B     		ldr	r3, .L13+4
+ 156 0026 1A60     		str	r2, [r3]
+ 157              	.L8:
+ 158 0028 08BD     		pop	{r3, pc}
+ 159              	.L14:
+ 160 002a 00BF     		.align	2
+ 161              	.L13:
+ 162 002c 00000000 		.word	recibir
+ 163 0030 00000000 		.word	.LANCHOR0
+ 164              		.cfi_endproc
+ 165              	.LFE65:
+ 166              		.size	InterruptRX, .-InterruptRX
+ 167              		.section	.text.main,"ax",%progbits
+ 168              		.align	2
+ 169              		.global	main
+ 170              		.thumb
+ 171              		.thumb_func
+ 172              		.type	main, %function
+ 173              	main:
+ 174              	.LFB66:
+  47:main.c        ****  }
+  48:main.c        **** 
+  49:main.c        **** }
+  50:main.c        **** 
+  51:main.c        **** 
+  52:main.c        **** int main(void)
+  53:main.c        **** {
+ 175              		.loc 1 53 0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 5
+
+
+ 176              		.cfi_startproc
+ 177              		@ Volatile: function does not return.
+ 178              		@ args = 0, pretend = 0, frame = 0
+ 179              		@ frame_needed = 0, uses_anonymous_args = 0
+ 180 0000 08B5     		push	{r3, lr}
+ 181              		.cfi_def_cfa_offset 8
+ 182              		.cfi_offset 3, -8
+ 183              		.cfi_offset 14, -4
+  54:main.c        ****     CyGlobalIntEnable; 
+ 184              		.loc 1 54 0
+ 185              		.syntax unified
+ 186              	@ 54 "main.c" 1
+ 187 0002 62B6     		CPSIE   i
+ 188              	@ 0 "" 2
+  55:main.c        ****     PWM_Start();
+ 189              		.loc 1 55 0
+ 190              		.thumb
+ 191              		.syntax unified
+ 192 0004 FFF7FEFF 		bl	PWM_Start
+ 193              	.LVL10:
+  56:main.c        ****     MUX_Start();
+ 194              		.loc 1 56 0
+ 195 0008 FFF7FEFF 		bl	MUX_Start
+ 196              	.LVL11:
+  57:main.c        ****     UART_Start();
+ 197              		.loc 1 57 0
+ 198 000c FFF7FEFF 		bl	UART_Start
+ 199              	.LVL12:
+  58:main.c        ****     ADC_Start();
+ 200              		.loc 1 58 0
+ 201 0010 FFF7FEFF 		bl	ADC_Start
+ 202              	.LVL13:
+  59:main.c        ****     
+  60:main.c        ****     isrRX_StartEx(InterruptRX);
+ 203              		.loc 1 60 0
+ 204 0014 1D48     		ldr	r0, .L18
+ 205 0016 FFF7FEFF 		bl	isrRX_StartEx
+ 206              	.LVL14:
+  61:main.c        ****     isrEnvio_StartEx(Enviar);
+ 207              		.loc 1 61 0
+ 208 001a 1D48     		ldr	r0, .L18+4
+ 209 001c FFF7FEFF 		bl	isrEnvio_StartEx
+ 210              	.LVL15:
+ 211              	.L16:
+  62:main.c        ****     for(;;)
+  63:main.c        ****     {
+  64:main.c        ****         MUX_FastSelect(0);
+ 212              		.loc 1 64 0 discriminator 1
+ 213 0020 0020     		movs	r0, #0
+ 214 0022 FFF7FEFF 		bl	MUX_FastSelect
+ 215              	.LVL16:
+  65:main.c        ****         ADC_StartConvert();
+ 216              		.loc 1 65 0 discriminator 1
+ 217 0026 FFF7FEFF 		bl	ADC_StartConvert
+ 218              	.LVL17:
+  66:main.c        ****         ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
+ 219              		.loc 1 66 0 discriminator 1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 6
+
+
+ 220 002a 0020     		movs	r0, #0
+ 221 002c FFF7FEFF 		bl	ADC_IsEndConversion
+ 222              	.LVL18:
+  67:main.c        ****         enteros[0]=ADC_GetResult32();
+ 223              		.loc 1 67 0 discriminator 1
+ 224 0030 FFF7FEFF 		bl	ADC_GetResult32
+ 225              	.LVL19:
+ 226 0034 174C     		ldr	r4, .L18+8
+ 227 0036 2060     		str	r0, [r4]
+  68:main.c        ****         ADC_StopConvert();
+ 228              		.loc 1 68 0 discriminator 1
+ 229 0038 FFF7FEFF 		bl	ADC_StopConvert
+ 230              	.LVL20:
+  69:main.c        ****         
+  70:main.c        ****         MUX_FastSelect(1);
+ 231              		.loc 1 70 0 discriminator 1
+ 232 003c 0120     		movs	r0, #1
+ 233 003e FFF7FEFF 		bl	MUX_FastSelect
+ 234              	.LVL21:
+  71:main.c        ****         ADC_StartConvert();
+ 235              		.loc 1 71 0 discriminator 1
+ 236 0042 FFF7FEFF 		bl	ADC_StartConvert
+ 237              	.LVL22:
+  72:main.c        ****         ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
+ 238              		.loc 1 72 0 discriminator 1
+ 239 0046 0020     		movs	r0, #0
+ 240 0048 FFF7FEFF 		bl	ADC_IsEndConversion
+ 241              	.LVL23:
+  73:main.c        ****         enteros[1]=ADC_GetResult32();
+ 242              		.loc 1 73 0 discriminator 1
+ 243 004c FFF7FEFF 		bl	ADC_GetResult32
+ 244              	.LVL24:
+ 245 0050 6060     		str	r0, [r4, #4]
+  74:main.c        ****         ADC_StopConvert();
+ 246              		.loc 1 74 0 discriminator 1
+ 247 0052 FFF7FEFF 		bl	ADC_StopConvert
+ 248              	.LVL25:
+  75:main.c        ****         
+  76:main.c        ****         MUX_FastSelect(2);
+ 249              		.loc 1 76 0 discriminator 1
+ 250 0056 0220     		movs	r0, #2
+ 251 0058 FFF7FEFF 		bl	MUX_FastSelect
+ 252              	.LVL26:
+  77:main.c        ****         ADC_StartConvert();
+ 253              		.loc 1 77 0 discriminator 1
+ 254 005c FFF7FEFF 		bl	ADC_StartConvert
+ 255              	.LVL27:
+  78:main.c        ****         ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
+ 256              		.loc 1 78 0 discriminator 1
+ 257 0060 0020     		movs	r0, #0
+ 258 0062 FFF7FEFF 		bl	ADC_IsEndConversion
+ 259              	.LVL28:
+  79:main.c        ****         enteros[2]=ADC_GetResult32();
+ 260              		.loc 1 79 0 discriminator 1
+ 261 0066 FFF7FEFF 		bl	ADC_GetResult32
+ 262              	.LVL29:
+ 263 006a A060     		str	r0, [r4, #8]
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 7
+
+
+  80:main.c        ****         ADC_StopConvert();
+ 264              		.loc 1 80 0 discriminator 1
+ 265 006c FFF7FEFF 		bl	ADC_StopConvert
+ 266              	.LVL30:
+  81:main.c        ****         
+  82:main.c        ****         voltiosADC[0]=ADC_CountsTo_Volts(enteros[0]);
+ 267              		.loc 1 82 0 discriminator 1
+ 268 0070 2068     		ldr	r0, [r4]
+ 269 0072 FFF7FEFF 		bl	ADC_CountsTo_Volts
+ 270              	.LVL31:
+ 271 0076 084D     		ldr	r5, .L18+12
+ 272 0078 2860     		str	r0, [r5]	@ float
+  83:main.c        ****         voltiosADC[1]=ADC_CountsTo_Volts(enteros[1]);
+ 273              		.loc 1 83 0 discriminator 1
+ 274 007a 6068     		ldr	r0, [r4, #4]
+ 275 007c FFF7FEFF 		bl	ADC_CountsTo_Volts
+ 276              	.LVL32:
+ 277 0080 6860     		str	r0, [r5, #4]	@ float
+  84:main.c        ****         voltiosADC[2]=ADC_CountsTo_Volts(enteros[2]);
+ 278              		.loc 1 84 0 discriminator 1
+ 279 0082 A068     		ldr	r0, [r4, #8]
+ 280 0084 FFF7FEFF 		bl	ADC_CountsTo_Volts
+ 281              	.LVL33:
+ 282 0088 A860     		str	r0, [r5, #8]	@ float
+ 283 008a C9E7     		b	.L16
+ 284              	.L19:
+ 285              		.align	2
+ 286              	.L18:
+ 287 008c 00000000 		.word	InterruptRX
+ 288 0090 00000000 		.word	Enviar
+ 289 0094 00000000 		.word	enteros
+ 290 0098 00000000 		.word	voltiosADC
+ 291              		.cfi_endproc
+ 292              	.LFE66:
+ 293              		.size	main, .-main
+ 294              		.global	canal
+ 295              		.comm	recibir,1,1
+ 296              		.comm	str,12,4
+ 297              		.comm	voltiosADC,12,4
+ 298              		.comm	enteros,12,4
+ 299              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 300              		.align	2
+ 301              	.LC0:
+ 302 0000 252E3366 		.ascii	"%.3f \012 \015\000"
+ 302      200A200D 
+ 302      00
+ 303              		.bss
+ 304              		.align	2
+ 305              		.set	.LANCHOR0,. + 0
+ 306              		.type	canal, %object
+ 307              		.size	canal, 4
+ 308              	canal:
+ 309 0000 00000000 		.space	4
+ 310              		.text
+ 311              	.Letext0:
+ 312              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 313              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 8
+
+
+ 314              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 315              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 316              		.file 6 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 317              		.file 7 "Generated_Source\\PSoC5/UART.h"
+ 318              		.file 8 "Generated_Source\\PSoC5/PWM.h"
+ 319              		.file 9 "Generated_Source\\PSoC5/MUX.h"
+ 320              		.file 10 "Generated_Source\\PSoC5/ADC.h"
+ 321              		.file 11 "Generated_Source\\PSoC5/isrRX.h"
+ 322              		.file 12 "Generated_Source\\PSoC5/isrEnvio.h"
+ 323              		.section	.debug_info,"",%progbits
+ 324              	.Ldebug_info0:
+ 325 0000 F6030000 		.4byte	0x3f6
+ 326 0004 0400     		.2byte	0x4
+ 327 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 328 000a 04       		.byte	0x4
+ 329 000b 01       		.uleb128 0x1
+ 330 000c 5C000000 		.4byte	.LASF39
+ 331 0010 0C       		.byte	0xc
+ 332 0011 F6010000 		.4byte	.LASF40
+ 333 0015 22000000 		.4byte	.LASF41
+ 334 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 335 001d 00000000 		.4byte	0
+ 336 0021 00000000 		.4byte	.Ldebug_line0
+ 337 0025 02       		.uleb128 0x2
+ 338 0026 01       		.byte	0x1
+ 339 0027 06       		.byte	0x6
+ 340 0028 6F020000 		.4byte	.LASF0
+ 341 002c 02       		.uleb128 0x2
+ 342 002d 01       		.byte	0x1
+ 343 002e 08       		.byte	0x8
+ 344 002f 4E000000 		.4byte	.LASF1
+ 345 0033 02       		.uleb128 0x2
+ 346 0034 02       		.byte	0x2
+ 347 0035 05       		.byte	0x5
+ 348 0036 6C010000 		.4byte	.LASF2
+ 349 003a 02       		.uleb128 0x2
+ 350 003b 02       		.byte	0x2
+ 351 003c 07       		.byte	0x7
+ 352 003d 0F010000 		.4byte	.LASF3
+ 353 0041 03       		.uleb128 0x3
+ 354 0042 00000000 		.4byte	.LASF9
+ 355 0046 02       		.byte	0x2
+ 356 0047 3F       		.byte	0x3f
+ 357 0048 4C000000 		.4byte	0x4c
+ 358 004c 02       		.uleb128 0x2
+ 359 004d 04       		.byte	0x4
+ 360 004e 05       		.byte	0x5
+ 361 004f 5A020000 		.4byte	.LASF4
+ 362 0053 02       		.uleb128 0x2
+ 363 0054 04       		.byte	0x4
+ 364 0055 07       		.byte	0x7
+ 365 0056 5A010000 		.4byte	.LASF5
+ 366 005a 02       		.uleb128 0x2
+ 367 005b 08       		.byte	0x8
+ 368 005c 05       		.byte	0x5
+ 369 005d E8010000 		.4byte	.LASF6
+ 370 0061 02       		.uleb128 0x2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 9
+
+
+ 371 0062 08       		.byte	0x8
+ 372 0063 07       		.byte	0x7
+ 373 0064 9E010000 		.4byte	.LASF7
+ 374 0068 04       		.uleb128 0x4
+ 375 0069 04       		.byte	0x4
+ 376 006a 05       		.byte	0x5
+ 377 006b 696E7400 		.ascii	"int\000"
+ 378 006f 02       		.uleb128 0x2
+ 379 0070 04       		.byte	0x4
+ 380 0071 07       		.byte	0x7
+ 381 0072 91010000 		.4byte	.LASF8
+ 382 0076 03       		.uleb128 0x3
+ 383 0077 C4010000 		.4byte	.LASF10
+ 384 007b 03       		.byte	0x3
+ 385 007c 2C       		.byte	0x2c
+ 386 007d 41000000 		.4byte	0x41
+ 387 0081 05       		.uleb128 0x5
+ 388 0082 81010000 		.4byte	.LASF11
+ 389 0086 04       		.byte	0x4
+ 390 0087 EA01     		.2byte	0x1ea
+ 391 0089 8D000000 		.4byte	0x8d
+ 392 008d 02       		.uleb128 0x2
+ 393 008e 04       		.byte	0x4
+ 394 008f 04       		.byte	0x4
+ 395 0090 41000000 		.4byte	.LASF12
+ 396 0094 02       		.uleb128 0x2
+ 397 0095 08       		.byte	0x8
+ 398 0096 04       		.byte	0x4
+ 399 0097 1B000000 		.4byte	.LASF13
+ 400 009b 02       		.uleb128 0x2
+ 401 009c 01       		.byte	0x1
+ 402 009d 08       		.byte	0x8
+ 403 009e FD010000 		.4byte	.LASF14
+ 404 00a2 02       		.uleb128 0x2
+ 405 00a3 08       		.byte	0x8
+ 406 00a4 04       		.byte	0x4
+ 407 00a5 63020000 		.4byte	.LASF15
+ 408 00a9 02       		.uleb128 0x2
+ 409 00aa 04       		.byte	0x4
+ 410 00ab 07       		.byte	0x7
+ 411 00ac CC010000 		.4byte	.LASF16
+ 412 00b0 06       		.uleb128 0x6
+ 413 00b1 47000000 		.4byte	.LASF17
+ 414 00b5 01       		.byte	0x1
+ 415 00b6 14       		.byte	0x14
+ 416 00b7 00000000 		.4byte	.LFB64
+ 417 00bb 80000000 		.4byte	.LFE64-.LFB64
+ 418 00bf 01       		.uleb128 0x1
+ 419 00c0 9C       		.byte	0x9c
+ 420 00c1 55010000 		.4byte	0x155
+ 421 00c5 07       		.uleb128 0x7
+ 422 00c6 1E000000 		.4byte	.LVL1
+ 423 00ca 54030000 		.4byte	0x354
+ 424 00ce E2000000 		.4byte	0xe2
+ 425 00d2 08       		.uleb128 0x8
+ 426 00d3 01       		.uleb128 0x1
+ 427 00d4 50       		.byte	0x50
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 10
+
+
+ 428 00d5 02       		.uleb128 0x2
+ 429 00d6 74       		.byte	0x74
+ 430 00d7 00       		.sleb128 0
+ 431 00d8 08       		.uleb128 0x8
+ 432 00d9 01       		.uleb128 0x1
+ 433 00da 51       		.byte	0x51
+ 434 00db 05       		.uleb128 0x5
+ 435 00dc 03       		.byte	0x3
+ 436 00dd 00000000 		.4byte	.LC0
+ 437 00e1 00       		.byte	0
+ 438 00e2 07       		.uleb128 0x7
+ 439 00e3 24000000 		.4byte	.LVL2
+ 440 00e7 5F030000 		.4byte	0x35f
+ 441 00eb F6000000 		.4byte	0xf6
+ 442 00ef 08       		.uleb128 0x8
+ 443 00f0 01       		.uleb128 0x1
+ 444 00f1 50       		.byte	0x50
+ 445 00f2 02       		.uleb128 0x2
+ 446 00f3 74       		.byte	0x74
+ 447 00f4 00       		.sleb128 0
+ 448 00f5 00       		.byte	0
+ 449 00f6 07       		.uleb128 0x7
+ 450 00f7 42000000 		.4byte	.LVL4
+ 451 00fb 54030000 		.4byte	0x354
+ 452 00ff 13010000 		.4byte	0x113
+ 453 0103 08       		.uleb128 0x8
+ 454 0104 01       		.uleb128 0x1
+ 455 0105 50       		.byte	0x50
+ 456 0106 02       		.uleb128 0x2
+ 457 0107 74       		.byte	0x74
+ 458 0108 00       		.sleb128 0
+ 459 0109 08       		.uleb128 0x8
+ 460 010a 01       		.uleb128 0x1
+ 461 010b 51       		.byte	0x51
+ 462 010c 05       		.uleb128 0x5
+ 463 010d 03       		.byte	0x3
+ 464 010e 00000000 		.4byte	.LC0
+ 465 0112 00       		.byte	0
+ 466 0113 07       		.uleb128 0x7
+ 467 0114 48000000 		.4byte	.LVL5
+ 468 0118 5F030000 		.4byte	0x35f
+ 469 011c 27010000 		.4byte	0x127
+ 470 0120 08       		.uleb128 0x8
+ 471 0121 01       		.uleb128 0x1
+ 472 0122 50       		.byte	0x50
+ 473 0123 02       		.uleb128 0x2
+ 474 0124 74       		.byte	0x74
+ 475 0125 00       		.sleb128 0
+ 476 0126 00       		.byte	0
+ 477 0127 07       		.uleb128 0x7
+ 478 0128 66000000 		.4byte	.LVL7
+ 479 012c 54030000 		.4byte	0x354
+ 480 0130 44010000 		.4byte	0x144
+ 481 0134 08       		.uleb128 0x8
+ 482 0135 01       		.uleb128 0x1
+ 483 0136 50       		.byte	0x50
+ 484 0137 02       		.uleb128 0x2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 11
+
+
+ 485 0138 74       		.byte	0x74
+ 486 0139 00       		.sleb128 0
+ 487 013a 08       		.uleb128 0x8
+ 488 013b 01       		.uleb128 0x1
+ 489 013c 51       		.byte	0x51
+ 490 013d 05       		.uleb128 0x5
+ 491 013e 03       		.byte	0x3
+ 492 013f 00000000 		.4byte	.LC0
+ 493 0143 00       		.byte	0
+ 494 0144 09       		.uleb128 0x9
+ 495 0145 6C000000 		.4byte	.LVL8
+ 496 0149 5F030000 		.4byte	0x35f
+ 497 014d 08       		.uleb128 0x8
+ 498 014e 01       		.uleb128 0x1
+ 499 014f 50       		.byte	0x50
+ 500 0150 02       		.uleb128 0x2
+ 501 0151 74       		.byte	0x74
+ 502 0152 00       		.sleb128 0
+ 503 0153 00       		.byte	0
+ 504 0154 00       		.byte	0
+ 505 0155 0A       		.uleb128 0xa
+ 506 0156 3F020000 		.4byte	.LASF18
+ 507 015a 01       		.byte	0x1
+ 508 015b 24       		.byte	0x24
+ 509 015c 00000000 		.4byte	.LFB65
+ 510 0160 34000000 		.4byte	.LFE65-.LFB65
+ 511 0164 01       		.uleb128 0x1
+ 512 0165 9C       		.byte	0x9c
+ 513 0166 74010000 		.4byte	0x174
+ 514 016a 0B       		.uleb128 0xb
+ 515 016b 06000000 		.4byte	.LVL9
+ 516 016f 6A030000 		.4byte	0x36a
+ 517 0173 00       		.byte	0
+ 518 0174 0C       		.uleb128 0xc
+ 519 0175 BF010000 		.4byte	.LASF42
+ 520 0179 01       		.byte	0x1
+ 521 017a 34       		.byte	0x34
+ 522 017b 68000000 		.4byte	0x68
+ 523 017f 00000000 		.4byte	.LFB66
+ 524 0183 9C000000 		.4byte	.LFE66-.LFB66
+ 525 0187 01       		.uleb128 0x1
+ 526 0188 9C       		.byte	0x9c
+ 527 0189 BE020000 		.4byte	0x2be
+ 528 018d 0B       		.uleb128 0xb
+ 529 018e 08000000 		.4byte	.LVL10
+ 530 0192 75030000 		.4byte	0x375
+ 531 0196 0B       		.uleb128 0xb
+ 532 0197 0C000000 		.4byte	.LVL11
+ 533 019b 80030000 		.4byte	0x380
+ 534 019f 0B       		.uleb128 0xb
+ 535 01a0 10000000 		.4byte	.LVL12
+ 536 01a4 8B030000 		.4byte	0x38b
+ 537 01a8 0B       		.uleb128 0xb
+ 538 01a9 14000000 		.4byte	.LVL13
+ 539 01ad 96030000 		.4byte	0x396
+ 540 01b1 07       		.uleb128 0x7
+ 541 01b2 1A000000 		.4byte	.LVL14
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 12
+
+
+ 542 01b6 A1030000 		.4byte	0x3a1
+ 543 01ba C8010000 		.4byte	0x1c8
+ 544 01be 08       		.uleb128 0x8
+ 545 01bf 01       		.uleb128 0x1
+ 546 01c0 50       		.byte	0x50
+ 547 01c1 05       		.uleb128 0x5
+ 548 01c2 03       		.byte	0x3
+ 549 01c3 00000000 		.4byte	InterruptRX
+ 550 01c7 00       		.byte	0
+ 551 01c8 07       		.uleb128 0x7
+ 552 01c9 20000000 		.4byte	.LVL15
+ 553 01cd AC030000 		.4byte	0x3ac
+ 554 01d1 DF010000 		.4byte	0x1df
+ 555 01d5 08       		.uleb128 0x8
+ 556 01d6 01       		.uleb128 0x1
+ 557 01d7 50       		.byte	0x50
+ 558 01d8 05       		.uleb128 0x5
+ 559 01d9 03       		.byte	0x3
+ 560 01da 00000000 		.4byte	Enviar
+ 561 01de 00       		.byte	0
+ 562 01df 07       		.uleb128 0x7
+ 563 01e0 26000000 		.4byte	.LVL16
+ 564 01e4 B7030000 		.4byte	0x3b7
+ 565 01e8 F2010000 		.4byte	0x1f2
+ 566 01ec 08       		.uleb128 0x8
+ 567 01ed 01       		.uleb128 0x1
+ 568 01ee 50       		.byte	0x50
+ 569 01ef 01       		.uleb128 0x1
+ 570 01f0 30       		.byte	0x30
+ 571 01f1 00       		.byte	0
+ 572 01f2 0B       		.uleb128 0xb
+ 573 01f3 2A000000 		.4byte	.LVL17
+ 574 01f7 C2030000 		.4byte	0x3c2
+ 575 01fb 07       		.uleb128 0x7
+ 576 01fc 30000000 		.4byte	.LVL18
+ 577 0200 CD030000 		.4byte	0x3cd
+ 578 0204 0E020000 		.4byte	0x20e
+ 579 0208 08       		.uleb128 0x8
+ 580 0209 01       		.uleb128 0x1
+ 581 020a 50       		.byte	0x50
+ 582 020b 01       		.uleb128 0x1
+ 583 020c 30       		.byte	0x30
+ 584 020d 00       		.byte	0
+ 585 020e 0B       		.uleb128 0xb
+ 586 020f 34000000 		.4byte	.LVL19
+ 587 0213 D8030000 		.4byte	0x3d8
+ 588 0217 0B       		.uleb128 0xb
+ 589 0218 3C000000 		.4byte	.LVL20
+ 590 021c E3030000 		.4byte	0x3e3
+ 591 0220 07       		.uleb128 0x7
+ 592 0221 42000000 		.4byte	.LVL21
+ 593 0225 B7030000 		.4byte	0x3b7
+ 594 0229 33020000 		.4byte	0x233
+ 595 022d 08       		.uleb128 0x8
+ 596 022e 01       		.uleb128 0x1
+ 597 022f 50       		.byte	0x50
+ 598 0230 01       		.uleb128 0x1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 13
+
+
+ 599 0231 31       		.byte	0x31
+ 600 0232 00       		.byte	0
+ 601 0233 0B       		.uleb128 0xb
+ 602 0234 46000000 		.4byte	.LVL22
+ 603 0238 C2030000 		.4byte	0x3c2
+ 604 023c 07       		.uleb128 0x7
+ 605 023d 4C000000 		.4byte	.LVL23
+ 606 0241 CD030000 		.4byte	0x3cd
+ 607 0245 4F020000 		.4byte	0x24f
+ 608 0249 08       		.uleb128 0x8
+ 609 024a 01       		.uleb128 0x1
+ 610 024b 50       		.byte	0x50
+ 611 024c 01       		.uleb128 0x1
+ 612 024d 30       		.byte	0x30
+ 613 024e 00       		.byte	0
+ 614 024f 0B       		.uleb128 0xb
+ 615 0250 50000000 		.4byte	.LVL24
+ 616 0254 D8030000 		.4byte	0x3d8
+ 617 0258 0B       		.uleb128 0xb
+ 618 0259 56000000 		.4byte	.LVL25
+ 619 025d E3030000 		.4byte	0x3e3
+ 620 0261 07       		.uleb128 0x7
+ 621 0262 5C000000 		.4byte	.LVL26
+ 622 0266 B7030000 		.4byte	0x3b7
+ 623 026a 74020000 		.4byte	0x274
+ 624 026e 08       		.uleb128 0x8
+ 625 026f 01       		.uleb128 0x1
+ 626 0270 50       		.byte	0x50
+ 627 0271 01       		.uleb128 0x1
+ 628 0272 32       		.byte	0x32
+ 629 0273 00       		.byte	0
+ 630 0274 0B       		.uleb128 0xb
+ 631 0275 60000000 		.4byte	.LVL27
+ 632 0279 C2030000 		.4byte	0x3c2
+ 633 027d 07       		.uleb128 0x7
+ 634 027e 66000000 		.4byte	.LVL28
+ 635 0282 CD030000 		.4byte	0x3cd
+ 636 0286 90020000 		.4byte	0x290
+ 637 028a 08       		.uleb128 0x8
+ 638 028b 01       		.uleb128 0x1
+ 639 028c 50       		.byte	0x50
+ 640 028d 01       		.uleb128 0x1
+ 641 028e 30       		.byte	0x30
+ 642 028f 00       		.byte	0
+ 643 0290 0B       		.uleb128 0xb
+ 644 0291 6A000000 		.4byte	.LVL29
+ 645 0295 D8030000 		.4byte	0x3d8
+ 646 0299 0B       		.uleb128 0xb
+ 647 029a 70000000 		.4byte	.LVL30
+ 648 029e E3030000 		.4byte	0x3e3
+ 649 02a2 0B       		.uleb128 0xb
+ 650 02a3 76000000 		.4byte	.LVL31
+ 651 02a7 EE030000 		.4byte	0x3ee
+ 652 02ab 0B       		.uleb128 0xb
+ 653 02ac 80000000 		.4byte	.LVL32
+ 654 02b0 EE030000 		.4byte	0x3ee
+ 655 02b4 0B       		.uleb128 0xb
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 14
+
+
+ 656 02b5 88000000 		.4byte	.LVL33
+ 657 02b9 EE030000 		.4byte	0x3ee
+ 658 02bd 00       		.byte	0
+ 659 02be 0D       		.uleb128 0xd
+ 660 02bf 3D010000 		.4byte	.LASF19
+ 661 02c3 05       		.byte	0x5
+ 662 02c4 1207     		.2byte	0x712
+ 663 02c6 CA020000 		.4byte	0x2ca
+ 664 02ca 0E       		.uleb128 0xe
+ 665 02cb 76000000 		.4byte	0x76
+ 666 02cf 0F       		.uleb128 0xf
+ 667 02d0 68000000 		.4byte	0x68
+ 668 02d4 DF020000 		.4byte	0x2df
+ 669 02d8 10       		.uleb128 0x10
+ 670 02d9 A9000000 		.4byte	0xa9
+ 671 02dd 02       		.byte	0x2
+ 672 02de 00       		.byte	0
+ 673 02df 11       		.uleb128 0x11
+ 674 02e0 89010000 		.4byte	.LASF20
+ 675 02e4 01       		.byte	0x1
+ 676 02e5 0F       		.byte	0xf
+ 677 02e6 CF020000 		.4byte	0x2cf
+ 678 02ea 05       		.uleb128 0x5
+ 679 02eb 03       		.byte	0x3
+ 680 02ec 00000000 		.4byte	enteros
+ 681 02f0 0F       		.uleb128 0xf
+ 682 02f1 81000000 		.4byte	0x81
+ 683 02f5 00030000 		.4byte	0x300
+ 684 02f9 10       		.uleb128 0x10
+ 685 02fa A9000000 		.4byte	0xa9
+ 686 02fe 02       		.byte	0x2
+ 687 02ff 00       		.byte	0
+ 688 0300 11       		.uleb128 0x11
+ 689 0301 76010000 		.4byte	.LASF21
+ 690 0305 01       		.byte	0x1
+ 691 0306 10       		.byte	0x10
+ 692 0307 F0020000 		.4byte	0x2f0
+ 693 030b 05       		.uleb128 0x5
+ 694 030c 03       		.byte	0x3
+ 695 030d 00000000 		.4byte	voltiosADC
+ 696 0311 0F       		.uleb128 0xf
+ 697 0312 9B000000 		.4byte	0x9b
+ 698 0316 21030000 		.4byte	0x321
+ 699 031a 10       		.uleb128 0x10
+ 700 031b A9000000 		.4byte	0xa9
+ 701 031f 0B       		.byte	0xb
+ 702 0320 00       		.byte	0
+ 703 0321 12       		.uleb128 0x12
+ 704 0322 73747200 		.ascii	"str\000"
+ 705 0326 01       		.byte	0x1
+ 706 0327 11       		.byte	0x11
+ 707 0328 11030000 		.4byte	0x311
+ 708 032c 05       		.uleb128 0x5
+ 709 032d 03       		.byte	0x3
+ 710 032e 00000000 		.4byte	str
+ 711 0332 11       		.uleb128 0x11
+ 712 0333 2D020000 		.4byte	.LASF22
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 15
+
+
+ 713 0337 01       		.byte	0x1
+ 714 0338 12       		.byte	0x12
+ 715 0339 9B000000 		.4byte	0x9b
+ 716 033d 05       		.uleb128 0x5
+ 717 033e 03       		.byte	0x3
+ 718 033f 00000000 		.4byte	recibir
+ 719 0343 11       		.uleb128 0x11
+ 720 0344 19020000 		.4byte	.LASF23
+ 721 0348 01       		.byte	0x1
+ 722 0349 13       		.byte	0x13
+ 723 034a 68000000 		.4byte	0x68
+ 724 034e 05       		.uleb128 0x5
+ 725 034f 03       		.byte	0x3
+ 726 0350 00000000 		.4byte	canal
+ 727 0354 13       		.uleb128 0x13
+ 728 0355 8A020000 		.4byte	.LASF24
+ 729 0359 8A020000 		.4byte	.LASF24
+ 730 035d 06       		.byte	0x6
+ 731 035e E7       		.byte	0xe7
+ 732 035f 13       		.uleb128 0x13
+ 733 0360 7B020000 		.4byte	.LASF25
+ 734 0364 7B020000 		.4byte	.LASF25
+ 735 0368 07       		.byte	0x7
+ 736 0369 8B       		.byte	0x8b
+ 737 036a 13       		.uleb128 0x13
+ 738 036b 02020000 		.4byte	.LASF26
+ 739 036f 02020000 		.4byte	.LASF26
+ 740 0373 07       		.byte	0x7
+ 741 0374 71       		.byte	0x71
+ 742 0375 13       		.uleb128 0x13
+ 743 0376 35020000 		.4byte	.LASF27
+ 744 037a 35020000 		.4byte	.LASF27
+ 745 037e 08       		.byte	0x8
+ 746 037f 92       		.byte	0x92
+ 747 0380 13       		.uleb128 0x13
+ 748 0381 0F020000 		.4byte	.LASF28
+ 749 0385 0F020000 		.4byte	.LASF28
+ 750 0389 09       		.byte	0x9
+ 751 038a 25       		.byte	0x25
+ 752 038b 13       		.uleb128 0x13
+ 753 038c 22010000 		.4byte	.LASF29
+ 754 0390 22010000 		.4byte	.LASF29
+ 755 0394 07       		.byte	0x7
+ 756 0395 54       		.byte	0x54
+ 757 0396 13       		.uleb128 0x13
+ 758 0397 B5010000 		.4byte	.LASF30
+ 759 039b B5010000 		.4byte	.LASF30
+ 760 039f 0A       		.byte	0xa
+ 761 03a0 3A       		.byte	0x3a
+ 762 03a1 13       		.uleb128 0x13
+ 763 03a2 1F020000 		.4byte	.LASF31
+ 764 03a6 1F020000 		.4byte	.LASF31
+ 765 03aa 0B       		.byte	0xb
+ 766 03ab 18       		.byte	0x18
+ 767 03ac 13       		.uleb128 0x13
+ 768 03ad 0A000000 		.4byte	.LASF32
+ 769 03b1 0A000000 		.4byte	.LASF32
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 16
+
+
+ 770 03b5 0C       		.byte	0xc
+ 771 03b6 18       		.byte	0x18
+ 772 03b7 13       		.uleb128 0x13
+ 773 03b8 4B020000 		.4byte	.LASF33
+ 774 03bc 4B020000 		.4byte	.LASF33
+ 775 03c0 09       		.byte	0x9
+ 776 03c1 27       		.byte	0x27
+ 777 03c2 13       		.uleb128 0x13
+ 778 03c3 EA000000 		.4byte	.LASF34
+ 779 03c7 EA000000 		.4byte	.LASF34
+ 780 03cb 0A       		.byte	0xa
+ 781 03cc 3D       		.byte	0x3d
+ 782 03cd 13       		.uleb128 0x13
+ 783 03ce FB000000 		.4byte	.LASF35
+ 784 03d2 FB000000 		.4byte	.LASF35
+ 785 03d6 0A       		.byte	0xa
+ 786 03d7 3F       		.byte	0x3f
+ 787 03d8 13       		.uleb128 0x13
+ 788 03d9 4A010000 		.4byte	.LASF36
+ 789 03dd 4A010000 		.4byte	.LASF36
+ 790 03e1 0A       		.byte	0xa
+ 791 03e2 42       		.byte	0x42
+ 792 03e3 13       		.uleb128 0x13
+ 793 03e4 2D010000 		.4byte	.LASF37
+ 794 03e8 2D010000 		.4byte	.LASF37
+ 795 03ec 0A       		.byte	0xa
+ 796 03ed 3E       		.byte	0x3e
+ 797 03ee 13       		.uleb128 0x13
+ 798 03ef D5010000 		.4byte	.LASF38
+ 799 03f3 D5010000 		.4byte	.LASF38
+ 800 03f7 0A       		.byte	0xa
+ 801 03f8 49       		.byte	0x49
+ 802 03f9 00       		.byte	0
+ 803              		.section	.debug_abbrev,"",%progbits
+ 804              	.Ldebug_abbrev0:
+ 805 0000 01       		.uleb128 0x1
+ 806 0001 11       		.uleb128 0x11
+ 807 0002 01       		.byte	0x1
+ 808 0003 25       		.uleb128 0x25
+ 809 0004 0E       		.uleb128 0xe
+ 810 0005 13       		.uleb128 0x13
+ 811 0006 0B       		.uleb128 0xb
+ 812 0007 03       		.uleb128 0x3
+ 813 0008 0E       		.uleb128 0xe
+ 814 0009 1B       		.uleb128 0x1b
+ 815 000a 0E       		.uleb128 0xe
+ 816 000b 55       		.uleb128 0x55
+ 817 000c 17       		.uleb128 0x17
+ 818 000d 11       		.uleb128 0x11
+ 819 000e 01       		.uleb128 0x1
+ 820 000f 10       		.uleb128 0x10
+ 821 0010 17       		.uleb128 0x17
+ 822 0011 00       		.byte	0
+ 823 0012 00       		.byte	0
+ 824 0013 02       		.uleb128 0x2
+ 825 0014 24       		.uleb128 0x24
+ 826 0015 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 17
+
+
+ 827 0016 0B       		.uleb128 0xb
+ 828 0017 0B       		.uleb128 0xb
+ 829 0018 3E       		.uleb128 0x3e
+ 830 0019 0B       		.uleb128 0xb
+ 831 001a 03       		.uleb128 0x3
+ 832 001b 0E       		.uleb128 0xe
+ 833 001c 00       		.byte	0
+ 834 001d 00       		.byte	0
+ 835 001e 03       		.uleb128 0x3
+ 836 001f 16       		.uleb128 0x16
+ 837 0020 00       		.byte	0
+ 838 0021 03       		.uleb128 0x3
+ 839 0022 0E       		.uleb128 0xe
+ 840 0023 3A       		.uleb128 0x3a
+ 841 0024 0B       		.uleb128 0xb
+ 842 0025 3B       		.uleb128 0x3b
+ 843 0026 0B       		.uleb128 0xb
+ 844 0027 49       		.uleb128 0x49
+ 845 0028 13       		.uleb128 0x13
+ 846 0029 00       		.byte	0
+ 847 002a 00       		.byte	0
+ 848 002b 04       		.uleb128 0x4
+ 849 002c 24       		.uleb128 0x24
+ 850 002d 00       		.byte	0
+ 851 002e 0B       		.uleb128 0xb
+ 852 002f 0B       		.uleb128 0xb
+ 853 0030 3E       		.uleb128 0x3e
+ 854 0031 0B       		.uleb128 0xb
+ 855 0032 03       		.uleb128 0x3
+ 856 0033 08       		.uleb128 0x8
+ 857 0034 00       		.byte	0
+ 858 0035 00       		.byte	0
+ 859 0036 05       		.uleb128 0x5
+ 860 0037 16       		.uleb128 0x16
+ 861 0038 00       		.byte	0
+ 862 0039 03       		.uleb128 0x3
+ 863 003a 0E       		.uleb128 0xe
+ 864 003b 3A       		.uleb128 0x3a
+ 865 003c 0B       		.uleb128 0xb
+ 866 003d 3B       		.uleb128 0x3b
+ 867 003e 05       		.uleb128 0x5
+ 868 003f 49       		.uleb128 0x49
+ 869 0040 13       		.uleb128 0x13
+ 870 0041 00       		.byte	0
+ 871 0042 00       		.byte	0
+ 872 0043 06       		.uleb128 0x6
+ 873 0044 2E       		.uleb128 0x2e
+ 874 0045 01       		.byte	0x1
+ 875 0046 3F       		.uleb128 0x3f
+ 876 0047 19       		.uleb128 0x19
+ 877 0048 03       		.uleb128 0x3
+ 878 0049 0E       		.uleb128 0xe
+ 879 004a 3A       		.uleb128 0x3a
+ 880 004b 0B       		.uleb128 0xb
+ 881 004c 3B       		.uleb128 0x3b
+ 882 004d 0B       		.uleb128 0xb
+ 883 004e 27       		.uleb128 0x27
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 18
+
+
+ 884 004f 19       		.uleb128 0x19
+ 885 0050 11       		.uleb128 0x11
+ 886 0051 01       		.uleb128 0x1
+ 887 0052 12       		.uleb128 0x12
+ 888 0053 06       		.uleb128 0x6
+ 889 0054 40       		.uleb128 0x40
+ 890 0055 18       		.uleb128 0x18
+ 891 0056 9642     		.uleb128 0x2116
+ 892 0058 19       		.uleb128 0x19
+ 893 0059 01       		.uleb128 0x1
+ 894 005a 13       		.uleb128 0x13
+ 895 005b 00       		.byte	0
+ 896 005c 00       		.byte	0
+ 897 005d 07       		.uleb128 0x7
+ 898 005e 898201   		.uleb128 0x4109
+ 899 0061 01       		.byte	0x1
+ 900 0062 11       		.uleb128 0x11
+ 901 0063 01       		.uleb128 0x1
+ 902 0064 31       		.uleb128 0x31
+ 903 0065 13       		.uleb128 0x13
+ 904 0066 01       		.uleb128 0x1
+ 905 0067 13       		.uleb128 0x13
+ 906 0068 00       		.byte	0
+ 907 0069 00       		.byte	0
+ 908 006a 08       		.uleb128 0x8
+ 909 006b 8A8201   		.uleb128 0x410a
+ 910 006e 00       		.byte	0
+ 911 006f 02       		.uleb128 0x2
+ 912 0070 18       		.uleb128 0x18
+ 913 0071 9142     		.uleb128 0x2111
+ 914 0073 18       		.uleb128 0x18
+ 915 0074 00       		.byte	0
+ 916 0075 00       		.byte	0
+ 917 0076 09       		.uleb128 0x9
+ 918 0077 898201   		.uleb128 0x4109
+ 919 007a 01       		.byte	0x1
+ 920 007b 11       		.uleb128 0x11
+ 921 007c 01       		.uleb128 0x1
+ 922 007d 31       		.uleb128 0x31
+ 923 007e 13       		.uleb128 0x13
+ 924 007f 00       		.byte	0
+ 925 0080 00       		.byte	0
+ 926 0081 0A       		.uleb128 0xa
+ 927 0082 2E       		.uleb128 0x2e
+ 928 0083 01       		.byte	0x1
+ 929 0084 3F       		.uleb128 0x3f
+ 930 0085 19       		.uleb128 0x19
+ 931 0086 03       		.uleb128 0x3
+ 932 0087 0E       		.uleb128 0xe
+ 933 0088 3A       		.uleb128 0x3a
+ 934 0089 0B       		.uleb128 0xb
+ 935 008a 3B       		.uleb128 0x3b
+ 936 008b 0B       		.uleb128 0xb
+ 937 008c 27       		.uleb128 0x27
+ 938 008d 19       		.uleb128 0x19
+ 939 008e 11       		.uleb128 0x11
+ 940 008f 01       		.uleb128 0x1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 19
+
+
+ 941 0090 12       		.uleb128 0x12
+ 942 0091 06       		.uleb128 0x6
+ 943 0092 40       		.uleb128 0x40
+ 944 0093 18       		.uleb128 0x18
+ 945 0094 9742     		.uleb128 0x2117
+ 946 0096 19       		.uleb128 0x19
+ 947 0097 01       		.uleb128 0x1
+ 948 0098 13       		.uleb128 0x13
+ 949 0099 00       		.byte	0
+ 950 009a 00       		.byte	0
+ 951 009b 0B       		.uleb128 0xb
+ 952 009c 898201   		.uleb128 0x4109
+ 953 009f 00       		.byte	0
+ 954 00a0 11       		.uleb128 0x11
+ 955 00a1 01       		.uleb128 0x1
+ 956 00a2 31       		.uleb128 0x31
+ 957 00a3 13       		.uleb128 0x13
+ 958 00a4 00       		.byte	0
+ 959 00a5 00       		.byte	0
+ 960 00a6 0C       		.uleb128 0xc
+ 961 00a7 2E       		.uleb128 0x2e
+ 962 00a8 01       		.byte	0x1
+ 963 00a9 3F       		.uleb128 0x3f
+ 964 00aa 19       		.uleb128 0x19
+ 965 00ab 03       		.uleb128 0x3
+ 966 00ac 0E       		.uleb128 0xe
+ 967 00ad 3A       		.uleb128 0x3a
+ 968 00ae 0B       		.uleb128 0xb
+ 969 00af 3B       		.uleb128 0x3b
+ 970 00b0 0B       		.uleb128 0xb
+ 971 00b1 27       		.uleb128 0x27
+ 972 00b2 19       		.uleb128 0x19
+ 973 00b3 49       		.uleb128 0x49
+ 974 00b4 13       		.uleb128 0x13
+ 975 00b5 8701     		.uleb128 0x87
+ 976 00b7 19       		.uleb128 0x19
+ 977 00b8 11       		.uleb128 0x11
+ 978 00b9 01       		.uleb128 0x1
+ 979 00ba 12       		.uleb128 0x12
+ 980 00bb 06       		.uleb128 0x6
+ 981 00bc 40       		.uleb128 0x40
+ 982 00bd 18       		.uleb128 0x18
+ 983 00be 9742     		.uleb128 0x2117
+ 984 00c0 19       		.uleb128 0x19
+ 985 00c1 01       		.uleb128 0x1
+ 986 00c2 13       		.uleb128 0x13
+ 987 00c3 00       		.byte	0
+ 988 00c4 00       		.byte	0
+ 989 00c5 0D       		.uleb128 0xd
+ 990 00c6 34       		.uleb128 0x34
+ 991 00c7 00       		.byte	0
+ 992 00c8 03       		.uleb128 0x3
+ 993 00c9 0E       		.uleb128 0xe
+ 994 00ca 3A       		.uleb128 0x3a
+ 995 00cb 0B       		.uleb128 0xb
+ 996 00cc 3B       		.uleb128 0x3b
+ 997 00cd 05       		.uleb128 0x5
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 20
+
+
+ 998 00ce 49       		.uleb128 0x49
+ 999 00cf 13       		.uleb128 0x13
+ 1000 00d0 3F       		.uleb128 0x3f
+ 1001 00d1 19       		.uleb128 0x19
+ 1002 00d2 3C       		.uleb128 0x3c
+ 1003 00d3 19       		.uleb128 0x19
+ 1004 00d4 00       		.byte	0
+ 1005 00d5 00       		.byte	0
+ 1006 00d6 0E       		.uleb128 0xe
+ 1007 00d7 35       		.uleb128 0x35
+ 1008 00d8 00       		.byte	0
+ 1009 00d9 49       		.uleb128 0x49
+ 1010 00da 13       		.uleb128 0x13
+ 1011 00db 00       		.byte	0
+ 1012 00dc 00       		.byte	0
+ 1013 00dd 0F       		.uleb128 0xf
+ 1014 00de 01       		.uleb128 0x1
+ 1015 00df 01       		.byte	0x1
+ 1016 00e0 49       		.uleb128 0x49
+ 1017 00e1 13       		.uleb128 0x13
+ 1018 00e2 01       		.uleb128 0x1
+ 1019 00e3 13       		.uleb128 0x13
+ 1020 00e4 00       		.byte	0
+ 1021 00e5 00       		.byte	0
+ 1022 00e6 10       		.uleb128 0x10
+ 1023 00e7 21       		.uleb128 0x21
+ 1024 00e8 00       		.byte	0
+ 1025 00e9 49       		.uleb128 0x49
+ 1026 00ea 13       		.uleb128 0x13
+ 1027 00eb 2F       		.uleb128 0x2f
+ 1028 00ec 0B       		.uleb128 0xb
+ 1029 00ed 00       		.byte	0
+ 1030 00ee 00       		.byte	0
+ 1031 00ef 11       		.uleb128 0x11
+ 1032 00f0 34       		.uleb128 0x34
+ 1033 00f1 00       		.byte	0
+ 1034 00f2 03       		.uleb128 0x3
+ 1035 00f3 0E       		.uleb128 0xe
+ 1036 00f4 3A       		.uleb128 0x3a
+ 1037 00f5 0B       		.uleb128 0xb
+ 1038 00f6 3B       		.uleb128 0x3b
+ 1039 00f7 0B       		.uleb128 0xb
+ 1040 00f8 49       		.uleb128 0x49
+ 1041 00f9 13       		.uleb128 0x13
+ 1042 00fa 3F       		.uleb128 0x3f
+ 1043 00fb 19       		.uleb128 0x19
+ 1044 00fc 02       		.uleb128 0x2
+ 1045 00fd 18       		.uleb128 0x18
+ 1046 00fe 00       		.byte	0
+ 1047 00ff 00       		.byte	0
+ 1048 0100 12       		.uleb128 0x12
+ 1049 0101 34       		.uleb128 0x34
+ 1050 0102 00       		.byte	0
+ 1051 0103 03       		.uleb128 0x3
+ 1052 0104 08       		.uleb128 0x8
+ 1053 0105 3A       		.uleb128 0x3a
+ 1054 0106 0B       		.uleb128 0xb
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 21
+
+
+ 1055 0107 3B       		.uleb128 0x3b
+ 1056 0108 0B       		.uleb128 0xb
+ 1057 0109 49       		.uleb128 0x49
+ 1058 010a 13       		.uleb128 0x13
+ 1059 010b 3F       		.uleb128 0x3f
+ 1060 010c 19       		.uleb128 0x19
+ 1061 010d 02       		.uleb128 0x2
+ 1062 010e 18       		.uleb128 0x18
+ 1063 010f 00       		.byte	0
+ 1064 0110 00       		.byte	0
+ 1065 0111 13       		.uleb128 0x13
+ 1066 0112 2E       		.uleb128 0x2e
+ 1067 0113 00       		.byte	0
+ 1068 0114 3F       		.uleb128 0x3f
+ 1069 0115 19       		.uleb128 0x19
+ 1070 0116 3C       		.uleb128 0x3c
+ 1071 0117 19       		.uleb128 0x19
+ 1072 0118 6E       		.uleb128 0x6e
+ 1073 0119 0E       		.uleb128 0xe
+ 1074 011a 03       		.uleb128 0x3
+ 1075 011b 0E       		.uleb128 0xe
+ 1076 011c 3A       		.uleb128 0x3a
+ 1077 011d 0B       		.uleb128 0xb
+ 1078 011e 3B       		.uleb128 0x3b
+ 1079 011f 0B       		.uleb128 0xb
+ 1080 0120 00       		.byte	0
+ 1081 0121 00       		.byte	0
+ 1082 0122 00       		.byte	0
+ 1083              		.section	.debug_aranges,"",%progbits
+ 1084 0000 2C000000 		.4byte	0x2c
+ 1085 0004 0200     		.2byte	0x2
+ 1086 0006 00000000 		.4byte	.Ldebug_info0
+ 1087 000a 04       		.byte	0x4
+ 1088 000b 00       		.byte	0
+ 1089 000c 0000     		.2byte	0
+ 1090 000e 0000     		.2byte	0
+ 1091 0010 00000000 		.4byte	.LFB64
+ 1092 0014 80000000 		.4byte	.LFE64-.LFB64
+ 1093 0018 00000000 		.4byte	.LFB65
+ 1094 001c 34000000 		.4byte	.LFE65-.LFB65
+ 1095 0020 00000000 		.4byte	.LFB66
+ 1096 0024 9C000000 		.4byte	.LFE66-.LFB66
+ 1097 0028 00000000 		.4byte	0
+ 1098 002c 00000000 		.4byte	0
+ 1099              		.section	.debug_ranges,"",%progbits
+ 1100              	.Ldebug_ranges0:
+ 1101 0000 00000000 		.4byte	.LFB64
+ 1102 0004 80000000 		.4byte	.LFE64
+ 1103 0008 00000000 		.4byte	.LFB65
+ 1104 000c 34000000 		.4byte	.LFE65
+ 1105 0010 00000000 		.4byte	.LFB66
+ 1106 0014 9C000000 		.4byte	.LFE66
+ 1107 0018 00000000 		.4byte	0
+ 1108 001c 00000000 		.4byte	0
+ 1109              		.section	.debug_line,"",%progbits
+ 1110              	.Ldebug_line0:
+ 1111 0000 A1020000 		.section	.debug_str,"MS",%progbits,1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 22
+
+
+ 1111      0200FD01 
+ 1111      00000201 
+ 1111      FB0E0D00 
+ 1111      01010101 
+ 1112              	.LASF9:
+ 1113 0000 5F5F696E 		.ascii	"__int32_t\000"
+ 1113      7433325F 
+ 1113      7400
+ 1114              	.LASF32:
+ 1115 000a 69737245 		.ascii	"isrEnvio_StartEx\000"
+ 1115      6E76696F 
+ 1115      5F537461 
+ 1115      72744578 
+ 1115      00
+ 1116              	.LASF13:
+ 1117 001b 646F7562 		.ascii	"double\000"
+ 1117      6C6500
+ 1118              	.LASF41:
+ 1119 0022 463A5C41 		.ascii	"F:\\ADC+UART+MUX\\Design01.cydsn\000"
+ 1119      44432B55 
+ 1119      4152542B 
+ 1119      4D55585C 
+ 1119      44657369 
+ 1120              	.LASF12:
+ 1121 0041 666C6F61 		.ascii	"float\000"
+ 1121      7400
+ 1122              	.LASF17:
+ 1123 0047 456E7669 		.ascii	"Enviar\000"
+ 1123      617200
+ 1124              	.LASF1:
+ 1125 004e 756E7369 		.ascii	"unsigned char\000"
+ 1125      676E6564 
+ 1125      20636861 
+ 1125      7200
+ 1126              	.LASF39:
+ 1127 005c 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1127      43313120 
+ 1127      352E342E 
+ 1127      31203230 
+ 1127      31363036 
+ 1128 008f 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1128      20726576 
+ 1128      6973696F 
+ 1128      6E203233 
+ 1128      37373135 
+ 1129 00c2 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1129      66756E63 
+ 1129      74696F6E 
+ 1129      2D736563 
+ 1129      74696F6E 
+ 1130              	.LASF34:
+ 1131 00ea 4144435F 		.ascii	"ADC_StartConvert\000"
+ 1131      53746172 
+ 1131      74436F6E 
+ 1131      76657274 
+ 1131      00
+ 1132              	.LASF35:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 23
+
+
+ 1133 00fb 4144435F 		.ascii	"ADC_IsEndConversion\000"
+ 1133      4973456E 
+ 1133      64436F6E 
+ 1133      76657273 
+ 1133      696F6E00 
+ 1134              	.LASF3:
+ 1135 010f 73686F72 		.ascii	"short unsigned int\000"
+ 1135      7420756E 
+ 1135      7369676E 
+ 1135      65642069 
+ 1135      6E7400
+ 1136              	.LASF29:
+ 1137 0122 55415254 		.ascii	"UART_Start\000"
+ 1137      5F537461 
+ 1137      727400
+ 1138              	.LASF37:
+ 1139 012d 4144435F 		.ascii	"ADC_StopConvert\000"
+ 1139      53746F70 
+ 1139      436F6E76 
+ 1139      65727400 
+ 1140              	.LASF19:
+ 1141 013d 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1141      52784275 
+ 1141      66666572 
+ 1141      00
+ 1142              	.LASF36:
+ 1143 014a 4144435F 		.ascii	"ADC_GetResult32\000"
+ 1143      47657452 
+ 1143      6573756C 
+ 1143      74333200 
+ 1144              	.LASF5:
+ 1145 015a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1145      20756E73 
+ 1145      69676E65 
+ 1145      6420696E 
+ 1145      7400
+ 1146              	.LASF2:
+ 1147 016c 73686F72 		.ascii	"short int\000"
+ 1147      7420696E 
+ 1147      7400
+ 1148              	.LASF21:
+ 1149 0176 766F6C74 		.ascii	"voltiosADC\000"
+ 1149      696F7341 
+ 1149      444300
+ 1150              	.LASF11:
+ 1151 0181 666C6F61 		.ascii	"float32\000"
+ 1151      74333200 
+ 1152              	.LASF20:
+ 1153 0189 656E7465 		.ascii	"enteros\000"
+ 1153      726F7300 
+ 1154              	.LASF8:
+ 1155 0191 756E7369 		.ascii	"unsigned int\000"
+ 1155      676E6564 
+ 1155      20696E74 
+ 1155      00
+ 1156              	.LASF7:
+ 1157 019e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 24
+
+
+ 1157      206C6F6E 
+ 1157      6720756E 
+ 1157      7369676E 
+ 1157      65642069 
+ 1158              	.LASF30:
+ 1159 01b5 4144435F 		.ascii	"ADC_Start\000"
+ 1159      53746172 
+ 1159      7400
+ 1160              	.LASF42:
+ 1161 01bf 6D61696E 		.ascii	"main\000"
+ 1161      00
+ 1162              	.LASF10:
+ 1163 01c4 696E7433 		.ascii	"int32_t\000"
+ 1163      325F7400 
+ 1164              	.LASF16:
+ 1165 01cc 73697A65 		.ascii	"sizetype\000"
+ 1165      74797065 
+ 1165      00
+ 1166              	.LASF38:
+ 1167 01d5 4144435F 		.ascii	"ADC_CountsTo_Volts\000"
+ 1167      436F756E 
+ 1167      7473546F 
+ 1167      5F566F6C 
+ 1167      747300
+ 1168              	.LASF6:
+ 1169 01e8 6C6F6E67 		.ascii	"long long int\000"
+ 1169      206C6F6E 
+ 1169      6720696E 
+ 1169      7400
+ 1170              	.LASF40:
+ 1171 01f6 6D61696E 		.ascii	"main.c\000"
+ 1171      2E6300
+ 1172              	.LASF14:
+ 1173 01fd 63686172 		.ascii	"char\000"
+ 1173      00
+ 1174              	.LASF26:
+ 1175 0202 55415254 		.ascii	"UART_GetChar\000"
+ 1175      5F476574 
+ 1175      43686172 
+ 1175      00
+ 1176              	.LASF28:
+ 1177 020f 4D55585F 		.ascii	"MUX_Start\000"
+ 1177      53746172 
+ 1177      7400
+ 1178              	.LASF23:
+ 1179 0219 63616E61 		.ascii	"canal\000"
+ 1179      6C00
+ 1180              	.LASF31:
+ 1181 021f 69737252 		.ascii	"isrRX_StartEx\000"
+ 1181      585F5374 
+ 1181      61727445 
+ 1181      7800
+ 1182              	.LASF22:
+ 1183 022d 72656369 		.ascii	"recibir\000"
+ 1183      62697200 
+ 1184              	.LASF27:
+ 1185 0235 50574D5F 		.ascii	"PWM_Start\000"
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cccxc1Al.s 			page 25
+
+
+ 1185      53746172 
+ 1185      7400
+ 1186              	.LASF18:
+ 1187 023f 496E7465 		.ascii	"InterruptRX\000"
+ 1187      72727570 
+ 1187      74525800 
+ 1188              	.LASF33:
+ 1189 024b 4D55585F 		.ascii	"MUX_FastSelect\000"
+ 1189      46617374 
+ 1189      53656C65 
+ 1189      637400
+ 1190              	.LASF4:
+ 1191 025a 6C6F6E67 		.ascii	"long int\000"
+ 1191      20696E74 
+ 1191      00
+ 1192              	.LASF15:
+ 1193 0263 6C6F6E67 		.ascii	"long double\000"
+ 1193      20646F75 
+ 1193      626C6500 
+ 1194              	.LASF0:
+ 1195 026f 7369676E 		.ascii	"signed char\000"
+ 1195      65642063 
+ 1195      68617200 
+ 1196              	.LASF25:
+ 1197 027b 55415254 		.ascii	"UART_PutString\000"
+ 1197      5F507574 
+ 1197      53747269 
+ 1197      6E6700
+ 1198              	.LASF24:
+ 1199 028a 73707269 		.ascii	"sprintf\000"
+ 1199      6E746600 
+ 1200              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

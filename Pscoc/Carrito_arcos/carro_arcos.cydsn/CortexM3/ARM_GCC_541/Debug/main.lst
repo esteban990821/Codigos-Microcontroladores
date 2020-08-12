@@ -1,0 +1,775 @@
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccDuz8CG.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include "stdio.h"
+  14:main.c        **** #define BUFFER_LEN 
+  15:main.c        **** 
+  16:main.c        **** int main(void)
+  17:main.c        **** {   uint32 Valor_ADC1=0;
+  28              		.loc 1 17 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  36              	.LVL0:
+  18:main.c        ****      float t1=0,t2=0,t3=0;
+  19:main.c        ****      char8 Texto[20];
+  20:main.c        ****    
+  21:main.c        ****     CyGlobalIntEnable;
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccDuz8CG.s 			page 2
+
+
+  37              		.loc 1 21 0
+  38              		.syntax unified
+  39              	@ 21 "main.c" 1
+  40 0002 62B6     		CPSIE   i
+  41              	@ 0 "" 2
+  22:main.c        ****    
+  23:main.c        ****     ADC1_Start();
+  42              		.loc 1 23 0
+  43              		.thumb
+  44              		.syntax unified
+  45 0004 FFF7FEFF 		bl	ADC1_Start
+  46              	.LVL1:
+  24:main.c        ****     ADC1_StartConvert();
+  47              		.loc 1 24 0
+  48 0008 FFF7FEFF 		bl	ADC1_StartConvert
+  49              	.LVL2:
+  25:main.c        ****     UART_Start();
+  50              		.loc 1 25 0
+  51 000c FFF7FEFF 		bl	UART_Start
+  52              	.LVL3:
+  53              	.L2:
+  26:main.c        ****    
+  27:main.c        ****    
+  28:main.c        ****     for(;;)
+  29:main.c        ****     {
+  30:main.c        **** //         ADC1_IsEndConversion(ADC1_WAIT_FOR_RESULT);
+  31:main.c        **** //        Valor_ADC1 = ADC1_GetResult16();
+  32:main.c        **** //         t1=Valor_ADC1; 
+  33:main.c        **** //        
+  34:main.c        **** //          sprintf(Texto,"%0.3f", t1); 
+  35:main.c        **** //            UART_PutString("hola");
+  36:main.c        **** //            CyDelay(1000);
+  37:main.c        **** 
+  38:main.c        ****  UART_PutString("hola");
+  54              		.loc 1 38 0 discriminator 1
+  55 0010 0348     		ldr	r0, .L4
+  56 0012 FFF7FEFF 		bl	UART_PutString
+  57              	.LVL4:
+  39:main.c        ****         CyDelay(1000);
+  58              		.loc 1 39 0 discriminator 1
+  59 0016 4FF47A70 		mov	r0, #1000
+  60 001a FFF7FEFF 		bl	CyDelay
+  61              	.LVL5:
+  62 001e F7E7     		b	.L2
+  63              	.L5:
+  64              		.align	2
+  65              	.L4:
+  66 0020 00000000 		.word	.LC0
+  67              		.cfi_endproc
+  68              	.LFE64:
+  69              		.size	main, .-main
+  70              		.section	.rodata.str1.4,"aMS",%progbits,1
+  71              		.align	2
+  72              	.LC0:
+  73 0000 686F6C61 		.ascii	"hola\000"
+  73      00
+  74              		.text
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccDuz8CG.s 			page 3
+
+
+  75              	.Letext0:
+  76              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  77              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  78              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+  79              		.file 5 "Generated_Source\\PSoC5/ADC1.h"
+  80              		.file 6 "Generated_Source\\PSoC5/UART.h"
+  81              		.file 7 "Generated_Source\\PSoC5/CyLib.h"
+  82              		.file 8 "Generated_Source\\PSoC5/core_cm3.h"
+  83              		.section	.debug_info,"",%progbits
+  84              	.Ldebug_info0:
+  85 0000 B2010000 		.4byte	0x1b2
+  86 0004 0400     		.2byte	0x4
+  87 0006 00000000 		.4byte	.Ldebug_abbrev0
+  88 000a 04       		.byte	0x4
+  89 000b 01       		.uleb128 0x1
+  90 000c 79000000 		.4byte	.LASF24
+  91 0010 0C       		.byte	0xc
+  92 0011 A6010000 		.4byte	.LASF25
+  93 0015 0A000000 		.4byte	.LASF26
+  94 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  95 001d 00000000 		.4byte	0
+  96 0021 00000000 		.4byte	.Ldebug_line0
+  97 0025 02       		.uleb128 0x2
+  98 0026 01       		.byte	0x1
+  99 0027 06       		.byte	0x6
+ 100 0028 DC010000 		.4byte	.LASF0
+ 101 002c 02       		.uleb128 0x2
+ 102 002d 01       		.byte	0x1
+ 103 002e 08       		.byte	0x8
+ 104 002f 6B000000 		.4byte	.LASF1
+ 105 0033 02       		.uleb128 0x2
+ 106 0034 02       		.byte	0x2
+ 107 0035 05       		.byte	0x5
+ 108 0036 B2010000 		.4byte	.LASF2
+ 109 003a 02       		.uleb128 0x2
+ 110 003b 02       		.byte	0x2
+ 111 003c 07       		.byte	0x7
+ 112 003d 1F010000 		.4byte	.LASF3
+ 113 0041 03       		.uleb128 0x3
+ 114 0042 00000000 		.4byte	.LASF9
+ 115 0046 02       		.byte	0x2
+ 116 0047 3F       		.byte	0x3f
+ 117 0048 4C000000 		.4byte	0x4c
+ 118 004c 02       		.uleb128 0x2
+ 119 004d 04       		.byte	0x4
+ 120 004e 05       		.byte	0x5
+ 121 004f C7010000 		.4byte	.LASF4
+ 122 0053 02       		.uleb128 0x2
+ 123 0054 04       		.byte	0x4
+ 124 0055 07       		.byte	0x7
+ 125 0056 0D010000 		.4byte	.LASF5
+ 126 005a 02       		.uleb128 0x2
+ 127 005b 08       		.byte	0x8
+ 128 005c 05       		.byte	0x5
+ 129 005d 98010000 		.4byte	.LASF6
+ 130 0061 02       		.uleb128 0x2
+ 131 0062 08       		.byte	0x8
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccDuz8CG.s 			page 4
+
+
+ 132 0063 07       		.byte	0x7
+ 133 0064 70010000 		.4byte	.LASF7
+ 134 0068 04       		.uleb128 0x4
+ 135 0069 04       		.byte	0x4
+ 136 006a 05       		.byte	0x5
+ 137 006b 696E7400 		.ascii	"int\000"
+ 138 006f 02       		.uleb128 0x2
+ 139 0070 04       		.byte	0x4
+ 140 0071 07       		.byte	0x7
+ 141 0072 63010000 		.4byte	.LASF8
+ 142 0076 03       		.uleb128 0x3
+ 143 0077 87010000 		.4byte	.LASF10
+ 144 007b 03       		.byte	0x3
+ 145 007c 2C       		.byte	0x2c
+ 146 007d 41000000 		.4byte	0x41
+ 147 0081 05       		.uleb128 0x5
+ 148 0082 57010000 		.4byte	.LASF11
+ 149 0086 04       		.byte	0x4
+ 150 0087 E601     		.2byte	0x1e6
+ 151 0089 53000000 		.4byte	0x53
+ 152 008d 02       		.uleb128 0x2
+ 153 008e 04       		.byte	0x4
+ 154 008f 04       		.byte	0x4
+ 155 0090 65000000 		.4byte	.LASF12
+ 156 0094 02       		.uleb128 0x2
+ 157 0095 08       		.byte	0x8
+ 158 0096 04       		.byte	0x4
+ 159 0097 4A010000 		.4byte	.LASF13
+ 160 009b 05       		.uleb128 0x5
+ 161 009c 07010000 		.4byte	.LASF14
+ 162 00a0 04       		.byte	0x4
+ 163 00a1 F501     		.2byte	0x1f5
+ 164 00a3 A7000000 		.4byte	0xa7
+ 165 00a7 02       		.uleb128 0x2
+ 166 00a8 01       		.byte	0x1
+ 167 00a9 08       		.byte	0x8
+ 168 00aa AD010000 		.4byte	.LASF15
+ 169 00ae 02       		.uleb128 0x2
+ 170 00af 08       		.byte	0x8
+ 171 00b0 04       		.byte	0x4
+ 172 00b1 D0010000 		.4byte	.LASF16
+ 173 00b5 02       		.uleb128 0x2
+ 174 00b6 04       		.byte	0x4
+ 175 00b7 07       		.byte	0x7
+ 176 00b8 8F010000 		.4byte	.LASF17
+ 177 00bc 06       		.uleb128 0x6
+ 178 00bd 5E010000 		.4byte	.LASF27
+ 179 00c1 01       		.byte	0x1
+ 180 00c2 10       		.byte	0x10
+ 181 00c3 68000000 		.4byte	0x68
+ 182 00c7 00000000 		.4byte	.LFB64
+ 183 00cb 24000000 		.4byte	.LFE64-.LFB64
+ 184 00cf 01       		.uleb128 0x1
+ 185 00d0 9C       		.byte	0x9c
+ 186 00d1 5D010000 		.4byte	0x15d
+ 187 00d5 07       		.uleb128 0x7
+ 188 00d6 BC010000 		.4byte	.LASF18
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccDuz8CG.s 			page 5
+
+
+ 189 00da 01       		.byte	0x1
+ 190 00db 11       		.byte	0x11
+ 191 00dc 81000000 		.4byte	0x81
+ 192 00e0 00       		.byte	0
+ 193 00e1 08       		.uleb128 0x8
+ 194 00e2 743100   		.ascii	"t1\000"
+ 195 00e5 01       		.byte	0x1
+ 196 00e6 12       		.byte	0x12
+ 197 00e7 8D000000 		.4byte	0x8d
+ 198 00eb 04       		.byte	0x4
+ 199 00ec 00000000 		.4byte	0
+ 200 00f0 08       		.uleb128 0x8
+ 201 00f1 743200   		.ascii	"t2\000"
+ 202 00f4 01       		.byte	0x1
+ 203 00f5 12       		.byte	0x12
+ 204 00f6 8D000000 		.4byte	0x8d
+ 205 00fa 04       		.byte	0x4
+ 206 00fb 00000000 		.4byte	0
+ 207 00ff 08       		.uleb128 0x8
+ 208 0100 743300   		.ascii	"t3\000"
+ 209 0103 01       		.byte	0x1
+ 210 0104 12       		.byte	0x12
+ 211 0105 8D000000 		.4byte	0x8d
+ 212 0109 04       		.byte	0x4
+ 213 010a 00000000 		.4byte	0
+ 214 010e 09       		.uleb128 0x9
+ 215 010f 51010000 		.4byte	.LASF28
+ 216 0113 01       		.byte	0x1
+ 217 0114 13       		.byte	0x13
+ 218 0115 5D010000 		.4byte	0x15d
+ 219 0119 0A       		.uleb128 0xa
+ 220 011a 08000000 		.4byte	.LVL1
+ 221 011e 7E010000 		.4byte	0x17e
+ 222 0122 0A       		.uleb128 0xa
+ 223 0123 0C000000 		.4byte	.LVL2
+ 224 0127 89010000 		.4byte	0x189
+ 225 012b 0A       		.uleb128 0xa
+ 226 012c 10000000 		.4byte	.LVL3
+ 227 0130 94010000 		.4byte	0x194
+ 228 0134 0B       		.uleb128 0xb
+ 229 0135 16000000 		.4byte	.LVL4
+ 230 0139 9F010000 		.4byte	0x19f
+ 231 013d 4B010000 		.4byte	0x14b
+ 232 0141 0C       		.uleb128 0xc
+ 233 0142 01       		.uleb128 0x1
+ 234 0143 50       		.byte	0x50
+ 235 0144 05       		.uleb128 0x5
+ 236 0145 03       		.byte	0x3
+ 237 0146 00000000 		.4byte	.LC0
+ 238 014a 00       		.byte	0
+ 239 014b 0D       		.uleb128 0xd
+ 240 014c 1E000000 		.4byte	.LVL5
+ 241 0150 AA010000 		.4byte	0x1aa
+ 242 0154 0C       		.uleb128 0xc
+ 243 0155 01       		.uleb128 0x1
+ 244 0156 50       		.byte	0x50
+ 245 0157 03       		.uleb128 0x3
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccDuz8CG.s 			page 6
+
+
+ 246 0158 0A       		.byte	0xa
+ 247 0159 E803     		.2byte	0x3e8
+ 248 015b 00       		.byte	0
+ 249 015c 00       		.byte	0
+ 250 015d 0E       		.uleb128 0xe
+ 251 015e 9B000000 		.4byte	0x9b
+ 252 0162 6D010000 		.4byte	0x16d
+ 253 0166 0F       		.uleb128 0xf
+ 254 0167 B5000000 		.4byte	0xb5
+ 255 016b 13       		.byte	0x13
+ 256 016c 00       		.byte	0
+ 257 016d 10       		.uleb128 0x10
+ 258 016e 3D010000 		.4byte	.LASF29
+ 259 0172 08       		.byte	0x8
+ 260 0173 1207     		.2byte	0x712
+ 261 0175 79010000 		.4byte	0x179
+ 262 0179 11       		.uleb128 0x11
+ 263 017a 76000000 		.4byte	0x76
+ 264 017e 12       		.uleb128 0x12
+ 265 017f 5A000000 		.4byte	.LASF19
+ 266 0183 5A000000 		.4byte	.LASF19
+ 267 0187 05       		.byte	0x5
+ 268 0188 34       		.byte	0x34
+ 269 0189 12       		.uleb128 0x12
+ 270 018a F7010000 		.4byte	.LASF20
+ 271 018e F7010000 		.4byte	.LASF20
+ 272 0192 05       		.byte	0x5
+ 273 0193 D1       		.byte	0xd1
+ 274 0194 12       		.uleb128 0x12
+ 275 0195 32010000 		.4byte	.LASF21
+ 276 0199 32010000 		.4byte	.LASF21
+ 277 019d 06       		.byte	0x6
+ 278 019e 54       		.byte	0x54
+ 279 019f 12       		.uleb128 0x12
+ 280 01a0 E8010000 		.4byte	.LASF22
+ 281 01a4 E8010000 		.4byte	.LASF22
+ 282 01a8 06       		.byte	0x6
+ 283 01a9 8B       		.byte	0x8b
+ 284 01aa 12       		.uleb128 0x12
+ 285 01ab 09020000 		.4byte	.LASF23
+ 286 01af 09020000 		.4byte	.LASF23
+ 287 01b3 07       		.byte	0x7
+ 288 01b4 76       		.byte	0x76
+ 289 01b5 00       		.byte	0
+ 290              		.section	.debug_abbrev,"",%progbits
+ 291              	.Ldebug_abbrev0:
+ 292 0000 01       		.uleb128 0x1
+ 293 0001 11       		.uleb128 0x11
+ 294 0002 01       		.byte	0x1
+ 295 0003 25       		.uleb128 0x25
+ 296 0004 0E       		.uleb128 0xe
+ 297 0005 13       		.uleb128 0x13
+ 298 0006 0B       		.uleb128 0xb
+ 299 0007 03       		.uleb128 0x3
+ 300 0008 0E       		.uleb128 0xe
+ 301 0009 1B       		.uleb128 0x1b
+ 302 000a 0E       		.uleb128 0xe
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccDuz8CG.s 			page 7
+
+
+ 303 000b 55       		.uleb128 0x55
+ 304 000c 17       		.uleb128 0x17
+ 305 000d 11       		.uleb128 0x11
+ 306 000e 01       		.uleb128 0x1
+ 307 000f 10       		.uleb128 0x10
+ 308 0010 17       		.uleb128 0x17
+ 309 0011 00       		.byte	0
+ 310 0012 00       		.byte	0
+ 311 0013 02       		.uleb128 0x2
+ 312 0014 24       		.uleb128 0x24
+ 313 0015 00       		.byte	0
+ 314 0016 0B       		.uleb128 0xb
+ 315 0017 0B       		.uleb128 0xb
+ 316 0018 3E       		.uleb128 0x3e
+ 317 0019 0B       		.uleb128 0xb
+ 318 001a 03       		.uleb128 0x3
+ 319 001b 0E       		.uleb128 0xe
+ 320 001c 00       		.byte	0
+ 321 001d 00       		.byte	0
+ 322 001e 03       		.uleb128 0x3
+ 323 001f 16       		.uleb128 0x16
+ 324 0020 00       		.byte	0
+ 325 0021 03       		.uleb128 0x3
+ 326 0022 0E       		.uleb128 0xe
+ 327 0023 3A       		.uleb128 0x3a
+ 328 0024 0B       		.uleb128 0xb
+ 329 0025 3B       		.uleb128 0x3b
+ 330 0026 0B       		.uleb128 0xb
+ 331 0027 49       		.uleb128 0x49
+ 332 0028 13       		.uleb128 0x13
+ 333 0029 00       		.byte	0
+ 334 002a 00       		.byte	0
+ 335 002b 04       		.uleb128 0x4
+ 336 002c 24       		.uleb128 0x24
+ 337 002d 00       		.byte	0
+ 338 002e 0B       		.uleb128 0xb
+ 339 002f 0B       		.uleb128 0xb
+ 340 0030 3E       		.uleb128 0x3e
+ 341 0031 0B       		.uleb128 0xb
+ 342 0032 03       		.uleb128 0x3
+ 343 0033 08       		.uleb128 0x8
+ 344 0034 00       		.byte	0
+ 345 0035 00       		.byte	0
+ 346 0036 05       		.uleb128 0x5
+ 347 0037 16       		.uleb128 0x16
+ 348 0038 00       		.byte	0
+ 349 0039 03       		.uleb128 0x3
+ 350 003a 0E       		.uleb128 0xe
+ 351 003b 3A       		.uleb128 0x3a
+ 352 003c 0B       		.uleb128 0xb
+ 353 003d 3B       		.uleb128 0x3b
+ 354 003e 05       		.uleb128 0x5
+ 355 003f 49       		.uleb128 0x49
+ 356 0040 13       		.uleb128 0x13
+ 357 0041 00       		.byte	0
+ 358 0042 00       		.byte	0
+ 359 0043 06       		.uleb128 0x6
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccDuz8CG.s 			page 8
+
+
+ 360 0044 2E       		.uleb128 0x2e
+ 361 0045 01       		.byte	0x1
+ 362 0046 3F       		.uleb128 0x3f
+ 363 0047 19       		.uleb128 0x19
+ 364 0048 03       		.uleb128 0x3
+ 365 0049 0E       		.uleb128 0xe
+ 366 004a 3A       		.uleb128 0x3a
+ 367 004b 0B       		.uleb128 0xb
+ 368 004c 3B       		.uleb128 0x3b
+ 369 004d 0B       		.uleb128 0xb
+ 370 004e 27       		.uleb128 0x27
+ 371 004f 19       		.uleb128 0x19
+ 372 0050 49       		.uleb128 0x49
+ 373 0051 13       		.uleb128 0x13
+ 374 0052 8701     		.uleb128 0x87
+ 375 0054 19       		.uleb128 0x19
+ 376 0055 11       		.uleb128 0x11
+ 377 0056 01       		.uleb128 0x1
+ 378 0057 12       		.uleb128 0x12
+ 379 0058 06       		.uleb128 0x6
+ 380 0059 40       		.uleb128 0x40
+ 381 005a 18       		.uleb128 0x18
+ 382 005b 9742     		.uleb128 0x2117
+ 383 005d 19       		.uleb128 0x19
+ 384 005e 01       		.uleb128 0x1
+ 385 005f 13       		.uleb128 0x13
+ 386 0060 00       		.byte	0
+ 387 0061 00       		.byte	0
+ 388 0062 07       		.uleb128 0x7
+ 389 0063 34       		.uleb128 0x34
+ 390 0064 00       		.byte	0
+ 391 0065 03       		.uleb128 0x3
+ 392 0066 0E       		.uleb128 0xe
+ 393 0067 3A       		.uleb128 0x3a
+ 394 0068 0B       		.uleb128 0xb
+ 395 0069 3B       		.uleb128 0x3b
+ 396 006a 0B       		.uleb128 0xb
+ 397 006b 49       		.uleb128 0x49
+ 398 006c 13       		.uleb128 0x13
+ 399 006d 1C       		.uleb128 0x1c
+ 400 006e 0B       		.uleb128 0xb
+ 401 006f 00       		.byte	0
+ 402 0070 00       		.byte	0
+ 403 0071 08       		.uleb128 0x8
+ 404 0072 34       		.uleb128 0x34
+ 405 0073 00       		.byte	0
+ 406 0074 03       		.uleb128 0x3
+ 407 0075 08       		.uleb128 0x8
+ 408 0076 3A       		.uleb128 0x3a
+ 409 0077 0B       		.uleb128 0xb
+ 410 0078 3B       		.uleb128 0x3b
+ 411 0079 0B       		.uleb128 0xb
+ 412 007a 49       		.uleb128 0x49
+ 413 007b 13       		.uleb128 0x13
+ 414 007c 1C       		.uleb128 0x1c
+ 415 007d 0A       		.uleb128 0xa
+ 416 007e 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccDuz8CG.s 			page 9
+
+
+ 417 007f 00       		.byte	0
+ 418 0080 09       		.uleb128 0x9
+ 419 0081 34       		.uleb128 0x34
+ 420 0082 00       		.byte	0
+ 421 0083 03       		.uleb128 0x3
+ 422 0084 0E       		.uleb128 0xe
+ 423 0085 3A       		.uleb128 0x3a
+ 424 0086 0B       		.uleb128 0xb
+ 425 0087 3B       		.uleb128 0x3b
+ 426 0088 0B       		.uleb128 0xb
+ 427 0089 49       		.uleb128 0x49
+ 428 008a 13       		.uleb128 0x13
+ 429 008b 00       		.byte	0
+ 430 008c 00       		.byte	0
+ 431 008d 0A       		.uleb128 0xa
+ 432 008e 898201   		.uleb128 0x4109
+ 433 0091 00       		.byte	0
+ 434 0092 11       		.uleb128 0x11
+ 435 0093 01       		.uleb128 0x1
+ 436 0094 31       		.uleb128 0x31
+ 437 0095 13       		.uleb128 0x13
+ 438 0096 00       		.byte	0
+ 439 0097 00       		.byte	0
+ 440 0098 0B       		.uleb128 0xb
+ 441 0099 898201   		.uleb128 0x4109
+ 442 009c 01       		.byte	0x1
+ 443 009d 11       		.uleb128 0x11
+ 444 009e 01       		.uleb128 0x1
+ 445 009f 31       		.uleb128 0x31
+ 446 00a0 13       		.uleb128 0x13
+ 447 00a1 01       		.uleb128 0x1
+ 448 00a2 13       		.uleb128 0x13
+ 449 00a3 00       		.byte	0
+ 450 00a4 00       		.byte	0
+ 451 00a5 0C       		.uleb128 0xc
+ 452 00a6 8A8201   		.uleb128 0x410a
+ 453 00a9 00       		.byte	0
+ 454 00aa 02       		.uleb128 0x2
+ 455 00ab 18       		.uleb128 0x18
+ 456 00ac 9142     		.uleb128 0x2111
+ 457 00ae 18       		.uleb128 0x18
+ 458 00af 00       		.byte	0
+ 459 00b0 00       		.byte	0
+ 460 00b1 0D       		.uleb128 0xd
+ 461 00b2 898201   		.uleb128 0x4109
+ 462 00b5 01       		.byte	0x1
+ 463 00b6 11       		.uleb128 0x11
+ 464 00b7 01       		.uleb128 0x1
+ 465 00b8 31       		.uleb128 0x31
+ 466 00b9 13       		.uleb128 0x13
+ 467 00ba 00       		.byte	0
+ 468 00bb 00       		.byte	0
+ 469 00bc 0E       		.uleb128 0xe
+ 470 00bd 01       		.uleb128 0x1
+ 471 00be 01       		.byte	0x1
+ 472 00bf 49       		.uleb128 0x49
+ 473 00c0 13       		.uleb128 0x13
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccDuz8CG.s 			page 10
+
+
+ 474 00c1 01       		.uleb128 0x1
+ 475 00c2 13       		.uleb128 0x13
+ 476 00c3 00       		.byte	0
+ 477 00c4 00       		.byte	0
+ 478 00c5 0F       		.uleb128 0xf
+ 479 00c6 21       		.uleb128 0x21
+ 480 00c7 00       		.byte	0
+ 481 00c8 49       		.uleb128 0x49
+ 482 00c9 13       		.uleb128 0x13
+ 483 00ca 2F       		.uleb128 0x2f
+ 484 00cb 0B       		.uleb128 0xb
+ 485 00cc 00       		.byte	0
+ 486 00cd 00       		.byte	0
+ 487 00ce 10       		.uleb128 0x10
+ 488 00cf 34       		.uleb128 0x34
+ 489 00d0 00       		.byte	0
+ 490 00d1 03       		.uleb128 0x3
+ 491 00d2 0E       		.uleb128 0xe
+ 492 00d3 3A       		.uleb128 0x3a
+ 493 00d4 0B       		.uleb128 0xb
+ 494 00d5 3B       		.uleb128 0x3b
+ 495 00d6 05       		.uleb128 0x5
+ 496 00d7 49       		.uleb128 0x49
+ 497 00d8 13       		.uleb128 0x13
+ 498 00d9 3F       		.uleb128 0x3f
+ 499 00da 19       		.uleb128 0x19
+ 500 00db 3C       		.uleb128 0x3c
+ 501 00dc 19       		.uleb128 0x19
+ 502 00dd 00       		.byte	0
+ 503 00de 00       		.byte	0
+ 504 00df 11       		.uleb128 0x11
+ 505 00e0 35       		.uleb128 0x35
+ 506 00e1 00       		.byte	0
+ 507 00e2 49       		.uleb128 0x49
+ 508 00e3 13       		.uleb128 0x13
+ 509 00e4 00       		.byte	0
+ 510 00e5 00       		.byte	0
+ 511 00e6 12       		.uleb128 0x12
+ 512 00e7 2E       		.uleb128 0x2e
+ 513 00e8 00       		.byte	0
+ 514 00e9 3F       		.uleb128 0x3f
+ 515 00ea 19       		.uleb128 0x19
+ 516 00eb 3C       		.uleb128 0x3c
+ 517 00ec 19       		.uleb128 0x19
+ 518 00ed 6E       		.uleb128 0x6e
+ 519 00ee 0E       		.uleb128 0xe
+ 520 00ef 03       		.uleb128 0x3
+ 521 00f0 0E       		.uleb128 0xe
+ 522 00f1 3A       		.uleb128 0x3a
+ 523 00f2 0B       		.uleb128 0xb
+ 524 00f3 3B       		.uleb128 0x3b
+ 525 00f4 0B       		.uleb128 0xb
+ 526 00f5 00       		.byte	0
+ 527 00f6 00       		.byte	0
+ 528 00f7 00       		.byte	0
+ 529              		.section	.debug_aranges,"",%progbits
+ 530 0000 1C000000 		.4byte	0x1c
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccDuz8CG.s 			page 11
+
+
+ 531 0004 0200     		.2byte	0x2
+ 532 0006 00000000 		.4byte	.Ldebug_info0
+ 533 000a 04       		.byte	0x4
+ 534 000b 00       		.byte	0
+ 535 000c 0000     		.2byte	0
+ 536 000e 0000     		.2byte	0
+ 537 0010 00000000 		.4byte	.LFB64
+ 538 0014 24000000 		.4byte	.LFE64-.LFB64
+ 539 0018 00000000 		.4byte	0
+ 540 001c 00000000 		.4byte	0
+ 541              		.section	.debug_ranges,"",%progbits
+ 542              	.Ldebug_ranges0:
+ 543 0000 00000000 		.4byte	.LFB64
+ 544 0004 24000000 		.4byte	.LFE64
+ 545 0008 00000000 		.4byte	0
+ 546 000c 00000000 		.4byte	0
+ 547              		.section	.debug_line,"",%progbits
+ 548              	.Ldebug_line0:
+ 549 0000 90010000 		.section	.debug_str,"MS",%progbits,1
+ 549      02006B01 
+ 549      00000201 
+ 549      FB0E0D00 
+ 549      01010101 
+ 550              	.LASF9:
+ 551 0000 5F5F696E 		.ascii	"__int32_t\000"
+ 551      7433325F 
+ 551      7400
+ 552              	.LASF26:
+ 553 000a 443A5C55 		.ascii	"D:\\Users\\ESTEBAN\\Desktop\\Materias\\Codigos\\Psc"
+ 553      73657273 
+ 553      5C455354 
+ 553      4542414E 
+ 553      5C446573 
+ 554 0037 6F635C43 		.ascii	"oc\\Carrito_arcos\\carro_arcos.cydsn\000"
+ 554      61727269 
+ 554      746F5F61 
+ 554      72636F73 
+ 554      5C636172 
+ 555              	.LASF19:
+ 556 005a 41444331 		.ascii	"ADC1_Start\000"
+ 556      5F537461 
+ 556      727400
+ 557              	.LASF12:
+ 558 0065 666C6F61 		.ascii	"float\000"
+ 558      7400
+ 559              	.LASF1:
+ 560 006b 756E7369 		.ascii	"unsigned char\000"
+ 560      676E6564 
+ 560      20636861 
+ 560      7200
+ 561              	.LASF24:
+ 562 0079 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 562      43313120 
+ 562      352E342E 
+ 562      31203230 
+ 562      31363036 
+ 563 00ac 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccDuz8CG.s 			page 12
+
+
+ 563      20726576 
+ 563      6973696F 
+ 563      6E203233 
+ 563      37373135 
+ 564 00df 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 564      66756E63 
+ 564      74696F6E 
+ 564      2D736563 
+ 564      74696F6E 
+ 565              	.LASF14:
+ 566 0107 63686172 		.ascii	"char8\000"
+ 566      3800
+ 567              	.LASF5:
+ 568 010d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 568      20756E73 
+ 568      69676E65 
+ 568      6420696E 
+ 568      7400
+ 569              	.LASF3:
+ 570 011f 73686F72 		.ascii	"short unsigned int\000"
+ 570      7420756E 
+ 570      7369676E 
+ 570      65642069 
+ 570      6E7400
+ 571              	.LASF21:
+ 572 0132 55415254 		.ascii	"UART_Start\000"
+ 572      5F537461 
+ 572      727400
+ 573              	.LASF29:
+ 574 013d 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 574      52784275 
+ 574      66666572 
+ 574      00
+ 575              	.LASF13:
+ 576 014a 646F7562 		.ascii	"double\000"
+ 576      6C6500
+ 577              	.LASF28:
+ 578 0151 54657874 		.ascii	"Texto\000"
+ 578      6F00
+ 579              	.LASF11:
+ 580 0157 75696E74 		.ascii	"uint32\000"
+ 580      333200
+ 581              	.LASF27:
+ 582 015e 6D61696E 		.ascii	"main\000"
+ 582      00
+ 583              	.LASF8:
+ 584 0163 756E7369 		.ascii	"unsigned int\000"
+ 584      676E6564 
+ 584      20696E74 
+ 584      00
+ 585              	.LASF7:
+ 586 0170 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 586      206C6F6E 
+ 586      6720756E 
+ 586      7369676E 
+ 586      65642069 
+ 587              	.LASF10:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccDuz8CG.s 			page 13
+
+
+ 588 0187 696E7433 		.ascii	"int32_t\000"
+ 588      325F7400 
+ 589              	.LASF17:
+ 590 018f 73697A65 		.ascii	"sizetype\000"
+ 590      74797065 
+ 590      00
+ 591              	.LASF6:
+ 592 0198 6C6F6E67 		.ascii	"long long int\000"
+ 592      206C6F6E 
+ 592      6720696E 
+ 592      7400
+ 593              	.LASF25:
+ 594 01a6 6D61696E 		.ascii	"main.c\000"
+ 594      2E6300
+ 595              	.LASF15:
+ 596 01ad 63686172 		.ascii	"char\000"
+ 596      00
+ 597              	.LASF2:
+ 598 01b2 73686F72 		.ascii	"short int\000"
+ 598      7420696E 
+ 598      7400
+ 599              	.LASF18:
+ 600 01bc 56616C6F 		.ascii	"Valor_ADC1\000"
+ 600      725F4144 
+ 600      433100
+ 601              	.LASF4:
+ 602 01c7 6C6F6E67 		.ascii	"long int\000"
+ 602      20696E74 
+ 602      00
+ 603              	.LASF16:
+ 604 01d0 6C6F6E67 		.ascii	"long double\000"
+ 604      20646F75 
+ 604      626C6500 
+ 605              	.LASF0:
+ 606 01dc 7369676E 		.ascii	"signed char\000"
+ 606      65642063 
+ 606      68617200 
+ 607              	.LASF22:
+ 608 01e8 55415254 		.ascii	"UART_PutString\000"
+ 608      5F507574 
+ 608      53747269 
+ 608      6E6700
+ 609              	.LASF20:
+ 610 01f7 41444331 		.ascii	"ADC1_StartConvert\000"
+ 610      5F537461 
+ 610      7274436F 
+ 610      6E766572 
+ 610      7400
+ 611              	.LASF23:
+ 612 0209 43794465 		.ascii	"CyDelay\000"
+ 612      6C617900 
+ 613              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

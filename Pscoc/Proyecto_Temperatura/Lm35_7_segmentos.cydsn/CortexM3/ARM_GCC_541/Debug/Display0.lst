@@ -1,0 +1,3996 @@
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Display0.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Display0_DmaConfigure,"ax",%progbits
+  20              		.align	2
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	Display0_DmaConfigure, %function
+  24              	Display0_DmaConfigure:
+  25              	.LFB2:
+  26              		.file 1 "Generated_Source\\PSoC5\\Display0.c"
+   1:Generated_Source\PSoC5/Display0.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/Display0.c **** * File Name: Display0.c
+   3:Generated_Source\PSoC5/Display0.c **** * Version 2.30
+   4:Generated_Source\PSoC5/Display0.c **** *
+   5:Generated_Source\PSoC5/Display0.c **** * Description:
+   6:Generated_Source\PSoC5/Display0.c **** *  This file provides the API source code for the Static Segment LCD component.
+   7:Generated_Source\PSoC5/Display0.c **** *
+   8:Generated_Source\PSoC5/Display0.c **** * Note:
+   9:Generated_Source\PSoC5/Display0.c **** *
+  10:Generated_Source\PSoC5/Display0.c **** ********************************************************************************
+  11:Generated_Source\PSoC5/Display0.c **** * Copyright 2008-2013, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC5/Display0.c **** * You may use this file only in accordance with the license, terms, conditions,
+  13:Generated_Source\PSoC5/Display0.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  14:Generated_Source\PSoC5/Display0.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC5/Display0.c **** *******************************************************************************/
+  16:Generated_Source\PSoC5/Display0.c **** 
+  17:Generated_Source\PSoC5/Display0.c **** #include "Display0.h"
+  18:Generated_Source\PSoC5/Display0.c **** #include <Display0_InClock.h>
+  19:Generated_Source\PSoC5/Display0.c **** #include <Display0_LCD_ISR.h>
+  20:Generated_Source\PSoC5/Display0.c **** #include <Display0_Lcd_Dma_dma.h>
+  21:Generated_Source\PSoC5/Display0.c **** 
+  22:Generated_Source\PSoC5/Display0.c **** static uint8  Display0_DmaConfigure(void) CYREENTRANT;
+  23:Generated_Source\PSoC5/Display0.c **** static void   Display0_DmaDispose(void) CYREENTRANT;
+  24:Generated_Source\PSoC5/Display0.c **** 
+  25:Generated_Source\PSoC5/Display0.c **** 
+  26:Generated_Source\PSoC5/Display0.c **** /* Look-up tables for different kinds of displays */
+  27:Generated_Source\PSoC5/Display0.c **** #ifdef Display0_7SEG
+  28:Generated_Source\PSoC5/Display0.c **** 
+  29:Generated_Source\PSoC5/Display0.c ****     static const uint8 CYCODE Display0_7SegDigits[] =
+  30:Generated_Source\PSoC5/Display0.c ****     /* '0'   '1'    '2'    '3'    '4'    '5'    '6'    '7' */
+  31:Generated_Source\PSoC5/Display0.c ****     {0x3fu, 0x06u, 0x5bu, 0x4fu, 0x66u, 0x6du, 0x7du, 0x07u,
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 2
+
+
+  32:Generated_Source\PSoC5/Display0.c ****     /* '8'  '9'    'A'    'B'    'C'    'D'    'E'    'F'   null */
+  33:Generated_Source\PSoC5/Display0.c ****     0x7fu, 0x6fu, 0x77u, 0x7cu, 0x39u, 0x5eu, 0x79u, 0x71u, 0x00u};
+  34:Generated_Source\PSoC5/Display0.c **** 
+  35:Generated_Source\PSoC5/Display0.c **** #endif /* Display0_7SEG */
+  36:Generated_Source\PSoC5/Display0.c **** 
+  37:Generated_Source\PSoC5/Display0.c **** #ifdef ALPHANUMERIC
+  38:Generated_Source\PSoC5/Display0.c **** 
+  39:Generated_Source\PSoC5/Display0.c ****     #ifdef Display0_14SEG
+  40:Generated_Source\PSoC5/Display0.c **** 
+  41:Generated_Source\PSoC5/Display0.c ****         static const uint16 CYCODE Display0_14SegChars[] = {
+  42:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  43:Generated_Source\PSoC5/Display0.c ****         /*                           Blank                            */
+  44:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  45:Generated_Source\PSoC5/Display0.c ****         0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,
+  46:Generated_Source\PSoC5/Display0.c ****         0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,
+  47:Generated_Source\PSoC5/Display0.c ****         0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,
+  48:Generated_Source\PSoC5/Display0.c ****         0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,
+  49:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  50:Generated_Source\PSoC5/Display0.c ****         /*         !       "       #       $       %       &       '  */
+  51:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  52:Generated_Source\PSoC5/Display0.c ****         0x0000u,0x0006u,0x0120u,0x3fffu,0x156du,0x2ee4u,0x2a8du,0x0200u,
+  53:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  54:Generated_Source\PSoC5/Display0.c ****         /* (       )       *       +       ,       -       .       /  */
+  55:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  56:Generated_Source\PSoC5/Display0.c ****         0x0a00u,0x2080u,0x3fc0u,0x1540u,0x2000u,0x0440u,0x1058u,0x2200u,
+  57:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  58:Generated_Source\PSoC5/Display0.c ****         /* 0       1       2       3       4       5       6       7  */
+  59:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  60:Generated_Source\PSoC5/Display0.c ****         0x223fu,0x0206u,0x045bu,0x040fu,0x0466u,0x0869u,0x047du,0x1201u,
+  61:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  62:Generated_Source\PSoC5/Display0.c ****         /* 8       9       :       ;       <       =       >       ?  */
+  63:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  64:Generated_Source\PSoC5/Display0.c ****         0x047fu,0x046fu,0x1100u,0x2100u,0x0a00u,0x0448u,0x2080u,0x1423u,
+  65:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  66:Generated_Source\PSoC5/Display0.c ****         /* @       A       B       C       D       E       F       G  */
+  67:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  68:Generated_Source\PSoC5/Display0.c ****         0x053bu,0x0477u,0x150fu,0x0039u,0x110Fu,0x0079u,0x0071u,0x043du,
+  69:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  70:Generated_Source\PSoC5/Display0.c ****         /* H       I       J       K       L       M       N       O  */
+  71:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  72:Generated_Source\PSoC5/Display0.c ****         0x0476u,0x1100u,0x001eu,0x0a70u,0x0038u,0x02b6u,0x08b6u,0x003fu,
+  73:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  74:Generated_Source\PSoC5/Display0.c ****         /* P       Q       R       S       T       U       V       W  */
+  75:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  76:Generated_Source\PSoC5/Display0.c ****         0x0473u,0x083fu,0x0C73u,0x046du,0x1101u,0x003eu,0x2230u,0x2836u,
+  77:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  78:Generated_Source\PSoC5/Display0.c ****         /* X       Y       Z       [       \       ]       ^       _  */
+  79:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  80:Generated_Source\PSoC5/Display0.c ****         0x2a80u,0x1462u,0x2209u,0x0039u,0x0880u,0x000fu,0x0003u,0x0008u,
+  81:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  82:Generated_Source\PSoC5/Display0.c ****         /* @       a       b       c       d       e       f       g  */
+  83:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  84:Generated_Source\PSoC5/Display0.c ****         0x053bu,0x0477u,0x150fu,0x0039u,0x110Fu,0x0079u,0x0071u,0x043du,
+  85:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  86:Generated_Source\PSoC5/Display0.c ****         /* h       i       j       k       l       m       n       o  */
+  87:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  88:Generated_Source\PSoC5/Display0.c ****         0x0476u,0x1100u,0x001eu,0x0a70u,0x0038u,0x02b6u,0x08b6u,0x003fu,
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 3
+
+
+  89:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  90:Generated_Source\PSoC5/Display0.c ****         /* p       q       r       s       t       u       v       w  */
+  91:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  92:Generated_Source\PSoC5/Display0.c ****         0x0473u,0x083fu,0x0C73u,0x046du,0x1101u,0x003eu,0x2230u,0x2836u,
+  93:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  94:Generated_Source\PSoC5/Display0.c ****         /* x       y       z       {       |       }        ~      O  */
+  95:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+  96:Generated_Source\PSoC5/Display0.c ****         0x2a80u,0x1280u,0x2209u,0x0e00u,0x1100u,0x20C0u,0x0452u,0x003fu};
+  97:Generated_Source\PSoC5/Display0.c **** 
+  98:Generated_Source\PSoC5/Display0.c ****     #endif /* Display0_14SEG */
+  99:Generated_Source\PSoC5/Display0.c **** 
+ 100:Generated_Source\PSoC5/Display0.c ****     #ifdef Display0_16SEG
+ 101:Generated_Source\PSoC5/Display0.c **** 
+ 102:Generated_Source\PSoC5/Display0.c ****         static const uint16 CYCODE Display0_16SegChars[] = {
+ 103:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 104:Generated_Source\PSoC5/Display0.c ****         /*                           Blank                            */
+ 105:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 106:Generated_Source\PSoC5/Display0.c ****         0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,
+ 107:Generated_Source\PSoC5/Display0.c ****         0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,
+ 108:Generated_Source\PSoC5/Display0.c ****         0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,
+ 109:Generated_Source\PSoC5/Display0.c ****         0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,
+ 110:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 111:Generated_Source\PSoC5/Display0.c ****         /*         !       "       #       $       %       &       '  */
+ 112:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 113:Generated_Source\PSoC5/Display0.c ****         0x0000u,0x000cu,0x0480u,0xffffu,0x55bbu,0xdd99u,0xaa3bu,0x0800u,
+ 114:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 115:Generated_Source\PSoC5/Display0.c ****         /* (       )       *       +       ,       -       .       /  */
+ 116:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 117:Generated_Source\PSoC5/Display0.c ****         0x2800u,0x8200u,0xff00u,0x5500u,0x8000u,0x1100u,0x4160u,0x8800u,
+ 118:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 119:Generated_Source\PSoC5/Display0.c ****         /* 0       1       2       3       4       5       6       7  */
+ 120:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 121:Generated_Source\PSoC5/Display0.c ****         0x88ffu,0x000cu,0x1177u,0x103fu,0x118cu,0x21b3u,0x11fbu,0x4803u,
+ 122:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 123:Generated_Source\PSoC5/Display0.c ****         /* 8       9       :       ;       <       =       >       ?  */
+ 124:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 125:Generated_Source\PSoC5/Display0.c ****         0x11ffu,0x11bfu,0x4400u,0x8400u,0x2800u,0x1130u,0x8200u,0x5087u,
+ 126:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 127:Generated_Source\PSoC5/Display0.c ****         /* @       A       B       C       D       E       F       G  */
+ 128:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 129:Generated_Source\PSoC5/Display0.c ****         0x14f7u,0x11cfu,0x543fu,0x00f3u,0x443fu,0x01f3u,0x01c3u,0x10fbu,
+ 130:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 131:Generated_Source\PSoC5/Display0.c ****         /* H       I       J       K       L       M       N       O  */
+ 132:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 133:Generated_Source\PSoC5/Display0.c ****         0x11ccu,0x4400u,0x007eu,0x29c0u,0x00f0u,0x0accu,0x22ccu,0x00ffu,
+ 134:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 135:Generated_Source\PSoC5/Display0.c ****         /* P       Q       R       S       T       U       V       W  */
+ 136:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 137:Generated_Source\PSoC5/Display0.c ****         0x11c7u,0x20ffu,0x31c7u,0x11bbu,0x4403u,0x00fcu,0x88c0u,0xa0ccu,
+ 138:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 139:Generated_Source\PSoC5/Display0.c ****         /* X       Y       Z       [       \       ]       ^       _  */
+ 140:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 141:Generated_Source\PSoC5/Display0.c ****         0xaa00u,0x5184u,0x8833u,0x4412u,0x2200u,0x4421u,0x0006u,0x0030u,
+ 142:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 143:Generated_Source\PSoC5/Display0.c ****         /* @       a       b       c       d       e       f       g  */
+ 144:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 145:Generated_Source\PSoC5/Display0.c ****         0x14f7u,0x11cfu,0x543fu,0x00f3u,0x443fu,0x01f3u,0x01c3u,0x10fbu,
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 4
+
+
+ 146:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 147:Generated_Source\PSoC5/Display0.c ****         /* h       i       j       k       l       m       n       o  */
+ 148:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 149:Generated_Source\PSoC5/Display0.c ****         0x11ccu,0x4400u,0x007eu,0x29c0u,0x00f0u,0x0accu,0x22ccu,0x00ffu,
+ 150:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 151:Generated_Source\PSoC5/Display0.c ****         /* p       q       r       s       t       u       v       w  */
+ 152:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 153:Generated_Source\PSoC5/Display0.c ****         0x11c7u,0x20ffu,0x31c7u,0x11bbu,0x4403u,0x00fcu,0x88c0u,0xa0ccu,
+ 154:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 155:Generated_Source\PSoC5/Display0.c ****         /* x       y       z       {       |       }        ~         */
+ 156:Generated_Source\PSoC5/Display0.c ****         /*------------------------------------------------------------*/
+ 157:Generated_Source\PSoC5/Display0.c ****         0xaa00u,0x4A00u,0x8833u,0x3800u,0x4400u,0x8300u,0x1144u,0x0000u};
+ 158:Generated_Source\PSoC5/Display0.c **** 
+ 159:Generated_Source\PSoC5/Display0.c ****     #endif /* Display0_16SEG */
+ 160:Generated_Source\PSoC5/Display0.c **** 
+ 161:Generated_Source\PSoC5/Display0.c **** #endif /* ALPHANUMERIC */
+ 162:Generated_Source\PSoC5/Display0.c **** 
+ 163:Generated_Source\PSoC5/Display0.c **** /* Frame Buffer */
+ 164:Generated_Source\PSoC5/Display0.c **** static uint8 Display0_buffer[Display0_BUFFER_LENGTH] ;
+ 165:Generated_Source\PSoC5/Display0.c **** 
+ 166:Generated_Source\PSoC5/Display0.c **** /* Array of common port TDs */
+ 167:Generated_Source\PSoC5/Display0.c **** static uint8 Display0_lcdTd[Display0_LCD_TD_SIZE * Display0_COMM_NUM];
+ 168:Generated_Source\PSoC5/Display0.c **** 
+ 169:Generated_Source\PSoC5/Display0.c **** /* DMA channel dedicated for SegLCD commons */
+ 170:Generated_Source\PSoC5/Display0.c **** static uint8 Display0_lcdChannel;
+ 171:Generated_Source\PSoC5/Display0.c **** 
+ 172:Generated_Source\PSoC5/Display0.c **** uint8 Display0_initVar = 0u;
+ 173:Generated_Source\PSoC5/Display0.c **** 
+ 174:Generated_Source\PSoC5/Display0.c **** /* Saves state of the component if it turned on or off */
+ 175:Generated_Source\PSoC5/Display0.c **** uint8 Display0_enableState = 0u;
+ 176:Generated_Source\PSoC5/Display0.c **** 
+ 177:Generated_Source\PSoC5/Display0.c **** /* Start of customizer generated code */
+ 178:Generated_Source\PSoC5/Display0.c **** 
+ 179:Generated_Source\PSoC5/Display0.c **** static uint16 CYCODE Display0_commons[1u] = {Display0_Com0};
+ 180:Generated_Source\PSoC5/Display0.c **** 
+ 181:Generated_Source\PSoC5/Display0.c **** 
+ 182:Generated_Source\PSoC5/Display0.c **** /*******************************************************************************
+ 183:Generated_Source\PSoC5/Display0.c **** * Function Name: Display0_Init
+ 184:Generated_Source\PSoC5/Display0.c **** ********************************************************************************
+ 185:Generated_Source\PSoC5/Display0.c **** *
+ 186:Generated_Source\PSoC5/Display0.c **** * Summary:
+ 187:Generated_Source\PSoC5/Display0.c **** *  Configures every-frame ISR and initializes a Frame Buffer.
+ 188:Generated_Source\PSoC5/Display0.c **** *
+ 189:Generated_Source\PSoC5/Display0.c **** * Parameters:
+ 190:Generated_Source\PSoC5/Display0.c **** *  None.
+ 191:Generated_Source\PSoC5/Display0.c **** *
+ 192:Generated_Source\PSoC5/Display0.c **** * Return:
+ 193:Generated_Source\PSoC5/Display0.c **** *  None.
+ 194:Generated_Source\PSoC5/Display0.c **** *
+ 195:Generated_Source\PSoC5/Display0.c **** * Reentrant:
+ 196:Generated_Source\PSoC5/Display0.c **** *  No.
+ 197:Generated_Source\PSoC5/Display0.c **** *
+ 198:Generated_Source\PSoC5/Display0.c **** *******************************************************************************/
+ 199:Generated_Source\PSoC5/Display0.c **** void Display0_Init(void) 
+ 200:Generated_Source\PSoC5/Display0.c **** {
+ 201:Generated_Source\PSoC5/Display0.c ****     Display0_ClearDisplay();
+ 202:Generated_Source\PSoC5/Display0.c **** 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 5
+
+
+ 203:Generated_Source\PSoC5/Display0.c ****     /*ISR initialization */
+ 204:Generated_Source\PSoC5/Display0.c ****     CyIntDisable(Display0_ISR_NUMBER);
+ 205:Generated_Source\PSoC5/Display0.c **** 
+ 206:Generated_Source\PSoC5/Display0.c ****     /* Set the ISR to point to the RTC_SUT_isr Interrupt. */
+ 207:Generated_Source\PSoC5/Display0.c ****     (void) CyIntSetVector(Display0_ISR_NUMBER, &Display0_ISR);
+ 208:Generated_Source\PSoC5/Display0.c **** 
+ 209:Generated_Source\PSoC5/Display0.c ****     /* Set the priority. */
+ 210:Generated_Source\PSoC5/Display0.c ****     CyIntSetPriority(Display0_ISR_NUMBER, Display0_ISR_PRIORITY);
+ 211:Generated_Source\PSoC5/Display0.c **** }
+ 212:Generated_Source\PSoC5/Display0.c **** 
+ 213:Generated_Source\PSoC5/Display0.c **** 
+ 214:Generated_Source\PSoC5/Display0.c **** /*******************************************************************************
+ 215:Generated_Source\PSoC5/Display0.c **** * Function Name: Display0_Enable
+ 216:Generated_Source\PSoC5/Display0.c **** ********************************************************************************
+ 217:Generated_Source\PSoC5/Display0.c **** *
+ 218:Generated_Source\PSoC5/Display0.c **** * Summary:
+ 219:Generated_Source\PSoC5/Display0.c **** *  Enables clock generation for the component and configures DMA channels.
+ 220:Generated_Source\PSoC5/Display0.c **** *
+ 221:Generated_Source\PSoC5/Display0.c **** * Parameters:
+ 222:Generated_Source\PSoC5/Display0.c **** *  None.
+ 223:Generated_Source\PSoC5/Display0.c **** *
+ 224:Generated_Source\PSoC5/Display0.c **** * Return:
+ 225:Generated_Source\PSoC5/Display0.c **** *  Status one of standard status for PSoC3 Component:
+ 226:Generated_Source\PSoC5/Display0.c **** *      CYRET_SUCCESS - Function completed successfully.
+ 227:Generated_Source\PSoC5/Display0.c **** *      CYRET_LOCKED - The object was locked, already in use. Some of TDs or
+ 228:Generated_Source\PSoC5/Display0.c **** *                     a channel already in use.
+ 229:Generated_Source\PSoC5/Display0.c **** *
+ 230:Generated_Source\PSoC5/Display0.c **** * Global variables:
+ 231:Generated_Source\PSoC5/Display0.c **** *  Display0_enableState - Initializes variable to '1', it means that
+ 232:Generated_Source\PSoC5/Display0.c **** *  the component was initialized and enabled before entering into a Sleep.
+ 233:Generated_Source\PSoC5/Display0.c **** *
+ 234:Generated_Source\PSoC5/Display0.c **** * Reentrant:
+ 235:Generated_Source\PSoC5/Display0.c **** *  No.
+ 236:Generated_Source\PSoC5/Display0.c **** *
+ 237:Generated_Source\PSoC5/Display0.c **** *******************************************************************************/
+ 238:Generated_Source\PSoC5/Display0.c **** uint8 Display0_Enable(void) 
+ 239:Generated_Source\PSoC5/Display0.c **** {
+ 240:Generated_Source\PSoC5/Display0.c ****     uint8 status;
+ 241:Generated_Source\PSoC5/Display0.c **** 
+ 242:Generated_Source\PSoC5/Display0.c ****     /* Configure DMA TDs and return status */
+ 243:Generated_Source\PSoC5/Display0.c ****     status = Display0_DmaConfigure();
+ 244:Generated_Source\PSoC5/Display0.c **** 
+ 245:Generated_Source\PSoC5/Display0.c ****     /* Enable Internal clock */
+ 246:Generated_Source\PSoC5/Display0.c ****     Display0_InClock_Enable();
+ 247:Generated_Source\PSoC5/Display0.c **** 
+ 248:Generated_Source\PSoC5/Display0.c ****     /* The component is started so set the state appropriately */
+ 249:Generated_Source\PSoC5/Display0.c ****     Display0_enableState = 1u;
+ 250:Generated_Source\PSoC5/Display0.c **** 
+ 251:Generated_Source\PSoC5/Display0.c ****     return(status);
+ 252:Generated_Source\PSoC5/Display0.c **** }
+ 253:Generated_Source\PSoC5/Display0.c **** 
+ 254:Generated_Source\PSoC5/Display0.c **** 
+ 255:Generated_Source\PSoC5/Display0.c **** /*******************************************************************************
+ 256:Generated_Source\PSoC5/Display0.c **** * Function Name: Display0_DmaConfigure
+ 257:Generated_Source\PSoC5/Display0.c **** ********************************************************************************
+ 258:Generated_Source\PSoC5/Display0.c **** *
+ 259:Generated_Source\PSoC5/Display0.c **** * Summary:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 6
+
+
+ 260:Generated_Source\PSoC5/Display0.c **** *  Configures DMA to transfer data from the frame buffer to port alliased
+ 261:Generated_Source\PSoC5/Display0.c **** *  memory.
+ 262:Generated_Source\PSoC5/Display0.c **** *
+ 263:Generated_Source\PSoC5/Display0.c **** * Parameters:
+ 264:Generated_Source\PSoC5/Display0.c **** *  None.
+ 265:Generated_Source\PSoC5/Display0.c **** *
+ 266:Generated_Source\PSoC5/Display0.c **** * Return:
+ 267:Generated_Source\PSoC5/Display0.c **** *  Status one of standard status for PSoC3 Component
+ 268:Generated_Source\PSoC5/Display0.c **** *      CYRET_SUCCESS - Function completed successfully.
+ 269:Generated_Source\PSoC5/Display0.c **** *      CYRET_LOCKED - The object was locked, already in use. Some of TDs or
+ 270:Generated_Source\PSoC5/Display0.c **** *                     a channel already in use.
+ 271:Generated_Source\PSoC5/Display0.c **** *
+ 272:Generated_Source\PSoC5/Display0.c **** * Global variables:
+ 273:Generated_Source\PSoC5/Display0.c **** * Display0_lcdTd[] - used to store a set of allocated TD IDs that are
+ 274:Generated_Source\PSoC5/Display0.c **** *  used by this component.
+ 275:Generated_Source\PSoC5/Display0.c **** *
+ 276:Generated_Source\PSoC5/Display0.c **** *  Display0_lcdChannel - stores a DMA Channel allocated for an LCD usage.
+ 277:Generated_Source\PSoC5/Display0.c **** *
+ 278:Generated_Source\PSoC5/Display0.c **** *  Display0_termOut - used as a parameter for LCD DMA configuration API
+ 279:Generated_Source\PSoC5/Display0.c **** *  to select proper TermOut signal that was previously calculated.
+ 280:Generated_Source\PSoC5/Display0.c **** *
+ 281:Generated_Source\PSoC5/Display0.c **** *  Display0LcdPort_DMA_TD_PROTO_BLOCK[] - used as a parameter for DMA
+ 282:Generated_Source\PSoC5/Display0.c **** *  configuration API.
+ 283:Generated_Source\PSoC5/Display0.c **** *
+ 284:Generated_Source\PSoC5/Display0.c **** * Reentrant:
+ 285:Generated_Source\PSoC5/Display0.c **** *  No.
+ 286:Generated_Source\PSoC5/Display0.c **** *
+ 287:Generated_Source\PSoC5/Display0.c **** *******************************************************************************/
+ 288:Generated_Source\PSoC5/Display0.c **** static uint8 Display0_DmaConfigure(void) CYREENTRANT
+ 289:Generated_Source\PSoC5/Display0.c **** {
+  27              		.loc 1 289 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+  32              		.cfi_def_cfa_offset 32
+  33              		.cfi_offset 3, -32
+  34              		.cfi_offset 4, -28
+  35              		.cfi_offset 5, -24
+  36              		.cfi_offset 6, -20
+  37              		.cfi_offset 7, -16
+  38              		.cfi_offset 8, -12
+  39              		.cfi_offset 9, -8
+  40              		.cfi_offset 14, -4
+  41              	.LVL0:
+ 290:Generated_Source\PSoC5/Display0.c ****     uint8 status = CYRET_LOCKED;
+ 291:Generated_Source\PSoC5/Display0.c ****     uint8 i;
+ 292:Generated_Source\PSoC5/Display0.c ****     uint8 j;
+ 293:Generated_Source\PSoC5/Display0.c ****     uint8 errorCnt = 0u;
+ 294:Generated_Source\PSoC5/Display0.c ****     uint32 srcAddr;
+ 295:Generated_Source\PSoC5/Display0.c ****     uint32 dstAddr;
+ 296:Generated_Source\PSoC5/Display0.c ****     uint8 comTdCount;
+ 297:Generated_Source\PSoC5/Display0.c ****     /* DMA_PROTO_TD_DEF */
+ 298:Generated_Source\PSoC5/Display0.c ****     static const struct Display0_DMA_TD_PROTO_ENTRY CYCODE Display0_StSegLcdPort_DMA_TD_PROTO_BLOCK
+ 299:Generated_Source\PSoC5/Display0.c ****     {
+ 300:Generated_Source\PSoC5/Display0.c ****         {1u, 1u},
+ 301:Generated_Source\PSoC5/Display0.c ****     };
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 7
+
+
+ 302:Generated_Source\PSoC5/Display0.c **** 
+ 303:Generated_Source\PSoC5/Display0.c ****     /* Display0_termOut selects signal which triggers
+ 304:Generated_Source\PSoC5/Display0.c ****     * LCD every frame interrupt.
+ 305:Generated_Source\PSoC5/Display0.c ****     */
+ 306:Generated_Source\PSoC5/Display0.c ****     static uint8 Display0_termOut = (Display0_Lcd_Dma__TERMOUT0_EN ? TD_TERMOUT0_EN : 0u) |
+ 307:Generated_Source\PSoC5/Display0.c ****                                  (Display0_Lcd_Dma__TERMOUT1_EN ? TD_TERMOUT1_EN : 0u);
+ 308:Generated_Source\PSoC5/Display0.c **** 
+ 309:Generated_Source\PSoC5/Display0.c ****     /* Get addressed of source and destination for DMA transactions */
+ 310:Generated_Source\PSoC5/Display0.c ****     srcAddr = Display0_DMA_ADDRESS_MASK & ((uint32) Display0_buffer);
+  42              		.loc 1 310 0
+  43 0004 434F     		ldr	r7, .L19
+  44              	.LVL1:
+ 311:Generated_Source\PSoC5/Display0.c ****     dstAddr = Display0_DMA_ADDRESS_MASK & Display0_ALIASED_AREA_PTR;
+ 312:Generated_Source\PSoC5/Display0.c **** 
+ 313:Generated_Source\PSoC5/Display0.c ****     /* Allocate DMA channel */
+ 314:Generated_Source\PSoC5/Display0.c ****     Display0_lcdChannel = Display0_Lcd_Dma_DmaInitialize(0u, 0u, HI16(srcAddr), HI16(dstAddr));
+  45              		.loc 1 314 0
+  46 0006 4FF48043 		mov	r3, #16384
+  47 000a 3A0C     		lsrs	r2, r7, #16
+  48 000c 0021     		movs	r1, #0
+  49 000e 0846     		mov	r0, r1
+  50 0010 FFF7FEFF 		bl	Display0_Lcd_Dma_DmaInitialize
+  51              	.LVL2:
+  52 0014 87F82000 		strb	r0, [r7, #32]
+ 315:Generated_Source\PSoC5/Display0.c **** 
+ 316:Generated_Source\PSoC5/Display0.c ****     /* Check if the channel is valid */
+ 317:Generated_Source\PSoC5/Display0.c ****     if(Display0_lcdChannel == DMA_INVALID_CHANNEL)
+  53              		.loc 1 317 0
+  54 0018 FF28     		cmp	r0, #255
+  55 001a 01D0     		beq	.L14
+ 293:Generated_Source\PSoC5/Display0.c ****     uint32 srcAddr;
+  56              		.loc 1 293 0
+  57 001c 0026     		movs	r6, #0
+  58 001e 00E0     		b	.L2
+  59              	.L14:
+ 318:Generated_Source\PSoC5/Display0.c ****     {
+ 319:Generated_Source\PSoC5/Display0.c ****         errorCnt++;
+  60              		.loc 1 319 0
+  61 0020 0126     		movs	r6, #1
+  62              	.L2:
+  63 0022 4FF00008 		mov	r8, #0
+  64 0026 15E0     		b	.L3
+  65              	.LVL3:
+  66              	.L5:
+ 320:Generated_Source\PSoC5/Display0.c ****     }
+ 321:Generated_Source\PSoC5/Display0.c **** 
+ 322:Generated_Source\PSoC5/Display0.c ****     /* Allocate required number of DMA TDs */
+ 323:Generated_Source\PSoC5/Display0.c ****     for(j = 0u; j < Display0_COMM_NUM; j++)
+ 324:Generated_Source\PSoC5/Display0.c ****     {
+ 325:Generated_Source\PSoC5/Display0.c ****         for(i = 0u; i < Display0_LCD_TD_SIZE; i++)
+ 326:Generated_Source\PSoC5/Display0.c ****         {
+ 327:Generated_Source\PSoC5/Display0.c ****             Display0_lcdTd[(j * Display0_LCD_TD_SIZE) + i] = CyDmaTdAllocate();
+  67              		.loc 1 327 0
+  68 0028 04EB0805 		add	r5, r4, r8
+  69 002c FFF7FEFF 		bl	CyDmaTdAllocate
+  70              	.LVL4:
+  71 0030 384B     		ldr	r3, .L19
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 8
+
+
+  72 0032 1D44     		add	r5, r5, r3
+  73 0034 85F82400 		strb	r0, [r5, #36]
+ 328:Generated_Source\PSoC5/Display0.c ****             if(Display0_lcdTd[(j * Display0_LCD_TD_SIZE) + i] == DMA_INVALID_TD)
+  74              		.loc 1 328 0
+  75 0038 FF28     		cmp	r0, #255
+  76 003a 01D1     		bne	.L4
+ 329:Generated_Source\PSoC5/Display0.c ****             {
+ 330:Generated_Source\PSoC5/Display0.c ****                 errorCnt++;
+  77              		.loc 1 330 0
+  78 003c 0136     		adds	r6, r6, #1
+  79              	.LVL5:
+  80 003e F6B2     		uxtb	r6, r6
+  81              	.LVL6:
+  82              	.L4:
+ 325:Generated_Source\PSoC5/Display0.c ****         {
+  83              		.loc 1 325 0 discriminator 2
+  84 0040 0134     		adds	r4, r4, #1
+  85              	.LVL7:
+  86 0042 E4B2     		uxtb	r4, r4
+  87              	.LVL8:
+  88 0044 00E0     		b	.L6
+  89              	.LVL9:
+  90              	.L15:
+  91 0046 0024     		movs	r4, #0
+  92              	.L6:
+  93              	.LVL10:
+ 325:Generated_Source\PSoC5/Display0.c ****         {
+  94              		.loc 1 325 0 is_stmt 0 discriminator 1
+  95 0048 002C     		cmp	r4, #0
+  96 004a EDD0     		beq	.L5
+ 323:Generated_Source\PSoC5/Display0.c ****     {
+  97              		.loc 1 323 0 is_stmt 1 discriminator 2
+  98 004c 08F10108 		add	r8, r8, #1
+  99              	.LVL11:
+ 100 0050 5FFA88F8 		uxtb	r8, r8
+ 101              	.LVL12:
+ 102              	.L3:
+ 323:Generated_Source\PSoC5/Display0.c ****     {
+ 103              		.loc 1 323 0 is_stmt 0 discriminator 1
+ 104 0054 B8F1010F 		cmp	r8, #1
+ 105 0058 F5D9     		bls	.L15
+ 106 005a 4FF00008 		mov	r8, #0
+ 107              	.LVL13:
+ 108 005e 42E0     		b	.L7
+ 109              	.LVL14:
+ 110              	.L11:
+ 331:Generated_Source\PSoC5/Display0.c ****             }
+ 332:Generated_Source\PSoC5/Display0.c ****         }
+ 333:Generated_Source\PSoC5/Display0.c ****     }
+ 334:Generated_Source\PSoC5/Display0.c **** 
+ 335:Generated_Source\PSoC5/Display0.c ****     /* comTdCount stores the number of TDs allocated for this configuration */
+ 336:Generated_Source\PSoC5/Display0.c ****     comTdCount = (Display0_COMM_NUM * Display0_LCD_TD_SIZE);
+ 337:Generated_Source\PSoC5/Display0.c **** 
+ 338:Generated_Source\PSoC5/Display0.c ****     /* TD configuration loop */
+ 339:Generated_Source\PSoC5/Display0.c ****     for(j = 0u; j < Display0_COMM_NUM; j++)
+ 340:Generated_Source\PSoC5/Display0.c ****     {
+ 341:Generated_Source\PSoC5/Display0.c ****         for(i = 0u; i < Display0_LCD_TD_SIZE; i++)
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 9
+
+
+ 342:Generated_Source\PSoC5/Display0.c ****         {
+ 343:Generated_Source\PSoC5/Display0.c ****             /* The last TD need to point to TD[0] */
+ 344:Generated_Source\PSoC5/Display0.c ****             if(((j * Display0_LCD_TD_SIZE) + i) == (comTdCount - 1u))
+ 111              		.loc 1 344 0 is_stmt 1
+ 112 0060 A146     		mov	r9, r4
+ 113 0062 08EB0405 		add	r5, r8, r4
+ 114 0066 012D     		cmp	r5, #1
+ 115 0068 0AD1     		bne	.L8
+ 345:Generated_Source\PSoC5/Display0.c ****             {
+ 346:Generated_Source\PSoC5/Display0.c ****                 (void) CyDmaTdSetConfiguration(Display0_lcdTd[(j * Display0_LCD_TD_SIZE) + i],
+ 116              		.loc 1 346 0
+ 117 006a 2A4A     		ldr	r2, .L19
+ 118 006c 5019     		adds	r0, r2, r5
+ 119 006e 0723     		movs	r3, #7
+ 120 0070 92F82420 		ldrb	r2, [r2, #36]	@ zero_extendqisi2
+ 121 0074 0121     		movs	r1, #1
+ 122 0076 90F82400 		ldrb	r0, [r0, #36]	@ zero_extendqisi2
+ 123 007a FFF7FEFF 		bl	CyDmaTdSetConfiguration
+ 124              	.LVL15:
+ 125 007e 19E0     		b	.L9
+ 126              	.L8:
+ 347:Generated_Source\PSoC5/Display0.c ****                                         (uint16) Display0_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].length
+ 348:Generated_Source\PSoC5/Display0.c ****                                         Display0_lcdTd[0u],
+ 349:Generated_Source\PSoC5/Display0.c ****                                         TD_INC_DST_ADR | TD_INC_SRC_ADR | Display0_termOut);
+ 350:Generated_Source\PSoC5/Display0.c ****             }
+ 351:Generated_Source\PSoC5/Display0.c ****             /* Last TD in the row should generate an interrupt signal */
+ 352:Generated_Source\PSoC5/Display0.c ****             else if(i == (Display0_LCD_TD_SIZE - 1u))
+ 127              		.loc 1 352 0
+ 128 0080 64B9     		cbnz	r4, .L10
+ 353:Generated_Source\PSoC5/Display0.c ****             {
+ 354:Generated_Source\PSoC5/Display0.c ****                 (void) CyDmaTdSetConfiguration(Display0_lcdTd[(j * Display0_LCD_TD_SIZE) + i],
+ 129              		.loc 1 354 0
+ 130 0082 244A     		ldr	r2, .L19
+ 131 0084 5019     		adds	r0, r2, r5
+ 355:Generated_Source\PSoC5/Display0.c ****                                         (uint16) Display0_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].length
+ 356:Generated_Source\PSoC5/Display0.c ****                                         Display0_lcdTd[(j * Display0_LCD_TD_SIZE) + i + 1u],
+ 132              		.loc 1 356 0
+ 133 0086 6B1C     		adds	r3, r5, #1
+ 354:Generated_Source\PSoC5/Display0.c ****                                         (uint16) Display0_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].length
+ 134              		.loc 1 354 0
+ 135 0088 1A44     		add	r2, r2, r3
+ 136 008a 0723     		movs	r3, #7
+ 137 008c 92F82420 		ldrb	r2, [r2, #36]	@ zero_extendqisi2
+ 138 0090 0121     		movs	r1, #1
+ 139 0092 90F82400 		ldrb	r0, [r0, #36]	@ zero_extendqisi2
+ 140 0096 FFF7FEFF 		bl	CyDmaTdSetConfiguration
+ 141              	.LVL16:
+ 142 009a 0BE0     		b	.L9
+ 143              	.L10:
+ 357:Generated_Source\PSoC5/Display0.c ****                                         TD_INC_DST_ADR | TD_INC_SRC_ADR | Display0_termOut);
+ 358:Generated_Source\PSoC5/Display0.c ****             }
+ 359:Generated_Source\PSoC5/Display0.c ****             else
+ 360:Generated_Source\PSoC5/Display0.c ****             {
+ 361:Generated_Source\PSoC5/Display0.c ****                 /* If this is not the last TD in the row it should automatically
+ 362:Generated_Source\PSoC5/Display0.c ****                 * next standing TDs.
+ 363:Generated_Source\PSoC5/Display0.c ****                 */
+ 364:Generated_Source\PSoC5/Display0.c ****                (void) CyDmaTdSetConfiguration(Display0_lcdTd[(j * Display0_LCD_TD_SIZE) + i],
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 10
+
+
+ 144              		.loc 1 364 0
+ 145 009c 1D4A     		ldr	r2, .L19
+ 146 009e 5019     		adds	r0, r2, r5
+ 365:Generated_Source\PSoC5/Display0.c ****                                         (uint16) Display0_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].length
+ 366:Generated_Source\PSoC5/Display0.c ****                                         Display0_lcdTd[(j * Display0_LCD_TD_SIZE) + i + 1u],
+ 147              		.loc 1 366 0
+ 148 00a0 6B1C     		adds	r3, r5, #1
+ 364:Generated_Source\PSoC5/Display0.c ****                                         (uint16) Display0_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].length
+ 149              		.loc 1 364 0
+ 150 00a2 1A44     		add	r2, r2, r3
+ 151 00a4 2323     		movs	r3, #35
+ 152 00a6 92F82420 		ldrb	r2, [r2, #36]	@ zero_extendqisi2
+ 153 00aa 0121     		movs	r1, #1
+ 154 00ac 90F82400 		ldrb	r0, [r0, #36]	@ zero_extendqisi2
+ 155 00b0 FFF7FEFF 		bl	CyDmaTdSetConfiguration
+ 156              	.LVL17:
+ 157              	.L9:
+ 367:Generated_Source\PSoC5/Display0.c ****                                         TD_INC_DST_ADR | TD_INC_SRC_ADR | TD_AUTO_EXEC_NEXT);
+ 368:Generated_Source\PSoC5/Display0.c ****             }
+ 369:Generated_Source\PSoC5/Display0.c **** 
+ 370:Generated_Source\PSoC5/Display0.c ****             /* Set the low 16 bits of the source and destination addresses
+ 371:Generated_Source\PSoC5/Display0.c ****             * for TDs.
+ 372:Generated_Source\PSoC5/Display0.c ****             */
+ 373:Generated_Source\PSoC5/Display0.c ****             (void) CyDmaTdSetAddress(Display0_lcdTd[(j * Display0_LCD_TD_SIZE) + i],
+ 158              		.loc 1 373 0 discriminator 2
+ 159 00b4 174B     		ldr	r3, .L19
+ 160 00b6 1D44     		add	r5, r5, r3
+ 161 00b8 174B     		ldr	r3, .L19+4
+ 162 00ba 13F81920 		ldrb	r2, [r3, r9, lsl #1]	@ zero_extendqisi2
+ 163 00be 07EB0811 		add	r1, r7, r8, lsl #4
+ 164 00c2 1144     		add	r1, r1, r2
+ 165 00c4 02F5A142 		add	r2, r2, #20608
+ 166 00c8 89B2     		uxth	r1, r1
+ 167 00ca 95F82400 		ldrb	r0, [r5, #36]	@ zero_extendqisi2
+ 168 00ce FFF7FEFF 		bl	CyDmaTdSetAddress
+ 169              	.LVL18:
+ 341:Generated_Source\PSoC5/Display0.c ****         {
+ 170              		.loc 1 341 0 discriminator 2
+ 171 00d2 0134     		adds	r4, r4, #1
+ 172              	.LVL19:
+ 173 00d4 E4B2     		uxtb	r4, r4
+ 174              	.LVL20:
+ 175 00d6 00E0     		b	.L12
+ 176              	.LVL21:
+ 177              	.L16:
+ 178 00d8 0024     		movs	r4, #0
+ 179              	.L12:
+ 180              	.LVL22:
+ 341:Generated_Source\PSoC5/Display0.c ****         {
+ 181              		.loc 1 341 0 is_stmt 0 discriminator 1
+ 182 00da 002C     		cmp	r4, #0
+ 183 00dc C0D0     		beq	.L11
+ 339:Generated_Source\PSoC5/Display0.c ****     {
+ 184              		.loc 1 339 0 is_stmt 1 discriminator 2
+ 185 00de 08F10108 		add	r8, r8, #1
+ 186              	.LVL23:
+ 187 00e2 5FFA88F8 		uxtb	r8, r8
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 11
+
+
+ 188              	.LVL24:
+ 189              	.L7:
+ 339:Generated_Source\PSoC5/Display0.c ****     {
+ 190              		.loc 1 339 0 is_stmt 0 discriminator 1
+ 191 00e6 B8F1010F 		cmp	r8, #1
+ 192 00ea F5D9     		bls	.L16
+ 374:Generated_Source\PSoC5/Display0.c ****                               LO16(srcAddr) + (((uint16) j) * Display0_ROW_LENGTH) +
+ 375:Generated_Source\PSoC5/Display0.c ****                               (uint16) Display0_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].offset,
+ 376:Generated_Source\PSoC5/Display0.c ****                               LO16(dstAddr) + Display0_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].offset);
+ 377:Generated_Source\PSoC5/Display0.c ****         }
+ 378:Generated_Source\PSoC5/Display0.c ****     }
+ 379:Generated_Source\PSoC5/Display0.c **** 
+ 380:Generated_Source\PSoC5/Display0.c ****     /* If there was no errors during DMA configuration then enable the channel. */
+ 381:Generated_Source\PSoC5/Display0.c ****     if(errorCnt == 0u)
+ 193              		.loc 1 381 0 is_stmt 1
+ 194 00ec 76B9     		cbnz	r6, .L17
+ 382:Generated_Source\PSoC5/Display0.c ****     {
+ 383:Generated_Source\PSoC5/Display0.c ****         (void) CyDmaChSetInitialTd(Display0_lcdChannel, Display0_lcdTd[0u]);
+ 195              		.loc 1 383 0
+ 196 00ee 094C     		ldr	r4, .L19
+ 197 00f0 94F82410 		ldrb	r1, [r4, #36]	@ zero_extendqisi2
+ 198 00f4 94F82000 		ldrb	r0, [r4, #32]	@ zero_extendqisi2
+ 199 00f8 FFF7FEFF 		bl	CyDmaChSetInitialTd
+ 200              	.LVL25:
+ 384:Generated_Source\PSoC5/Display0.c ****         (void) CyDmaChEnable(Display0_lcdChannel, 1u);
+ 201              		.loc 1 384 0
+ 202 00fc 0121     		movs	r1, #1
+ 203 00fe 94F82000 		ldrb	r0, [r4, #32]	@ zero_extendqisi2
+ 204 0102 FFF7FEFF 		bl	CyDmaChEnable
+ 205              	.LVL26:
+ 385:Generated_Source\PSoC5/Display0.c ****         status = CYRET_SUCCESS;
+ 206              		.loc 1 385 0
+ 207 0106 0020     		movs	r0, #0
+ 208 0108 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 209              	.LVL27:
+ 210              	.L17:
+ 290:Generated_Source\PSoC5/Display0.c ****     uint8 i;
+ 211              		.loc 1 290 0
+ 212 010c 0420     		movs	r0, #4
+ 213              	.LVL28:
+ 386:Generated_Source\PSoC5/Display0.c ****     }
+ 387:Generated_Source\PSoC5/Display0.c **** 
+ 388:Generated_Source\PSoC5/Display0.c ****     return(status);
+ 389:Generated_Source\PSoC5/Display0.c **** }
+ 214              		.loc 1 389 0
+ 215 010e BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 216              	.LVL29:
+ 217              	.L20:
+ 218 0112 00BF     		.align	2
+ 219              	.L19:
+ 220 0114 00000000 		.word	.LANCHOR0
+ 221 0118 00000000 		.word	.LANCHOR1
+ 222              		.cfi_endproc
+ 223              	.LFE2:
+ 224              		.size	Display0_DmaConfigure, .-Display0_DmaConfigure
+ 225              		.section	.text.Display0_DmaDispose,"ax",%progbits
+ 226              		.align	2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 12
+
+
+ 227              		.thumb
+ 228              		.thumb_func
+ 229              		.type	Display0_DmaDispose, %function
+ 230              	Display0_DmaDispose:
+ 231              	.LFB3:
+ 390:Generated_Source\PSoC5/Display0.c **** 
+ 391:Generated_Source\PSoC5/Display0.c **** 
+ 392:Generated_Source\PSoC5/Display0.c **** /*******************************************************************************
+ 393:Generated_Source\PSoC5/Display0.c **** * Function Name: Display0_DmaDispose
+ 394:Generated_Source\PSoC5/Display0.c **** ********************************************************************************
+ 395:Generated_Source\PSoC5/Display0.c **** *
+ 396:Generated_Source\PSoC5/Display0.c **** * Summary:
+ 397:Generated_Source\PSoC5/Display0.c **** *  Releases transaction descriptors and DMA channel previously used by the
+ 398:Generated_Source\PSoC5/Display0.c **** *  component.
+ 399:Generated_Source\PSoC5/Display0.c **** *
+ 400:Generated_Source\PSoC5/Display0.c **** * Parameters:
+ 401:Generated_Source\PSoC5/Display0.c **** *  None.
+ 402:Generated_Source\PSoC5/Display0.c **** *
+ 403:Generated_Source\PSoC5/Display0.c **** * Return:
+ 404:Generated_Source\PSoC5/Display0.c **** *  None.
+ 405:Generated_Source\PSoC5/Display0.c **** *
+ 406:Generated_Source\PSoC5/Display0.c **** * Global variables:
+ 407:Generated_Source\PSoC5/Display0.c **** *  Display0_lcdTd[] - used  store a set of allocated TD IDs that are
+ 408:Generated_Source\PSoC5/Display0.c **** *  used by this component which will be released by this function.
+ 409:Generated_Source\PSoC5/Display0.c **** *
+ 410:Generated_Source\PSoC5/Display0.c **** *  Display0_lcdChannel - holds the channel number used by the LCD
+ 411:Generated_Source\PSoC5/Display0.c **** *  component that will be released by this function.
+ 412:Generated_Source\PSoC5/Display0.c **** *
+ 413:Generated_Source\PSoC5/Display0.c **** * Reentrant:
+ 414:Generated_Source\PSoC5/Display0.c **** *  No.
+ 415:Generated_Source\PSoC5/Display0.c **** *
+ 416:Generated_Source\PSoC5/Display0.c **** *******************************************************************************/
+ 417:Generated_Source\PSoC5/Display0.c **** static void Display0_DmaDispose(void) CYREENTRANT
+ 418:Generated_Source\PSoC5/Display0.c **** {
+ 232              		.loc 1 418 0
+ 233              		.cfi_startproc
+ 234              		@ args = 0, pretend = 0, frame = 0
+ 235              		@ frame_needed = 0, uses_anonymous_args = 0
+ 236 0000 10B5     		push	{r4, lr}
+ 237              		.cfi_def_cfa_offset 8
+ 238              		.cfi_offset 4, -8
+ 239              		.cfi_offset 14, -4
+ 419:Generated_Source\PSoC5/Display0.c ****     uint8 i;
+ 420:Generated_Source\PSoC5/Display0.c **** 
+ 421:Generated_Source\PSoC5/Display0.c ****     /* Release DMA handle, this will disable the LCD channel */
+ 422:Generated_Source\PSoC5/Display0.c ****     Display0_Lcd_Dma_DmaRelease();
+ 240              		.loc 1 422 0
+ 241 0002 FFF7FEFF 		bl	Display0_Lcd_Dma_DmaRelease
+ 242              	.LVL30:
+ 423:Generated_Source\PSoC5/Display0.c **** 
+ 424:Generated_Source\PSoC5/Display0.c ****     /* Free unused channel */
+ 425:Generated_Source\PSoC5/Display0.c ****     (void) CyDmaChFree(Display0_lcdChannel);
+ 243              		.loc 1 425 0
+ 244 0006 094B     		ldr	r3, .L25
+ 245 0008 93F82000 		ldrb	r0, [r3, #32]	@ zero_extendqisi2
+ 246 000c FFF7FEFF 		bl	CyDmaChFree
+ 247              	.LVL31:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 13
+
+
+ 426:Generated_Source\PSoC5/Display0.c **** 
+ 427:Generated_Source\PSoC5/Display0.c ****     /* Release all allocated TDs */
+ 428:Generated_Source\PSoC5/Display0.c ****     for(i = 0u; i < (Display0_LCD_TD_SIZE * Display0_COMM_NUM); i++)
+ 248              		.loc 1 428 0
+ 249 0010 0024     		movs	r4, #0
+ 250 0012 07E0     		b	.L22
+ 251              	.LVL32:
+ 252              	.L23:
+ 429:Generated_Source\PSoC5/Display0.c ****     {
+ 430:Generated_Source\PSoC5/Display0.c ****         CyDmaTdFree(Display0_lcdTd[i]);
+ 253              		.loc 1 430 0 discriminator 3
+ 254 0014 054B     		ldr	r3, .L25
+ 255 0016 2344     		add	r3, r3, r4
+ 256 0018 93F82400 		ldrb	r0, [r3, #36]	@ zero_extendqisi2
+ 257 001c FFF7FEFF 		bl	CyDmaTdFree
+ 258              	.LVL33:
+ 428:Generated_Source\PSoC5/Display0.c ****     {
+ 259              		.loc 1 428 0 discriminator 3
+ 260 0020 0134     		adds	r4, r4, #1
+ 261              	.LVL34:
+ 262 0022 E4B2     		uxtb	r4, r4
+ 263              	.LVL35:
+ 264              	.L22:
+ 428:Generated_Source\PSoC5/Display0.c ****     {
+ 265              		.loc 1 428 0 is_stmt 0 discriminator 1
+ 266 0024 012C     		cmp	r4, #1
+ 267 0026 F5D9     		bls	.L23
+ 431:Generated_Source\PSoC5/Display0.c ****     }
+ 432:Generated_Source\PSoC5/Display0.c **** }
+ 268              		.loc 1 432 0 is_stmt 1
+ 269 0028 10BD     		pop	{r4, pc}
+ 270              	.LVL36:
+ 271              	.L26:
+ 272 002a 00BF     		.align	2
+ 273              	.L25:
+ 274 002c 00000000 		.word	.LANCHOR0
+ 275              		.cfi_endproc
+ 276              	.LFE3:
+ 277              		.size	Display0_DmaDispose, .-Display0_DmaDispose
+ 278              		.section	.text.Display0_Enable,"ax",%progbits
+ 279              		.align	2
+ 280              		.global	Display0_Enable
+ 281              		.thumb
+ 282              		.thumb_func
+ 283              		.type	Display0_Enable, %function
+ 284              	Display0_Enable:
+ 285              	.LFB1:
+ 239:Generated_Source\PSoC5/Display0.c ****     uint8 status;
+ 286              		.loc 1 239 0
+ 287              		.cfi_startproc
+ 288              		@ args = 0, pretend = 0, frame = 0
+ 289              		@ frame_needed = 0, uses_anonymous_args = 0
+ 290 0000 10B5     		push	{r4, lr}
+ 291              		.cfi_def_cfa_offset 8
+ 292              		.cfi_offset 4, -8
+ 293              		.cfi_offset 14, -4
+ 243:Generated_Source\PSoC5/Display0.c **** 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 14
+
+
+ 294              		.loc 1 243 0
+ 295 0002 FFF7FEFF 		bl	Display0_DmaConfigure
+ 296              	.LVL37:
+ 297 0006 0446     		mov	r4, r0
+ 298              	.LVL38:
+ 246:Generated_Source\PSoC5/Display0.c **** 
+ 299              		.loc 1 246 0
+ 300 0008 FFF7FEFF 		bl	Display0_InClock_Start
+ 301              	.LVL39:
+ 249:Generated_Source\PSoC5/Display0.c **** 
+ 302              		.loc 1 249 0
+ 303 000c 0122     		movs	r2, #1
+ 304 000e 024B     		ldr	r3, .L29
+ 305 0010 83F82620 		strb	r2, [r3, #38]
+ 252:Generated_Source\PSoC5/Display0.c **** 
+ 306              		.loc 1 252 0
+ 307 0014 2046     		mov	r0, r4
+ 308 0016 10BD     		pop	{r4, pc}
+ 309              	.LVL40:
+ 310              	.L30:
+ 311              		.align	2
+ 312              	.L29:
+ 313 0018 00000000 		.word	.LANCHOR0
+ 314              		.cfi_endproc
+ 315              	.LFE1:
+ 316              		.size	Display0_Enable, .-Display0_Enable
+ 317              		.section	.text.Display0_Stop,"ax",%progbits
+ 318              		.align	2
+ 319              		.global	Display0_Stop
+ 320              		.thumb
+ 321              		.thumb_func
+ 322              		.type	Display0_Stop, %function
+ 323              	Display0_Stop:
+ 324              	.LFB5:
+ 433:Generated_Source\PSoC5/Display0.c **** 
+ 434:Generated_Source\PSoC5/Display0.c **** 
+ 435:Generated_Source\PSoC5/Display0.c **** /*******************************************************************************
+ 436:Generated_Source\PSoC5/Display0.c **** * Function Name: Display0_Start
+ 437:Generated_Source\PSoC5/Display0.c **** ********************************************************************************
+ 438:Generated_Source\PSoC5/Display0.c **** *
+ 439:Generated_Source\PSoC5/Display0.c **** * Summary:
+ 440:Generated_Source\PSoC5/Display0.c **** *  Starts the LCD component , DMA channels and initializes the frame buffer.
+ 441:Generated_Source\PSoC5/Display0.c **** *
+ 442:Generated_Source\PSoC5/Display0.c **** * Parameters:
+ 443:Generated_Source\PSoC5/Display0.c **** *  None.
+ 444:Generated_Source\PSoC5/Display0.c **** *
+ 445:Generated_Source\PSoC5/Display0.c **** * Return:
+ 446:Generated_Source\PSoC5/Display0.c **** *  One of standard status for PSoC3 Component:
+ 447:Generated_Source\PSoC5/Display0.c **** *      CYRET_SUCCESS - Function completed successfully.
+ 448:Generated_Source\PSoC5/Display0.c **** *      CYRET_LOCKED - The object was locked, already in use. Some of TDs or
+ 449:Generated_Source\PSoC5/Display0.c **** *                     channel already in use.
+ 450:Generated_Source\PSoC5/Display0.c **** *
+ 451:Generated_Source\PSoC5/Display0.c **** * Global variables:
+ 452:Generated_Source\PSoC5/Display0.c **** *  Display0_initVar - is used to indicate initial configuration of
+ 453:Generated_Source\PSoC5/Display0.c **** *  this component. The variable is initialized to zero and set to 1 the first
+ 454:Generated_Source\PSoC5/Display0.c **** *  time Display0_Start() is called. This allows for component
+ 455:Generated_Source\PSoC5/Display0.c **** *  initialization without re-initialization in all subsequent calls to the
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 15
+
+
+ 456:Generated_Source\PSoC5/Display0.c **** *  Display0_Start() routine.
+ 457:Generated_Source\PSoC5/Display0.c **** *
+ 458:Generated_Source\PSoC5/Display0.c **** * Reentrant:
+ 459:Generated_Source\PSoC5/Display0.c **** *  No.
+ 460:Generated_Source\PSoC5/Display0.c **** *
+ 461:Generated_Source\PSoC5/Display0.c **** *******************************************************************************/
+ 462:Generated_Source\PSoC5/Display0.c **** uint8 Display0_Start(void) 
+ 463:Generated_Source\PSoC5/Display0.c **** {
+ 464:Generated_Source\PSoC5/Display0.c ****     uint8 status;
+ 465:Generated_Source\PSoC5/Display0.c **** 
+ 466:Generated_Source\PSoC5/Display0.c ****     /* If not Initialized then initialize all required hardware and software */
+ 467:Generated_Source\PSoC5/Display0.c ****     if(Display0_initVar == 0u)
+ 468:Generated_Source\PSoC5/Display0.c ****     {
+ 469:Generated_Source\PSoC5/Display0.c ****         Display0_initVar = 1u;
+ 470:Generated_Source\PSoC5/Display0.c ****         Display0_Init();
+ 471:Generated_Source\PSoC5/Display0.c ****     }
+ 472:Generated_Source\PSoC5/Display0.c **** 
+ 473:Generated_Source\PSoC5/Display0.c ****     status = Display0_Enable();
+ 474:Generated_Source\PSoC5/Display0.c **** 
+ 475:Generated_Source\PSoC5/Display0.c ****     return(status);
+ 476:Generated_Source\PSoC5/Display0.c **** }
+ 477:Generated_Source\PSoC5/Display0.c **** 
+ 478:Generated_Source\PSoC5/Display0.c **** 
+ 479:Generated_Source\PSoC5/Display0.c **** /*******************************************************************************
+ 480:Generated_Source\PSoC5/Display0.c **** * Function Name: Display0_Stop
+ 481:Generated_Source\PSoC5/Display0.c **** ********************************************************************************
+ 482:Generated_Source\PSoC5/Display0.c **** *
+ 483:Generated_Source\PSoC5/Display0.c **** * Summary:
+ 484:Generated_Source\PSoC5/Display0.c **** *  Disables the LCD component and disables any required interrupts and DMA
+ 485:Generated_Source\PSoC5/Display0.c **** *  channels. Automatically blanks the display to avoid damage from DC offsets.
+ 486:Generated_Source\PSoC5/Display0.c **** *  Does not clear the frame buffer. Disables LCD every frame interrupt.
+ 487:Generated_Source\PSoC5/Display0.c **** *
+ 488:Generated_Source\PSoC5/Display0.c **** * Parameters:
+ 489:Generated_Source\PSoC5/Display0.c **** *  None.
+ 490:Generated_Source\PSoC5/Display0.c **** *
+ 491:Generated_Source\PSoC5/Display0.c **** * Return:
+ 492:Generated_Source\PSoC5/Display0.c **** *  None.
+ 493:Generated_Source\PSoC5/Display0.c **** *
+ 494:Generated_Source\PSoC5/Display0.c **** * Global variables:
+ 495:Generated_Source\PSoC5/Display0.c **** *  Display0_enableState - cleared to 0 by this function indicating
+ 496:Generated_Source\PSoC5/Display0.c **** *  that the component is disabled.
+ 497:Generated_Source\PSoC5/Display0.c **** *
+ 498:Generated_Source\PSoC5/Display0.c **** *******************************************************************************/
+ 499:Generated_Source\PSoC5/Display0.c **** void Display0_Stop(void) 
+ 500:Generated_Source\PSoC5/Display0.c **** {
+ 325              		.loc 1 500 0
+ 326              		.cfi_startproc
+ 327              		@ args = 0, pretend = 0, frame = 0
+ 328              		@ frame_needed = 0, uses_anonymous_args = 0
+ 329 0000 08B5     		push	{r3, lr}
+ 330              		.cfi_def_cfa_offset 8
+ 331              		.cfi_offset 3, -8
+ 332              		.cfi_offset 14, -4
+ 501:Generated_Source\PSoC5/Display0.c ****     CyIntDisable(Display0_ISR_NUMBER);
+ 333              		.loc 1 501 0
+ 334 0002 0122     		movs	r2, #1
+ 335 0004 054B     		ldr	r3, .L33
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 16
+
+
+ 336 0006 1A60     		str	r2, [r3]
+ 502:Generated_Source\PSoC5/Display0.c **** 
+ 503:Generated_Source\PSoC5/Display0.c ****     /* Stop clock generation */
+ 504:Generated_Source\PSoC5/Display0.c ****     Display0_InClock_Disable();
+ 337              		.loc 1 504 0
+ 338 0008 FFF7FEFF 		bl	Display0_InClock_Stop
+ 339              	.LVL41:
+ 505:Generated_Source\PSoC5/Display0.c **** 
+ 506:Generated_Source\PSoC5/Display0.c ****     /* Release DMA resources used for the LCD */
+ 507:Generated_Source\PSoC5/Display0.c ****     Display0_DmaDispose();
+ 340              		.loc 1 507 0
+ 341 000c FFF7FEFF 		bl	Display0_DmaDispose
+ 342              	.LVL42:
+ 508:Generated_Source\PSoC5/Display0.c **** 
+ 509:Generated_Source\PSoC5/Display0.c ****     /* Now the component is disabled so save its state */
+ 510:Generated_Source\PSoC5/Display0.c ****     Display0_enableState = 0u;
+ 343              		.loc 1 510 0
+ 344 0010 0022     		movs	r2, #0
+ 345 0012 034B     		ldr	r3, .L33+4
+ 346 0014 83F82620 		strb	r2, [r3, #38]
+ 347 0018 08BD     		pop	{r3, pc}
+ 348              	.L34:
+ 349 001a 00BF     		.align	2
+ 350              	.L33:
+ 351 001c 80E100E0 		.word	-536813184
+ 352 0020 00000000 		.word	.LANCHOR0
+ 353              		.cfi_endproc
+ 354              	.LFE5:
+ 355              		.size	Display0_Stop, .-Display0_Stop
+ 356              		.section	.text.Display0_EnableInt,"ax",%progbits
+ 357              		.align	2
+ 358              		.global	Display0_EnableInt
+ 359              		.thumb
+ 360              		.thumb_func
+ 361              		.type	Display0_EnableInt, %function
+ 362              	Display0_EnableInt:
+ 363              	.LFB6:
+ 511:Generated_Source\PSoC5/Display0.c **** }
+ 512:Generated_Source\PSoC5/Display0.c **** 
+ 513:Generated_Source\PSoC5/Display0.c **** 
+ 514:Generated_Source\PSoC5/Display0.c **** /*******************************************************************************
+ 515:Generated_Source\PSoC5/Display0.c **** * Function Name: Display0_EnableInt
+ 516:Generated_Source\PSoC5/Display0.c **** ********************************************************************************
+ 517:Generated_Source\PSoC5/Display0.c **** *
+ 518:Generated_Source\PSoC5/Display0.c **** * Summary:
+ 519:Generated_Source\PSoC5/Display0.c **** *  Enables LCD every-frame interrupt.
+ 520:Generated_Source\PSoC5/Display0.c **** *
+ 521:Generated_Source\PSoC5/Display0.c **** * Parameters:
+ 522:Generated_Source\PSoC5/Display0.c **** *  None.
+ 523:Generated_Source\PSoC5/Display0.c **** *
+ 524:Generated_Source\PSoC5/Display0.c **** * Return:
+ 525:Generated_Source\PSoC5/Display0.c **** *  None.
+ 526:Generated_Source\PSoC5/Display0.c **** *
+ 527:Generated_Source\PSoC5/Display0.c **** *******************************************************************************/
+ 528:Generated_Source\PSoC5/Display0.c **** void Display0_EnableInt(void) 
+ 529:Generated_Source\PSoC5/Display0.c **** {
+ 364              		.loc 1 529 0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 17
+
+
+ 365              		.cfi_startproc
+ 366              		@ args = 0, pretend = 0, frame = 0
+ 367              		@ frame_needed = 0, uses_anonymous_args = 0
+ 368              		@ link register save eliminated.
+ 530:Generated_Source\PSoC5/Display0.c ****     CyIntEnable(Display0_ISR_NUMBER);
+ 369              		.loc 1 530 0
+ 370 0000 0122     		movs	r2, #1
+ 371 0002 014B     		ldr	r3, .L36
+ 372 0004 1A60     		str	r2, [r3]
+ 373 0006 7047     		bx	lr
+ 374              	.L37:
+ 375              		.align	2
+ 376              	.L36:
+ 377 0008 00E100E0 		.word	-536813312
+ 378              		.cfi_endproc
+ 379              	.LFE6:
+ 380              		.size	Display0_EnableInt, .-Display0_EnableInt
+ 381              		.section	.text.Display0_DisableInt,"ax",%progbits
+ 382              		.align	2
+ 383              		.global	Display0_DisableInt
+ 384              		.thumb
+ 385              		.thumb_func
+ 386              		.type	Display0_DisableInt, %function
+ 387              	Display0_DisableInt:
+ 388              	.LFB7:
+ 531:Generated_Source\PSoC5/Display0.c **** }
+ 532:Generated_Source\PSoC5/Display0.c **** 
+ 533:Generated_Source\PSoC5/Display0.c **** 
+ 534:Generated_Source\PSoC5/Display0.c **** /*******************************************************************************
+ 535:Generated_Source\PSoC5/Display0.c **** * Function Name: Display0_DisableInt
+ 536:Generated_Source\PSoC5/Display0.c **** ********************************************************************************
+ 537:Generated_Source\PSoC5/Display0.c **** * Summary:
+ 538:Generated_Source\PSoC5/Display0.c **** *  Description: Disables LCD interrupt. Not required if Display0_Stop
+ 539:Generated_Source\PSoC5/Display0.c **** *  called.
+ 540:Generated_Source\PSoC5/Display0.c **** *
+ 541:Generated_Source\PSoC5/Display0.c **** * Parameters:
+ 542:Generated_Source\PSoC5/Display0.c **** *  None.
+ 543:Generated_Source\PSoC5/Display0.c **** *
+ 544:Generated_Source\PSoC5/Display0.c **** * Return:
+ 545:Generated_Source\PSoC5/Display0.c **** *  None.
+ 546:Generated_Source\PSoC5/Display0.c **** *
+ 547:Generated_Source\PSoC5/Display0.c **** *******************************************************************************/
+ 548:Generated_Source\PSoC5/Display0.c **** void Display0_DisableInt(void) 
+ 549:Generated_Source\PSoC5/Display0.c **** {
+ 389              		.loc 1 549 0
+ 390              		.cfi_startproc
+ 391              		@ args = 0, pretend = 0, frame = 0
+ 392              		@ frame_needed = 0, uses_anonymous_args = 0
+ 393              		@ link register save eliminated.
+ 550:Generated_Source\PSoC5/Display0.c ****    CyIntDisable(Display0_ISR_NUMBER);
+ 394              		.loc 1 550 0
+ 395 0000 0122     		movs	r2, #1
+ 396 0002 014B     		ldr	r3, .L39
+ 397 0004 1A60     		str	r2, [r3]
+ 398 0006 7047     		bx	lr
+ 399              	.L40:
+ 400              		.align	2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 18
+
+
+ 401              	.L39:
+ 402 0008 80E100E0 		.word	-536813184
+ 403              		.cfi_endproc
+ 404              	.LFE7:
+ 405              		.size	Display0_DisableInt, .-Display0_DisableInt
+ 406              		.section	.text.Display0_ReadPixel,"ax",%progbits
+ 407              		.align	2
+ 408              		.global	Display0_ReadPixel
+ 409              		.thumb
+ 410              		.thumb_func
+ 411              		.type	Display0_ReadPixel, %function
+ 412              	Display0_ReadPixel:
+ 413              	.LFB10:
+ 551:Generated_Source\PSoC5/Display0.c **** }
+ 552:Generated_Source\PSoC5/Display0.c **** 
+ 553:Generated_Source\PSoC5/Display0.c **** 
+ 554:Generated_Source\PSoC5/Display0.c **** /*******************************************************************************
+ 555:Generated_Source\PSoC5/Display0.c **** * Function Name: Display0_ClearDisplay
+ 556:Generated_Source\PSoC5/Display0.c **** ********************************************************************************
+ 557:Generated_Source\PSoC5/Display0.c **** *
+ 558:Generated_Source\PSoC5/Display0.c **** * Summary:
+ 559:Generated_Source\PSoC5/Display0.c **** *  This function clears the display RAM of the frame buffer.
+ 560:Generated_Source\PSoC5/Display0.c **** *
+ 561:Generated_Source\PSoC5/Display0.c **** * Parameters:
+ 562:Generated_Source\PSoC5/Display0.c **** *  None.
+ 563:Generated_Source\PSoC5/Display0.c **** *
+ 564:Generated_Source\PSoC5/Display0.c **** * Return:
+ 565:Generated_Source\PSoC5/Display0.c **** *  None.
+ 566:Generated_Source\PSoC5/Display0.c **** *
+ 567:Generated_Source\PSoC5/Display0.c **** * Global variables:
+ 568:Generated_Source\PSoC5/Display0.c **** *  Display0_buffer[] - an array is modified by this API. Clears the
+ 569:Generated_Source\PSoC5/Display0.c **** *  frame buffer to all zeroes and then reinitialize it with a 1 in the
+ 570:Generated_Source\PSoC5/Display0.c **** *  locations specified by the values from Display0_commons[].
+ 571:Generated_Source\PSoC5/Display0.c **** *
+ 572:Generated_Source\PSoC5/Display0.c **** *  Display0_commons[] - holds the pixel locations for common lines.
+ 573:Generated_Source\PSoC5/Display0.c **** *
+ 574:Generated_Source\PSoC5/Display0.c **** * Reentrant:
+ 575:Generated_Source\PSoC5/Display0.c **** *  No.
+ 576:Generated_Source\PSoC5/Display0.c **** *
+ 577:Generated_Source\PSoC5/Display0.c **** *******************************************************************************/
+ 578:Generated_Source\PSoC5/Display0.c **** void Display0_ClearDisplay(void) 
+ 579:Generated_Source\PSoC5/Display0.c **** {
+ 580:Generated_Source\PSoC5/Display0.c ****     uint16 i;
+ 581:Generated_Source\PSoC5/Display0.c **** 
+ 582:Generated_Source\PSoC5/Display0.c ****     /* Clear entire frame buffer to "zero" values */
+ 583:Generated_Source\PSoC5/Display0.c ****     for(i = 0u ; i < Display0_BUFFER_LENGTH; i++)
+ 584:Generated_Source\PSoC5/Display0.c ****     {
+ 585:Generated_Source\PSoC5/Display0.c ****         if(i < (Display0_BUFFER_LENGTH / 2u))
+ 586:Generated_Source\PSoC5/Display0.c ****         {
+ 587:Generated_Source\PSoC5/Display0.c ****             /* First line(frame) of the buffer should contain pixel data */
+ 588:Generated_Source\PSoC5/Display0.c ****             Display0_buffer[i] = 0x00u;
+ 589:Generated_Source\PSoC5/Display0.c ****         }
+ 590:Generated_Source\PSoC5/Display0.c ****         else
+ 591:Generated_Source\PSoC5/Display0.c ****         {
+ 592:Generated_Source\PSoC5/Display0.c ****             /* Second line(frame) of the buffer should contain inverted pixel data */
+ 593:Generated_Source\PSoC5/Display0.c ****             Display0_buffer[i] = 0xFFu;
+ 594:Generated_Source\PSoC5/Display0.c ****         }
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 19
+
+
+ 595:Generated_Source\PSoC5/Display0.c ****     }
+ 596:Generated_Source\PSoC5/Display0.c **** 
+ 597:Generated_Source\PSoC5/Display0.c ****     /* Reinitialize the commons */
+ 598:Generated_Source\PSoC5/Display0.c ****     Display0_WRITE_PIXEL(Display0_commons[0u], Display0_PIXEL_STATE_OFF);
+ 599:Generated_Source\PSoC5/Display0.c **** }
+ 600:Generated_Source\PSoC5/Display0.c **** 
+ 601:Generated_Source\PSoC5/Display0.c **** 
+ 602:Generated_Source\PSoC5/Display0.c **** /*******************************************************************************
+ 603:Generated_Source\PSoC5/Display0.c **** * Function Name: Display0_WritePixel
+ 604:Generated_Source\PSoC5/Display0.c **** ********************************************************************************
+ 605:Generated_Source\PSoC5/Display0.c **** *
+ 606:Generated_Source\PSoC5/Display0.c **** * Summary:
+ 607:Generated_Source\PSoC5/Display0.c **** *  This function sets or clears a pixel based on pixelState in a frame buffer.
+ 608:Generated_Source\PSoC5/Display0.c **** *  The Pixel is addressed by a packed number.
+ 609:Generated_Source\PSoC5/Display0.c **** *
+ 610:Generated_Source\PSoC5/Display0.c **** * Parameters:
+ 611:Generated_Source\PSoC5/Display0.c **** *  pixelNumber: is the packed number that points to the pixels location in the
+ 612:Generated_Source\PSoC5/Display0.c **** *               frame buffer. The lowest three bits in the LSB low nibble are
+ 613:Generated_Source\PSoC5/Display0.c **** *               the bit position in the byte, the LSB upper nibble (4 bits) is
+ 614:Generated_Source\PSoC5/Display0.c **** *               the byte address in the multiplex Row and the MSB low nibble
+ 615:Generated_Source\PSoC5/Display0.c **** *               (4 bits) is the multiplex Row number.
+ 616:Generated_Source\PSoC5/Display0.c **** *  pixelState : 0 for pixel off,1 for pixel on, 2 for pixel invert.
+ 617:Generated_Source\PSoC5/Display0.c **** *
+ 618:Generated_Source\PSoC5/Display0.c **** * Return:
+ 619:Generated_Source\PSoC5/Display0.c **** *  Status returns the standardized return value for pass or fail on a range
+ 620:Generated_Source\PSoC5/Display0.c **** *  check of the byte address and multiplex Row number:
+ 621:Generated_Source\PSoC5/Display0.c **** *      CYRET_SUCCESS - Function completed successfully.
+ 622:Generated_Source\PSoC5/Display0.c **** *      CYRET_BAD_PARAM - One of the parameters is invalid.
+ 623:Generated_Source\PSoC5/Display0.c **** *
+ 624:Generated_Source\PSoC5/Display0.c **** * Global variables:
+ 625:Generated_Source\PSoC5/Display0.c **** *  Display0_buffer[] - an array is modified by this API. This API sets
+ 626:Generated_Source\PSoC5/Display0.c **** *  or clears certain bit in the array defined by the input parameter.
+ 627:Generated_Source\PSoC5/Display0.c **** *
+ 628:Generated_Source\PSoC5/Display0.c **** * Reentrant:
+ 629:Generated_Source\PSoC5/Display0.c **** *  No.
+ 630:Generated_Source\PSoC5/Display0.c **** *
+ 631:Generated_Source\PSoC5/Display0.c **** *******************************************************************************/
+ 632:Generated_Source\PSoC5/Display0.c **** uint8 Display0_WritePixel(uint16 pixelNumber, uint8 pixelState) 
+ 633:Generated_Source\PSoC5/Display0.c **** {
+ 634:Generated_Source\PSoC5/Display0.c ****     uint16 byteAddr;
+ 635:Generated_Source\PSoC5/Display0.c ****     uint16 bitAddr;
+ 636:Generated_Source\PSoC5/Display0.c ****     uint16 row;
+ 637:Generated_Source\PSoC5/Display0.c ****     uint8 mask;
+ 638:Generated_Source\PSoC5/Display0.c ****     uint8 status;
+ 639:Generated_Source\PSoC5/Display0.c **** 
+ 640:Generated_Source\PSoC5/Display0.c ****     /* Let the User know that he has entered wrong parameter
+ 641:Generated_Source\PSoC5/Display0.c ****     * which is pixel state greater than 2 or unconnected pixel.
+ 642:Generated_Source\PSoC5/Display0.c ****     */
+ 643:Generated_Source\PSoC5/Display0.c ****     if((pixelState > Display0_PIXEL_STATE_INVERT) || (pixelNumber == Display0_NOT_CON))
+ 644:Generated_Source\PSoC5/Display0.c ****     {
+ 645:Generated_Source\PSoC5/Display0.c ****         status = CYRET_BAD_PARAM;
+ 646:Generated_Source\PSoC5/Display0.c ****     }
+ 647:Generated_Source\PSoC5/Display0.c ****     else
+ 648:Generated_Source\PSoC5/Display0.c ****     {
+ 649:Generated_Source\PSoC5/Display0.c ****         /* Extract bit position in the byte */
+ 650:Generated_Source\PSoC5/Display0.c ****         bitAddr = (pixelNumber & Display0_BIT_MASK);
+ 651:Generated_Source\PSoC5/Display0.c **** 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 20
+
+
+ 652:Generated_Source\PSoC5/Display0.c ****         /* Extract byte position in the Row */
+ 653:Generated_Source\PSoC5/Display0.c ****         byteAddr = (pixelNumber & Display0_PORT_MASK) >> Display0_PORT_SHIFT;
+ 654:Generated_Source\PSoC5/Display0.c **** 
+ 655:Generated_Source\PSoC5/Display0.c ****         /* Extract Row position */
+ 656:Generated_Source\PSoC5/Display0.c ****         row = (pixelNumber & Display0_ROW_MASK) >> Display0_ROW_SHIFT;
+ 657:Generated_Source\PSoC5/Display0.c **** 
+ 658:Generated_Source\PSoC5/Display0.c ****         if(pixelState == Display0_PIXEL_STATE_INVERT)
+ 659:Generated_Source\PSoC5/Display0.c ****         {
+ 660:Generated_Source\PSoC5/Display0.c ****             /* Invert actual pixel state */
+ 661:Generated_Source\PSoC5/Display0.c ****             pixelState = ~(Display0_ReadPixel(pixelNumber));
+ 662:Generated_Source\PSoC5/Display0.c ****         }
+ 663:Generated_Source\PSoC5/Display0.c **** 
+ 664:Generated_Source\PSoC5/Display0.c ****         mask = ~(uint8) (((uint8) Display0_PIXEL_STATE_ON) << bitAddr);
+ 665:Generated_Source\PSoC5/Display0.c **** 
+ 666:Generated_Source\PSoC5/Display0.c ****         /* Set pixel in first frame buffer line */
+ 667:Generated_Source\PSoC5/Display0.c ****         Display0_buffer[(row * Display0_ROW_BYTE_LENGTH) + byteAddr] =
+ 668:Generated_Source\PSoC5/Display0.c ****             (Display0_buffer[(row * Display0_ROW_BYTE_LENGTH) + byteAddr] & mask) |
+ 669:Generated_Source\PSoC5/Display0.c ****             ((uint8) (((uint8) pixelState) << bitAddr));
+ 670:Generated_Source\PSoC5/Display0.c **** 
+ 671:Generated_Source\PSoC5/Display0.c ****         /* Invert pixel state */
+ 672:Generated_Source\PSoC5/Display0.c ****         pixelState ^= Display0_PIXEL_STATE_ON;
+ 673:Generated_Source\PSoC5/Display0.c **** 
+ 674:Generated_Source\PSoC5/Display0.c ****         Display0_buffer[((row + 1u) * Display0_ROW_BYTE_LENGTH) + byteAddr] =
+ 675:Generated_Source\PSoC5/Display0.c ****             (Display0_buffer[((row + 1u) * Display0_ROW_BYTE_LENGTH) + byteAddr] & mask) |
+ 676:Generated_Source\PSoC5/Display0.c ****             ((uint8) (((uint8) pixelState) << bitAddr));
+ 677:Generated_Source\PSoC5/Display0.c **** 
+ 678:Generated_Source\PSoC5/Display0.c ****         status = CYRET_SUCCESS;
+ 679:Generated_Source\PSoC5/Display0.c ****     }
+ 680:Generated_Source\PSoC5/Display0.c **** 
+ 681:Generated_Source\PSoC5/Display0.c ****     return(status);
+ 682:Generated_Source\PSoC5/Display0.c **** }
+ 683:Generated_Source\PSoC5/Display0.c **** 
+ 684:Generated_Source\PSoC5/Display0.c **** 
+ 685:Generated_Source\PSoC5/Display0.c **** /*******************************************************************************
+ 686:Generated_Source\PSoC5/Display0.c **** * Function Name: Display0_ReadPixel
+ 687:Generated_Source\PSoC5/Display0.c **** ********************************************************************************
+ 688:Generated_Source\PSoC5/Display0.c **** *
+ 689:Generated_Source\PSoC5/Display0.c **** * Summary:
+ 690:Generated_Source\PSoC5/Display0.c **** *  This function reads a pixels state in a large frame buffer. The Pixel is
+ 691:Generated_Source\PSoC5/Display0.c **** *  addressed by a packed number.
+ 692:Generated_Source\PSoC5/Display0.c **** *
+ 693:Generated_Source\PSoC5/Display0.c **** * Parameters:
+ 694:Generated_Source\PSoC5/Display0.c **** *  pixelNumber: is the packed number that points to the pixels location in the
+ 695:Generated_Source\PSoC5/Display0.c **** *               frame buffer. The lowest three bits in the LSB low nibble are
+ 696:Generated_Source\PSoC5/Display0.c **** *               the bit position in the byte, the LSB upper nibble (4 bits) is
+ 697:Generated_Source\PSoC5/Display0.c **** *               the byte address in the multiplex Row and the MSB low nibble
+ 698:Generated_Source\PSoC5/Display0.c **** *               (4 bits) is the multiplex Row number.
+ 699:Generated_Source\PSoC5/Display0.c **** *
+ 700:Generated_Source\PSoC5/Display0.c **** * Return:
+ 701:Generated_Source\PSoC5/Display0.c **** *  Pixel State:
+ 702:Generated_Source\PSoC5/Display0.c **** *      0x00 (Display0_PIXEL_STATE_OFF) - for pixel off.
+ 703:Generated_Source\PSoC5/Display0.c **** *      0x01 (Display0_PIXEL_STATE_ON) - for pixel on.
+ 704:Generated_Source\PSoC5/Display0.c **** *      0xFF (Display0_PIXEL_UNKNOWN_STATE) - indicates that pixel
+ 705:Generated_Source\PSoC5/Display0.c **** *                                                    isn't assigned.
+ 706:Generated_Source\PSoC5/Display0.c **** *
+ 707:Generated_Source\PSoC5/Display0.c **** * Global variables:
+ 708:Generated_Source\PSoC5/Display0.c **** *  Display0_buffer[] - holds the state of every pixel of the LCD glass
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 21
+
+
+ 709:Generated_Source\PSoC5/Display0.c **** *  which can be read by this function.
+ 710:Generated_Source\PSoC5/Display0.c **** *
+ 711:Generated_Source\PSoC5/Display0.c **** *******************************************************************************/
+ 712:Generated_Source\PSoC5/Display0.c **** uint8 Display0_ReadPixel(uint16 pixelNumber) 
+ 713:Generated_Source\PSoC5/Display0.c **** {
+ 414              		.loc 1 713 0
+ 415              		.cfi_startproc
+ 416              		@ args = 0, pretend = 0, frame = 0
+ 417              		@ frame_needed = 0, uses_anonymous_args = 0
+ 418              		@ link register save eliminated.
+ 419              	.LVL43:
+ 714:Generated_Source\PSoC5/Display0.c ****     uint16 byteAddr;
+ 715:Generated_Source\PSoC5/Display0.c ****     uint16 bitAddr;
+ 716:Generated_Source\PSoC5/Display0.c ****     uint16 row;
+ 717:Generated_Source\PSoC5/Display0.c ****     uint8 pixelState;
+ 718:Generated_Source\PSoC5/Display0.c **** 
+ 719:Generated_Source\PSoC5/Display0.c ****     if(pixelNumber != Display0_NOT_CON)
+ 420              		.loc 1 719 0
+ 421 0000 FF28     		cmp	r0, #255
+ 422 0002 0ED0     		beq	.L43
+ 720:Generated_Source\PSoC5/Display0.c ****     {
+ 721:Generated_Source\PSoC5/Display0.c ****         /* Extract all required information from pixelNumber to address required pixel */
+ 722:Generated_Source\PSoC5/Display0.c ****         bitAddr = (pixelNumber & Display0_BIT_MASK);
+ 423              		.loc 1 722 0
+ 424 0004 00F00702 		and	r2, r0, #7
+ 425              	.LVL44:
+ 723:Generated_Source\PSoC5/Display0.c ****         byteAddr = (pixelNumber & Display0_PORT_MASK) >> Display0_PORT_SHIFT;
+ 426              		.loc 1 723 0
+ 427 0008 C0F30313 		ubfx	r3, r0, #4, #4
+ 428              	.LVL45:
+ 724:Generated_Source\PSoC5/Display0.c ****         row = (pixelNumber & Display0_ROW_MASK) >> Display0_ROW_SHIFT;
+ 429              		.loc 1 724 0
+ 430 000c C0F30320 		ubfx	r0, r0, #8, #4
+ 431              	.LVL46:
+ 725:Generated_Source\PSoC5/Display0.c **** 
+ 726:Generated_Source\PSoC5/Display0.c ****         pixelState = ((Display0_buffer[(row * Display0_ROW_BYTE_LENGTH) + byteAddr] >> bitAddr) &
+ 432              		.loc 1 726 0
+ 433 0010 03EB0010 		add	r0, r3, r0, lsl #4
+ 434              	.LVL47:
+ 435 0014 044B     		ldr	r3, .L44
+ 436              	.LVL48:
+ 437 0016 1B5C     		ldrb	r3, [r3, r0]	@ zero_extendqisi2
+ 438 0018 43FA02F0 		asr	r0, r3, r2
+ 439 001c 00F00100 		and	r0, r0, #1
+ 440              	.LVL49:
+ 441 0020 7047     		bx	lr
+ 442              	.LVL50:
+ 443              	.L43:
+ 727:Generated_Source\PSoC5/Display0.c ****                        Display0_PIXEL_STATE_ON);
+ 728:Generated_Source\PSoC5/Display0.c ****     }
+ 729:Generated_Source\PSoC5/Display0.c ****     else
+ 730:Generated_Source\PSoC5/Display0.c ****     {
+ 731:Generated_Source\PSoC5/Display0.c ****         /* Indicate that the pixel number is invalid */
+ 732:Generated_Source\PSoC5/Display0.c ****         pixelState = Display0_PIXEL_UNKNOWN_STATE;
+ 444              		.loc 1 732 0
+ 445 0022 FF20     		movs	r0, #255
+ 446              	.LVL51:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 22
+
+
+ 733:Generated_Source\PSoC5/Display0.c ****     }
+ 734:Generated_Source\PSoC5/Display0.c **** 
+ 735:Generated_Source\PSoC5/Display0.c ****     return (pixelState);
+ 736:Generated_Source\PSoC5/Display0.c **** }
+ 447              		.loc 1 736 0
+ 448 0024 7047     		bx	lr
+ 449              	.L45:
+ 450 0026 00BF     		.align	2
+ 451              	.L44:
+ 452 0028 00000000 		.word	.LANCHOR0
+ 453              		.cfi_endproc
+ 454              	.LFE10:
+ 455              		.size	Display0_ReadPixel, .-Display0_ReadPixel
+ 456              		.section	.text.Display0_WritePixel,"ax",%progbits
+ 457              		.align	2
+ 458              		.global	Display0_WritePixel
+ 459              		.thumb
+ 460              		.thumb_func
+ 461              		.type	Display0_WritePixel, %function
+ 462              	Display0_WritePixel:
+ 463              	.LFB9:
+ 633:Generated_Source\PSoC5/Display0.c ****     uint16 byteAddr;
+ 464              		.loc 1 633 0
+ 465              		.cfi_startproc
+ 466              		@ args = 0, pretend = 0, frame = 0
+ 467              		@ frame_needed = 0, uses_anonymous_args = 0
+ 468              	.LVL52:
+ 643:Generated_Source\PSoC5/Display0.c ****     {
+ 469              		.loc 1 643 0
+ 470 0000 0229     		cmp	r1, #2
+ 471 0002 2BD8     		bhi	.L49
+ 643:Generated_Source\PSoC5/Display0.c ****     {
+ 472              		.loc 1 643 0 is_stmt 0 discriminator 1
+ 473 0004 FF28     		cmp	r0, #255
+ 474 0006 2BD0     		beq	.L50
+ 633:Generated_Source\PSoC5/Display0.c ****     uint16 byteAddr;
+ 475              		.loc 1 633 0 is_stmt 1
+ 476 0008 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 477              		.cfi_def_cfa_offset 24
+ 478              		.cfi_offset 3, -24
+ 479              		.cfi_offset 4, -20
+ 480              		.cfi_offset 5, -16
+ 481              		.cfi_offset 6, -12
+ 482              		.cfi_offset 7, -8
+ 483              		.cfi_offset 14, -4
+ 650:Generated_Source\PSoC5/Display0.c **** 
+ 484              		.loc 1 650 0
+ 485 000a 00F00705 		and	r5, r0, #7
+ 486              	.LVL53:
+ 653:Generated_Source\PSoC5/Display0.c **** 
+ 487              		.loc 1 653 0
+ 488 000e C0F30314 		ubfx	r4, r0, #4, #4
+ 489              	.LVL54:
+ 656:Generated_Source\PSoC5/Display0.c **** 
+ 490              		.loc 1 656 0
+ 491 0012 C0F30326 		ubfx	r6, r0, #8, #4
+ 492              	.LVL55:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 23
+
+
+ 658:Generated_Source\PSoC5/Display0.c ****         {
+ 493              		.loc 1 658 0
+ 494 0016 0229     		cmp	r1, #2
+ 495 0018 03D1     		bne	.L48
+ 661:Generated_Source\PSoC5/Display0.c ****         }
+ 496              		.loc 1 661 0
+ 497 001a FFF7FEFF 		bl	Display0_ReadPixel
+ 498              	.LVL56:
+ 499 001e C043     		mvns	r0, r0
+ 500 0020 C1B2     		uxtb	r1, r0
+ 501              	.LVL57:
+ 502              	.L48:
+ 664:Generated_Source\PSoC5/Display0.c **** 
+ 503              		.loc 1 664 0
+ 504 0022 0123     		movs	r3, #1
+ 505 0024 AB40     		lsls	r3, r3, r5
+ 506 0026 DB43     		mvns	r3, r3
+ 507 0028 DBB2     		uxtb	r3, r3
+ 508              	.LVL58:
+ 668:Generated_Source\PSoC5/Display0.c ****             ((uint8) (((uint8) pixelState) << bitAddr));
+ 509              		.loc 1 668 0
+ 510 002a 04EB061E 		add	lr, r4, r6, lsl #4
+ 511 002e 0D4F     		ldr	r7, .L53
+ 512 0030 17F80E20 		ldrb	r2, [r7, lr]	@ zero_extendqisi2
+ 669:Generated_Source\PSoC5/Display0.c **** 
+ 513              		.loc 1 669 0
+ 514 0034 01FA05F0 		lsl	r0, r1, r5
+ 667:Generated_Source\PSoC5/Display0.c ****             (Display0_buffer[(row * Display0_ROW_BYTE_LENGTH) + byteAddr] & mask) |
+ 515              		.loc 1 667 0
+ 516 0038 1A40     		ands	r2, r2, r3
+ 517 003a 0243     		orrs	r2, r2, r0
+ 518 003c 07F80E20 		strb	r2, [r7, lr]
+ 672:Generated_Source\PSoC5/Display0.c **** 
+ 519              		.loc 1 672 0
+ 520 0040 81F00101 		eor	r1, r1, #1
+ 521              	.LVL59:
+ 674:Generated_Source\PSoC5/Display0.c ****             (Display0_buffer[((row + 1u) * Display0_ROW_BYTE_LENGTH) + byteAddr] & mask) |
+ 522              		.loc 1 674 0
+ 523 0044 721C     		adds	r2, r6, #1
+ 675:Generated_Source\PSoC5/Display0.c ****             ((uint8) (((uint8) pixelState) << bitAddr));
+ 524              		.loc 1 675 0
+ 525 0046 04EB0212 		add	r2, r4, r2, lsl #4
+ 526 004a BC5C     		ldrb	r4, [r7, r2]	@ zero_extendqisi2
+ 527              	.LVL60:
+ 676:Generated_Source\PSoC5/Display0.c **** 
+ 528              		.loc 1 676 0
+ 529 004c 01FA05F0 		lsl	r0, r1, r5
+ 674:Generated_Source\PSoC5/Display0.c ****             (Display0_buffer[((row + 1u) * Display0_ROW_BYTE_LENGTH) + byteAddr] & mask) |
+ 530              		.loc 1 674 0
+ 531 0050 03EA0401 		and	r1, r3, r4
+ 532              	.LVL61:
+ 533 0054 0143     		orrs	r1, r1, r0
+ 534 0056 B954     		strb	r1, [r7, r2]
+ 535              	.LVL62:
+ 678:Generated_Source\PSoC5/Display0.c ****     }
+ 536              		.loc 1 678 0
+ 537 0058 0020     		movs	r0, #0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 24
+
+
+ 538 005a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 539              	.LVL63:
+ 540              	.L49:
+ 541              		.cfi_def_cfa_offset 0
+ 542              		.cfi_restore 3
+ 543              		.cfi_restore 4
+ 544              		.cfi_restore 5
+ 545              		.cfi_restore 6
+ 546              		.cfi_restore 7
+ 547              		.cfi_restore 14
+ 645:Generated_Source\PSoC5/Display0.c ****     }
+ 548              		.loc 1 645 0
+ 549 005c 0120     		movs	r0, #1
+ 550              	.LVL64:
+ 551 005e 7047     		bx	lr
+ 552              	.LVL65:
+ 553              	.L50:
+ 554 0060 0120     		movs	r0, #1
+ 555              	.LVL66:
+ 556 0062 7047     		bx	lr
+ 557              	.L54:
+ 558              		.align	2
+ 559              	.L53:
+ 560 0064 00000000 		.word	.LANCHOR0
+ 561              		.cfi_endproc
+ 562              	.LFE9:
+ 563              		.size	Display0_WritePixel, .-Display0_WritePixel
+ 564              		.section	.text.Display0_ClearDisplay,"ax",%progbits
+ 565              		.align	2
+ 566              		.global	Display0_ClearDisplay
+ 567              		.thumb
+ 568              		.thumb_func
+ 569              		.type	Display0_ClearDisplay, %function
+ 570              	Display0_ClearDisplay:
+ 571              	.LFB8:
+ 579:Generated_Source\PSoC5/Display0.c ****     uint16 i;
+ 572              		.loc 1 579 0
+ 573              		.cfi_startproc
+ 574              		@ args = 0, pretend = 0, frame = 0
+ 575              		@ frame_needed = 0, uses_anonymous_args = 0
+ 576 0000 08B5     		push	{r3, lr}
+ 577              		.cfi_def_cfa_offset 8
+ 578              		.cfi_offset 3, -8
+ 579              		.cfi_offset 14, -4
+ 580              	.LVL67:
+ 583:Generated_Source\PSoC5/Display0.c ****     {
+ 581              		.loc 1 583 0
+ 582 0002 0023     		movs	r3, #0
+ 583 0004 0AE0     		b	.L56
+ 584              	.LVL68:
+ 585              	.L59:
+ 585:Generated_Source\PSoC5/Display0.c ****         {
+ 586              		.loc 1 585 0
+ 587 0006 0F2B     		cmp	r3, #15
+ 588 0008 03D8     		bhi	.L57
+ 588:Generated_Source\PSoC5/Display0.c ****         }
+ 589              		.loc 1 588 0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 25
+
+
+ 590 000a 0021     		movs	r1, #0
+ 591 000c 074A     		ldr	r2, .L61
+ 592 000e D154     		strb	r1, [r2, r3]
+ 593 0010 02E0     		b	.L58
+ 594              	.L57:
+ 593:Generated_Source\PSoC5/Display0.c ****         }
+ 595              		.loc 1 593 0
+ 596 0012 FF21     		movs	r1, #255
+ 597 0014 054A     		ldr	r2, .L61
+ 598 0016 D154     		strb	r1, [r2, r3]
+ 599              	.L58:
+ 583:Generated_Source\PSoC5/Display0.c ****     {
+ 600              		.loc 1 583 0 discriminator 2
+ 601 0018 0133     		adds	r3, r3, #1
+ 602              	.LVL69:
+ 603 001a 9BB2     		uxth	r3, r3
+ 604              	.LVL70:
+ 605              	.L56:
+ 583:Generated_Source\PSoC5/Display0.c ****     {
+ 606              		.loc 1 583 0 is_stmt 0 discriminator 1
+ 607 001c 1F2B     		cmp	r3, #31
+ 608 001e F2D9     		bls	.L59
+ 598:Generated_Source\PSoC5/Display0.c **** }
+ 609              		.loc 1 598 0 is_stmt 1
+ 610 0020 0021     		movs	r1, #0
+ 611 0022 1520     		movs	r0, #21
+ 612 0024 FFF7FEFF 		bl	Display0_WritePixel
+ 613              	.LVL71:
+ 614 0028 08BD     		pop	{r3, pc}
+ 615              	.L62:
+ 616 002a 00BF     		.align	2
+ 617              	.L61:
+ 618 002c 00000000 		.word	.LANCHOR0
+ 619              		.cfi_endproc
+ 620              	.LFE8:
+ 621              		.size	Display0_ClearDisplay, .-Display0_ClearDisplay
+ 622              		.section	.text.Display0_Init,"ax",%progbits
+ 623              		.align	2
+ 624              		.global	Display0_Init
+ 625              		.thumb
+ 626              		.thumb_func
+ 627              		.type	Display0_Init, %function
+ 628              	Display0_Init:
+ 629              	.LFB0:
+ 200:Generated_Source\PSoC5/Display0.c ****     Display0_ClearDisplay();
+ 630              		.loc 1 200 0
+ 631              		.cfi_startproc
+ 632              		@ args = 0, pretend = 0, frame = 0
+ 633              		@ frame_needed = 0, uses_anonymous_args = 0
+ 634 0000 08B5     		push	{r3, lr}
+ 635              		.cfi_def_cfa_offset 8
+ 636              		.cfi_offset 3, -8
+ 637              		.cfi_offset 14, -4
+ 201:Generated_Source\PSoC5/Display0.c **** 
+ 638              		.loc 1 201 0
+ 639 0002 FFF7FEFF 		bl	Display0_ClearDisplay
+ 640              	.LVL72:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 26
+
+
+ 204:Generated_Source\PSoC5/Display0.c **** 
+ 641              		.loc 1 204 0
+ 642 0006 0122     		movs	r2, #1
+ 643 0008 054B     		ldr	r3, .L65
+ 644 000a 1A60     		str	r2, [r3]
+ 207:Generated_Source\PSoC5/Display0.c **** 
+ 645              		.loc 1 207 0
+ 646 000c 0549     		ldr	r1, .L65+4
+ 647 000e 0020     		movs	r0, #0
+ 648 0010 FFF7FEFF 		bl	CyIntSetVector
+ 649              	.LVL73:
+ 210:Generated_Source\PSoC5/Display0.c **** }
+ 650              		.loc 1 210 0
+ 651 0014 0721     		movs	r1, #7
+ 652 0016 0020     		movs	r0, #0
+ 653 0018 FFF7FEFF 		bl	CyIntSetPriority
+ 654              	.LVL74:
+ 655 001c 08BD     		pop	{r3, pc}
+ 656              	.L66:
+ 657 001e 00BF     		.align	2
+ 658              	.L65:
+ 659 0020 80E100E0 		.word	-536813184
+ 660 0024 00000000 		.word	Display0_ISR
+ 661              		.cfi_endproc
+ 662              	.LFE0:
+ 663              		.size	Display0_Init, .-Display0_Init
+ 664              		.section	.text.Display0_Start,"ax",%progbits
+ 665              		.align	2
+ 666              		.global	Display0_Start
+ 667              		.thumb
+ 668              		.thumb_func
+ 669              		.type	Display0_Start, %function
+ 670              	Display0_Start:
+ 671              	.LFB4:
+ 463:Generated_Source\PSoC5/Display0.c ****     uint8 status;
+ 672              		.loc 1 463 0
+ 673              		.cfi_startproc
+ 674              		@ args = 0, pretend = 0, frame = 0
+ 675              		@ frame_needed = 0, uses_anonymous_args = 0
+ 676 0000 08B5     		push	{r3, lr}
+ 677              		.cfi_def_cfa_offset 8
+ 678              		.cfi_offset 3, -8
+ 679              		.cfi_offset 14, -4
+ 467:Generated_Source\PSoC5/Display0.c ****     {
+ 680              		.loc 1 467 0
+ 681 0002 064B     		ldr	r3, .L70
+ 682 0004 93F82730 		ldrb	r3, [r3, #39]	@ zero_extendqisi2
+ 683 0008 2BB9     		cbnz	r3, .L68
+ 469:Generated_Source\PSoC5/Display0.c ****         Display0_Init();
+ 684              		.loc 1 469 0
+ 685 000a 0122     		movs	r2, #1
+ 686 000c 034B     		ldr	r3, .L70
+ 687 000e 83F82720 		strb	r2, [r3, #39]
+ 470:Generated_Source\PSoC5/Display0.c ****     }
+ 688              		.loc 1 470 0
+ 689 0012 FFF7FEFF 		bl	Display0_Init
+ 690              	.LVL75:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 27
+
+
+ 691              	.L68:
+ 473:Generated_Source\PSoC5/Display0.c **** 
+ 692              		.loc 1 473 0
+ 693 0016 FFF7FEFF 		bl	Display0_Enable
+ 694              	.LVL76:
+ 476:Generated_Source\PSoC5/Display0.c **** 
+ 695              		.loc 1 476 0
+ 696 001a 08BD     		pop	{r3, pc}
+ 697              	.L71:
+ 698              		.align	2
+ 699              	.L70:
+ 700 001c 00000000 		.word	.LANCHOR0
+ 701              		.cfi_endproc
+ 702              	.LFE4:
+ 703              		.size	Display0_Start, .-Display0_Start
+ 704              		.section	.text.Display0_WriteInvertState,"ax",%progbits
+ 705              		.align	2
+ 706              		.global	Display0_WriteInvertState
+ 707              		.thumb
+ 708              		.thumb_func
+ 709              		.type	Display0_WriteInvertState, %function
+ 710              	Display0_WriteInvertState:
+ 711              	.LFB11:
+ 737:Generated_Source\PSoC5/Display0.c **** 
+ 738:Generated_Source\PSoC5/Display0.c **** 
+ 739:Generated_Source\PSoC5/Display0.c **** /*******************************************************************************
+ 740:Generated_Source\PSoC5/Display0.c **** * Function Name: Display0_WriteInvertState
+ 741:Generated_Source\PSoC5/Display0.c **** ********************************************************************************
+ 742:Generated_Source\PSoC5/Display0.c **** *
+ 743:Generated_Source\PSoC5/Display0.c **** * Summary:
+ 744:Generated_Source\PSoC5/Display0.c **** *  This function inverts the display based on invertState.
+ 745:Generated_Source\PSoC5/Display0.c **** *
+ 746:Generated_Source\PSoC5/Display0.c **** * Parameters:
+ 747:Generated_Source\PSoC5/Display0.c **** *  invertState: the values can be - 0 (#Display0_NORMAL_STATE) for
+ 748:Generated_Source\PSoC5/Display0.c **** *               normal noninverted display and 1
+ 749:Generated_Source\PSoC5/Display0.c **** *                (#Display0_INVERTED_STATE) for inverted display.
+ 750:Generated_Source\PSoC5/Display0.c **** *
+ 751:Generated_Source\PSoC5/Display0.c **** * Return:
+ 752:Generated_Source\PSoC5/Display0.c **** *  One of standard status for PSoC3 Component:
+ 753:Generated_Source\PSoC5/Display0.c **** *      CYRET_SUCCESS - function completed successfully.
+ 754:Generated_Source\PSoC5/Display0.c **** *      CYRET_BAD_PARAM - evaluation of invertState parameter is failed.
+ 755:Generated_Source\PSoC5/Display0.c **** *
+ 756:Generated_Source\PSoC5/Display0.c **** *******************************************************************************/
+ 757:Generated_Source\PSoC5/Display0.c **** uint8 Display0_WriteInvertState(uint8 invertState) 
+ 758:Generated_Source\PSoC5/Display0.c **** {
+ 712              		.loc 1 758 0
+ 713              		.cfi_startproc
+ 714              		@ args = 0, pretend = 0, frame = 0
+ 715              		@ frame_needed = 0, uses_anonymous_args = 0
+ 716              	.LVL77:
+ 759:Generated_Source\PSoC5/Display0.c ****     uint8 status;
+ 760:Generated_Source\PSoC5/Display0.c **** 
+ 761:Generated_Source\PSoC5/Display0.c ****     /* Check if inverstState parameter is valid */
+ 762:Generated_Source\PSoC5/Display0.c ****     if(invertState <= Display0_INVERTED_STATE)
+ 717              		.loc 1 762 0
+ 718 0000 0128     		cmp	r0, #1
+ 719 0002 0DD8     		bhi	.L75
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 28
+
+
+ 758:Generated_Source\PSoC5/Display0.c ****     uint8 status;
+ 720              		.loc 1 758 0
+ 721 0004 08B5     		push	{r3, lr}
+ 722              		.cfi_def_cfa_offset 8
+ 723              		.cfi_offset 3, -8
+ 724              		.cfi_offset 14, -4
+ 763:Generated_Source\PSoC5/Display0.c ****     {
+ 764:Generated_Source\PSoC5/Display0.c ****         /* If the staate is "Invert" then then set pixel - com0 to "1", otherwise
+ 765:Generated_Source\PSoC5/Display0.c ****         * set it to "0".
+ 766:Generated_Source\PSoC5/Display0.c ****         */
+ 767:Generated_Source\PSoC5/Display0.c ****         if(Display0_INVERTED_STATE == invertState)
+ 725              		.loc 1 767 0
+ 726 0006 05D1     		bne	.L74
+ 768:Generated_Source\PSoC5/Display0.c ****         {
+ 769:Generated_Source\PSoC5/Display0.c ****             Display0_WRITE_PIXEL(Display0_commons[0u], Display0_PIXEL_STATE_ON);
+ 727              		.loc 1 769 0
+ 728 0008 0121     		movs	r1, #1
+ 729 000a 1520     		movs	r0, #21
+ 730              	.LVL78:
+ 731 000c FFF7FEFF 		bl	Display0_WritePixel
+ 732              	.LVL79:
+ 770:Generated_Source\PSoC5/Display0.c ****         }
+ 771:Generated_Source\PSoC5/Display0.c ****         else
+ 772:Generated_Source\PSoC5/Display0.c ****         {
+ 773:Generated_Source\PSoC5/Display0.c ****             Display0_WRITE_PIXEL(Display0_commons[0u], Display0_PIXEL_STATE_OFF);
+ 774:Generated_Source\PSoC5/Display0.c ****         }
+ 775:Generated_Source\PSoC5/Display0.c **** 
+ 776:Generated_Source\PSoC5/Display0.c ****         status = CYRET_SUCCESS;
+ 733              		.loc 1 776 0
+ 734 0010 0020     		movs	r0, #0
+ 735 0012 08BD     		pop	{r3, pc}
+ 736              	.LVL80:
+ 737              	.L74:
+ 773:Generated_Source\PSoC5/Display0.c ****         }
+ 738              		.loc 1 773 0
+ 739 0014 0021     		movs	r1, #0
+ 740 0016 1520     		movs	r0, #21
+ 741              	.LVL81:
+ 742 0018 FFF7FEFF 		bl	Display0_WritePixel
+ 743              	.LVL82:
+ 744              		.loc 1 776 0
+ 745 001c 0020     		movs	r0, #0
+ 746 001e 08BD     		pop	{r3, pc}
+ 747              	.LVL83:
+ 748              	.L75:
+ 749              		.cfi_def_cfa_offset 0
+ 750              		.cfi_restore 3
+ 751              		.cfi_restore 14
+ 777:Generated_Source\PSoC5/Display0.c ****     }
+ 778:Generated_Source\PSoC5/Display0.c ****     else
+ 779:Generated_Source\PSoC5/Display0.c ****     {
+ 780:Generated_Source\PSoC5/Display0.c ****         status = CYRET_BAD_PARAM;
+ 752              		.loc 1 780 0
+ 753 0020 0120     		movs	r0, #1
+ 754              	.LVL84:
+ 755 0022 7047     		bx	lr
+ 756              		.cfi_endproc
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 29
+
+
+ 757              	.LFE11:
+ 758              		.size	Display0_WriteInvertState, .-Display0_WriteInvertState
+ 759              		.section	.text.Display0_ReadInvertState,"ax",%progbits
+ 760              		.align	2
+ 761              		.global	Display0_ReadInvertState
+ 762              		.thumb
+ 763              		.thumb_func
+ 764              		.type	Display0_ReadInvertState, %function
+ 765              	Display0_ReadInvertState:
+ 766              	.LFB12:
+ 781:Generated_Source\PSoC5/Display0.c ****     }
+ 782:Generated_Source\PSoC5/Display0.c **** 
+ 783:Generated_Source\PSoC5/Display0.c ****     return(status);
+ 784:Generated_Source\PSoC5/Display0.c **** }
+ 785:Generated_Source\PSoC5/Display0.c **** 
+ 786:Generated_Source\PSoC5/Display0.c **** 
+ 787:Generated_Source\PSoC5/Display0.c **** /*******************************************************************************
+ 788:Generated_Source\PSoC5/Display0.c **** * Function Name: Display0_ReadInvertState
+ 789:Generated_Source\PSoC5/Display0.c **** ********************************************************************************
+ 790:Generated_Source\PSoC5/Display0.c **** *
+ 791:Generated_Source\PSoC5/Display0.c **** * Summary:
+ 792:Generated_Source\PSoC5/Display0.c **** *  This function returns the current state of the display, possible states are
+ 793:Generated_Source\PSoC5/Display0.c **** *  normal and inverted.
+ 794:Generated_Source\PSoC5/Display0.c **** *
+ 795:Generated_Source\PSoC5/Display0.c **** * Parameters:
+ 796:Generated_Source\PSoC5/Display0.c **** *  None.
+ 797:Generated_Source\PSoC5/Display0.c **** *
+ 798:Generated_Source\PSoC5/Display0.c **** * Return:
+ 799:Generated_Source\PSoC5/Display0.c **** *  Display0_NORMAL_STATE (0) - for normal non-inverted display.
+ 800:Generated_Source\PSoC5/Display0.c **** *  Display0_INVERTED_STATE (1) -  for inverted display.
+ 801:Generated_Source\PSoC5/Display0.c **** *
+ 802:Generated_Source\PSoC5/Display0.c **** *******************************************************************************/
+ 803:Generated_Source\PSoC5/Display0.c **** uint8 Display0_ReadInvertState(void) 
+ 804:Generated_Source\PSoC5/Display0.c **** {
+ 767              		.loc 1 804 0
+ 768              		.cfi_startproc
+ 769              		@ args = 0, pretend = 0, frame = 0
+ 770              		@ frame_needed = 0, uses_anonymous_args = 0
+ 771 0000 08B5     		push	{r3, lr}
+ 772              		.cfi_def_cfa_offset 8
+ 773              		.cfi_offset 3, -8
+ 774              		.cfi_offset 14, -4
+ 775              	.LVL85:
+ 805:Generated_Source\PSoC5/Display0.c ****     uint8 state = Display0_INVERTED_STATE;
+ 806:Generated_Source\PSoC5/Display0.c **** 
+ 807:Generated_Source\PSoC5/Display0.c ****     /* Get only invert bit of Driver Control Register */
+ 808:Generated_Source\PSoC5/Display0.c ****     if(Display0_PIXEL_STATE_OFF == Display0_ReadPixel(Display0_commons[0u]))
+ 776              		.loc 1 808 0
+ 777 0002 1520     		movs	r0, #21
+ 778 0004 FFF7FEFF 		bl	Display0_ReadPixel
+ 779              	.LVL86:
+ 780 0008 08B1     		cbz	r0, .L80
+ 805:Generated_Source\PSoC5/Display0.c ****     uint8 state = Display0_INVERTED_STATE;
+ 781              		.loc 1 805 0
+ 782 000a 0120     		movs	r0, #1
+ 783 000c 08BD     		pop	{r3, pc}
+ 784              	.L80:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 30
+
+
+ 809:Generated_Source\PSoC5/Display0.c ****     {
+ 810:Generated_Source\PSoC5/Display0.c ****         state = Display0_NORMAL_STATE;
+ 785              		.loc 1 810 0
+ 786 000e 0020     		movs	r0, #0
+ 787              	.LVL87:
+ 811:Generated_Source\PSoC5/Display0.c ****     }
+ 812:Generated_Source\PSoC5/Display0.c **** 
+ 813:Generated_Source\PSoC5/Display0.c ****     return(state);
+ 814:Generated_Source\PSoC5/Display0.c **** }
+ 788              		.loc 1 814 0
+ 789 0010 08BD     		pop	{r3, pc}
+ 790              		.cfi_endproc
+ 791              	.LFE12:
+ 792              		.size	Display0_ReadInvertState, .-Display0_ReadInvertState
+ 793              		.global	Display0_enableState
+ 794              		.global	Display0_initVar
+ 795 0012 00BF     		.section	.rodata
+ 796              		.align	2
+ 797              		.set	.LANCHOR1,. + 0
+ 798              		.type	Display0_StSegLcdPort_DMA_TD_PROTO_BLOCK.5152, %object
+ 799              		.size	Display0_StSegLcdPort_DMA_TD_PROTO_BLOCK.5152, 2
+ 800              	Display0_StSegLcdPort_DMA_TD_PROTO_BLOCK.5152:
+ 801 0000 01       		.byte	1
+ 802 0001 01       		.byte	1
+ 803              		.bss
+ 804              		.align	2
+ 805              		.set	.LANCHOR0,. + 0
+ 806              		.type	Display0_buffer, %object
+ 807              		.size	Display0_buffer, 32
+ 808              	Display0_buffer:
+ 809 0000 00000000 		.space	32
+ 809      00000000 
+ 809      00000000 
+ 809      00000000 
+ 809      00000000 
+ 810              		.type	Display0_lcdChannel, %object
+ 811              		.size	Display0_lcdChannel, 1
+ 812              	Display0_lcdChannel:
+ 813 0020 00       		.space	1
+ 814 0021 000000   		.space	3
+ 815              		.type	Display0_lcdTd, %object
+ 816              		.size	Display0_lcdTd, 2
+ 817              	Display0_lcdTd:
+ 818 0024 0000     		.space	2
+ 819              		.type	Display0_enableState, %object
+ 820              		.size	Display0_enableState, 1
+ 821              	Display0_enableState:
+ 822 0026 00       		.space	1
+ 823              		.type	Display0_initVar, %object
+ 824              		.size	Display0_initVar, 1
+ 825              	Display0_initVar:
+ 826 0027 00       		.space	1
+ 827              		.text
+ 828              	.Letext0:
+ 829              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 830              		.file 3 "Generated_Source\\PSoC5\\Display0.h"
+ 831              		.file 4 "Generated_Source\\PSoC5/Display0_Lcd_Dma_dma.h"
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 31
+
+
+ 832              		.file 5 "Generated_Source\\PSoC5/CYDMAC.H"
+ 833              		.file 6 "Generated_Source\\PSoC5/Display0_InClock.h"
+ 834              		.file 7 "Generated_Source\\PSoC5/CyLib.h"
+ 835              		.section	.debug_info,"",%progbits
+ 836              	.Ldebug_info0:
+ 837 0000 C1060000 		.4byte	0x6c1
+ 838 0004 0400     		.2byte	0x4
+ 839 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 840 000a 04       		.byte	0x4
+ 841 000b 01       		.uleb128 0x1
+ 842 000c 32030000 		.4byte	.LASF63
+ 843 0010 0C       		.byte	0xc
+ 844 0011 50000000 		.4byte	.LASF64
+ 845 0015 EA000000 		.4byte	.LASF65
+ 846 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 847 001d 00000000 		.4byte	0
+ 848 0021 00000000 		.4byte	.Ldebug_line0
+ 849 0025 02       		.uleb128 0x2
+ 850 0026 01       		.byte	0x1
+ 851 0027 06       		.byte	0x6
+ 852 0028 3E010000 		.4byte	.LASF0
+ 853 002c 02       		.uleb128 0x2
+ 854 002d 01       		.byte	0x1
+ 855 002e 08       		.byte	0x8
+ 856 002f F2020000 		.4byte	.LASF1
+ 857 0033 02       		.uleb128 0x2
+ 858 0034 02       		.byte	0x2
+ 859 0035 05       		.byte	0x5
+ 860 0036 0F030000 		.4byte	.LASF2
+ 861 003a 02       		.uleb128 0x2
+ 862 003b 02       		.byte	0x2
+ 863 003c 07       		.byte	0x7
+ 864 003d 15020000 		.4byte	.LASF3
+ 865 0041 02       		.uleb128 0x2
+ 866 0042 04       		.byte	0x4
+ 867 0043 05       		.byte	0x5
+ 868 0044 6F010000 		.4byte	.LASF4
+ 869 0048 02       		.uleb128 0x2
+ 870 0049 04       		.byte	0x4
+ 871 004a 07       		.byte	0x7
+ 872 004b F8010000 		.4byte	.LASF5
+ 873 004f 02       		.uleb128 0x2
+ 874 0050 08       		.byte	0x8
+ 875 0051 05       		.byte	0x5
+ 876 0052 7E010000 		.4byte	.LASF6
+ 877 0056 02       		.uleb128 0x2
+ 878 0057 08       		.byte	0x8
+ 879 0058 07       		.byte	0x7
+ 880 0059 88000000 		.4byte	.LASF7
+ 881 005d 03       		.uleb128 0x3
+ 882 005e 04       		.byte	0x4
+ 883 005f 05       		.byte	0x5
+ 884 0060 696E7400 		.ascii	"int\000"
+ 885 0064 02       		.uleb128 0x2
+ 886 0065 04       		.byte	0x4
+ 887 0066 07       		.byte	0x7
+ 888 0067 EB010000 		.4byte	.LASF8
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 32
+
+
+ 889 006b 04       		.uleb128 0x4
+ 890 006c 78010000 		.4byte	.LASF9
+ 891 0070 02       		.byte	0x2
+ 892 0071 E401     		.2byte	0x1e4
+ 893 0073 2C000000 		.4byte	0x2c
+ 894 0077 04       		.uleb128 0x4
+ 895 0078 29000000 		.4byte	.LASF10
+ 896 007c 02       		.byte	0x2
+ 897 007d E501     		.2byte	0x1e5
+ 898 007f 3A000000 		.4byte	0x3a
+ 899 0083 04       		.uleb128 0x4
+ 900 0084 93010000 		.4byte	.LASF11
+ 901 0088 02       		.byte	0x2
+ 902 0089 E601     		.2byte	0x1e6
+ 903 008b 48000000 		.4byte	0x48
+ 904 008f 02       		.uleb128 0x2
+ 905 0090 04       		.byte	0x4
+ 906 0091 04       		.byte	0x4
+ 907 0092 EC020000 		.4byte	.LASF12
+ 908 0096 02       		.uleb128 0x2
+ 909 0097 08       		.byte	0x8
+ 910 0098 04       		.byte	0x4
+ 911 0099 8C010000 		.4byte	.LASF13
+ 912 009d 02       		.uleb128 0x2
+ 913 009e 01       		.byte	0x1
+ 914 009f 08       		.byte	0x8
+ 915 00a0 0A040000 		.4byte	.LASF14
+ 916 00a4 04       		.uleb128 0x4
+ 917 00a5 45020000 		.4byte	.LASF15
+ 918 00a9 02       		.byte	0x2
+ 919 00aa 9002     		.2byte	0x290
+ 920 00ac B0000000 		.4byte	0xb0
+ 921 00b0 05       		.uleb128 0x5
+ 922 00b1 83000000 		.4byte	0x83
+ 923 00b5 06       		.uleb128 0x6
+ 924 00b6 22040000 		.4byte	.LASF66
+ 925 00ba 02       		.byte	0x2
+ 926 00bb 03       		.byte	0x3
+ 927 00bc 32       		.byte	0x32
+ 928 00bd DA000000 		.4byte	0xda
+ 929 00c1 07       		.uleb128 0x7
+ 930 00c2 4C040000 		.4byte	.LASF16
+ 931 00c6 03       		.byte	0x3
+ 932 00c7 34       		.byte	0x34
+ 933 00c8 6B000000 		.4byte	0x6b
+ 934 00cc 00       		.byte	0
+ 935 00cd 07       		.uleb128 0x7
+ 936 00ce 03040000 		.4byte	.LASF17
+ 937 00d2 03       		.byte	0x3
+ 938 00d3 35       		.byte	0x35
+ 939 00d4 6B000000 		.4byte	0x6b
+ 940 00d8 01       		.byte	0x1
+ 941 00d9 00       		.byte	0
+ 942 00da 02       		.uleb128 0x2
+ 943 00db 08       		.byte	0x8
+ 944 00dc 04       		.byte	0x4
+ 945 00dd 65020000 		.4byte	.LASF18
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 33
+
+
+ 946 00e1 02       		.uleb128 0x2
+ 947 00e2 04       		.byte	0x4
+ 948 00e3 07       		.byte	0x7
+ 949 00e4 5C020000 		.4byte	.LASF19
+ 950 00e8 08       		.uleb128 0x8
+ 951 00e9 8F020000 		.4byte	.LASF67
+ 952 00ed 01       		.byte	0x1
+ 953 00ee 2001     		.2byte	0x120
+ 954 00f0 6B000000 		.4byte	0x6b
+ 955 00f4 00000000 		.4byte	.LFB2
+ 956 00f8 1C010000 		.4byte	.LFE2-.LFB2
+ 957 00fc 01       		.uleb128 0x1
+ 958 00fd 9C       		.byte	0x9c
+ 959 00fe 5E020000 		.4byte	0x25e
+ 960 0102 09       		.uleb128 0x9
+ 961 0103 5F040000 		.4byte	.LASF20
+ 962 0107 01       		.byte	0x1
+ 963 0108 2201     		.2byte	0x122
+ 964 010a 6B000000 		.4byte	0x6b
+ 965 010e 00000000 		.4byte	.LLST0
+ 966 0112 0A       		.uleb128 0xa
+ 967 0113 6900     		.ascii	"i\000"
+ 968 0115 01       		.byte	0x1
+ 969 0116 2301     		.2byte	0x123
+ 970 0118 6B000000 		.4byte	0x6b
+ 971 011c 37000000 		.4byte	.LLST1
+ 972 0120 0A       		.uleb128 0xa
+ 973 0121 6A00     		.ascii	"j\000"
+ 974 0123 01       		.byte	0x1
+ 975 0124 2401     		.2byte	0x124
+ 976 0126 6B000000 		.4byte	0x6b
+ 977 012a 81000000 		.4byte	.LLST2
+ 978 012e 09       		.uleb128 0x9
+ 979 012f 66010000 		.4byte	.LASF21
+ 980 0133 01       		.byte	0x1
+ 981 0134 2501     		.2byte	0x125
+ 982 0136 6B000000 		.4byte	0x6b
+ 983 013a B5000000 		.4byte	.LLST3
+ 984 013e 0B       		.uleb128 0xb
+ 985 013f AB010000 		.4byte	.LASF22
+ 986 0143 01       		.byte	0x1
+ 987 0144 2601     		.2byte	0x126
+ 988 0146 83000000 		.4byte	0x83
+ 989 014a 06       		.uleb128 0x6
+ 990 014b 03       		.byte	0x3
+ 991 014c 00000000 		.4byte	.LANCHOR0
+ 992 0150 9F       		.byte	0x9f
+ 993 0151 0C       		.uleb128 0xc
+ 994 0152 72000000 		.4byte	.LASF23
+ 995 0156 01       		.byte	0x1
+ 996 0157 2701     		.2byte	0x127
+ 997 0159 83000000 		.4byte	0x83
+ 998 015d 80500040 		.4byte	0x40005080
+ 999 0161 0D       		.uleb128 0xd
+ 1000 0162 E4030000 		.4byte	.LASF68
+ 1001 0166 01       		.byte	0x1
+ 1002 0167 2801     		.2byte	0x128
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 34
+
+
+ 1003 0169 6B000000 		.4byte	0x6b
+ 1004 016d 0B       		.uleb128 0xb
+ 1005 016e 00000000 		.4byte	.LASF24
+ 1006 0172 01       		.byte	0x1
+ 1007 0173 2A01     		.2byte	0x12a
+ 1008 0175 73020000 		.4byte	0x273
+ 1009 0179 05       		.uleb128 0x5
+ 1010 017a 03       		.byte	0x3
+ 1011 017b 00000000 		.4byte	Display0_StSegLcdPort_DMA_TD_PROTO_BLOCK.5152
+ 1012 017f 0E       		.uleb128 0xe
+ 1013 0180 9A010000 		.4byte	.LASF25
+ 1014 0184 01       		.byte	0x1
+ 1015 0185 3201     		.2byte	0x132
+ 1016 0187 78020000 		.4byte	0x278
+ 1017 018b 04       		.byte	0x4
+ 1018 018c 0F       		.uleb128 0xf
+ 1019 018d 14000000 		.4byte	.LVL2
+ 1020 0191 35060000 		.4byte	0x635
+ 1021 0195 B3010000 		.4byte	0x1b3
+ 1022 0199 10       		.uleb128 0x10
+ 1023 019a 01       		.uleb128 0x1
+ 1024 019b 50       		.byte	0x50
+ 1025 019c 01       		.uleb128 0x1
+ 1026 019d 30       		.byte	0x30
+ 1027 019e 10       		.uleb128 0x10
+ 1028 019f 01       		.uleb128 0x1
+ 1029 01a0 51       		.byte	0x51
+ 1030 01a1 01       		.uleb128 0x1
+ 1031 01a2 30       		.byte	0x30
+ 1032 01a3 10       		.uleb128 0x10
+ 1033 01a4 01       		.uleb128 0x1
+ 1034 01a5 52       		.byte	0x52
+ 1035 01a6 04       		.uleb128 0x4
+ 1036 01a7 77       		.byte	0x77
+ 1037 01a8 00       		.sleb128 0
+ 1038 01a9 40       		.byte	0x40
+ 1039 01aa 25       		.byte	0x25
+ 1040 01ab 10       		.uleb128 0x10
+ 1041 01ac 01       		.uleb128 0x1
+ 1042 01ad 53       		.byte	0x53
+ 1043 01ae 03       		.uleb128 0x3
+ 1044 01af 0A       		.byte	0xa
+ 1045 01b0 0040     		.2byte	0x4000
+ 1046 01b2 00       		.byte	0
+ 1047 01b3 11       		.uleb128 0x11
+ 1048 01b4 30000000 		.4byte	.LVL4
+ 1049 01b8 40060000 		.4byte	0x640
+ 1050 01bc 0F       		.uleb128 0xf
+ 1051 01bd 7E000000 		.4byte	.LVL15
+ 1052 01c1 4B060000 		.4byte	0x64b
+ 1053 01c5 D4010000 		.4byte	0x1d4
+ 1054 01c9 10       		.uleb128 0x10
+ 1055 01ca 01       		.uleb128 0x1
+ 1056 01cb 51       		.byte	0x51
+ 1057 01cc 01       		.uleb128 0x1
+ 1058 01cd 31       		.byte	0x31
+ 1059 01ce 10       		.uleb128 0x10
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 35
+
+
+ 1060 01cf 01       		.uleb128 0x1
+ 1061 01d0 53       		.byte	0x53
+ 1062 01d1 01       		.uleb128 0x1
+ 1063 01d2 37       		.byte	0x37
+ 1064 01d3 00       		.byte	0
+ 1065 01d4 0F       		.uleb128 0xf
+ 1066 01d5 9A000000 		.4byte	.LVL16
+ 1067 01d9 4B060000 		.4byte	0x64b
+ 1068 01dd EC010000 		.4byte	0x1ec
+ 1069 01e1 10       		.uleb128 0x10
+ 1070 01e2 01       		.uleb128 0x1
+ 1071 01e3 51       		.byte	0x51
+ 1072 01e4 01       		.uleb128 0x1
+ 1073 01e5 31       		.byte	0x31
+ 1074 01e6 10       		.uleb128 0x10
+ 1075 01e7 01       		.uleb128 0x1
+ 1076 01e8 53       		.byte	0x53
+ 1077 01e9 01       		.uleb128 0x1
+ 1078 01ea 37       		.byte	0x37
+ 1079 01eb 00       		.byte	0
+ 1080 01ec 0F       		.uleb128 0xf
+ 1081 01ed B4000000 		.4byte	.LVL17
+ 1082 01f1 4B060000 		.4byte	0x64b
+ 1083 01f5 05020000 		.4byte	0x205
+ 1084 01f9 10       		.uleb128 0x10
+ 1085 01fa 01       		.uleb128 0x1
+ 1086 01fb 51       		.byte	0x51
+ 1087 01fc 01       		.uleb128 0x1
+ 1088 01fd 31       		.byte	0x31
+ 1089 01fe 10       		.uleb128 0x10
+ 1090 01ff 01       		.uleb128 0x1
+ 1091 0200 53       		.byte	0x53
+ 1092 0201 02       		.uleb128 0x2
+ 1093 0202 08       		.byte	0x8
+ 1094 0203 23       		.byte	0x23
+ 1095 0204 00       		.byte	0
+ 1096 0205 0F       		.uleb128 0xf
+ 1097 0206 D2000000 		.4byte	.LVL18
+ 1098 020a 56060000 		.4byte	0x656
+ 1099 020e 45020000 		.4byte	0x245
+ 1100 0212 10       		.uleb128 0x10
+ 1101 0213 01       		.uleb128 0x1
+ 1102 0214 51       		.byte	0x51
+ 1103 0215 17       		.uleb128 0x17
+ 1104 0216 78       		.byte	0x78
+ 1105 0217 00       		.sleb128 0
+ 1106 0218 34       		.byte	0x34
+ 1107 0219 24       		.byte	0x24
+ 1108 021a 74       		.byte	0x74
+ 1109 021b 00       		.sleb128 0
+ 1110 021c 31       		.byte	0x31
+ 1111 021d 24       		.byte	0x24
+ 1112 021e 03       		.byte	0x3
+ 1113 021f 00000000 		.4byte	.LANCHOR1
+ 1114 0223 22       		.byte	0x22
+ 1115 0224 94       		.byte	0x94
+ 1116 0225 01       		.byte	0x1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 36
+
+
+ 1117 0226 08       		.byte	0x8
+ 1118 0227 FF       		.byte	0xff
+ 1119 0228 1A       		.byte	0x1a
+ 1120 0229 22       		.byte	0x22
+ 1121 022a 77       		.byte	0x77
+ 1122 022b 00       		.sleb128 0
+ 1123 022c 22       		.byte	0x22
+ 1124 022d 10       		.uleb128 0x10
+ 1125 022e 01       		.uleb128 0x1
+ 1126 022f 52       		.byte	0x52
+ 1127 0230 13       		.uleb128 0x13
+ 1128 0231 74       		.byte	0x74
+ 1129 0232 00       		.sleb128 0
+ 1130 0233 31       		.byte	0x31
+ 1131 0234 24       		.byte	0x24
+ 1132 0235 03       		.byte	0x3
+ 1133 0236 00000000 		.4byte	.LANCHOR1
+ 1134 023a 22       		.byte	0x22
+ 1135 023b 94       		.byte	0x94
+ 1136 023c 01       		.byte	0x1
+ 1137 023d 08       		.byte	0x8
+ 1138 023e FF       		.byte	0xff
+ 1139 023f 1A       		.byte	0x1a
+ 1140 0240 23       		.byte	0x23
+ 1141 0241 80A101   		.uleb128 0x5080
+ 1142 0244 00       		.byte	0
+ 1143 0245 11       		.uleb128 0x11
+ 1144 0246 FC000000 		.4byte	.LVL25
+ 1145 024a 61060000 		.4byte	0x661
+ 1146 024e 12       		.uleb128 0x12
+ 1147 024f 06010000 		.4byte	.LVL26
+ 1148 0253 6C060000 		.4byte	0x66c
+ 1149 0257 10       		.uleb128 0x10
+ 1150 0258 01       		.uleb128 0x1
+ 1151 0259 51       		.byte	0x51
+ 1152 025a 01       		.uleb128 0x1
+ 1153 025b 31       		.byte	0x31
+ 1154 025c 00       		.byte	0
+ 1155 025d 00       		.byte	0
+ 1156 025e 13       		.uleb128 0x13
+ 1157 025f 6E020000 		.4byte	0x26e
+ 1158 0263 6E020000 		.4byte	0x26e
+ 1159 0267 14       		.uleb128 0x14
+ 1160 0268 E1000000 		.4byte	0xe1
+ 1161 026c 00       		.byte	0
+ 1162 026d 00       		.byte	0
+ 1163 026e 15       		.uleb128 0x15
+ 1164 026f B5000000 		.4byte	0xb5
+ 1165 0273 15       		.uleb128 0x15
+ 1166 0274 5E020000 		.4byte	0x25e
+ 1167 0278 15       		.uleb128 0x15
+ 1168 0279 6B000000 		.4byte	0x6b
+ 1169 027d 16       		.uleb128 0x16
+ 1170 027e EF030000 		.4byte	.LASF69
+ 1171 0282 01       		.byte	0x1
+ 1172 0283 A101     		.2byte	0x1a1
+ 1173 0285 00000000 		.4byte	.LFB3
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 37
+
+
+ 1174 0289 30000000 		.4byte	.LFE3-.LFB3
+ 1175 028d 01       		.uleb128 0x1
+ 1176 028e 9C       		.byte	0x9c
+ 1177 028f BD020000 		.4byte	0x2bd
+ 1178 0293 0A       		.uleb128 0xa
+ 1179 0294 6900     		.ascii	"i\000"
+ 1180 0296 01       		.byte	0x1
+ 1181 0297 A301     		.2byte	0x1a3
+ 1182 0299 6B000000 		.4byte	0x6b
+ 1183 029d DF000000 		.4byte	.LLST4
+ 1184 02a1 11       		.uleb128 0x11
+ 1185 02a2 06000000 		.4byte	.LVL30
+ 1186 02a6 77060000 		.4byte	0x677
+ 1187 02aa 11       		.uleb128 0x11
+ 1188 02ab 10000000 		.4byte	.LVL31
+ 1189 02af 82060000 		.4byte	0x682
+ 1190 02b3 11       		.uleb128 0x11
+ 1191 02b4 20000000 		.4byte	.LVL33
+ 1192 02b8 8D060000 		.4byte	0x68d
+ 1193 02bc 00       		.byte	0
+ 1194 02bd 17       		.uleb128 0x17
+ 1195 02be 30000000 		.4byte	.LASF28
+ 1196 02c2 01       		.byte	0x1
+ 1197 02c3 EE       		.byte	0xee
+ 1198 02c4 6B000000 		.4byte	0x6b
+ 1199 02c8 00000000 		.4byte	.LFB1
+ 1200 02cc 1C000000 		.4byte	.LFE1-.LFB1
+ 1201 02d0 01       		.uleb128 0x1
+ 1202 02d1 9C       		.byte	0x9c
+ 1203 02d2 F8020000 		.4byte	0x2f8
+ 1204 02d6 18       		.uleb128 0x18
+ 1205 02d7 5F040000 		.4byte	.LASF20
+ 1206 02db 01       		.byte	0x1
+ 1207 02dc F0       		.byte	0xf0
+ 1208 02dd 6B000000 		.4byte	0x6b
+ 1209 02e1 09010000 		.4byte	.LLST5
+ 1210 02e5 11       		.uleb128 0x11
+ 1211 02e6 06000000 		.4byte	.LVL37
+ 1212 02ea E8000000 		.4byte	0xe8
+ 1213 02ee 11       		.uleb128 0x11
+ 1214 02ef 0C000000 		.4byte	.LVL39
+ 1215 02f3 98060000 		.4byte	0x698
+ 1216 02f7 00       		.byte	0
+ 1217 02f8 19       		.uleb128 0x19
+ 1218 02f9 37020000 		.4byte	.LASF36
+ 1219 02fd 01       		.byte	0x1
+ 1220 02fe F301     		.2byte	0x1f3
+ 1221 0300 00000000 		.4byte	.LFB5
+ 1222 0304 24000000 		.4byte	.LFE5-.LFB5
+ 1223 0308 01       		.uleb128 0x1
+ 1224 0309 9C       		.byte	0x9c
+ 1225 030a 21030000 		.4byte	0x321
+ 1226 030e 11       		.uleb128 0x11
+ 1227 030f 0C000000 		.4byte	.LVL41
+ 1228 0313 A3060000 		.4byte	0x6a3
+ 1229 0317 11       		.uleb128 0x11
+ 1230 0318 10000000 		.4byte	.LVL42
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 38
+
+
+ 1231 031c 7D020000 		.4byte	0x27d
+ 1232 0320 00       		.byte	0
+ 1233 0321 1A       		.uleb128 0x1a
+ 1234 0322 96040000 		.4byte	.LASF26
+ 1235 0326 01       		.byte	0x1
+ 1236 0327 1002     		.2byte	0x210
+ 1237 0329 00000000 		.4byte	.LFB6
+ 1238 032d 0C000000 		.4byte	.LFE6-.LFB6
+ 1239 0331 01       		.uleb128 0x1
+ 1240 0332 9C       		.byte	0x9c
+ 1241 0333 1A       		.uleb128 0x1a
+ 1242 0334 D6000000 		.4byte	.LASF27
+ 1243 0338 01       		.byte	0x1
+ 1244 0339 2402     		.2byte	0x224
+ 1245 033b 00000000 		.4byte	.LFB7
+ 1246 033f 0C000000 		.4byte	.LFE7-.LFB7
+ 1247 0343 01       		.uleb128 0x1
+ 1248 0344 9C       		.byte	0x9c
+ 1249 0345 1B       		.uleb128 0x1b
+ 1250 0346 0F040000 		.4byte	.LASF29
+ 1251 034a 01       		.byte	0x1
+ 1252 034b C802     		.2byte	0x2c8
+ 1253 034d 6B000000 		.4byte	0x6b
+ 1254 0351 00000000 		.4byte	.LFB10
+ 1255 0355 2C000000 		.4byte	.LFE10-.LFB10
+ 1256 0359 01       		.uleb128 0x1
+ 1257 035a 9C       		.byte	0x9c
+ 1258 035b B0030000 		.4byte	0x3b0
+ 1259 035f 1C       		.uleb128 0x1c
+ 1260 0360 71020000 		.4byte	.LASF34
+ 1261 0364 01       		.byte	0x1
+ 1262 0365 C802     		.2byte	0x2c8
+ 1263 0367 77000000 		.4byte	0x77
+ 1264 036b 1C010000 		.4byte	.LLST6
+ 1265 036f 09       		.uleb128 0x9
+ 1266 0370 9F000000 		.4byte	.LASF30
+ 1267 0374 01       		.byte	0x1
+ 1268 0375 CA02     		.2byte	0x2ca
+ 1269 0377 77000000 		.4byte	0x77
+ 1270 037b 56010000 		.4byte	.LLST7
+ 1271 037f 09       		.uleb128 0x9
+ 1272 0380 7A040000 		.4byte	.LASF31
+ 1273 0384 01       		.byte	0x1
+ 1274 0385 CB02     		.2byte	0x2cb
+ 1275 0387 77000000 		.4byte	0x77
+ 1276 038b 69010000 		.4byte	.LLST8
+ 1277 038f 0A       		.uleb128 0xa
+ 1278 0390 726F7700 		.ascii	"row\000"
+ 1279 0394 01       		.byte	0x1
+ 1280 0395 CC02     		.2byte	0x2cc
+ 1281 0397 77000000 		.4byte	0x77
+ 1282 039b 7C010000 		.4byte	.LLST9
+ 1283 039f 09       		.uleb128 0x9
+ 1284 03a0 0A020000 		.4byte	.LASF32
+ 1285 03a4 01       		.byte	0x1
+ 1286 03a5 CD02     		.2byte	0x2cd
+ 1287 03a7 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 39
+
+
+ 1288 03ab 8F010000 		.4byte	.LLST10
+ 1289 03af 00       		.byte	0
+ 1290 03b0 1B       		.uleb128 0x1b
+ 1291 03b1 C8040000 		.4byte	.LASF33
+ 1292 03b5 01       		.byte	0x1
+ 1293 03b6 7802     		.2byte	0x278
+ 1294 03b8 6B000000 		.4byte	0x6b
+ 1295 03bc 00000000 		.4byte	.LFB9
+ 1296 03c0 68000000 		.4byte	.LFE9-.LFB9
+ 1297 03c4 01       		.uleb128 0x1
+ 1298 03c5 9C       		.byte	0x9c
+ 1299 03c6 44040000 		.4byte	0x444
+ 1300 03ca 1C       		.uleb128 0x1c
+ 1301 03cb 71020000 		.4byte	.LASF34
+ 1302 03cf 01       		.byte	0x1
+ 1303 03d0 7802     		.2byte	0x278
+ 1304 03d2 77000000 		.4byte	0x77
+ 1305 03d6 AD010000 		.4byte	.LLST11
+ 1306 03da 1C       		.uleb128 0x1c
+ 1307 03db 0A020000 		.4byte	.LASF32
+ 1308 03df 01       		.byte	0x1
+ 1309 03e0 7802     		.2byte	0x278
+ 1310 03e2 6B000000 		.4byte	0x6b
+ 1311 03e6 00020000 		.4byte	.LLST12
+ 1312 03ea 09       		.uleb128 0x9
+ 1313 03eb 9F000000 		.4byte	.LASF30
+ 1314 03ef 01       		.byte	0x1
+ 1315 03f0 7A02     		.2byte	0x27a
+ 1316 03f2 77000000 		.4byte	0x77
+ 1317 03f6 37020000 		.4byte	.LLST13
+ 1318 03fa 09       		.uleb128 0x9
+ 1319 03fb 7A040000 		.4byte	.LASF31
+ 1320 03ff 01       		.byte	0x1
+ 1321 0400 7B02     		.2byte	0x27b
+ 1322 0402 77000000 		.4byte	0x77
+ 1323 0406 4A020000 		.4byte	.LLST14
+ 1324 040a 0A       		.uleb128 0xa
+ 1325 040b 726F7700 		.ascii	"row\000"
+ 1326 040f 01       		.byte	0x1
+ 1327 0410 7C02     		.2byte	0x27c
+ 1328 0412 77000000 		.4byte	0x77
+ 1329 0416 5D020000 		.4byte	.LLST15
+ 1330 041a 09       		.uleb128 0x9
+ 1331 041b B3010000 		.4byte	.LASF35
+ 1332 041f 01       		.byte	0x1
+ 1333 0420 7D02     		.2byte	0x27d
+ 1334 0422 6B000000 		.4byte	0x6b
+ 1335 0426 70020000 		.4byte	.LLST16
+ 1336 042a 09       		.uleb128 0x9
+ 1337 042b 5F040000 		.4byte	.LASF20
+ 1338 042f 01       		.byte	0x1
+ 1339 0430 7E02     		.2byte	0x27e
+ 1340 0432 6B000000 		.4byte	0x6b
+ 1341 0436 83020000 		.4byte	.LLST17
+ 1342 043a 11       		.uleb128 0x11
+ 1343 043b 1E000000 		.4byte	.LVL56
+ 1344 043f 45030000 		.4byte	0x345
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 40
+
+
+ 1345 0443 00       		.byte	0
+ 1346 0444 19       		.uleb128 0x19
+ 1347 0445 4A010000 		.4byte	.LASF37
+ 1348 0449 01       		.byte	0x1
+ 1349 044a 4202     		.2byte	0x242
+ 1350 044c 00000000 		.4byte	.LFB8
+ 1351 0450 30000000 		.4byte	.LFE8-.LFB8
+ 1352 0454 01       		.uleb128 0x1
+ 1353 0455 9C       		.byte	0x9c
+ 1354 0456 7D040000 		.4byte	0x47d
+ 1355 045a 0A       		.uleb128 0xa
+ 1356 045b 6900     		.ascii	"i\000"
+ 1357 045d 01       		.byte	0x1
+ 1358 045e 4402     		.2byte	0x244
+ 1359 0460 77000000 		.4byte	0x77
+ 1360 0464 97020000 		.4byte	.LLST18
+ 1361 0468 12       		.uleb128 0x12
+ 1362 0469 28000000 		.4byte	.LVL71
+ 1363 046d B0030000 		.4byte	0x3b0
+ 1364 0471 10       		.uleb128 0x10
+ 1365 0472 01       		.uleb128 0x1
+ 1366 0473 50       		.byte	0x50
+ 1367 0474 01       		.uleb128 0x1
+ 1368 0475 45       		.byte	0x45
+ 1369 0476 10       		.uleb128 0x10
+ 1370 0477 01       		.uleb128 0x1
+ 1371 0478 51       		.byte	0x51
+ 1372 0479 01       		.uleb128 0x1
+ 1373 047a 30       		.byte	0x30
+ 1374 047b 00       		.byte	0
+ 1375 047c 00       		.byte	0
+ 1376 047d 1D       		.uleb128 0x1d
+ 1377 047e 3E040000 		.4byte	.LASF38
+ 1378 0482 01       		.byte	0x1
+ 1379 0483 C7       		.byte	0xc7
+ 1380 0484 00000000 		.4byte	.LFB0
+ 1381 0488 28000000 		.4byte	.LFE0-.LFB0
+ 1382 048c 01       		.uleb128 0x1
+ 1383 048d 9C       		.byte	0x9c
+ 1384 048e C3040000 		.4byte	0x4c3
+ 1385 0492 11       		.uleb128 0x11
+ 1386 0493 06000000 		.4byte	.LVL72
+ 1387 0497 44040000 		.4byte	0x444
+ 1388 049b 0F       		.uleb128 0xf
+ 1389 049c 14000000 		.4byte	.LVL73
+ 1390 04a0 AE060000 		.4byte	0x6ae
+ 1391 04a4 AE040000 		.4byte	0x4ae
+ 1392 04a8 10       		.uleb128 0x10
+ 1393 04a9 01       		.uleb128 0x1
+ 1394 04aa 50       		.byte	0x50
+ 1395 04ab 01       		.uleb128 0x1
+ 1396 04ac 30       		.byte	0x30
+ 1397 04ad 00       		.byte	0
+ 1398 04ae 12       		.uleb128 0x12
+ 1399 04af 1C000000 		.4byte	.LVL74
+ 1400 04b3 B9060000 		.4byte	0x6b9
+ 1401 04b7 10       		.uleb128 0x10
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 41
+
+
+ 1402 04b8 01       		.uleb128 0x1
+ 1403 04b9 50       		.byte	0x50
+ 1404 04ba 01       		.uleb128 0x1
+ 1405 04bb 30       		.byte	0x30
+ 1406 04bc 10       		.uleb128 0x10
+ 1407 04bd 01       		.uleb128 0x1
+ 1408 04be 51       		.byte	0x51
+ 1409 04bf 01       		.uleb128 0x1
+ 1410 04c0 37       		.byte	0x37
+ 1411 04c1 00       		.byte	0
+ 1412 04c2 00       		.byte	0
+ 1413 04c3 1B       		.uleb128 0x1b
+ 1414 04c4 00030000 		.4byte	.LASF39
+ 1415 04c8 01       		.byte	0x1
+ 1416 04c9 CE01     		.2byte	0x1ce
+ 1417 04cb 6B000000 		.4byte	0x6b
+ 1418 04cf 00000000 		.4byte	.LFB4
+ 1419 04d3 20000000 		.4byte	.LFE4-.LFB4
+ 1420 04d7 01       		.uleb128 0x1
+ 1421 04d8 9C       		.byte	0x9c
+ 1422 04d9 FE040000 		.4byte	0x4fe
+ 1423 04dd 0B       		.uleb128 0xb
+ 1424 04de 5F040000 		.4byte	.LASF20
+ 1425 04e2 01       		.byte	0x1
+ 1426 04e3 D001     		.2byte	0x1d0
+ 1427 04e5 6B000000 		.4byte	0x6b
+ 1428 04e9 01       		.uleb128 0x1
+ 1429 04ea 50       		.byte	0x50
+ 1430 04eb 11       		.uleb128 0x11
+ 1431 04ec 16000000 		.4byte	.LVL75
+ 1432 04f0 7D040000 		.4byte	0x47d
+ 1433 04f4 11       		.uleb128 0x11
+ 1434 04f5 1A000000 		.4byte	.LVL76
+ 1435 04f9 BD020000 		.4byte	0x2bd
+ 1436 04fd 00       		.byte	0
+ 1437 04fe 1B       		.uleb128 0x1b
+ 1438 04ff C1020000 		.4byte	.LASF40
+ 1439 0503 01       		.byte	0x1
+ 1440 0504 F502     		.2byte	0x2f5
+ 1441 0506 6B000000 		.4byte	0x6b
+ 1442 050a 00000000 		.4byte	.LFB11
+ 1443 050e 24000000 		.4byte	.LFE11-.LFB11
+ 1444 0512 01       		.uleb128 0x1
+ 1445 0513 9C       		.byte	0x9c
+ 1446 0514 63050000 		.4byte	0x563
+ 1447 0518 1C       		.uleb128 0x1c
+ 1448 0519 53040000 		.4byte	.LASF41
+ 1449 051d 01       		.byte	0x1
+ 1450 051e F502     		.2byte	0x2f5
+ 1451 0520 6B000000 		.4byte	0x6b
+ 1452 0524 C1020000 		.4byte	.LLST19
+ 1453 0528 0B       		.uleb128 0xb
+ 1454 0529 5F040000 		.4byte	.LASF20
+ 1455 052d 01       		.byte	0x1
+ 1456 052e F702     		.2byte	0x2f7
+ 1457 0530 6B000000 		.4byte	0x6b
+ 1458 0534 01       		.uleb128 0x1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 42
+
+
+ 1459 0535 50       		.byte	0x50
+ 1460 0536 0F       		.uleb128 0xf
+ 1461 0537 10000000 		.4byte	.LVL79
+ 1462 053b B0030000 		.4byte	0x3b0
+ 1463 053f 4E050000 		.4byte	0x54e
+ 1464 0543 10       		.uleb128 0x10
+ 1465 0544 01       		.uleb128 0x1
+ 1466 0545 50       		.byte	0x50
+ 1467 0546 01       		.uleb128 0x1
+ 1468 0547 45       		.byte	0x45
+ 1469 0548 10       		.uleb128 0x10
+ 1470 0549 01       		.uleb128 0x1
+ 1471 054a 51       		.byte	0x51
+ 1472 054b 01       		.uleb128 0x1
+ 1473 054c 31       		.byte	0x31
+ 1474 054d 00       		.byte	0
+ 1475 054e 12       		.uleb128 0x12
+ 1476 054f 1C000000 		.4byte	.LVL82
+ 1477 0553 B0030000 		.4byte	0x3b0
+ 1478 0557 10       		.uleb128 0x10
+ 1479 0558 01       		.uleb128 0x1
+ 1480 0559 50       		.byte	0x50
+ 1481 055a 01       		.uleb128 0x1
+ 1482 055b 45       		.byte	0x45
+ 1483 055c 10       		.uleb128 0x10
+ 1484 055d 01       		.uleb128 0x1
+ 1485 055e 51       		.byte	0x51
+ 1486 055f 01       		.uleb128 0x1
+ 1487 0560 30       		.byte	0x30
+ 1488 0561 00       		.byte	0
+ 1489 0562 00       		.byte	0
+ 1490 0563 1B       		.uleb128 0x1b
+ 1491 0564 19030000 		.4byte	.LASF42
+ 1492 0568 01       		.byte	0x1
+ 1493 0569 2303     		.2byte	0x323
+ 1494 056b 6B000000 		.4byte	0x6b
+ 1495 056f 00000000 		.4byte	.LFB12
+ 1496 0573 12000000 		.4byte	.LFE12-.LFB12
+ 1497 0577 01       		.uleb128 0x1
+ 1498 0578 9C       		.byte	0x9c
+ 1499 0579 9D050000 		.4byte	0x59d
+ 1500 057d 09       		.uleb128 0x9
+ 1501 057e 60010000 		.4byte	.LASF43
+ 1502 0582 01       		.byte	0x1
+ 1503 0583 2503     		.2byte	0x325
+ 1504 0585 6B000000 		.4byte	0x6b
+ 1505 0589 14030000 		.4byte	.LLST20
+ 1506 058d 12       		.uleb128 0x12
+ 1507 058e 08000000 		.4byte	.LVL86
+ 1508 0592 45030000 		.4byte	0x345
+ 1509 0596 10       		.uleb128 0x10
+ 1510 0597 01       		.uleb128 0x1
+ 1511 0598 50       		.byte	0x50
+ 1512 0599 01       		.uleb128 0x1
+ 1513 059a 45       		.byte	0x45
+ 1514 059b 00       		.byte	0
+ 1515 059c 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 43
+
+
+ 1516 059d 13       		.uleb128 0x13
+ 1517 059e 6B000000 		.4byte	0x6b
+ 1518 05a2 AD050000 		.4byte	0x5ad
+ 1519 05a6 14       		.uleb128 0x14
+ 1520 05a7 E1000000 		.4byte	0xe1
+ 1521 05ab 1F       		.byte	0x1f
+ 1522 05ac 00       		.byte	0
+ 1523 05ad 1E       		.uleb128 0x1e
+ 1524 05ae B8010000 		.4byte	.LASF44
+ 1525 05b2 01       		.byte	0x1
+ 1526 05b3 A4       		.byte	0xa4
+ 1527 05b4 9D050000 		.4byte	0x59d
+ 1528 05b8 05       		.uleb128 0x5
+ 1529 05b9 03       		.byte	0x3
+ 1530 05ba 00000000 		.4byte	Display0_buffer
+ 1531 05be 13       		.uleb128 0x13
+ 1532 05bf 6B000000 		.4byte	0x6b
+ 1533 05c3 CE050000 		.4byte	0x5ce
+ 1534 05c7 14       		.uleb128 0x14
+ 1535 05c8 E1000000 		.4byte	0xe1
+ 1536 05cc 01       		.byte	0x1
+ 1537 05cd 00       		.byte	0
+ 1538 05ce 1E       		.uleb128 0x1e
+ 1539 05cf D5030000 		.4byte	.LASF45
+ 1540 05d3 01       		.byte	0x1
+ 1541 05d4 A7       		.byte	0xa7
+ 1542 05d5 BE050000 		.4byte	0x5be
+ 1543 05d9 05       		.uleb128 0x5
+ 1544 05da 03       		.byte	0x3
+ 1545 05db 24000000 		.4byte	Display0_lcdTd
+ 1546 05df 1E       		.uleb128 0x1e
+ 1547 05e0 66040000 		.4byte	.LASF46
+ 1548 05e4 01       		.byte	0x1
+ 1549 05e5 AA       		.byte	0xaa
+ 1550 05e6 6B000000 		.4byte	0x6b
+ 1551 05ea 05       		.uleb128 0x5
+ 1552 05eb 03       		.byte	0x3
+ 1553 05ec 20000000 		.4byte	Display0_lcdChannel
+ 1554 05f0 13       		.uleb128 0x13
+ 1555 05f1 77000000 		.4byte	0x77
+ 1556 05f5 00060000 		.4byte	0x600
+ 1557 05f9 14       		.uleb128 0x14
+ 1558 05fa E1000000 		.4byte	0xe1
+ 1559 05fe 00       		.byte	0
+ 1560 05ff 00       		.byte	0
+ 1561 0600 1F       		.uleb128 0x1f
+ 1562 0601 4B020000 		.4byte	.LASF47
+ 1563 0605 01       		.byte	0x1
+ 1564 0606 B3       		.byte	0xb3
+ 1565 0607 0E060000 		.4byte	0x60e
+ 1566 060b 02       		.byte	0x2
+ 1567 060c 15       		.byte	0x15
+ 1568 060d 00       		.byte	0
+ 1569 060e 15       		.uleb128 0x15
+ 1570 060f F0050000 		.4byte	0x5f0
+ 1571 0613 20       		.uleb128 0x20
+ 1572 0614 C0030000 		.4byte	.LASF48
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 44
+
+
+ 1573 0618 01       		.byte	0x1
+ 1574 0619 AF       		.byte	0xaf
+ 1575 061a 6B000000 		.4byte	0x6b
+ 1576 061e 05       		.uleb128 0x5
+ 1577 061f 03       		.byte	0x3
+ 1578 0620 00000000 		.4byte	Display0_enableState
+ 1579 0624 20       		.uleb128 0x20
+ 1580 0625 DC040000 		.4byte	.LASF49
+ 1581 0629 01       		.byte	0x1
+ 1582 062a AC       		.byte	0xac
+ 1583 062b 6B000000 		.4byte	0x6b
+ 1584 062f 05       		.uleb128 0x5
+ 1585 0630 03       		.byte	0x3
+ 1586 0631 00000000 		.4byte	Display0_initVar
+ 1587 0635 21       		.uleb128 0x21
+ 1588 0636 A9040000 		.4byte	.LASF50
+ 1589 063a A9040000 		.4byte	.LASF50
+ 1590 063e 04       		.byte	0x4
+ 1591 063f 1E       		.byte	0x1e
+ 1592 0640 21       		.uleb128 0x21
+ 1593 0641 40000000 		.4byte	.LASF51
+ 1594 0645 40000000 		.4byte	.LASF51
+ 1595 0649 05       		.byte	0x5
+ 1596 064a 38       		.byte	0x38
+ 1597 064b 21       		.uleb128 0x21
+ 1598 064c BE000000 		.4byte	.LASF52
+ 1599 0650 BE000000 		.4byte	.LASF52
+ 1600 0654 05       		.byte	0x5
+ 1601 0655 3B       		.byte	0x3b
+ 1602 0656 21       		.uleb128 0x21
+ 1603 0657 7D020000 		.4byte	.LASF53
+ 1604 065b 7D020000 		.4byte	.LASF53
+ 1605 065f 05       		.byte	0x5
+ 1606 0660 3F       		.byte	0x3f
+ 1607 0661 21       		.uleb128 0x21
+ 1608 0662 82040000 		.4byte	.LASF54
+ 1609 0666 82040000 		.4byte	.LASF54
+ 1610 066a 05       		.byte	0x5
+ 1611 066b 2F       		.byte	0x2f
+ 1612 066c 21       		.uleb128 0x21
+ 1613 066d 7A000000 		.4byte	.LASF55
+ 1614 0671 7A000000 		.4byte	.LASF55
+ 1615 0675 05       		.byte	0x5
+ 1616 0676 29       		.byte	0x29
+ 1617 0677 21       		.uleb128 0x21
+ 1618 0678 A5020000 		.4byte	.LASF56
+ 1619 067c A5020000 		.4byte	.LASF56
+ 1620 0680 04       		.byte	0x4
+ 1621 0681 1F       		.byte	0x1f
+ 1622 0682 21       		.uleb128 0x21
+ 1623 0683 ED040000 		.4byte	.LASF57
+ 1624 0687 ED040000 		.4byte	.LASF57
+ 1625 068b 05       		.byte	0x5
+ 1626 068c 28       		.byte	0x28
+ 1627 068d 21       		.uleb128 0x21
+ 1628 068e C8010000 		.4byte	.LASF58
+ 1629 0692 C8010000 		.4byte	.LASF58
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 45
+
+
+ 1630 0696 05       		.byte	0x5
+ 1631 0697 39       		.byte	0x39
+ 1632 0698 21       		.uleb128 0x21
+ 1633 0699 D4010000 		.4byte	.LASF59
+ 1634 069d D4010000 		.4byte	.LASF59
+ 1635 06a1 06       		.byte	0x6
+ 1636 06a2 27       		.byte	0x27
+ 1637 06a3 21       		.uleb128 0x21
+ 1638 06a4 A8000000 		.4byte	.LASF60
+ 1639 06a8 A8000000 		.4byte	.LASF60
+ 1640 06ac 06       		.byte	0x6
+ 1641 06ad 28       		.byte	0x28
+ 1642 06ae 21       		.uleb128 0x21
+ 1643 06af 28020000 		.4byte	.LASF61
+ 1644 06b3 28020000 		.4byte	.LASF61
+ 1645 06b7 07       		.byte	0x7
+ 1646 06b8 88       		.byte	0x88
+ 1647 06b9 21       		.uleb128 0x21
+ 1648 06ba DB020000 		.4byte	.LASF62
+ 1649 06be DB020000 		.4byte	.LASF62
+ 1650 06c2 07       		.byte	0x7
+ 1651 06c3 8B       		.byte	0x8b
+ 1652 06c4 00       		.byte	0
+ 1653              		.section	.debug_abbrev,"",%progbits
+ 1654              	.Ldebug_abbrev0:
+ 1655 0000 01       		.uleb128 0x1
+ 1656 0001 11       		.uleb128 0x11
+ 1657 0002 01       		.byte	0x1
+ 1658 0003 25       		.uleb128 0x25
+ 1659 0004 0E       		.uleb128 0xe
+ 1660 0005 13       		.uleb128 0x13
+ 1661 0006 0B       		.uleb128 0xb
+ 1662 0007 03       		.uleb128 0x3
+ 1663 0008 0E       		.uleb128 0xe
+ 1664 0009 1B       		.uleb128 0x1b
+ 1665 000a 0E       		.uleb128 0xe
+ 1666 000b 55       		.uleb128 0x55
+ 1667 000c 17       		.uleb128 0x17
+ 1668 000d 11       		.uleb128 0x11
+ 1669 000e 01       		.uleb128 0x1
+ 1670 000f 10       		.uleb128 0x10
+ 1671 0010 17       		.uleb128 0x17
+ 1672 0011 00       		.byte	0
+ 1673 0012 00       		.byte	0
+ 1674 0013 02       		.uleb128 0x2
+ 1675 0014 24       		.uleb128 0x24
+ 1676 0015 00       		.byte	0
+ 1677 0016 0B       		.uleb128 0xb
+ 1678 0017 0B       		.uleb128 0xb
+ 1679 0018 3E       		.uleb128 0x3e
+ 1680 0019 0B       		.uleb128 0xb
+ 1681 001a 03       		.uleb128 0x3
+ 1682 001b 0E       		.uleb128 0xe
+ 1683 001c 00       		.byte	0
+ 1684 001d 00       		.byte	0
+ 1685 001e 03       		.uleb128 0x3
+ 1686 001f 24       		.uleb128 0x24
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 46
+
+
+ 1687 0020 00       		.byte	0
+ 1688 0021 0B       		.uleb128 0xb
+ 1689 0022 0B       		.uleb128 0xb
+ 1690 0023 3E       		.uleb128 0x3e
+ 1691 0024 0B       		.uleb128 0xb
+ 1692 0025 03       		.uleb128 0x3
+ 1693 0026 08       		.uleb128 0x8
+ 1694 0027 00       		.byte	0
+ 1695 0028 00       		.byte	0
+ 1696 0029 04       		.uleb128 0x4
+ 1697 002a 16       		.uleb128 0x16
+ 1698 002b 00       		.byte	0
+ 1699 002c 03       		.uleb128 0x3
+ 1700 002d 0E       		.uleb128 0xe
+ 1701 002e 3A       		.uleb128 0x3a
+ 1702 002f 0B       		.uleb128 0xb
+ 1703 0030 3B       		.uleb128 0x3b
+ 1704 0031 05       		.uleb128 0x5
+ 1705 0032 49       		.uleb128 0x49
+ 1706 0033 13       		.uleb128 0x13
+ 1707 0034 00       		.byte	0
+ 1708 0035 00       		.byte	0
+ 1709 0036 05       		.uleb128 0x5
+ 1710 0037 35       		.uleb128 0x35
+ 1711 0038 00       		.byte	0
+ 1712 0039 49       		.uleb128 0x49
+ 1713 003a 13       		.uleb128 0x13
+ 1714 003b 00       		.byte	0
+ 1715 003c 00       		.byte	0
+ 1716 003d 06       		.uleb128 0x6
+ 1717 003e 13       		.uleb128 0x13
+ 1718 003f 01       		.byte	0x1
+ 1719 0040 03       		.uleb128 0x3
+ 1720 0041 0E       		.uleb128 0xe
+ 1721 0042 0B       		.uleb128 0xb
+ 1722 0043 0B       		.uleb128 0xb
+ 1723 0044 3A       		.uleb128 0x3a
+ 1724 0045 0B       		.uleb128 0xb
+ 1725 0046 3B       		.uleb128 0x3b
+ 1726 0047 0B       		.uleb128 0xb
+ 1727 0048 01       		.uleb128 0x1
+ 1728 0049 13       		.uleb128 0x13
+ 1729 004a 00       		.byte	0
+ 1730 004b 00       		.byte	0
+ 1731 004c 07       		.uleb128 0x7
+ 1732 004d 0D       		.uleb128 0xd
+ 1733 004e 00       		.byte	0
+ 1734 004f 03       		.uleb128 0x3
+ 1735 0050 0E       		.uleb128 0xe
+ 1736 0051 3A       		.uleb128 0x3a
+ 1737 0052 0B       		.uleb128 0xb
+ 1738 0053 3B       		.uleb128 0x3b
+ 1739 0054 0B       		.uleb128 0xb
+ 1740 0055 49       		.uleb128 0x49
+ 1741 0056 13       		.uleb128 0x13
+ 1742 0057 38       		.uleb128 0x38
+ 1743 0058 0B       		.uleb128 0xb
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 47
+
+
+ 1744 0059 00       		.byte	0
+ 1745 005a 00       		.byte	0
+ 1746 005b 08       		.uleb128 0x8
+ 1747 005c 2E       		.uleb128 0x2e
+ 1748 005d 01       		.byte	0x1
+ 1749 005e 03       		.uleb128 0x3
+ 1750 005f 0E       		.uleb128 0xe
+ 1751 0060 3A       		.uleb128 0x3a
+ 1752 0061 0B       		.uleb128 0xb
+ 1753 0062 3B       		.uleb128 0x3b
+ 1754 0063 05       		.uleb128 0x5
+ 1755 0064 27       		.uleb128 0x27
+ 1756 0065 19       		.uleb128 0x19
+ 1757 0066 49       		.uleb128 0x49
+ 1758 0067 13       		.uleb128 0x13
+ 1759 0068 11       		.uleb128 0x11
+ 1760 0069 01       		.uleb128 0x1
+ 1761 006a 12       		.uleb128 0x12
+ 1762 006b 06       		.uleb128 0x6
+ 1763 006c 40       		.uleb128 0x40
+ 1764 006d 18       		.uleb128 0x18
+ 1765 006e 9742     		.uleb128 0x2117
+ 1766 0070 19       		.uleb128 0x19
+ 1767 0071 01       		.uleb128 0x1
+ 1768 0072 13       		.uleb128 0x13
+ 1769 0073 00       		.byte	0
+ 1770 0074 00       		.byte	0
+ 1771 0075 09       		.uleb128 0x9
+ 1772 0076 34       		.uleb128 0x34
+ 1773 0077 00       		.byte	0
+ 1774 0078 03       		.uleb128 0x3
+ 1775 0079 0E       		.uleb128 0xe
+ 1776 007a 3A       		.uleb128 0x3a
+ 1777 007b 0B       		.uleb128 0xb
+ 1778 007c 3B       		.uleb128 0x3b
+ 1779 007d 05       		.uleb128 0x5
+ 1780 007e 49       		.uleb128 0x49
+ 1781 007f 13       		.uleb128 0x13
+ 1782 0080 02       		.uleb128 0x2
+ 1783 0081 17       		.uleb128 0x17
+ 1784 0082 00       		.byte	0
+ 1785 0083 00       		.byte	0
+ 1786 0084 0A       		.uleb128 0xa
+ 1787 0085 34       		.uleb128 0x34
+ 1788 0086 00       		.byte	0
+ 1789 0087 03       		.uleb128 0x3
+ 1790 0088 08       		.uleb128 0x8
+ 1791 0089 3A       		.uleb128 0x3a
+ 1792 008a 0B       		.uleb128 0xb
+ 1793 008b 3B       		.uleb128 0x3b
+ 1794 008c 05       		.uleb128 0x5
+ 1795 008d 49       		.uleb128 0x49
+ 1796 008e 13       		.uleb128 0x13
+ 1797 008f 02       		.uleb128 0x2
+ 1798 0090 17       		.uleb128 0x17
+ 1799 0091 00       		.byte	0
+ 1800 0092 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 48
+
+
+ 1801 0093 0B       		.uleb128 0xb
+ 1802 0094 34       		.uleb128 0x34
+ 1803 0095 00       		.byte	0
+ 1804 0096 03       		.uleb128 0x3
+ 1805 0097 0E       		.uleb128 0xe
+ 1806 0098 3A       		.uleb128 0x3a
+ 1807 0099 0B       		.uleb128 0xb
+ 1808 009a 3B       		.uleb128 0x3b
+ 1809 009b 05       		.uleb128 0x5
+ 1810 009c 49       		.uleb128 0x49
+ 1811 009d 13       		.uleb128 0x13
+ 1812 009e 02       		.uleb128 0x2
+ 1813 009f 18       		.uleb128 0x18
+ 1814 00a0 00       		.byte	0
+ 1815 00a1 00       		.byte	0
+ 1816 00a2 0C       		.uleb128 0xc
+ 1817 00a3 34       		.uleb128 0x34
+ 1818 00a4 00       		.byte	0
+ 1819 00a5 03       		.uleb128 0x3
+ 1820 00a6 0E       		.uleb128 0xe
+ 1821 00a7 3A       		.uleb128 0x3a
+ 1822 00a8 0B       		.uleb128 0xb
+ 1823 00a9 3B       		.uleb128 0x3b
+ 1824 00aa 05       		.uleb128 0x5
+ 1825 00ab 49       		.uleb128 0x49
+ 1826 00ac 13       		.uleb128 0x13
+ 1827 00ad 1C       		.uleb128 0x1c
+ 1828 00ae 06       		.uleb128 0x6
+ 1829 00af 00       		.byte	0
+ 1830 00b0 00       		.byte	0
+ 1831 00b1 0D       		.uleb128 0xd
+ 1832 00b2 34       		.uleb128 0x34
+ 1833 00b3 00       		.byte	0
+ 1834 00b4 03       		.uleb128 0x3
+ 1835 00b5 0E       		.uleb128 0xe
+ 1836 00b6 3A       		.uleb128 0x3a
+ 1837 00b7 0B       		.uleb128 0xb
+ 1838 00b8 3B       		.uleb128 0x3b
+ 1839 00b9 05       		.uleb128 0x5
+ 1840 00ba 49       		.uleb128 0x49
+ 1841 00bb 13       		.uleb128 0x13
+ 1842 00bc 00       		.byte	0
+ 1843 00bd 00       		.byte	0
+ 1844 00be 0E       		.uleb128 0xe
+ 1845 00bf 34       		.uleb128 0x34
+ 1846 00c0 00       		.byte	0
+ 1847 00c1 03       		.uleb128 0x3
+ 1848 00c2 0E       		.uleb128 0xe
+ 1849 00c3 3A       		.uleb128 0x3a
+ 1850 00c4 0B       		.uleb128 0xb
+ 1851 00c5 3B       		.uleb128 0x3b
+ 1852 00c6 05       		.uleb128 0x5
+ 1853 00c7 49       		.uleb128 0x49
+ 1854 00c8 13       		.uleb128 0x13
+ 1855 00c9 1C       		.uleb128 0x1c
+ 1856 00ca 0B       		.uleb128 0xb
+ 1857 00cb 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 49
+
+
+ 1858 00cc 00       		.byte	0
+ 1859 00cd 0F       		.uleb128 0xf
+ 1860 00ce 898201   		.uleb128 0x4109
+ 1861 00d1 01       		.byte	0x1
+ 1862 00d2 11       		.uleb128 0x11
+ 1863 00d3 01       		.uleb128 0x1
+ 1864 00d4 31       		.uleb128 0x31
+ 1865 00d5 13       		.uleb128 0x13
+ 1866 00d6 01       		.uleb128 0x1
+ 1867 00d7 13       		.uleb128 0x13
+ 1868 00d8 00       		.byte	0
+ 1869 00d9 00       		.byte	0
+ 1870 00da 10       		.uleb128 0x10
+ 1871 00db 8A8201   		.uleb128 0x410a
+ 1872 00de 00       		.byte	0
+ 1873 00df 02       		.uleb128 0x2
+ 1874 00e0 18       		.uleb128 0x18
+ 1875 00e1 9142     		.uleb128 0x2111
+ 1876 00e3 18       		.uleb128 0x18
+ 1877 00e4 00       		.byte	0
+ 1878 00e5 00       		.byte	0
+ 1879 00e6 11       		.uleb128 0x11
+ 1880 00e7 898201   		.uleb128 0x4109
+ 1881 00ea 00       		.byte	0
+ 1882 00eb 11       		.uleb128 0x11
+ 1883 00ec 01       		.uleb128 0x1
+ 1884 00ed 31       		.uleb128 0x31
+ 1885 00ee 13       		.uleb128 0x13
+ 1886 00ef 00       		.byte	0
+ 1887 00f0 00       		.byte	0
+ 1888 00f1 12       		.uleb128 0x12
+ 1889 00f2 898201   		.uleb128 0x4109
+ 1890 00f5 01       		.byte	0x1
+ 1891 00f6 11       		.uleb128 0x11
+ 1892 00f7 01       		.uleb128 0x1
+ 1893 00f8 31       		.uleb128 0x31
+ 1894 00f9 13       		.uleb128 0x13
+ 1895 00fa 00       		.byte	0
+ 1896 00fb 00       		.byte	0
+ 1897 00fc 13       		.uleb128 0x13
+ 1898 00fd 01       		.uleb128 0x1
+ 1899 00fe 01       		.byte	0x1
+ 1900 00ff 49       		.uleb128 0x49
+ 1901 0100 13       		.uleb128 0x13
+ 1902 0101 01       		.uleb128 0x1
+ 1903 0102 13       		.uleb128 0x13
+ 1904 0103 00       		.byte	0
+ 1905 0104 00       		.byte	0
+ 1906 0105 14       		.uleb128 0x14
+ 1907 0106 21       		.uleb128 0x21
+ 1908 0107 00       		.byte	0
+ 1909 0108 49       		.uleb128 0x49
+ 1910 0109 13       		.uleb128 0x13
+ 1911 010a 2F       		.uleb128 0x2f
+ 1912 010b 0B       		.uleb128 0xb
+ 1913 010c 00       		.byte	0
+ 1914 010d 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 50
+
+
+ 1915 010e 15       		.uleb128 0x15
+ 1916 010f 26       		.uleb128 0x26
+ 1917 0110 00       		.byte	0
+ 1918 0111 49       		.uleb128 0x49
+ 1919 0112 13       		.uleb128 0x13
+ 1920 0113 00       		.byte	0
+ 1921 0114 00       		.byte	0
+ 1922 0115 16       		.uleb128 0x16
+ 1923 0116 2E       		.uleb128 0x2e
+ 1924 0117 01       		.byte	0x1
+ 1925 0118 03       		.uleb128 0x3
+ 1926 0119 0E       		.uleb128 0xe
+ 1927 011a 3A       		.uleb128 0x3a
+ 1928 011b 0B       		.uleb128 0xb
+ 1929 011c 3B       		.uleb128 0x3b
+ 1930 011d 05       		.uleb128 0x5
+ 1931 011e 27       		.uleb128 0x27
+ 1932 011f 19       		.uleb128 0x19
+ 1933 0120 11       		.uleb128 0x11
+ 1934 0121 01       		.uleb128 0x1
+ 1935 0122 12       		.uleb128 0x12
+ 1936 0123 06       		.uleb128 0x6
+ 1937 0124 40       		.uleb128 0x40
+ 1938 0125 18       		.uleb128 0x18
+ 1939 0126 9742     		.uleb128 0x2117
+ 1940 0128 19       		.uleb128 0x19
+ 1941 0129 01       		.uleb128 0x1
+ 1942 012a 13       		.uleb128 0x13
+ 1943 012b 00       		.byte	0
+ 1944 012c 00       		.byte	0
+ 1945 012d 17       		.uleb128 0x17
+ 1946 012e 2E       		.uleb128 0x2e
+ 1947 012f 01       		.byte	0x1
+ 1948 0130 3F       		.uleb128 0x3f
+ 1949 0131 19       		.uleb128 0x19
+ 1950 0132 03       		.uleb128 0x3
+ 1951 0133 0E       		.uleb128 0xe
+ 1952 0134 3A       		.uleb128 0x3a
+ 1953 0135 0B       		.uleb128 0xb
+ 1954 0136 3B       		.uleb128 0x3b
+ 1955 0137 0B       		.uleb128 0xb
+ 1956 0138 27       		.uleb128 0x27
+ 1957 0139 19       		.uleb128 0x19
+ 1958 013a 49       		.uleb128 0x49
+ 1959 013b 13       		.uleb128 0x13
+ 1960 013c 11       		.uleb128 0x11
+ 1961 013d 01       		.uleb128 0x1
+ 1962 013e 12       		.uleb128 0x12
+ 1963 013f 06       		.uleb128 0x6
+ 1964 0140 40       		.uleb128 0x40
+ 1965 0141 18       		.uleb128 0x18
+ 1966 0142 9742     		.uleb128 0x2117
+ 1967 0144 19       		.uleb128 0x19
+ 1968 0145 01       		.uleb128 0x1
+ 1969 0146 13       		.uleb128 0x13
+ 1970 0147 00       		.byte	0
+ 1971 0148 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 51
+
+
+ 1972 0149 18       		.uleb128 0x18
+ 1973 014a 34       		.uleb128 0x34
+ 1974 014b 00       		.byte	0
+ 1975 014c 03       		.uleb128 0x3
+ 1976 014d 0E       		.uleb128 0xe
+ 1977 014e 3A       		.uleb128 0x3a
+ 1978 014f 0B       		.uleb128 0xb
+ 1979 0150 3B       		.uleb128 0x3b
+ 1980 0151 0B       		.uleb128 0xb
+ 1981 0152 49       		.uleb128 0x49
+ 1982 0153 13       		.uleb128 0x13
+ 1983 0154 02       		.uleb128 0x2
+ 1984 0155 17       		.uleb128 0x17
+ 1985 0156 00       		.byte	0
+ 1986 0157 00       		.byte	0
+ 1987 0158 19       		.uleb128 0x19
+ 1988 0159 2E       		.uleb128 0x2e
+ 1989 015a 01       		.byte	0x1
+ 1990 015b 3F       		.uleb128 0x3f
+ 1991 015c 19       		.uleb128 0x19
+ 1992 015d 03       		.uleb128 0x3
+ 1993 015e 0E       		.uleb128 0xe
+ 1994 015f 3A       		.uleb128 0x3a
+ 1995 0160 0B       		.uleb128 0xb
+ 1996 0161 3B       		.uleb128 0x3b
+ 1997 0162 05       		.uleb128 0x5
+ 1998 0163 27       		.uleb128 0x27
+ 1999 0164 19       		.uleb128 0x19
+ 2000 0165 11       		.uleb128 0x11
+ 2001 0166 01       		.uleb128 0x1
+ 2002 0167 12       		.uleb128 0x12
+ 2003 0168 06       		.uleb128 0x6
+ 2004 0169 40       		.uleb128 0x40
+ 2005 016a 18       		.uleb128 0x18
+ 2006 016b 9742     		.uleb128 0x2117
+ 2007 016d 19       		.uleb128 0x19
+ 2008 016e 01       		.uleb128 0x1
+ 2009 016f 13       		.uleb128 0x13
+ 2010 0170 00       		.byte	0
+ 2011 0171 00       		.byte	0
+ 2012 0172 1A       		.uleb128 0x1a
+ 2013 0173 2E       		.uleb128 0x2e
+ 2014 0174 00       		.byte	0
+ 2015 0175 3F       		.uleb128 0x3f
+ 2016 0176 19       		.uleb128 0x19
+ 2017 0177 03       		.uleb128 0x3
+ 2018 0178 0E       		.uleb128 0xe
+ 2019 0179 3A       		.uleb128 0x3a
+ 2020 017a 0B       		.uleb128 0xb
+ 2021 017b 3B       		.uleb128 0x3b
+ 2022 017c 05       		.uleb128 0x5
+ 2023 017d 27       		.uleb128 0x27
+ 2024 017e 19       		.uleb128 0x19
+ 2025 017f 11       		.uleb128 0x11
+ 2026 0180 01       		.uleb128 0x1
+ 2027 0181 12       		.uleb128 0x12
+ 2028 0182 06       		.uleb128 0x6
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 52
+
+
+ 2029 0183 40       		.uleb128 0x40
+ 2030 0184 18       		.uleb128 0x18
+ 2031 0185 9742     		.uleb128 0x2117
+ 2032 0187 19       		.uleb128 0x19
+ 2033 0188 00       		.byte	0
+ 2034 0189 00       		.byte	0
+ 2035 018a 1B       		.uleb128 0x1b
+ 2036 018b 2E       		.uleb128 0x2e
+ 2037 018c 01       		.byte	0x1
+ 2038 018d 3F       		.uleb128 0x3f
+ 2039 018e 19       		.uleb128 0x19
+ 2040 018f 03       		.uleb128 0x3
+ 2041 0190 0E       		.uleb128 0xe
+ 2042 0191 3A       		.uleb128 0x3a
+ 2043 0192 0B       		.uleb128 0xb
+ 2044 0193 3B       		.uleb128 0x3b
+ 2045 0194 05       		.uleb128 0x5
+ 2046 0195 27       		.uleb128 0x27
+ 2047 0196 19       		.uleb128 0x19
+ 2048 0197 49       		.uleb128 0x49
+ 2049 0198 13       		.uleb128 0x13
+ 2050 0199 11       		.uleb128 0x11
+ 2051 019a 01       		.uleb128 0x1
+ 2052 019b 12       		.uleb128 0x12
+ 2053 019c 06       		.uleb128 0x6
+ 2054 019d 40       		.uleb128 0x40
+ 2055 019e 18       		.uleb128 0x18
+ 2056 019f 9742     		.uleb128 0x2117
+ 2057 01a1 19       		.uleb128 0x19
+ 2058 01a2 01       		.uleb128 0x1
+ 2059 01a3 13       		.uleb128 0x13
+ 2060 01a4 00       		.byte	0
+ 2061 01a5 00       		.byte	0
+ 2062 01a6 1C       		.uleb128 0x1c
+ 2063 01a7 05       		.uleb128 0x5
+ 2064 01a8 00       		.byte	0
+ 2065 01a9 03       		.uleb128 0x3
+ 2066 01aa 0E       		.uleb128 0xe
+ 2067 01ab 3A       		.uleb128 0x3a
+ 2068 01ac 0B       		.uleb128 0xb
+ 2069 01ad 3B       		.uleb128 0x3b
+ 2070 01ae 05       		.uleb128 0x5
+ 2071 01af 49       		.uleb128 0x49
+ 2072 01b0 13       		.uleb128 0x13
+ 2073 01b1 02       		.uleb128 0x2
+ 2074 01b2 17       		.uleb128 0x17
+ 2075 01b3 00       		.byte	0
+ 2076 01b4 00       		.byte	0
+ 2077 01b5 1D       		.uleb128 0x1d
+ 2078 01b6 2E       		.uleb128 0x2e
+ 2079 01b7 01       		.byte	0x1
+ 2080 01b8 3F       		.uleb128 0x3f
+ 2081 01b9 19       		.uleb128 0x19
+ 2082 01ba 03       		.uleb128 0x3
+ 2083 01bb 0E       		.uleb128 0xe
+ 2084 01bc 3A       		.uleb128 0x3a
+ 2085 01bd 0B       		.uleb128 0xb
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 53
+
+
+ 2086 01be 3B       		.uleb128 0x3b
+ 2087 01bf 0B       		.uleb128 0xb
+ 2088 01c0 27       		.uleb128 0x27
+ 2089 01c1 19       		.uleb128 0x19
+ 2090 01c2 11       		.uleb128 0x11
+ 2091 01c3 01       		.uleb128 0x1
+ 2092 01c4 12       		.uleb128 0x12
+ 2093 01c5 06       		.uleb128 0x6
+ 2094 01c6 40       		.uleb128 0x40
+ 2095 01c7 18       		.uleb128 0x18
+ 2096 01c8 9742     		.uleb128 0x2117
+ 2097 01ca 19       		.uleb128 0x19
+ 2098 01cb 01       		.uleb128 0x1
+ 2099 01cc 13       		.uleb128 0x13
+ 2100 01cd 00       		.byte	0
+ 2101 01ce 00       		.byte	0
+ 2102 01cf 1E       		.uleb128 0x1e
+ 2103 01d0 34       		.uleb128 0x34
+ 2104 01d1 00       		.byte	0
+ 2105 01d2 03       		.uleb128 0x3
+ 2106 01d3 0E       		.uleb128 0xe
+ 2107 01d4 3A       		.uleb128 0x3a
+ 2108 01d5 0B       		.uleb128 0xb
+ 2109 01d6 3B       		.uleb128 0x3b
+ 2110 01d7 0B       		.uleb128 0xb
+ 2111 01d8 49       		.uleb128 0x49
+ 2112 01d9 13       		.uleb128 0x13
+ 2113 01da 02       		.uleb128 0x2
+ 2114 01db 18       		.uleb128 0x18
+ 2115 01dc 00       		.byte	0
+ 2116 01dd 00       		.byte	0
+ 2117 01de 1F       		.uleb128 0x1f
+ 2118 01df 34       		.uleb128 0x34
+ 2119 01e0 00       		.byte	0
+ 2120 01e1 03       		.uleb128 0x3
+ 2121 01e2 0E       		.uleb128 0xe
+ 2122 01e3 3A       		.uleb128 0x3a
+ 2123 01e4 0B       		.uleb128 0xb
+ 2124 01e5 3B       		.uleb128 0x3b
+ 2125 01e6 0B       		.uleb128 0xb
+ 2126 01e7 49       		.uleb128 0x49
+ 2127 01e8 13       		.uleb128 0x13
+ 2128 01e9 1C       		.uleb128 0x1c
+ 2129 01ea 0A       		.uleb128 0xa
+ 2130 01eb 00       		.byte	0
+ 2131 01ec 00       		.byte	0
+ 2132 01ed 20       		.uleb128 0x20
+ 2133 01ee 34       		.uleb128 0x34
+ 2134 01ef 00       		.byte	0
+ 2135 01f0 03       		.uleb128 0x3
+ 2136 01f1 0E       		.uleb128 0xe
+ 2137 01f2 3A       		.uleb128 0x3a
+ 2138 01f3 0B       		.uleb128 0xb
+ 2139 01f4 3B       		.uleb128 0x3b
+ 2140 01f5 0B       		.uleb128 0xb
+ 2141 01f6 49       		.uleb128 0x49
+ 2142 01f7 13       		.uleb128 0x13
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 54
+
+
+ 2143 01f8 3F       		.uleb128 0x3f
+ 2144 01f9 19       		.uleb128 0x19
+ 2145 01fa 02       		.uleb128 0x2
+ 2146 01fb 18       		.uleb128 0x18
+ 2147 01fc 00       		.byte	0
+ 2148 01fd 00       		.byte	0
+ 2149 01fe 21       		.uleb128 0x21
+ 2150 01ff 2E       		.uleb128 0x2e
+ 2151 0200 00       		.byte	0
+ 2152 0201 3F       		.uleb128 0x3f
+ 2153 0202 19       		.uleb128 0x19
+ 2154 0203 3C       		.uleb128 0x3c
+ 2155 0204 19       		.uleb128 0x19
+ 2156 0205 6E       		.uleb128 0x6e
+ 2157 0206 0E       		.uleb128 0xe
+ 2158 0207 03       		.uleb128 0x3
+ 2159 0208 0E       		.uleb128 0xe
+ 2160 0209 3A       		.uleb128 0x3a
+ 2161 020a 0B       		.uleb128 0xb
+ 2162 020b 3B       		.uleb128 0x3b
+ 2163 020c 0B       		.uleb128 0xb
+ 2164 020d 00       		.byte	0
+ 2165 020e 00       		.byte	0
+ 2166 020f 00       		.byte	0
+ 2167              		.section	.debug_loc,"",%progbits
+ 2168              	.Ldebug_loc0:
+ 2169              	.LLST0:
+ 2170 0000 04000000 		.4byte	.LVL0
+ 2171 0004 06010000 		.4byte	.LVL26
+ 2172 0008 0200     		.2byte	0x2
+ 2173 000a 34       		.byte	0x34
+ 2174 000b 9F       		.byte	0x9f
+ 2175 000c 06010000 		.4byte	.LVL26
+ 2176 0010 0C010000 		.4byte	.LVL27
+ 2177 0014 0200     		.2byte	0x2
+ 2178 0016 30       		.byte	0x30
+ 2179 0017 9F       		.byte	0x9f
+ 2180 0018 0C010000 		.4byte	.LVL27
+ 2181 001c 0E010000 		.4byte	.LVL28
+ 2182 0020 0200     		.2byte	0x2
+ 2183 0022 34       		.byte	0x34
+ 2184 0023 9F       		.byte	0x9f
+ 2185 0024 0E010000 		.4byte	.LVL28
+ 2186 0028 1C010000 		.4byte	.LFE2
+ 2187 002c 0100     		.2byte	0x1
+ 2188 002e 50       		.byte	0x50
+ 2189 002f 00000000 		.4byte	0
+ 2190 0033 00000000 		.4byte	0
+ 2191              	.LLST1:
+ 2192 0037 28000000 		.4byte	.LVL3
+ 2193 003b 42000000 		.4byte	.LVL7
+ 2194 003f 0100     		.2byte	0x1
+ 2195 0041 54       		.byte	0x54
+ 2196 0042 44000000 		.4byte	.LVL8
+ 2197 0046 46000000 		.4byte	.LVL9
+ 2198 004a 0100     		.2byte	0x1
+ 2199 004c 54       		.byte	0x54
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 55
+
+
+ 2200 004d 48000000 		.4byte	.LVL10
+ 2201 0051 54000000 		.4byte	.LVL12
+ 2202 0055 0100     		.2byte	0x1
+ 2203 0057 54       		.byte	0x54
+ 2204 0058 60000000 		.4byte	.LVL14
+ 2205 005c D4000000 		.4byte	.LVL19
+ 2206 0060 0100     		.2byte	0x1
+ 2207 0062 54       		.byte	0x54
+ 2208 0063 D6000000 		.4byte	.LVL20
+ 2209 0067 D8000000 		.4byte	.LVL21
+ 2210 006b 0100     		.2byte	0x1
+ 2211 006d 54       		.byte	0x54
+ 2212 006e DA000000 		.4byte	.LVL22
+ 2213 0072 E6000000 		.4byte	.LVL24
+ 2214 0076 0100     		.2byte	0x1
+ 2215 0078 54       		.byte	0x54
+ 2216 0079 00000000 		.4byte	0
+ 2217 007d 00000000 		.4byte	0
+ 2218              	.LLST2:
+ 2219 0081 28000000 		.4byte	.LVL3
+ 2220 0085 50000000 		.4byte	.LVL11
+ 2221 0089 0100     		.2byte	0x1
+ 2222 008b 58       		.byte	0x58
+ 2223 008c 54000000 		.4byte	.LVL12
+ 2224 0090 5E000000 		.4byte	.LVL13
+ 2225 0094 0100     		.2byte	0x1
+ 2226 0096 58       		.byte	0x58
+ 2227 0097 60000000 		.4byte	.LVL14
+ 2228 009b E2000000 		.4byte	.LVL23
+ 2229 009f 0100     		.2byte	0x1
+ 2230 00a1 58       		.byte	0x58
+ 2231 00a2 E6000000 		.4byte	.LVL24
+ 2232 00a6 12010000 		.4byte	.LVL29
+ 2233 00aa 0100     		.2byte	0x1
+ 2234 00ac 58       		.byte	0x58
+ 2235 00ad 00000000 		.4byte	0
+ 2236 00b1 00000000 		.4byte	0
+ 2237              	.LLST3:
+ 2238 00b5 04000000 		.4byte	.LVL0
+ 2239 00b9 28000000 		.4byte	.LVL3
+ 2240 00bd 0200     		.2byte	0x2
+ 2241 00bf 30       		.byte	0x30
+ 2242 00c0 9F       		.byte	0x9f
+ 2243 00c1 28000000 		.4byte	.LVL3
+ 2244 00c5 3E000000 		.4byte	.LVL5
+ 2245 00c9 0100     		.2byte	0x1
+ 2246 00cb 56       		.byte	0x56
+ 2247 00cc 40000000 		.4byte	.LVL6
+ 2248 00d0 12010000 		.4byte	.LVL29
+ 2249 00d4 0100     		.2byte	0x1
+ 2250 00d6 56       		.byte	0x56
+ 2251 00d7 00000000 		.4byte	0
+ 2252 00db 00000000 		.4byte	0
+ 2253              	.LLST4:
+ 2254 00df 10000000 		.4byte	.LVL31
+ 2255 00e3 14000000 		.4byte	.LVL32
+ 2256 00e7 0200     		.2byte	0x2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 56
+
+
+ 2257 00e9 30       		.byte	0x30
+ 2258 00ea 9F       		.byte	0x9f
+ 2259 00eb 14000000 		.4byte	.LVL32
+ 2260 00ef 22000000 		.4byte	.LVL34
+ 2261 00f3 0100     		.2byte	0x1
+ 2262 00f5 54       		.byte	0x54
+ 2263 00f6 24000000 		.4byte	.LVL35
+ 2264 00fa 2A000000 		.4byte	.LVL36
+ 2265 00fe 0100     		.2byte	0x1
+ 2266 0100 54       		.byte	0x54
+ 2267 0101 00000000 		.4byte	0
+ 2268 0105 00000000 		.4byte	0
+ 2269              	.LLST5:
+ 2270 0109 08000000 		.4byte	.LVL38
+ 2271 010d 18000000 		.4byte	.LVL40
+ 2272 0111 0100     		.2byte	0x1
+ 2273 0113 54       		.byte	0x54
+ 2274 0114 00000000 		.4byte	0
+ 2275 0118 00000000 		.4byte	0
+ 2276              	.LLST6:
+ 2277 011c 00000000 		.4byte	.LVL43
+ 2278 0120 10000000 		.4byte	.LVL46
+ 2279 0124 0100     		.2byte	0x1
+ 2280 0126 50       		.byte	0x50
+ 2281 0127 10000000 		.4byte	.LVL46
+ 2282 012b 22000000 		.4byte	.LVL50
+ 2283 012f 0400     		.2byte	0x4
+ 2284 0131 F3       		.byte	0xf3
+ 2285 0132 01       		.uleb128 0x1
+ 2286 0133 50       		.byte	0x50
+ 2287 0134 9F       		.byte	0x9f
+ 2288 0135 22000000 		.4byte	.LVL50
+ 2289 0139 24000000 		.4byte	.LVL51
+ 2290 013d 0100     		.2byte	0x1
+ 2291 013f 50       		.byte	0x50
+ 2292 0140 24000000 		.4byte	.LVL51
+ 2293 0144 2C000000 		.4byte	.LFE10
+ 2294 0148 0400     		.2byte	0x4
+ 2295 014a F3       		.byte	0xf3
+ 2296 014b 01       		.uleb128 0x1
+ 2297 014c 50       		.byte	0x50
+ 2298 014d 9F       		.byte	0x9f
+ 2299 014e 00000000 		.4byte	0
+ 2300 0152 00000000 		.4byte	0
+ 2301              	.LLST7:
+ 2302 0156 0C000000 		.4byte	.LVL45
+ 2303 015a 16000000 		.4byte	.LVL48
+ 2304 015e 0100     		.2byte	0x1
+ 2305 0160 53       		.byte	0x53
+ 2306 0161 00000000 		.4byte	0
+ 2307 0165 00000000 		.4byte	0
+ 2308              	.LLST8:
+ 2309 0169 08000000 		.4byte	.LVL44
+ 2310 016d 22000000 		.4byte	.LVL50
+ 2311 0171 0100     		.2byte	0x1
+ 2312 0173 52       		.byte	0x52
+ 2313 0174 00000000 		.4byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 57
+
+
+ 2314 0178 00000000 		.4byte	0
+ 2315              	.LLST9:
+ 2316 017c 10000000 		.4byte	.LVL46
+ 2317 0180 14000000 		.4byte	.LVL47
+ 2318 0184 0100     		.2byte	0x1
+ 2319 0186 50       		.byte	0x50
+ 2320 0187 00000000 		.4byte	0
+ 2321 018b 00000000 		.4byte	0
+ 2322              	.LLST10:
+ 2323 018f 20000000 		.4byte	.LVL49
+ 2324 0193 22000000 		.4byte	.LVL50
+ 2325 0197 0100     		.2byte	0x1
+ 2326 0199 50       		.byte	0x50
+ 2327 019a 24000000 		.4byte	.LVL51
+ 2328 019e 2C000000 		.4byte	.LFE10
+ 2329 01a2 0100     		.2byte	0x1
+ 2330 01a4 50       		.byte	0x50
+ 2331 01a5 00000000 		.4byte	0
+ 2332 01a9 00000000 		.4byte	0
+ 2333              	.LLST11:
+ 2334 01ad 00000000 		.4byte	.LVL52
+ 2335 01b1 1D000000 		.4byte	.LVL56-1
+ 2336 01b5 0100     		.2byte	0x1
+ 2337 01b7 50       		.byte	0x50
+ 2338 01b8 1D000000 		.4byte	.LVL56-1
+ 2339 01bc 5C000000 		.4byte	.LVL63
+ 2340 01c0 0400     		.2byte	0x4
+ 2341 01c2 F3       		.byte	0xf3
+ 2342 01c3 01       		.uleb128 0x1
+ 2343 01c4 50       		.byte	0x50
+ 2344 01c5 9F       		.byte	0x9f
+ 2345 01c6 5C000000 		.4byte	.LVL63
+ 2346 01ca 5E000000 		.4byte	.LVL64
+ 2347 01ce 0100     		.2byte	0x1
+ 2348 01d0 50       		.byte	0x50
+ 2349 01d1 5E000000 		.4byte	.LVL64
+ 2350 01d5 60000000 		.4byte	.LVL65
+ 2351 01d9 0400     		.2byte	0x4
+ 2352 01db F3       		.byte	0xf3
+ 2353 01dc 01       		.uleb128 0x1
+ 2354 01dd 50       		.byte	0x50
+ 2355 01de 9F       		.byte	0x9f
+ 2356 01df 60000000 		.4byte	.LVL65
+ 2357 01e3 62000000 		.4byte	.LVL66
+ 2358 01e7 0100     		.2byte	0x1
+ 2359 01e9 50       		.byte	0x50
+ 2360 01ea 62000000 		.4byte	.LVL66
+ 2361 01ee 68000000 		.4byte	.LFE9
+ 2362 01f2 0400     		.2byte	0x4
+ 2363 01f4 F3       		.byte	0xf3
+ 2364 01f5 01       		.uleb128 0x1
+ 2365 01f6 50       		.byte	0x50
+ 2366 01f7 9F       		.byte	0x9f
+ 2367 01f8 00000000 		.4byte	0
+ 2368 01fc 00000000 		.4byte	0
+ 2369              	.LLST12:
+ 2370 0200 00000000 		.4byte	.LVL52
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 58
+
+
+ 2371 0204 1D000000 		.4byte	.LVL56-1
+ 2372 0208 0100     		.2byte	0x1
+ 2373 020a 51       		.byte	0x51
+ 2374 020b 1D000000 		.4byte	.LVL56-1
+ 2375 020f 22000000 		.4byte	.LVL57
+ 2376 0213 0400     		.2byte	0x4
+ 2377 0215 F3       		.byte	0xf3
+ 2378 0216 01       		.uleb128 0x1
+ 2379 0217 51       		.byte	0x51
+ 2380 0218 9F       		.byte	0x9f
+ 2381 0219 22000000 		.4byte	.LVL57
+ 2382 021d 54000000 		.4byte	.LVL61
+ 2383 0221 0100     		.2byte	0x1
+ 2384 0223 51       		.byte	0x51
+ 2385 0224 5C000000 		.4byte	.LVL63
+ 2386 0228 68000000 		.4byte	.LFE9
+ 2387 022c 0100     		.2byte	0x1
+ 2388 022e 51       		.byte	0x51
+ 2389 022f 00000000 		.4byte	0
+ 2390 0233 00000000 		.4byte	0
+ 2391              	.LLST13:
+ 2392 0237 12000000 		.4byte	.LVL54
+ 2393 023b 4C000000 		.4byte	.LVL60
+ 2394 023f 0100     		.2byte	0x1
+ 2395 0241 54       		.byte	0x54
+ 2396 0242 00000000 		.4byte	0
+ 2397 0246 00000000 		.4byte	0
+ 2398              	.LLST14:
+ 2399 024a 0E000000 		.4byte	.LVL53
+ 2400 024e 5C000000 		.4byte	.LVL63
+ 2401 0252 0100     		.2byte	0x1
+ 2402 0254 55       		.byte	0x55
+ 2403 0255 00000000 		.4byte	0
+ 2404 0259 00000000 		.4byte	0
+ 2405              	.LLST15:
+ 2406 025d 16000000 		.4byte	.LVL55
+ 2407 0261 5C000000 		.4byte	.LVL63
+ 2408 0265 0100     		.2byte	0x1
+ 2409 0267 56       		.byte	0x56
+ 2410 0268 00000000 		.4byte	0
+ 2411 026c 00000000 		.4byte	0
+ 2412              	.LLST16:
+ 2413 0270 2A000000 		.4byte	.LVL58
+ 2414 0274 5C000000 		.4byte	.LVL63
+ 2415 0278 0100     		.2byte	0x1
+ 2416 027a 53       		.byte	0x53
+ 2417 027b 00000000 		.4byte	0
+ 2418 027f 00000000 		.4byte	0
+ 2419              	.LLST17:
+ 2420 0283 58000000 		.4byte	.LVL62
+ 2421 0287 5C000000 		.4byte	.LVL63
+ 2422 028b 0200     		.2byte	0x2
+ 2423 028d 30       		.byte	0x30
+ 2424 028e 9F       		.byte	0x9f
+ 2425 028f 00000000 		.4byte	0
+ 2426 0293 00000000 		.4byte	0
+ 2427              	.LLST18:
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 59
+
+
+ 2428 0297 02000000 		.4byte	.LVL67
+ 2429 029b 06000000 		.4byte	.LVL68
+ 2430 029f 0200     		.2byte	0x2
+ 2431 02a1 30       		.byte	0x30
+ 2432 02a2 9F       		.byte	0x9f
+ 2433 02a3 06000000 		.4byte	.LVL68
+ 2434 02a7 1A000000 		.4byte	.LVL69
+ 2435 02ab 0100     		.2byte	0x1
+ 2436 02ad 53       		.byte	0x53
+ 2437 02ae 1C000000 		.4byte	.LVL70
+ 2438 02b2 27000000 		.4byte	.LVL71-1
+ 2439 02b6 0100     		.2byte	0x1
+ 2440 02b8 53       		.byte	0x53
+ 2441 02b9 00000000 		.4byte	0
+ 2442 02bd 00000000 		.4byte	0
+ 2443              	.LLST19:
+ 2444 02c1 00000000 		.4byte	.LVL77
+ 2445 02c5 0C000000 		.4byte	.LVL78
+ 2446 02c9 0100     		.2byte	0x1
+ 2447 02cb 50       		.byte	0x50
+ 2448 02cc 0C000000 		.4byte	.LVL78
+ 2449 02d0 14000000 		.4byte	.LVL80
+ 2450 02d4 0400     		.2byte	0x4
+ 2451 02d6 F3       		.byte	0xf3
+ 2452 02d7 01       		.uleb128 0x1
+ 2453 02d8 50       		.byte	0x50
+ 2454 02d9 9F       		.byte	0x9f
+ 2455 02da 14000000 		.4byte	.LVL80
+ 2456 02de 18000000 		.4byte	.LVL81
+ 2457 02e2 0100     		.2byte	0x1
+ 2458 02e4 50       		.byte	0x50
+ 2459 02e5 18000000 		.4byte	.LVL81
+ 2460 02e9 20000000 		.4byte	.LVL83
+ 2461 02ed 0400     		.2byte	0x4
+ 2462 02ef F3       		.byte	0xf3
+ 2463 02f0 01       		.uleb128 0x1
+ 2464 02f1 50       		.byte	0x50
+ 2465 02f2 9F       		.byte	0x9f
+ 2466 02f3 20000000 		.4byte	.LVL83
+ 2467 02f7 22000000 		.4byte	.LVL84
+ 2468 02fb 0100     		.2byte	0x1
+ 2469 02fd 50       		.byte	0x50
+ 2470 02fe 22000000 		.4byte	.LVL84
+ 2471 0302 24000000 		.4byte	.LFE11
+ 2472 0306 0400     		.2byte	0x4
+ 2473 0308 F3       		.byte	0xf3
+ 2474 0309 01       		.uleb128 0x1
+ 2475 030a 50       		.byte	0x50
+ 2476 030b 9F       		.byte	0x9f
+ 2477 030c 00000000 		.4byte	0
+ 2478 0310 00000000 		.4byte	0
+ 2479              	.LLST20:
+ 2480 0314 02000000 		.4byte	.LVL85
+ 2481 0318 10000000 		.4byte	.LVL87
+ 2482 031c 0200     		.2byte	0x2
+ 2483 031e 31       		.byte	0x31
+ 2484 031f 9F       		.byte	0x9f
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 60
+
+
+ 2485 0320 10000000 		.4byte	.LVL87
+ 2486 0324 12000000 		.4byte	.LFE12
+ 2487 0328 0100     		.2byte	0x1
+ 2488 032a 50       		.byte	0x50
+ 2489 032b 00000000 		.4byte	0
+ 2490 032f 00000000 		.4byte	0
+ 2491              		.section	.debug_aranges,"",%progbits
+ 2492 0000 7C000000 		.4byte	0x7c
+ 2493 0004 0200     		.2byte	0x2
+ 2494 0006 00000000 		.4byte	.Ldebug_info0
+ 2495 000a 04       		.byte	0x4
+ 2496 000b 00       		.byte	0
+ 2497 000c 0000     		.2byte	0
+ 2498 000e 0000     		.2byte	0
+ 2499 0010 00000000 		.4byte	.LFB2
+ 2500 0014 1C010000 		.4byte	.LFE2-.LFB2
+ 2501 0018 00000000 		.4byte	.LFB3
+ 2502 001c 30000000 		.4byte	.LFE3-.LFB3
+ 2503 0020 00000000 		.4byte	.LFB1
+ 2504 0024 1C000000 		.4byte	.LFE1-.LFB1
+ 2505 0028 00000000 		.4byte	.LFB5
+ 2506 002c 24000000 		.4byte	.LFE5-.LFB5
+ 2507 0030 00000000 		.4byte	.LFB6
+ 2508 0034 0C000000 		.4byte	.LFE6-.LFB6
+ 2509 0038 00000000 		.4byte	.LFB7
+ 2510 003c 0C000000 		.4byte	.LFE7-.LFB7
+ 2511 0040 00000000 		.4byte	.LFB10
+ 2512 0044 2C000000 		.4byte	.LFE10-.LFB10
+ 2513 0048 00000000 		.4byte	.LFB9
+ 2514 004c 68000000 		.4byte	.LFE9-.LFB9
+ 2515 0050 00000000 		.4byte	.LFB8
+ 2516 0054 30000000 		.4byte	.LFE8-.LFB8
+ 2517 0058 00000000 		.4byte	.LFB0
+ 2518 005c 28000000 		.4byte	.LFE0-.LFB0
+ 2519 0060 00000000 		.4byte	.LFB4
+ 2520 0064 20000000 		.4byte	.LFE4-.LFB4
+ 2521 0068 00000000 		.4byte	.LFB11
+ 2522 006c 24000000 		.4byte	.LFE11-.LFB11
+ 2523 0070 00000000 		.4byte	.LFB12
+ 2524 0074 12000000 		.4byte	.LFE12-.LFB12
+ 2525 0078 00000000 		.4byte	0
+ 2526 007c 00000000 		.4byte	0
+ 2527              		.section	.debug_ranges,"",%progbits
+ 2528              	.Ldebug_ranges0:
+ 2529 0000 00000000 		.4byte	.LFB2
+ 2530 0004 1C010000 		.4byte	.LFE2
+ 2531 0008 00000000 		.4byte	.LFB3
+ 2532 000c 30000000 		.4byte	.LFE3
+ 2533 0010 00000000 		.4byte	.LFB1
+ 2534 0014 1C000000 		.4byte	.LFE1
+ 2535 0018 00000000 		.4byte	.LFB5
+ 2536 001c 24000000 		.4byte	.LFE5
+ 2537 0020 00000000 		.4byte	.LFB6
+ 2538 0024 0C000000 		.4byte	.LFE6
+ 2539 0028 00000000 		.4byte	.LFB7
+ 2540 002c 0C000000 		.4byte	.LFE7
+ 2541 0030 00000000 		.4byte	.LFB10
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 61
+
+
+ 2542 0034 2C000000 		.4byte	.LFE10
+ 2543 0038 00000000 		.4byte	.LFB9
+ 2544 003c 68000000 		.4byte	.LFE9
+ 2545 0040 00000000 		.4byte	.LFB8
+ 2546 0044 30000000 		.4byte	.LFE8
+ 2547 0048 00000000 		.4byte	.LFB0
+ 2548 004c 28000000 		.4byte	.LFE0
+ 2549 0050 00000000 		.4byte	.LFB4
+ 2550 0054 20000000 		.4byte	.LFE4
+ 2551 0058 00000000 		.4byte	.LFB11
+ 2552 005c 24000000 		.4byte	.LFE11
+ 2553 0060 00000000 		.4byte	.LFB12
+ 2554 0064 12000000 		.4byte	.LFE12
+ 2555 0068 00000000 		.4byte	0
+ 2556 006c 00000000 		.4byte	0
+ 2557              		.section	.debug_line,"",%progbits
+ 2558              	.Ldebug_line0:
+ 2559 0000 45020000 		.section	.debug_str,"MS",%progbits,1
+ 2559      02009A00 
+ 2559      00000201 
+ 2559      FB0E0D00 
+ 2559      01010101 
+ 2560              	.LASF24:
+ 2561 0000 44697370 		.ascii	"Display0_StSegLcdPort_DMA_TD_PROTO_BLOCK\000"
+ 2561      6C617930 
+ 2561      5F537453 
+ 2561      65674C63 
+ 2561      64506F72 
+ 2562              	.LASF10:
+ 2563 0029 75696E74 		.ascii	"uint16\000"
+ 2563      313600
+ 2564              	.LASF28:
+ 2565 0030 44697370 		.ascii	"Display0_Enable\000"
+ 2565      6C617930 
+ 2565      5F456E61 
+ 2565      626C6500 
+ 2566              	.LASF51:
+ 2567 0040 4379446D 		.ascii	"CyDmaTdAllocate\000"
+ 2567      61546441 
+ 2567      6C6C6F63 
+ 2567      61746500 
+ 2568              	.LASF64:
+ 2569 0050 47656E65 		.ascii	"Generated_Source\\PSoC5\\Display0.c\000"
+ 2569      72617465 
+ 2569      645F536F 
+ 2569      75726365 
+ 2569      5C50536F 
+ 2570              	.LASF23:
+ 2571 0072 64737441 		.ascii	"dstAddr\000"
+ 2571      64647200 
+ 2572              	.LASF55:
+ 2573 007a 4379446D 		.ascii	"CyDmaChEnable\000"
+ 2573      61436845 
+ 2573      6E61626C 
+ 2573      6500
+ 2574              	.LASF7:
+ 2575 0088 6C6F6E67 		.ascii	"long long unsigned int\000"
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 62
+
+
+ 2575      206C6F6E 
+ 2575      6720756E 
+ 2575      7369676E 
+ 2575      65642069 
+ 2576              	.LASF30:
+ 2577 009f 62797465 		.ascii	"byteAddr\000"
+ 2577      41646472 
+ 2577      00
+ 2578              	.LASF60:
+ 2579 00a8 44697370 		.ascii	"Display0_InClock_Stop\000"
+ 2579      6C617930 
+ 2579      5F496E43 
+ 2579      6C6F636B 
+ 2579      5F53746F 
+ 2580              	.LASF52:
+ 2581 00be 4379446D 		.ascii	"CyDmaTdSetConfiguration\000"
+ 2581      61546453 
+ 2581      6574436F 
+ 2581      6E666967 
+ 2581      75726174 
+ 2582              	.LASF27:
+ 2583 00d6 44697370 		.ascii	"Display0_DisableInt\000"
+ 2583      6C617930 
+ 2583      5F446973 
+ 2583      61626C65 
+ 2583      496E7400 
+ 2584              	.LASF65:
+ 2585 00ea 443A5C55 		.ascii	"D:\\Users\\ESTEBAN\\Documents\\PSoC Creator\\Proyec"
+ 2585      73657273 
+ 2585      5C455354 
+ 2585      4542414E 
+ 2585      5C446F63 
+ 2586 0118 746F5F54 		.ascii	"to_Temperatura\\Lm35_7_segmentos.cydsn\000"
+ 2586      656D7065 
+ 2586      72617475 
+ 2586      72615C4C 
+ 2586      6D33355F 
+ 2587              	.LASF0:
+ 2588 013e 7369676E 		.ascii	"signed char\000"
+ 2588      65642063 
+ 2588      68617200 
+ 2589              	.LASF37:
+ 2590 014a 44697370 		.ascii	"Display0_ClearDisplay\000"
+ 2590      6C617930 
+ 2590      5F436C65 
+ 2590      61724469 
+ 2590      73706C61 
+ 2591              	.LASF43:
+ 2592 0160 73746174 		.ascii	"state\000"
+ 2592      6500
+ 2593              	.LASF21:
+ 2594 0166 6572726F 		.ascii	"errorCnt\000"
+ 2594      72436E74 
+ 2594      00
+ 2595              	.LASF4:
+ 2596 016f 6C6F6E67 		.ascii	"long int\000"
+ 2596      20696E74 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 63
+
+
+ 2596      00
+ 2597              	.LASF9:
+ 2598 0178 75696E74 		.ascii	"uint8\000"
+ 2598      3800
+ 2599              	.LASF6:
+ 2600 017e 6C6F6E67 		.ascii	"long long int\000"
+ 2600      206C6F6E 
+ 2600      6720696E 
+ 2600      7400
+ 2601              	.LASF13:
+ 2602 018c 646F7562 		.ascii	"double\000"
+ 2602      6C6500
+ 2603              	.LASF11:
+ 2604 0193 75696E74 		.ascii	"uint32\000"
+ 2604      333200
+ 2605              	.LASF25:
+ 2606 019a 44697370 		.ascii	"Display0_termOut\000"
+ 2606      6C617930 
+ 2606      5F746572 
+ 2606      6D4F7574 
+ 2606      00
+ 2607              	.LASF22:
+ 2608 01ab 73726341 		.ascii	"srcAddr\000"
+ 2608      64647200 
+ 2609              	.LASF35:
+ 2610 01b3 6D61736B 		.ascii	"mask\000"
+ 2610      00
+ 2611              	.LASF44:
+ 2612 01b8 44697370 		.ascii	"Display0_buffer\000"
+ 2612      6C617930 
+ 2612      5F627566 
+ 2612      66657200 
+ 2613              	.LASF58:
+ 2614 01c8 4379446D 		.ascii	"CyDmaTdFree\000"
+ 2614      61546446 
+ 2614      72656500 
+ 2615              	.LASF59:
+ 2616 01d4 44697370 		.ascii	"Display0_InClock_Start\000"
+ 2616      6C617930 
+ 2616      5F496E43 
+ 2616      6C6F636B 
+ 2616      5F537461 
+ 2617              	.LASF8:
+ 2618 01eb 756E7369 		.ascii	"unsigned int\000"
+ 2618      676E6564 
+ 2618      20696E74 
+ 2618      00
+ 2619              	.LASF5:
+ 2620 01f8 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2620      20756E73 
+ 2620      69676E65 
+ 2620      6420696E 
+ 2620      7400
+ 2621              	.LASF32:
+ 2622 020a 70697865 		.ascii	"pixelState\000"
+ 2622      6C537461 
+ 2622      746500
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 64
+
+
+ 2623              	.LASF3:
+ 2624 0215 73686F72 		.ascii	"short unsigned int\000"
+ 2624      7420756E 
+ 2624      7369676E 
+ 2624      65642069 
+ 2624      6E7400
+ 2625              	.LASF61:
+ 2626 0228 4379496E 		.ascii	"CyIntSetVector\000"
+ 2626      74536574 
+ 2626      56656374 
+ 2626      6F7200
+ 2627              	.LASF36:
+ 2628 0237 44697370 		.ascii	"Display0_Stop\000"
+ 2628      6C617930 
+ 2628      5F53746F 
+ 2628      7000
+ 2629              	.LASF15:
+ 2630 0245 72656733 		.ascii	"reg32\000"
+ 2630      3200
+ 2631              	.LASF47:
+ 2632 024b 44697370 		.ascii	"Display0_commons\000"
+ 2632      6C617930 
+ 2632      5F636F6D 
+ 2632      6D6F6E73 
+ 2632      00
+ 2633              	.LASF19:
+ 2634 025c 73697A65 		.ascii	"sizetype\000"
+ 2634      74797065 
+ 2634      00
+ 2635              	.LASF18:
+ 2636 0265 6C6F6E67 		.ascii	"long double\000"
+ 2636      20646F75 
+ 2636      626C6500 
+ 2637              	.LASF34:
+ 2638 0271 70697865 		.ascii	"pixelNumber\000"
+ 2638      6C4E756D 
+ 2638      62657200 
+ 2639              	.LASF53:
+ 2640 027d 4379446D 		.ascii	"CyDmaTdSetAddress\000"
+ 2640      61546453 
+ 2640      65744164 
+ 2640      64726573 
+ 2640      7300
+ 2641              	.LASF67:
+ 2642 028f 44697370 		.ascii	"Display0_DmaConfigure\000"
+ 2642      6C617930 
+ 2642      5F446D61 
+ 2642      436F6E66 
+ 2642      69677572 
+ 2643              	.LASF56:
+ 2644 02a5 44697370 		.ascii	"Display0_Lcd_Dma_DmaRelease\000"
+ 2644      6C617930 
+ 2644      5F4C6364 
+ 2644      5F446D61 
+ 2644      5F446D61 
+ 2645              	.LASF40:
+ 2646 02c1 44697370 		.ascii	"Display0_WriteInvertState\000"
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 65
+
+
+ 2646      6C617930 
+ 2646      5F577269 
+ 2646      7465496E 
+ 2646      76657274 
+ 2647              	.LASF62:
+ 2648 02db 4379496E 		.ascii	"CyIntSetPriority\000"
+ 2648      74536574 
+ 2648      5072696F 
+ 2648      72697479 
+ 2648      00
+ 2649              	.LASF12:
+ 2650 02ec 666C6F61 		.ascii	"float\000"
+ 2650      7400
+ 2651              	.LASF1:
+ 2652 02f2 756E7369 		.ascii	"unsigned char\000"
+ 2652      676E6564 
+ 2652      20636861 
+ 2652      7200
+ 2653              	.LASF39:
+ 2654 0300 44697370 		.ascii	"Display0_Start\000"
+ 2654      6C617930 
+ 2654      5F537461 
+ 2654      727400
+ 2655              	.LASF2:
+ 2656 030f 73686F72 		.ascii	"short int\000"
+ 2656      7420696E 
+ 2656      7400
+ 2657              	.LASF42:
+ 2658 0319 44697370 		.ascii	"Display0_ReadInvertState\000"
+ 2658      6C617930 
+ 2658      5F526561 
+ 2658      64496E76 
+ 2658      65727453 
+ 2659              	.LASF63:
+ 2660 0332 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2660      43313120 
+ 2660      352E342E 
+ 2660      31203230 
+ 2660      31363036 
+ 2661 0365 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2661      20726576 
+ 2661      6973696F 
+ 2661      6E203233 
+ 2661      37373135 
+ 2662 0398 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2662      66756E63 
+ 2662      74696F6E 
+ 2662      2D736563 
+ 2662      74696F6E 
+ 2663              	.LASF48:
+ 2664 03c0 44697370 		.ascii	"Display0_enableState\000"
+ 2664      6C617930 
+ 2664      5F656E61 
+ 2664      626C6553 
+ 2664      74617465 
+ 2665              	.LASF45:
+ 2666 03d5 44697370 		.ascii	"Display0_lcdTd\000"
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 66
+
+
+ 2666      6C617930 
+ 2666      5F6C6364 
+ 2666      546400
+ 2667              	.LASF68:
+ 2668 03e4 636F6D54 		.ascii	"comTdCount\000"
+ 2668      64436F75 
+ 2668      6E7400
+ 2669              	.LASF69:
+ 2670 03ef 44697370 		.ascii	"Display0_DmaDispose\000"
+ 2670      6C617930 
+ 2670      5F446D61 
+ 2670      44697370 
+ 2670      6F736500 
+ 2671              	.LASF17:
+ 2672 0403 6C656E67 		.ascii	"length\000"
+ 2672      746800
+ 2673              	.LASF14:
+ 2674 040a 63686172 		.ascii	"char\000"
+ 2674      00
+ 2675              	.LASF29:
+ 2676 040f 44697370 		.ascii	"Display0_ReadPixel\000"
+ 2676      6C617930 
+ 2676      5F526561 
+ 2676      64506978 
+ 2676      656C00
+ 2677              	.LASF66:
+ 2678 0422 44697370 		.ascii	"Display0_DMA_TD_PROTO_ENTRY\000"
+ 2678      6C617930 
+ 2678      5F444D41 
+ 2678      5F54445F 
+ 2678      50524F54 
+ 2679              	.LASF38:
+ 2680 043e 44697370 		.ascii	"Display0_Init\000"
+ 2680      6C617930 
+ 2680      5F496E69 
+ 2680      7400
+ 2681              	.LASF16:
+ 2682 044c 6F666673 		.ascii	"offset\000"
+ 2682      657400
+ 2683              	.LASF41:
+ 2684 0453 696E7665 		.ascii	"invertState\000"
+ 2684      72745374 
+ 2684      61746500 
+ 2685              	.LASF20:
+ 2686 045f 73746174 		.ascii	"status\000"
+ 2686      757300
+ 2687              	.LASF46:
+ 2688 0466 44697370 		.ascii	"Display0_lcdChannel\000"
+ 2688      6C617930 
+ 2688      5F6C6364 
+ 2688      4368616E 
+ 2688      6E656C00 
+ 2689              	.LASF31:
+ 2690 047a 62697441 		.ascii	"bitAddr\000"
+ 2690      64647200 
+ 2691              	.LASF54:
+ 2692 0482 4379446D 		.ascii	"CyDmaChSetInitialTd\000"
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccarh6t8.s 			page 67
+
+
+ 2692      61436853 
+ 2692      6574496E 
+ 2692      69746961 
+ 2692      6C546400 
+ 2693              	.LASF26:
+ 2694 0496 44697370 		.ascii	"Display0_EnableInt\000"
+ 2694      6C617930 
+ 2694      5F456E61 
+ 2694      626C6549 
+ 2694      6E7400
+ 2695              	.LASF50:
+ 2696 04a9 44697370 		.ascii	"Display0_Lcd_Dma_DmaInitialize\000"
+ 2696      6C617930 
+ 2696      5F4C6364 
+ 2696      5F446D61 
+ 2696      5F446D61 
+ 2697              	.LASF33:
+ 2698 04c8 44697370 		.ascii	"Display0_WritePixel\000"
+ 2698      6C617930 
+ 2698      5F577269 
+ 2698      74655069 
+ 2698      78656C00 
+ 2699              	.LASF49:
+ 2700 04dc 44697370 		.ascii	"Display0_initVar\000"
+ 2700      6C617930 
+ 2700      5F696E69 
+ 2700      74566172 
+ 2700      00
+ 2701              	.LASF57:
+ 2702 04ed 4379446D 		.ascii	"CyDmaChFree\000"
+ 2702      61436846 
+ 2702      72656500 
+ 2703              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

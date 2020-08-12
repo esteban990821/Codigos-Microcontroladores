@@ -1,0 +1,1023 @@
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"PWM3_PM.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.PWM3_SaveConfig,"ax",%progbits
+  20              		.align	2
+  21              		.global	PWM3_SaveConfig
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	PWM3_SaveConfig, %function
+  25              	PWM3_SaveConfig:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC5\\PWM3_PM.c"
+   1:Generated_Source\PSoC5/PWM3_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/PWM3_PM.c **** * File Name: PWM3_PM.c
+   3:Generated_Source\PSoC5/PWM3_PM.c **** * Version 3.30
+   4:Generated_Source\PSoC5/PWM3_PM.c **** *
+   5:Generated_Source\PSoC5/PWM3_PM.c **** * Description:
+   6:Generated_Source\PSoC5/PWM3_PM.c **** *  This file provides the power management source code to API for the
+   7:Generated_Source\PSoC5/PWM3_PM.c **** *  PWM.
+   8:Generated_Source\PSoC5/PWM3_PM.c **** *
+   9:Generated_Source\PSoC5/PWM3_PM.c **** * Note:
+  10:Generated_Source\PSoC5/PWM3_PM.c **** *
+  11:Generated_Source\PSoC5/PWM3_PM.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/PWM3_PM.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/PWM3_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC5/PWM3_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC5/PWM3_PM.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/PWM3_PM.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/PWM3_PM.c **** 
+  18:Generated_Source\PSoC5/PWM3_PM.c **** #include "PWM3.h"
+  19:Generated_Source\PSoC5/PWM3_PM.c **** 
+  20:Generated_Source\PSoC5/PWM3_PM.c **** static PWM3_backupStruct PWM3_backup;
+  21:Generated_Source\PSoC5/PWM3_PM.c **** 
+  22:Generated_Source\PSoC5/PWM3_PM.c **** 
+  23:Generated_Source\PSoC5/PWM3_PM.c **** /*******************************************************************************
+  24:Generated_Source\PSoC5/PWM3_PM.c **** * Function Name: PWM3_SaveConfig
+  25:Generated_Source\PSoC5/PWM3_PM.c **** ********************************************************************************
+  26:Generated_Source\PSoC5/PWM3_PM.c **** *
+  27:Generated_Source\PSoC5/PWM3_PM.c **** * Summary:
+  28:Generated_Source\PSoC5/PWM3_PM.c **** *  Saves the current user configuration of the component.
+  29:Generated_Source\PSoC5/PWM3_PM.c **** *
+  30:Generated_Source\PSoC5/PWM3_PM.c **** * Parameters:
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 2
+
+
+  31:Generated_Source\PSoC5/PWM3_PM.c **** *  None
+  32:Generated_Source\PSoC5/PWM3_PM.c **** *
+  33:Generated_Source\PSoC5/PWM3_PM.c **** * Return:
+  34:Generated_Source\PSoC5/PWM3_PM.c **** *  None
+  35:Generated_Source\PSoC5/PWM3_PM.c **** *
+  36:Generated_Source\PSoC5/PWM3_PM.c **** * Global variables:
+  37:Generated_Source\PSoC5/PWM3_PM.c **** *  PWM3_backup:  Variables of this global structure are modified to
+  38:Generated_Source\PSoC5/PWM3_PM.c **** *  store the values of non retention configuration registers when Sleep() API is
+  39:Generated_Source\PSoC5/PWM3_PM.c **** *  called.
+  40:Generated_Source\PSoC5/PWM3_PM.c **** *
+  41:Generated_Source\PSoC5/PWM3_PM.c **** *******************************************************************************/
+  42:Generated_Source\PSoC5/PWM3_PM.c **** void PWM3_SaveConfig(void) 
+  43:Generated_Source\PSoC5/PWM3_PM.c **** {
+  28              		.loc 1 43 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  44:Generated_Source\PSoC5/PWM3_PM.c **** 
+  45:Generated_Source\PSoC5/PWM3_PM.c ****     #if(!PWM3_UsingFixedFunction)
+  46:Generated_Source\PSoC5/PWM3_PM.c ****         #if(!PWM3_PWMModeIsCenterAligned)
+  47:Generated_Source\PSoC5/PWM3_PM.c ****             PWM3_backup.PWMPeriod = PWM3_ReadPeriod();
+  36              		.loc 1 47 0
+  37 0002 FFF7FEFF 		bl	PWM3_ReadPeriod
+  38              	.LVL0:
+  39 0006 044C     		ldr	r4, .L3
+  40 0008 A080     		strh	r0, [r4, #4]	@ movhi
+  48:Generated_Source\PSoC5/PWM3_PM.c ****         #endif /* (!PWM3_PWMModeIsCenterAligned) */
+  49:Generated_Source\PSoC5/PWM3_PM.c ****         PWM3_backup.PWMUdb = PWM3_ReadCounter();
+  41              		.loc 1 49 0
+  42 000a FFF7FEFF 		bl	PWM3_ReadCounter
+  43              	.LVL1:
+  44 000e 6080     		strh	r0, [r4, #2]	@ movhi
+  50:Generated_Source\PSoC5/PWM3_PM.c ****         #if (PWM3_UseStatus)
+  51:Generated_Source\PSoC5/PWM3_PM.c ****             PWM3_backup.InterruptMaskValue = PWM3_STATUS_MASK;
+  45              		.loc 1 51 0
+  46 0010 024B     		ldr	r3, .L3+4
+  47 0012 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  48 0014 A371     		strb	r3, [r4, #6]
+  49 0016 10BD     		pop	{r4, pc}
+  50              	.L4:
+  51              		.align	2
+  52              	.L3:
+  53 0018 00000000 		.word	.LANCHOR0
+  54 001c 83640040 		.word	1073767555
+  55              		.cfi_endproc
+  56              	.LFE0:
+  57              		.size	PWM3_SaveConfig, .-PWM3_SaveConfig
+  58              		.section	.text.PWM3_RestoreConfig,"ax",%progbits
+  59              		.align	2
+  60              		.global	PWM3_RestoreConfig
+  61              		.thumb
+  62              		.thumb_func
+  63              		.type	PWM3_RestoreConfig, %function
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 3
+
+
+  64              	PWM3_RestoreConfig:
+  65              	.LFB1:
+  52:Generated_Source\PSoC5/PWM3_PM.c ****         #endif /* (PWM3_UseStatus) */
+  53:Generated_Source\PSoC5/PWM3_PM.c **** 
+  54:Generated_Source\PSoC5/PWM3_PM.c ****         #if(PWM3_DeadBandMode == PWM3__B_PWM__DBM_256_CLOCKS || \
+  55:Generated_Source\PSoC5/PWM3_PM.c ****             PWM3_DeadBandMode == PWM3__B_PWM__DBM_2_4_CLOCKS)
+  56:Generated_Source\PSoC5/PWM3_PM.c ****             PWM3_backup.PWMdeadBandValue = PWM3_ReadDeadTime();
+  57:Generated_Source\PSoC5/PWM3_PM.c ****         #endif /*  deadband count is either 2-4 clocks or 256 clocks */
+  58:Generated_Source\PSoC5/PWM3_PM.c **** 
+  59:Generated_Source\PSoC5/PWM3_PM.c ****         #if(PWM3_KillModeMinTime)
+  60:Generated_Source\PSoC5/PWM3_PM.c ****              PWM3_backup.PWMKillCounterPeriod = PWM3_ReadKillTime();
+  61:Generated_Source\PSoC5/PWM3_PM.c ****         #endif /* (PWM3_KillModeMinTime) */
+  62:Generated_Source\PSoC5/PWM3_PM.c **** 
+  63:Generated_Source\PSoC5/PWM3_PM.c ****         #if(PWM3_UseControl)
+  64:Generated_Source\PSoC5/PWM3_PM.c ****             PWM3_backup.PWMControlRegister = PWM3_ReadControlRegister();
+  65:Generated_Source\PSoC5/PWM3_PM.c ****         #endif /* (PWM3_UseControl) */
+  66:Generated_Source\PSoC5/PWM3_PM.c ****     #endif  /* (!PWM3_UsingFixedFunction) */
+  67:Generated_Source\PSoC5/PWM3_PM.c **** }
+  68:Generated_Source\PSoC5/PWM3_PM.c **** 
+  69:Generated_Source\PSoC5/PWM3_PM.c **** 
+  70:Generated_Source\PSoC5/PWM3_PM.c **** /*******************************************************************************
+  71:Generated_Source\PSoC5/PWM3_PM.c **** * Function Name: PWM3_RestoreConfig
+  72:Generated_Source\PSoC5/PWM3_PM.c **** ********************************************************************************
+  73:Generated_Source\PSoC5/PWM3_PM.c **** *
+  74:Generated_Source\PSoC5/PWM3_PM.c **** * Summary:
+  75:Generated_Source\PSoC5/PWM3_PM.c **** *  Restores the current user configuration of the component.
+  76:Generated_Source\PSoC5/PWM3_PM.c **** *
+  77:Generated_Source\PSoC5/PWM3_PM.c **** * Parameters:
+  78:Generated_Source\PSoC5/PWM3_PM.c **** *  None
+  79:Generated_Source\PSoC5/PWM3_PM.c **** *
+  80:Generated_Source\PSoC5/PWM3_PM.c **** * Return:
+  81:Generated_Source\PSoC5/PWM3_PM.c **** *  None
+  82:Generated_Source\PSoC5/PWM3_PM.c **** *
+  83:Generated_Source\PSoC5/PWM3_PM.c **** * Global variables:
+  84:Generated_Source\PSoC5/PWM3_PM.c **** *  PWM3_backup:  Variables of this global structure are used to
+  85:Generated_Source\PSoC5/PWM3_PM.c **** *  restore the values of non retention registers on wakeup from sleep mode.
+  86:Generated_Source\PSoC5/PWM3_PM.c **** *
+  87:Generated_Source\PSoC5/PWM3_PM.c **** *******************************************************************************/
+  88:Generated_Source\PSoC5/PWM3_PM.c **** void PWM3_RestoreConfig(void) 
+  89:Generated_Source\PSoC5/PWM3_PM.c **** {
+  66              		.loc 1 89 0
+  67              		.cfi_startproc
+  68              		@ args = 0, pretend = 0, frame = 0
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70 0000 10B5     		push	{r4, lr}
+  71              		.cfi_def_cfa_offset 8
+  72              		.cfi_offset 4, -8
+  73              		.cfi_offset 14, -4
+  90:Generated_Source\PSoC5/PWM3_PM.c ****         #if(!PWM3_UsingFixedFunction)
+  91:Generated_Source\PSoC5/PWM3_PM.c ****             #if(!PWM3_PWMModeIsCenterAligned)
+  92:Generated_Source\PSoC5/PWM3_PM.c ****                 PWM3_WritePeriod(PWM3_backup.PWMPeriod);
+  74              		.loc 1 92 0
+  75 0002 054C     		ldr	r4, .L7
+  76 0004 A088     		ldrh	r0, [r4, #4]
+  77 0006 FFF7FEFF 		bl	PWM3_WritePeriod
+  78              	.LVL2:
+  93:Generated_Source\PSoC5/PWM3_PM.c ****             #endif /* (!PWM3_PWMModeIsCenterAligned) */
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 4
+
+
+  94:Generated_Source\PSoC5/PWM3_PM.c **** 
+  95:Generated_Source\PSoC5/PWM3_PM.c ****             PWM3_WriteCounter(PWM3_backup.PWMUdb);
+  79              		.loc 1 95 0
+  80 000a 6088     		ldrh	r0, [r4, #2]
+  81 000c FFF7FEFF 		bl	PWM3_WriteCounter
+  82              	.LVL3:
+  96:Generated_Source\PSoC5/PWM3_PM.c **** 
+  97:Generated_Source\PSoC5/PWM3_PM.c ****             #if (PWM3_UseStatus)
+  98:Generated_Source\PSoC5/PWM3_PM.c ****                 PWM3_STATUS_MASK = PWM3_backup.InterruptMaskValue;
+  83              		.loc 1 98 0
+  84 0010 A279     		ldrb	r2, [r4, #6]	@ zero_extendqisi2
+  85 0012 024B     		ldr	r3, .L7+4
+  86 0014 1A70     		strb	r2, [r3]
+  87 0016 10BD     		pop	{r4, pc}
+  88              	.L8:
+  89              		.align	2
+  90              	.L7:
+  91 0018 00000000 		.word	.LANCHOR0
+  92 001c 83640040 		.word	1073767555
+  93              		.cfi_endproc
+  94              	.LFE1:
+  95              		.size	PWM3_RestoreConfig, .-PWM3_RestoreConfig
+  96              		.section	.text.PWM3_Sleep,"ax",%progbits
+  97              		.align	2
+  98              		.global	PWM3_Sleep
+  99              		.thumb
+ 100              		.thumb_func
+ 101              		.type	PWM3_Sleep, %function
+ 102              	PWM3_Sleep:
+ 103              	.LFB2:
+  99:Generated_Source\PSoC5/PWM3_PM.c ****             #endif /* (PWM3_UseStatus) */
+ 100:Generated_Source\PSoC5/PWM3_PM.c **** 
+ 101:Generated_Source\PSoC5/PWM3_PM.c ****             #if(PWM3_DeadBandMode == PWM3__B_PWM__DBM_256_CLOCKS || \
+ 102:Generated_Source\PSoC5/PWM3_PM.c ****                 PWM3_DeadBandMode == PWM3__B_PWM__DBM_2_4_CLOCKS)
+ 103:Generated_Source\PSoC5/PWM3_PM.c ****                 PWM3_WriteDeadTime(PWM3_backup.PWMdeadBandValue);
+ 104:Generated_Source\PSoC5/PWM3_PM.c ****             #endif /* deadband count is either 2-4 clocks or 256 clocks */
+ 105:Generated_Source\PSoC5/PWM3_PM.c **** 
+ 106:Generated_Source\PSoC5/PWM3_PM.c ****             #if(PWM3_KillModeMinTime)
+ 107:Generated_Source\PSoC5/PWM3_PM.c ****                 PWM3_WriteKillTime(PWM3_backup.PWMKillCounterPeriod);
+ 108:Generated_Source\PSoC5/PWM3_PM.c ****             #endif /* (PWM3_KillModeMinTime) */
+ 109:Generated_Source\PSoC5/PWM3_PM.c **** 
+ 110:Generated_Source\PSoC5/PWM3_PM.c ****             #if(PWM3_UseControl)
+ 111:Generated_Source\PSoC5/PWM3_PM.c ****                 PWM3_WriteControlRegister(PWM3_backup.PWMControlRegister);
+ 112:Generated_Source\PSoC5/PWM3_PM.c ****             #endif /* (PWM3_UseControl) */
+ 113:Generated_Source\PSoC5/PWM3_PM.c ****         #endif  /* (!PWM3_UsingFixedFunction) */
+ 114:Generated_Source\PSoC5/PWM3_PM.c ****     }
+ 115:Generated_Source\PSoC5/PWM3_PM.c **** 
+ 116:Generated_Source\PSoC5/PWM3_PM.c **** 
+ 117:Generated_Source\PSoC5/PWM3_PM.c **** /*******************************************************************************
+ 118:Generated_Source\PSoC5/PWM3_PM.c **** * Function Name: PWM3_Sleep
+ 119:Generated_Source\PSoC5/PWM3_PM.c **** ********************************************************************************
+ 120:Generated_Source\PSoC5/PWM3_PM.c **** *
+ 121:Generated_Source\PSoC5/PWM3_PM.c **** * Summary:
+ 122:Generated_Source\PSoC5/PWM3_PM.c **** *  Disables block's operation and saves the user configuration. Should be called
+ 123:Generated_Source\PSoC5/PWM3_PM.c **** *  just prior to entering sleep.
+ 124:Generated_Source\PSoC5/PWM3_PM.c **** *
+ 125:Generated_Source\PSoC5/PWM3_PM.c **** * Parameters:
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 5
+
+
+ 126:Generated_Source\PSoC5/PWM3_PM.c **** *  None
+ 127:Generated_Source\PSoC5/PWM3_PM.c **** *
+ 128:Generated_Source\PSoC5/PWM3_PM.c **** * Return:
+ 129:Generated_Source\PSoC5/PWM3_PM.c **** *  None
+ 130:Generated_Source\PSoC5/PWM3_PM.c **** *
+ 131:Generated_Source\PSoC5/PWM3_PM.c **** * Global variables:
+ 132:Generated_Source\PSoC5/PWM3_PM.c **** *  PWM3_backup.PWMEnableState:  Is modified depending on the enable
+ 133:Generated_Source\PSoC5/PWM3_PM.c **** *  state of the block before entering sleep mode.
+ 134:Generated_Source\PSoC5/PWM3_PM.c **** *
+ 135:Generated_Source\PSoC5/PWM3_PM.c **** *******************************************************************************/
+ 136:Generated_Source\PSoC5/PWM3_PM.c **** void PWM3_Sleep(void) 
+ 137:Generated_Source\PSoC5/PWM3_PM.c **** {
+ 104              		.loc 1 137 0
+ 105              		.cfi_startproc
+ 106              		@ args = 0, pretend = 0, frame = 0
+ 107              		@ frame_needed = 0, uses_anonymous_args = 0
+ 108 0000 08B5     		push	{r3, lr}
+ 109              		.cfi_def_cfa_offset 8
+ 110              		.cfi_offset 3, -8
+ 111              		.cfi_offset 14, -4
+ 138:Generated_Source\PSoC5/PWM3_PM.c ****     #if(PWM3_UseControl)
+ 139:Generated_Source\PSoC5/PWM3_PM.c ****         if(PWM3_CTRL_ENABLE == (PWM3_CONTROL & PWM3_CTRL_ENABLE))
+ 140:Generated_Source\PSoC5/PWM3_PM.c ****         {
+ 141:Generated_Source\PSoC5/PWM3_PM.c ****             /*Component is enabled */
+ 142:Generated_Source\PSoC5/PWM3_PM.c ****             PWM3_backup.PWMEnableState = 1u;
+ 143:Generated_Source\PSoC5/PWM3_PM.c ****         }
+ 144:Generated_Source\PSoC5/PWM3_PM.c ****         else
+ 145:Generated_Source\PSoC5/PWM3_PM.c ****         {
+ 146:Generated_Source\PSoC5/PWM3_PM.c ****             /* Component is disabled */
+ 147:Generated_Source\PSoC5/PWM3_PM.c ****             PWM3_backup.PWMEnableState = 0u;
+ 148:Generated_Source\PSoC5/PWM3_PM.c ****         }
+ 149:Generated_Source\PSoC5/PWM3_PM.c ****     #endif /* (PWM3_UseControl) */
+ 150:Generated_Source\PSoC5/PWM3_PM.c **** 
+ 151:Generated_Source\PSoC5/PWM3_PM.c ****     /* Stop component */
+ 152:Generated_Source\PSoC5/PWM3_PM.c ****     PWM3_Stop();
+ 112              		.loc 1 152 0
+ 113 0002 FFF7FEFF 		bl	PWM3_Stop
+ 114              	.LVL4:
+ 153:Generated_Source\PSoC5/PWM3_PM.c **** 
+ 154:Generated_Source\PSoC5/PWM3_PM.c ****     /* Save registers configuration */
+ 155:Generated_Source\PSoC5/PWM3_PM.c ****     PWM3_SaveConfig();
+ 115              		.loc 1 155 0
+ 116 0006 FFF7FEFF 		bl	PWM3_SaveConfig
+ 117              	.LVL5:
+ 118 000a 08BD     		pop	{r3, pc}
+ 119              		.cfi_endproc
+ 120              	.LFE2:
+ 121              		.size	PWM3_Sleep, .-PWM3_Sleep
+ 122              		.section	.text.PWM3_Wakeup,"ax",%progbits
+ 123              		.align	2
+ 124              		.global	PWM3_Wakeup
+ 125              		.thumb
+ 126              		.thumb_func
+ 127              		.type	PWM3_Wakeup, %function
+ 128              	PWM3_Wakeup:
+ 129              	.LFB3:
+ 156:Generated_Source\PSoC5/PWM3_PM.c **** }
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 6
+
+
+ 157:Generated_Source\PSoC5/PWM3_PM.c **** 
+ 158:Generated_Source\PSoC5/PWM3_PM.c **** 
+ 159:Generated_Source\PSoC5/PWM3_PM.c **** /*******************************************************************************
+ 160:Generated_Source\PSoC5/PWM3_PM.c **** * Function Name: PWM3_Wakeup
+ 161:Generated_Source\PSoC5/PWM3_PM.c **** ********************************************************************************
+ 162:Generated_Source\PSoC5/PWM3_PM.c **** *
+ 163:Generated_Source\PSoC5/PWM3_PM.c **** * Summary:
+ 164:Generated_Source\PSoC5/PWM3_PM.c **** *  Restores and enables the user configuration. Should be called just after
+ 165:Generated_Source\PSoC5/PWM3_PM.c **** *  awaking from sleep.
+ 166:Generated_Source\PSoC5/PWM3_PM.c **** *
+ 167:Generated_Source\PSoC5/PWM3_PM.c **** * Parameters:
+ 168:Generated_Source\PSoC5/PWM3_PM.c **** *  None
+ 169:Generated_Source\PSoC5/PWM3_PM.c **** *
+ 170:Generated_Source\PSoC5/PWM3_PM.c **** * Return:
+ 171:Generated_Source\PSoC5/PWM3_PM.c **** *  None
+ 172:Generated_Source\PSoC5/PWM3_PM.c **** *
+ 173:Generated_Source\PSoC5/PWM3_PM.c **** * Global variables:
+ 174:Generated_Source\PSoC5/PWM3_PM.c **** *  PWM3_backup.pwmEnable:  Is used to restore the enable state of
+ 175:Generated_Source\PSoC5/PWM3_PM.c **** *  block on wakeup from sleep mode.
+ 176:Generated_Source\PSoC5/PWM3_PM.c **** *
+ 177:Generated_Source\PSoC5/PWM3_PM.c **** *******************************************************************************/
+ 178:Generated_Source\PSoC5/PWM3_PM.c **** void PWM3_Wakeup(void) 
+ 179:Generated_Source\PSoC5/PWM3_PM.c **** {
+ 130              		.loc 1 179 0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134 0000 08B5     		push	{r3, lr}
+ 135              		.cfi_def_cfa_offset 8
+ 136              		.cfi_offset 3, -8
+ 137              		.cfi_offset 14, -4
+ 180:Generated_Source\PSoC5/PWM3_PM.c ****      /* Restore registers values */
+ 181:Generated_Source\PSoC5/PWM3_PM.c ****     PWM3_RestoreConfig();
+ 138              		.loc 1 181 0
+ 139 0002 FFF7FEFF 		bl	PWM3_RestoreConfig
+ 140              	.LVL6:
+ 182:Generated_Source\PSoC5/PWM3_PM.c **** 
+ 183:Generated_Source\PSoC5/PWM3_PM.c ****     if(PWM3_backup.PWMEnableState != 0u)
+ 141              		.loc 1 183 0
+ 142 0006 034B     		ldr	r3, .L14
+ 143 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 144 000a 0BB1     		cbz	r3, .L11
+ 184:Generated_Source\PSoC5/PWM3_PM.c ****     {
+ 185:Generated_Source\PSoC5/PWM3_PM.c ****         /* Enable component's operation */
+ 186:Generated_Source\PSoC5/PWM3_PM.c ****         PWM3_Enable();
+ 145              		.loc 1 186 0
+ 146 000c FFF7FEFF 		bl	PWM3_Enable
+ 147              	.LVL7:
+ 148              	.L11:
+ 149 0010 08BD     		pop	{r3, pc}
+ 150              	.L15:
+ 151 0012 00BF     		.align	2
+ 152              	.L14:
+ 153 0014 00000000 		.word	.LANCHOR0
+ 154              		.cfi_endproc
+ 155              	.LFE3:
+ 156              		.size	PWM3_Wakeup, .-PWM3_Wakeup
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 7
+
+
+ 157              		.bss
+ 158              		.align	2
+ 159              		.set	.LANCHOR0,. + 0
+ 160              		.type	PWM3_backup, %object
+ 161              		.size	PWM3_backup, 8
+ 162              	PWM3_backup:
+ 163 0000 00000000 		.space	8
+ 163      00000000 
+ 164              		.text
+ 165              	.Letext0:
+ 166              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 167              		.file 3 "Generated_Source\\PSoC5\\PWM3.h"
+ 168              		.section	.debug_info,"",%progbits
+ 169              	.Ldebug_info0:
+ 170 0000 EB010000 		.4byte	0x1eb
+ 171 0004 0400     		.2byte	0x4
+ 172 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 173 000a 04       		.byte	0x4
+ 174 000b 01       		.uleb128 0x1
+ 175 000c 8D000000 		.4byte	.LASF32
+ 176 0010 0C       		.byte	0xc
+ 177 0011 1F000000 		.4byte	.LASF33
+ 178 0015 EA010000 		.4byte	.LASF34
+ 179 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 180 001d 00000000 		.4byte	0
+ 181 0021 00000000 		.4byte	.Ldebug_line0
+ 182 0025 02       		.uleb128 0x2
+ 183 0026 01       		.byte	0x1
+ 184 0027 06       		.byte	0x6
+ 185 0028 29020000 		.4byte	.LASF0
+ 186 002c 02       		.uleb128 0x2
+ 187 002d 01       		.byte	0x1
+ 188 002e 08       		.byte	0x8
+ 189 002f 7F000000 		.4byte	.LASF1
+ 190 0033 02       		.uleb128 0x2
+ 191 0034 02       		.byte	0x2
+ 192 0035 05       		.byte	0x5
+ 193 0036 E0010000 		.4byte	.LASF2
+ 194 003a 02       		.uleb128 0x2
+ 195 003b 02       		.byte	0x2
+ 196 003c 07       		.byte	0x7
+ 197 003d 66000000 		.4byte	.LASF3
+ 198 0041 02       		.uleb128 0x2
+ 199 0042 04       		.byte	0x4
+ 200 0043 05       		.byte	0x5
+ 201 0044 03020000 		.4byte	.LASF4
+ 202 0048 02       		.uleb128 0x2
+ 203 0049 04       		.byte	0x4
+ 204 004a 07       		.byte	0x7
+ 205 004b 2A010000 		.4byte	.LASF5
+ 206 004f 02       		.uleb128 0x2
+ 207 0050 08       		.byte	0x8
+ 208 0051 05       		.byte	0x5
+ 209 0052 C3010000 		.4byte	.LASF6
+ 210 0056 02       		.uleb128 0x2
+ 211 0057 08       		.byte	0x8
+ 212 0058 07       		.byte	0x7
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 8
+
+
+ 213 0059 80010000 		.4byte	.LASF7
+ 214 005d 03       		.uleb128 0x3
+ 215 005e 04       		.byte	0x4
+ 216 005f 05       		.byte	0x5
+ 217 0060 696E7400 		.ascii	"int\000"
+ 218 0064 02       		.uleb128 0x2
+ 219 0065 04       		.byte	0x4
+ 220 0066 07       		.byte	0x7
+ 221 0067 67010000 		.4byte	.LASF8
+ 222 006b 04       		.uleb128 0x4
+ 223 006c 3C010000 		.4byte	.LASF9
+ 224 0070 02       		.byte	0x2
+ 225 0071 E401     		.2byte	0x1e4
+ 226 0073 2C000000 		.4byte	0x2c
+ 227 0077 04       		.uleb128 0x4
+ 228 0078 55010000 		.4byte	.LASF10
+ 229 007c 02       		.byte	0x2
+ 230 007d E501     		.2byte	0x1e5
+ 231 007f 3A000000 		.4byte	0x3a
+ 232 0083 02       		.uleb128 0x2
+ 233 0084 04       		.byte	0x4
+ 234 0085 04       		.byte	0x4
+ 235 0086 79000000 		.4byte	.LASF11
+ 236 008a 02       		.uleb128 0x2
+ 237 008b 08       		.byte	0x8
+ 238 008c 04       		.byte	0x4
+ 239 008d 42010000 		.4byte	.LASF12
+ 240 0091 02       		.uleb128 0x2
+ 241 0092 01       		.byte	0x1
+ 242 0093 08       		.byte	0x8
+ 243 0094 D1010000 		.4byte	.LASF13
+ 244 0098 04       		.uleb128 0x4
+ 245 0099 1A000000 		.4byte	.LASF14
+ 246 009d 02       		.byte	0x2
+ 247 009e 8E02     		.2byte	0x28e
+ 248 00a0 A4000000 		.4byte	0xa4
+ 249 00a4 05       		.uleb128 0x5
+ 250 00a5 6B000000 		.4byte	0x6b
+ 251 00a9 02       		.uleb128 0x2
+ 252 00aa 08       		.byte	0x8
+ 253 00ab 04       		.byte	0x4
+ 254 00ac 1D020000 		.4byte	.LASF15
+ 255 00b0 02       		.uleb128 0x2
+ 256 00b1 04       		.byte	0x4
+ 257 00b2 07       		.byte	0x7
+ 258 00b3 A9010000 		.4byte	.LASF16
+ 259 00b7 06       		.uleb128 0x6
+ 260 00b8 08       		.byte	0x8
+ 261 00b9 03       		.byte	0x3
+ 262 00ba 6B       		.byte	0x6b
+ 263 00bb F0000000 		.4byte	0xf0
+ 264 00bf 07       		.uleb128 0x7
+ 265 00c0 1B010000 		.4byte	.LASF17
+ 266 00c4 03       		.byte	0x3
+ 267 00c5 6E       		.byte	0x6e
+ 268 00c6 6B000000 		.4byte	0x6b
+ 269 00ca 00       		.byte	0
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 9
+
+
+ 270 00cb 07       		.uleb128 0x7
+ 271 00cc 13000000 		.4byte	.LASF18
+ 272 00d0 03       		.byte	0x3
+ 273 00d1 71       		.byte	0x71
+ 274 00d2 77000000 		.4byte	0x77
+ 275 00d6 02       		.byte	0x2
+ 276 00d7 07       		.uleb128 0x7
+ 277 00d8 40000000 		.4byte	.LASF19
+ 278 00dc 03       		.byte	0x3
+ 279 00dd 73       		.byte	0x73
+ 280 00de 77000000 		.4byte	0x77
+ 281 00e2 04       		.byte	0x4
+ 282 00e3 07       		.uleb128 0x7
+ 283 00e4 45020000 		.4byte	.LASF20
+ 284 00e8 03       		.byte	0x3
+ 285 00e9 76       		.byte	0x76
+ 286 00ea 6B000000 		.4byte	0x6b
+ 287 00ee 06       		.byte	0x6
+ 288 00ef 00       		.byte	0
+ 289 00f0 08       		.uleb128 0x8
+ 290 00f1 58020000 		.4byte	.LASF21
+ 291 00f5 03       		.byte	0x3
+ 292 00f6 8B       		.byte	0x8b
+ 293 00f7 B7000000 		.4byte	0xb7
+ 294 00fb 09       		.uleb128 0x9
+ 295 00fc 35020000 		.4byte	.LASF22
+ 296 0100 01       		.byte	0x1
+ 297 0101 2A       		.byte	0x2a
+ 298 0102 00000000 		.4byte	.LFB0
+ 299 0106 20000000 		.4byte	.LFE0-.LFB0
+ 300 010a 01       		.uleb128 0x1
+ 301 010b 9C       		.byte	0x9c
+ 302 010c 23010000 		.4byte	0x123
+ 303 0110 0A       		.uleb128 0xa
+ 304 0111 06000000 		.4byte	.LVL0
+ 305 0115 AC010000 		.4byte	0x1ac
+ 306 0119 0A       		.uleb128 0xa
+ 307 011a 0E000000 		.4byte	.LVL1
+ 308 011e B7010000 		.4byte	0x1b7
+ 309 0122 00       		.byte	0
+ 310 0123 09       		.uleb128 0x9
+ 311 0124 00000000 		.4byte	.LASF23
+ 312 0128 01       		.byte	0x1
+ 313 0129 58       		.byte	0x58
+ 314 012a 00000000 		.4byte	.LFB1
+ 315 012e 20000000 		.4byte	.LFE1-.LFB1
+ 316 0132 01       		.uleb128 0x1
+ 317 0133 9C       		.byte	0x9c
+ 318 0134 4B010000 		.4byte	0x14b
+ 319 0138 0A       		.uleb128 0xa
+ 320 0139 0A000000 		.4byte	.LVL2
+ 321 013d C2010000 		.4byte	0x1c2
+ 322 0141 0A       		.uleb128 0xa
+ 323 0142 10000000 		.4byte	.LVL3
+ 324 0146 CD010000 		.4byte	0x1cd
+ 325 014a 00       		.byte	0
+ 326 014b 09       		.uleb128 0x9
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 10
+
+
+ 327 014c 5C010000 		.4byte	.LASF24
+ 328 0150 01       		.byte	0x1
+ 329 0151 88       		.byte	0x88
+ 330 0152 00000000 		.4byte	.LFB2
+ 331 0156 0C000000 		.4byte	.LFE2-.LFB2
+ 332 015a 01       		.uleb128 0x1
+ 333 015b 9C       		.byte	0x9c
+ 334 015c 73010000 		.4byte	0x173
+ 335 0160 0A       		.uleb128 0xa
+ 336 0161 06000000 		.4byte	.LVL4
+ 337 0165 D8010000 		.4byte	0x1d8
+ 338 0169 0A       		.uleb128 0xa
+ 339 016a 0A000000 		.4byte	.LVL5
+ 340 016e FB000000 		.4byte	0xfb
+ 341 0172 00       		.byte	0
+ 342 0173 09       		.uleb128 0x9
+ 343 0174 74010000 		.4byte	.LASF25
+ 344 0178 01       		.byte	0x1
+ 345 0179 B2       		.byte	0xb2
+ 346 017a 00000000 		.4byte	.LFB3
+ 347 017e 18000000 		.4byte	.LFE3-.LFB3
+ 348 0182 01       		.uleb128 0x1
+ 349 0183 9C       		.byte	0x9c
+ 350 0184 9B010000 		.4byte	0x19b
+ 351 0188 0A       		.uleb128 0xa
+ 352 0189 06000000 		.4byte	.LVL6
+ 353 018d 23010000 		.4byte	0x123
+ 354 0191 0A       		.uleb128 0xa
+ 355 0192 10000000 		.4byte	.LVL7
+ 356 0196 E3010000 		.4byte	0x1e3
+ 357 019a 00       		.byte	0
+ 358 019b 0B       		.uleb128 0xb
+ 359 019c 49010000 		.4byte	.LASF35
+ 360 01a0 01       		.byte	0x1
+ 361 01a1 14       		.byte	0x14
+ 362 01a2 F0000000 		.4byte	0xf0
+ 363 01a6 05       		.uleb128 0x5
+ 364 01a7 03       		.byte	0x3
+ 365 01a8 00000000 		.4byte	PWM3_backup
+ 366 01ac 0C       		.uleb128 0xc
+ 367 01ad 4A000000 		.4byte	.LASF26
+ 368 01b1 4A000000 		.4byte	.LASF26
+ 369 01b5 03       		.byte	0x3
+ 370 01b6 C0       		.byte	0xc0
+ 371 01b7 0C       		.uleb128 0xc
+ 372 01b8 B2010000 		.4byte	.LASF27
+ 373 01bc B2010000 		.4byte	.LASF27
+ 374 01c0 03       		.byte	0x3
+ 375 01c1 B3       		.byte	0xb3
+ 376 01c2 0C       		.uleb128 0xc
+ 377 01c3 0C020000 		.4byte	.LASF28
+ 378 01c7 0C020000 		.4byte	.LASF28
+ 379 01cb 03       		.byte	0x3
+ 380 01cc BE       		.byte	0xbe
+ 381 01cd 0C       		.uleb128 0xc
+ 382 01ce 97010000 		.4byte	.LASF29
+ 383 01d2 97010000 		.4byte	.LASF29
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 11
+
+
+ 384 01d6 03       		.byte	0x3
+ 385 01d7 BA       		.byte	0xba
+ 386 01d8 0C       		.uleb128 0xc
+ 387 01d9 D6010000 		.4byte	.LASF30
+ 388 01dd D6010000 		.4byte	.LASF30
+ 389 01e1 03       		.byte	0x3
+ 390 01e2 93       		.byte	0x93
+ 391 01e3 0C       		.uleb128 0xc
+ 392 01e4 5A000000 		.4byte	.LASF31
+ 393 01e8 5A000000 		.4byte	.LASF31
+ 394 01ec 03       		.byte	0x3
+ 395 01ed DB       		.byte	0xdb
+ 396 01ee 00       		.byte	0
+ 397              		.section	.debug_abbrev,"",%progbits
+ 398              	.Ldebug_abbrev0:
+ 399 0000 01       		.uleb128 0x1
+ 400 0001 11       		.uleb128 0x11
+ 401 0002 01       		.byte	0x1
+ 402 0003 25       		.uleb128 0x25
+ 403 0004 0E       		.uleb128 0xe
+ 404 0005 13       		.uleb128 0x13
+ 405 0006 0B       		.uleb128 0xb
+ 406 0007 03       		.uleb128 0x3
+ 407 0008 0E       		.uleb128 0xe
+ 408 0009 1B       		.uleb128 0x1b
+ 409 000a 0E       		.uleb128 0xe
+ 410 000b 55       		.uleb128 0x55
+ 411 000c 17       		.uleb128 0x17
+ 412 000d 11       		.uleb128 0x11
+ 413 000e 01       		.uleb128 0x1
+ 414 000f 10       		.uleb128 0x10
+ 415 0010 17       		.uleb128 0x17
+ 416 0011 00       		.byte	0
+ 417 0012 00       		.byte	0
+ 418 0013 02       		.uleb128 0x2
+ 419 0014 24       		.uleb128 0x24
+ 420 0015 00       		.byte	0
+ 421 0016 0B       		.uleb128 0xb
+ 422 0017 0B       		.uleb128 0xb
+ 423 0018 3E       		.uleb128 0x3e
+ 424 0019 0B       		.uleb128 0xb
+ 425 001a 03       		.uleb128 0x3
+ 426 001b 0E       		.uleb128 0xe
+ 427 001c 00       		.byte	0
+ 428 001d 00       		.byte	0
+ 429 001e 03       		.uleb128 0x3
+ 430 001f 24       		.uleb128 0x24
+ 431 0020 00       		.byte	0
+ 432 0021 0B       		.uleb128 0xb
+ 433 0022 0B       		.uleb128 0xb
+ 434 0023 3E       		.uleb128 0x3e
+ 435 0024 0B       		.uleb128 0xb
+ 436 0025 03       		.uleb128 0x3
+ 437 0026 08       		.uleb128 0x8
+ 438 0027 00       		.byte	0
+ 439 0028 00       		.byte	0
+ 440 0029 04       		.uleb128 0x4
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 12
+
+
+ 441 002a 16       		.uleb128 0x16
+ 442 002b 00       		.byte	0
+ 443 002c 03       		.uleb128 0x3
+ 444 002d 0E       		.uleb128 0xe
+ 445 002e 3A       		.uleb128 0x3a
+ 446 002f 0B       		.uleb128 0xb
+ 447 0030 3B       		.uleb128 0x3b
+ 448 0031 05       		.uleb128 0x5
+ 449 0032 49       		.uleb128 0x49
+ 450 0033 13       		.uleb128 0x13
+ 451 0034 00       		.byte	0
+ 452 0035 00       		.byte	0
+ 453 0036 05       		.uleb128 0x5
+ 454 0037 35       		.uleb128 0x35
+ 455 0038 00       		.byte	0
+ 456 0039 49       		.uleb128 0x49
+ 457 003a 13       		.uleb128 0x13
+ 458 003b 00       		.byte	0
+ 459 003c 00       		.byte	0
+ 460 003d 06       		.uleb128 0x6
+ 461 003e 13       		.uleb128 0x13
+ 462 003f 01       		.byte	0x1
+ 463 0040 0B       		.uleb128 0xb
+ 464 0041 0B       		.uleb128 0xb
+ 465 0042 3A       		.uleb128 0x3a
+ 466 0043 0B       		.uleb128 0xb
+ 467 0044 3B       		.uleb128 0x3b
+ 468 0045 0B       		.uleb128 0xb
+ 469 0046 01       		.uleb128 0x1
+ 470 0047 13       		.uleb128 0x13
+ 471 0048 00       		.byte	0
+ 472 0049 00       		.byte	0
+ 473 004a 07       		.uleb128 0x7
+ 474 004b 0D       		.uleb128 0xd
+ 475 004c 00       		.byte	0
+ 476 004d 03       		.uleb128 0x3
+ 477 004e 0E       		.uleb128 0xe
+ 478 004f 3A       		.uleb128 0x3a
+ 479 0050 0B       		.uleb128 0xb
+ 480 0051 3B       		.uleb128 0x3b
+ 481 0052 0B       		.uleb128 0xb
+ 482 0053 49       		.uleb128 0x49
+ 483 0054 13       		.uleb128 0x13
+ 484 0055 38       		.uleb128 0x38
+ 485 0056 0B       		.uleb128 0xb
+ 486 0057 00       		.byte	0
+ 487 0058 00       		.byte	0
+ 488 0059 08       		.uleb128 0x8
+ 489 005a 16       		.uleb128 0x16
+ 490 005b 00       		.byte	0
+ 491 005c 03       		.uleb128 0x3
+ 492 005d 0E       		.uleb128 0xe
+ 493 005e 3A       		.uleb128 0x3a
+ 494 005f 0B       		.uleb128 0xb
+ 495 0060 3B       		.uleb128 0x3b
+ 496 0061 0B       		.uleb128 0xb
+ 497 0062 49       		.uleb128 0x49
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 13
+
+
+ 498 0063 13       		.uleb128 0x13
+ 499 0064 00       		.byte	0
+ 500 0065 00       		.byte	0
+ 501 0066 09       		.uleb128 0x9
+ 502 0067 2E       		.uleb128 0x2e
+ 503 0068 01       		.byte	0x1
+ 504 0069 3F       		.uleb128 0x3f
+ 505 006a 19       		.uleb128 0x19
+ 506 006b 03       		.uleb128 0x3
+ 507 006c 0E       		.uleb128 0xe
+ 508 006d 3A       		.uleb128 0x3a
+ 509 006e 0B       		.uleb128 0xb
+ 510 006f 3B       		.uleb128 0x3b
+ 511 0070 0B       		.uleb128 0xb
+ 512 0071 27       		.uleb128 0x27
+ 513 0072 19       		.uleb128 0x19
+ 514 0073 11       		.uleb128 0x11
+ 515 0074 01       		.uleb128 0x1
+ 516 0075 12       		.uleb128 0x12
+ 517 0076 06       		.uleb128 0x6
+ 518 0077 40       		.uleb128 0x40
+ 519 0078 18       		.uleb128 0x18
+ 520 0079 9742     		.uleb128 0x2117
+ 521 007b 19       		.uleb128 0x19
+ 522 007c 01       		.uleb128 0x1
+ 523 007d 13       		.uleb128 0x13
+ 524 007e 00       		.byte	0
+ 525 007f 00       		.byte	0
+ 526 0080 0A       		.uleb128 0xa
+ 527 0081 898201   		.uleb128 0x4109
+ 528 0084 00       		.byte	0
+ 529 0085 11       		.uleb128 0x11
+ 530 0086 01       		.uleb128 0x1
+ 531 0087 31       		.uleb128 0x31
+ 532 0088 13       		.uleb128 0x13
+ 533 0089 00       		.byte	0
+ 534 008a 00       		.byte	0
+ 535 008b 0B       		.uleb128 0xb
+ 536 008c 34       		.uleb128 0x34
+ 537 008d 00       		.byte	0
+ 538 008e 03       		.uleb128 0x3
+ 539 008f 0E       		.uleb128 0xe
+ 540 0090 3A       		.uleb128 0x3a
+ 541 0091 0B       		.uleb128 0xb
+ 542 0092 3B       		.uleb128 0x3b
+ 543 0093 0B       		.uleb128 0xb
+ 544 0094 49       		.uleb128 0x49
+ 545 0095 13       		.uleb128 0x13
+ 546 0096 02       		.uleb128 0x2
+ 547 0097 18       		.uleb128 0x18
+ 548 0098 00       		.byte	0
+ 549 0099 00       		.byte	0
+ 550 009a 0C       		.uleb128 0xc
+ 551 009b 2E       		.uleb128 0x2e
+ 552 009c 00       		.byte	0
+ 553 009d 3F       		.uleb128 0x3f
+ 554 009e 19       		.uleb128 0x19
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 14
+
+
+ 555 009f 3C       		.uleb128 0x3c
+ 556 00a0 19       		.uleb128 0x19
+ 557 00a1 6E       		.uleb128 0x6e
+ 558 00a2 0E       		.uleb128 0xe
+ 559 00a3 03       		.uleb128 0x3
+ 560 00a4 0E       		.uleb128 0xe
+ 561 00a5 3A       		.uleb128 0x3a
+ 562 00a6 0B       		.uleb128 0xb
+ 563 00a7 3B       		.uleb128 0x3b
+ 564 00a8 0B       		.uleb128 0xb
+ 565 00a9 00       		.byte	0
+ 566 00aa 00       		.byte	0
+ 567 00ab 00       		.byte	0
+ 568              		.section	.debug_aranges,"",%progbits
+ 569 0000 34000000 		.4byte	0x34
+ 570 0004 0200     		.2byte	0x2
+ 571 0006 00000000 		.4byte	.Ldebug_info0
+ 572 000a 04       		.byte	0x4
+ 573 000b 00       		.byte	0
+ 574 000c 0000     		.2byte	0
+ 575 000e 0000     		.2byte	0
+ 576 0010 00000000 		.4byte	.LFB0
+ 577 0014 20000000 		.4byte	.LFE0-.LFB0
+ 578 0018 00000000 		.4byte	.LFB1
+ 579 001c 20000000 		.4byte	.LFE1-.LFB1
+ 580 0020 00000000 		.4byte	.LFB2
+ 581 0024 0C000000 		.4byte	.LFE2-.LFB2
+ 582 0028 00000000 		.4byte	.LFB3
+ 583 002c 18000000 		.4byte	.LFE3-.LFB3
+ 584 0030 00000000 		.4byte	0
+ 585 0034 00000000 		.4byte	0
+ 586              		.section	.debug_ranges,"",%progbits
+ 587              	.Ldebug_ranges0:
+ 588 0000 00000000 		.4byte	.LFB0
+ 589 0004 20000000 		.4byte	.LFE0
+ 590 0008 00000000 		.4byte	.LFB1
+ 591 000c 20000000 		.4byte	.LFE1
+ 592 0010 00000000 		.4byte	.LFB2
+ 593 0014 0C000000 		.4byte	.LFE2
+ 594 0018 00000000 		.4byte	.LFB3
+ 595 001c 18000000 		.4byte	.LFE3
+ 596 0020 00000000 		.4byte	0
+ 597 0024 00000000 		.4byte	0
+ 598              		.section	.debug_line,"",%progbits
+ 599              	.Ldebug_line0:
+ 600 0000 A0000000 		.section	.debug_str,"MS",%progbits,1
+ 600      02004E00 
+ 600      00000201 
+ 600      FB0E0D00 
+ 600      01010101 
+ 601              	.LASF23:
+ 602 0000 50574D33 		.ascii	"PWM3_RestoreConfig\000"
+ 602      5F526573 
+ 602      746F7265 
+ 602      436F6E66 
+ 602      696700
+ 603              	.LASF18:
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 15
+
+
+ 604 0013 50574D55 		.ascii	"PWMUdb\000"
+ 604      646200
+ 605              	.LASF14:
+ 606 001a 72656738 		.ascii	"reg8\000"
+ 606      00
+ 607              	.LASF33:
+ 608 001f 47656E65 		.ascii	"Generated_Source\\PSoC5\\PWM3_PM.c\000"
+ 608      72617465 
+ 608      645F536F 
+ 608      75726365 
+ 608      5C50536F 
+ 609              	.LASF19:
+ 610 0040 50574D50 		.ascii	"PWMPeriod\000"
+ 610      6572696F 
+ 610      6400
+ 611              	.LASF26:
+ 612 004a 50574D33 		.ascii	"PWM3_ReadPeriod\000"
+ 612      5F526561 
+ 612      64506572 
+ 612      696F6400 
+ 613              	.LASF31:
+ 614 005a 50574D33 		.ascii	"PWM3_Enable\000"
+ 614      5F456E61 
+ 614      626C6500 
+ 615              	.LASF3:
+ 616 0066 73686F72 		.ascii	"short unsigned int\000"
+ 616      7420756E 
+ 616      7369676E 
+ 616      65642069 
+ 616      6E7400
+ 617              	.LASF11:
+ 618 0079 666C6F61 		.ascii	"float\000"
+ 618      7400
+ 619              	.LASF1:
+ 620 007f 756E7369 		.ascii	"unsigned char\000"
+ 620      676E6564 
+ 620      20636861 
+ 620      7200
+ 621              	.LASF32:
+ 622 008d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 622      43313120 
+ 622      352E342E 
+ 622      31203230 
+ 622      31363036 
+ 623 00c0 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 623      20726576 
+ 623      6973696F 
+ 623      6E203233 
+ 623      37373135 
+ 624 00f3 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 624      66756E63 
+ 624      74696F6E 
+ 624      2D736563 
+ 624      74696F6E 
+ 625              	.LASF17:
+ 626 011b 50574D45 		.ascii	"PWMEnableState\000"
+ 626      6E61626C 
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 16
+
+
+ 626      65537461 
+ 626      746500
+ 627              	.LASF5:
+ 628 012a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 628      20756E73 
+ 628      69676E65 
+ 628      6420696E 
+ 628      7400
+ 629              	.LASF9:
+ 630 013c 75696E74 		.ascii	"uint8\000"
+ 630      3800
+ 631              	.LASF12:
+ 632 0142 646F7562 		.ascii	"double\000"
+ 632      6C6500
+ 633              	.LASF35:
+ 634 0149 50574D33 		.ascii	"PWM3_backup\000"
+ 634      5F626163 
+ 634      6B757000 
+ 635              	.LASF10:
+ 636 0155 75696E74 		.ascii	"uint16\000"
+ 636      313600
+ 637              	.LASF24:
+ 638 015c 50574D33 		.ascii	"PWM3_Sleep\000"
+ 638      5F536C65 
+ 638      657000
+ 639              	.LASF8:
+ 640 0167 756E7369 		.ascii	"unsigned int\000"
+ 640      676E6564 
+ 640      20696E74 
+ 640      00
+ 641              	.LASF25:
+ 642 0174 50574D33 		.ascii	"PWM3_Wakeup\000"
+ 642      5F57616B 
+ 642      65757000 
+ 643              	.LASF7:
+ 644 0180 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 644      206C6F6E 
+ 644      6720756E 
+ 644      7369676E 
+ 644      65642069 
+ 645              	.LASF29:
+ 646 0197 50574D33 		.ascii	"PWM3_WriteCounter\000"
+ 646      5F577269 
+ 646      7465436F 
+ 646      756E7465 
+ 646      7200
+ 647              	.LASF16:
+ 648 01a9 73697A65 		.ascii	"sizetype\000"
+ 648      74797065 
+ 648      00
+ 649              	.LASF27:
+ 650 01b2 50574D33 		.ascii	"PWM3_ReadCounter\000"
+ 650      5F526561 
+ 650      64436F75 
+ 650      6E746572 
+ 650      00
+ 651              	.LASF6:
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 17
+
+
+ 652 01c3 6C6F6E67 		.ascii	"long long int\000"
+ 652      206C6F6E 
+ 652      6720696E 
+ 652      7400
+ 653              	.LASF13:
+ 654 01d1 63686172 		.ascii	"char\000"
+ 654      00
+ 655              	.LASF30:
+ 656 01d6 50574D33 		.ascii	"PWM3_Stop\000"
+ 656      5F53746F 
+ 656      7000
+ 657              	.LASF2:
+ 658 01e0 73686F72 		.ascii	"short int\000"
+ 658      7420696E 
+ 658      7400
+ 659              	.LASF34:
+ 660 01ea 453A5C4C 		.ascii	"E:\\LABVIEW\\labview.cydsn\000"
+ 660      41425649 
+ 660      45575C6C 
+ 660      61627669 
+ 660      65772E63 
+ 661              	.LASF4:
+ 662 0203 6C6F6E67 		.ascii	"long int\000"
+ 662      20696E74 
+ 662      00
+ 663              	.LASF28:
+ 664 020c 50574D33 		.ascii	"PWM3_WritePeriod\000"
+ 664      5F577269 
+ 664      74655065 
+ 664      72696F64 
+ 664      00
+ 665              	.LASF15:
+ 666 021d 6C6F6E67 		.ascii	"long double\000"
+ 666      20646F75 
+ 666      626C6500 
+ 667              	.LASF0:
+ 668 0229 7369676E 		.ascii	"signed char\000"
+ 668      65642063 
+ 668      68617200 
+ 669              	.LASF22:
+ 670 0235 50574D33 		.ascii	"PWM3_SaveConfig\000"
+ 670      5F536176 
+ 670      65436F6E 
+ 670      66696700 
+ 671              	.LASF20:
+ 672 0245 496E7465 		.ascii	"InterruptMaskValue\000"
+ 672      72727570 
+ 672      744D6173 
+ 672      6B56616C 
+ 672      756500
+ 673              	.LASF21:
+ 674 0258 50574D33 		.ascii	"PWM3_backupStruct\000"
+ 674      5F626163 
+ 674      6B757053 
+ 674      74727563 
+ 674      7400
+ 675              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ARM GAS  C:\Users\danie\AppData\Local\Temp\ccLKVBRr.s 			page 18
+
+

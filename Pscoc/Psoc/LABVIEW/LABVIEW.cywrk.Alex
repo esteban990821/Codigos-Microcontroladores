@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="LABVIEW\labview\TopDesign">
+<ExpandedNodeIds>
+<v>LABVIEW</v>
+<v>LABVIEW\labview</v>
+<v>LABVIEW\labview\TopDesign</v>
+<v>LABVIEW\labview\labview.cydwr</v>
+<v>LABVIEW\labview\labview.cydwr\Pins</v>
+<v>LABVIEW\labview\labview.cydwr\Analog</v>
+<v>LABVIEW\labview\labview.cydwr\Clocks</v>
+<v>LABVIEW\labview\labview.cydwr\Interrupts</v>
+<v>LABVIEW\labview\labview.cydwr\DMA</v>
+<v>LABVIEW\labview\labview.cydwr\System</v>
+<v>LABVIEW\labview\labview.cydwr\Directives</v>
+<v>LABVIEW\labview\labview.cydwr\Flash Security</v>
+<v>LABVIEW\labview\labview.cydwr\EEPROM</v>
+<v>LABVIEW\labview\Header Files</v>
+<v>LABVIEW\labview\Header Files\cyapicallbacks.h</v>
+<v>LABVIEW\labview\Source Files</v>
+<v>LABVIEW\labview\Source Files\main.c</v>
+<v>LABVIEW\labview\Generated_Source</v>
+<v>LABVIEW\labview\Generated_Source\PSoC5</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>LABVIEW</v>
+<v>LABVIEW\labview</v>
+<v>LABVIEW\labview\TopDesign</v>
+<v>LABVIEW\labview\labview.cydwr</v>
+<v>LABVIEW\labview\labview.cydwr\Pins</v>
+<v>LABVIEW\labview\labview.cydwr\Analog</v>
+<v>LABVIEW\labview\labview.cydwr\Clocks</v>
+<v>LABVIEW\labview\labview.cydwr\Interrupts</v>
+<v>LABVIEW\labview\labview.cydwr\DMA</v>
+<v>LABVIEW\labview\labview.cydwr\System</v>
+<v>LABVIEW\labview\labview.cydwr\Directives</v>
+<v>LABVIEW\labview\labview.cydwr\Flash Security</v>
+<v>LABVIEW\labview\labview.cydwr\EEPROM</v>
+<v>LABVIEW\labview\Header Files</v>
+<v>LABVIEW\labview\Header Files\cyapicallbacks.h</v>
+<v>LABVIEW\labview\Source Files</v>
+<v>LABVIEW\labview\Source Files\main.c</v>
+<v>LABVIEW\labview\Generated_Source</v>
+<v>LABVIEW\labview\Generated_Source\PSoC5</v>
+<v>LABVIEW\labview\Generated_Source\PSoC5\ADC</v>
+<v>LABVIEW\labview\Generated_Source\PSoC5\ADC_AMux</v>
+<v>LABVIEW\labview\Generated_Source\PSoC5\ADC_Ext_CP_Clk</v>
+<v>LABVIEW\labview\Generated_Source\PSoC5\ADC_IRQ</v>
+<v>LABVIEW\labview\Generated_Source\PSoC5\ADC_theACLK</v>
+<v>LABVIEW\labview\Generated_Source\PSoC5\AMUX</v>
+<v>LABVIEW\labview\Generated_Source\PSoC5\cy_boot</v>
+<v>LABVIEW\labview\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
+<v>LABVIEW\labview\Generated_Source\PSoC5\isrRx</v>
+<v>LABVIEW\labview\Generated_Source\PSoC5\PGA</v>
+<v>LABVIEW\labview\Generated_Source\PSoC5\Pin_1</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>LABVIEW</v>
+<v>LABVIEW\labview</v>
+<v>LABVIEW\labview\TopDesign</v>
+<v>LABVIEW\labview\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>LABVIEW</v>
+<v>LABVIEW\labview</v>
+<v>LABVIEW\labview\TopDesign</v>
+<v>LABVIEW\labview\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>LABVIEW</v>
+<v>LABVIEW\labview</v>
+<v>LABVIEW\labview\CortexM3</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_AMux.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_Ext_CP_Clk.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_INT.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IRQ.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_PM.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_theACLK.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\AMUX.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\isrRx.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\PGA.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\PGA_PM.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_1.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_2.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_3.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_4.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_5.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_6.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_7.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_8.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_INT.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_IntClock.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\labview.elf</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\labview.hex</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\labview.map</v>
+<v>LABVIEW\labview\labview.gpdsc</v>
+<v>LABVIEW\labview\labview.rpt</v>
+<v>LABVIEW\labview\labview_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>LABVIEW</v>
+<v>LABVIEW\labview</v>
+<v>LABVIEW\labview\CortexM3</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_AMux.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_Ext_CP_Clk.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_INT.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IRQ.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_PM.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_theACLK.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\AMUX.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\isrRx.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\PGA.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\PGA_PM.lst</v>
+<v>LABVIEW\labview\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_1.lst</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>LABVIEW</v>
+<v>LABVIEW\labview</v>
+<v>LABVIEW\labview\PSoC 5LP Architecture TRM</v>
+<v>LABVIEW\labview\CY8C58LP Family Datasheet</v>
+<v>LABVIEW\labview\System Reference Guides</v>
+<v>LABVIEW\labview\System Reference Guides\cy_boot_v5_70</v>
+<v>LABVIEW\labview\ADC_DelSig_v3_30.pdf</v>
+<v>LABVIEW\labview\AMux_v1_80.pdf</v>
+<v>LABVIEW\labview\cy_isr_v1_70.pdf</v>
+<v>LABVIEW\labview\cy_pins_v2_20</v>
+<v>LABVIEW\labview\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>LABVIEW\labview\PGA_v2_0.pdf</v>
+<v>LABVIEW\labview\UART_v2_50.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>LABVIEW</v>
+<v>LABVIEW\labview</v>
+<v>LABVIEW\labview\PSoC 5LP Architecture TRM</v>
+<v>LABVIEW\labview\CY8C58LP Family Datasheet</v>
+<v>LABVIEW\labview\System Reference Guides</v>
+<v>LABVIEW\labview\System Reference Guides\cy_boot_v5_70</v>
+<v>LABVIEW\labview\ADC_DelSig_v3_30.pdf</v>
+<v>LABVIEW\labview\AMux_v1_80.pdf</v>
+<v>LABVIEW\labview\cy_isr_v1_70.pdf</v>
+<v>LABVIEW\labview\cy_pins_v2_20</v>
+<v>LABVIEW\labview\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>LABVIEW\labview\PGA_v2_0.pdf</v>
+<v>LABVIEW\labview\UART_v2_50.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\labview.cydsn\main.c" />
+<name v=".\labview.cydsn\labview.cydwr" />
+<name v=".\labview.cydsn\TopDesign\TopDesign.cysch" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1041, 400" SelectedTabbedMdiWindow="445c5bd2-ce21-40d1-a688-8c1846f3d220"><DocumentWindow Key="C:\Users\Alex\Desktop\LABVIEW\labview.cydsn\main.c" Guid="445c5bd2-ce21-40d1-a688-8c1846f3d220" /><DocumentWindow Key="C:\Users\Alex\Desktop\LABVIEW\labview.cydsn\labview.cydwr" Guid="47ba8d48-d86b-412f-8e81-86975f5a7ebb" /><DocumentWindow Key="C:\Users\Alex\Desktop\LABVIEW\labview.cydsn\TopDesign\TopDesign.cysch" Guid="5e130c65-75b4-4656-8a72-9b6a18a2d8b1" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

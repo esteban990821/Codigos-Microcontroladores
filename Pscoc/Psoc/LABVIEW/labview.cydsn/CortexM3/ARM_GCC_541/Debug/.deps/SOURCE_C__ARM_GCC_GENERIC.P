@@ -1,0 +1,146 @@
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/CortexM3/ARM_GCC_541/Debug/main.o : D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A0.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A0_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A1.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A1_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A2.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A2_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A3.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A3_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A4.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A4_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A5.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A5_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A6.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A6_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A7.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A7_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/ADC.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/ADC_AMux.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/ADC_Ext_CP_Clk.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/ADC_IRQ.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/ADC_theACLK.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/Counter1.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/Counter2.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/CyDmac.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/CyFlash.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/CyLib.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/CySpc.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/D0.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/D0_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/D1.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/D1_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/D2.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/D2_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/DAC1.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/DAC1_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/DAC2.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/DAC2_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/MUX.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/PGA.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/Pin_1.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/Pin_1_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/Pin_2.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/Pin_2_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/SalidaD0.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/SalidaD0_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/SalidaD1.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/SalidaD1_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/SalidaD2.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/SalidaD2_aliases.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/UART.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/UART_IntClock.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/VDAC1.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/VDAC2.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cmsis_armcc.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cmsis_compiler.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cmsis_gcc.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/core_cm3.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cyPm.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cydevice.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cydevice_trm.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cydisabledsheets.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cyfitter.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cypins.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cytypes.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/isrRx.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/project.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/timer_clock_1.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/timer_clock_2.h D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/main.c 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A0.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A0_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A1.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A1_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A2.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A2_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A3.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A3_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A4.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A4_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A5.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A5_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A6.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A6_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A7.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/A7_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/ADC.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/ADC_AMux.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/ADC_Ext_CP_Clk.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/ADC_IRQ.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/ADC_theACLK.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/Counter1.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/Counter2.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/CyDmac.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/CyFlash.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/CyLib.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/CySpc.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/D0.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/D0_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/D1.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/D1_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/D2.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/D2_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/DAC1.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/DAC1_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/DAC2.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/DAC2_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/MUX.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/PGA.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/Pin_1.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/Pin_1_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/Pin_2.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/Pin_2_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/SalidaD0.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/SalidaD0_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/SalidaD1.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/SalidaD1_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/SalidaD2.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/SalidaD2_aliases.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/UART.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/UART_IntClock.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/VDAC1.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/VDAC2.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cmsis_armcc.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cmsis_compiler.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cmsis_gcc.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/core_cm3.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cyPm.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cydevice.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cydevice_trm.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cydisabledsheets.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cyfitter.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cypins.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/cytypes.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/isrRx.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/project.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/timer_clock_1.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/Generated_Source/PSoC5/timer_clock_2.h : 
+
+D:/Users/ESTEBAN/Desktop/Materias/Codigos/Pscoc/LABVIEW/labview.cydsn/main.c : 
+

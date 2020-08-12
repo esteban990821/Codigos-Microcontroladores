@@ -1,0 +1,1642 @@
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 1096
+  28              	cy_meta_configecc:
+  29 0000 04       		.byte	4
+  30 0001 52       		.byte	82
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 01       		.byte	1
+  34 0005 5B       		.byte	91
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 01       		.byte	1
+  38 0009 64       		.byte	100
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 04       		.byte	4
+  42 000d 65       		.byte	101
+  43 000e 00       		.byte	0
+  44 000f 40       		.byte	64
+  45 0010 01       		.byte	1
+  46 0011 01       		.byte	1
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 5E       		.byte	94
+  50 0015 08       		.byte	8
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 33       		.byte	51
+  54 0019 09       		.byte	9
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 01       		.byte	1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 2
+
+
+  58 001d 0F       		.byte	15
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 01       		.byte	1
+  62 0021 15       		.byte	21
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 01       		.byte	1
+  66 0025 17       		.byte	23
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 53       		.byte	83
+  70 0029 18       		.byte	24
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 39       		.byte	57
+  74 002d 19       		.byte	25
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 52       		.byte	82
+  78 0031 1A       		.byte	26
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 35       		.byte	53
+  82 0035 1B       		.byte	27
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 04       		.byte	4
+  86 0039 40       		.byte	64
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 02       		.byte	2
+  90 003d 41       		.byte	65
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 01       		.byte	1
+  94 0041 42       		.byte	66
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 01       		.byte	1
+  98 0045 43       		.byte	67
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 01       		.byte	1
+ 102 0049 44       		.byte	68
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 01       		.byte	1
+ 106 004d 45       		.byte	69
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 03       		.byte	3
+ 110 0051 46       		.byte	70
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 02       		.byte	2
+ 114 0055 47       		.byte	71
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 05       		.byte	5
+ 118 0059 48       		.byte	72
+ 119 005a 01       		.byte	1
+ 120 005b 40       		.byte	64
+ 121 005c 02       		.byte	2
+ 122 005d 49       		.byte	73
+ 123 005e 01       		.byte	1
+ 124 005f 40       		.byte	64
+ 125 0060 07       		.byte	7
+ 126 0061 4C       		.byte	76
+ 127 0062 01       		.byte	1
+ 128 0063 40       		.byte	64
+ 129 0064 08       		.byte	8
+ 130 0065 4D       		.byte	77
+ 131 0066 01       		.byte	1
+ 132 0067 40       		.byte	64
+ 133 0068 04       		.byte	4
+ 134 0069 50       		.byte	80
+ 135 006a 01       		.byte	1
+ 136 006b 40       		.byte	64
+ 137 006c 01       		.byte	1
+ 138 006d 51       		.byte	81
+ 139 006e 01       		.byte	1
+ 140 006f 40       		.byte	64
+ 141 0070 00       		.byte	0
+ 142 0071 02       		.byte	2
+ 143 0072 01       		.byte	1
+ 144 0073 02       		.byte	2
+ 145 0074 08       		.byte	8
+ 146 0075 A0       		.byte	-96
+ 147 0076 09       		.byte	9
+ 148 0077 90       		.byte	-112
+ 149 0078 27       		.byte	39
+ 150 0079 84       		.byte	-124
+ 151 007a 88       		.byte	-120
+ 152 007b 0D       		.byte	13
+ 153 007c 88       		.byte	-120
+ 154 007d 0F       		.byte	15
+ 155 007e 89       		.byte	-119
+ 156 007f 0D       		.byte	13
+ 157 0080 8A       		.byte	-118
+ 158 0081 0D       		.byte	13
+ 159 0082 8B       		.byte	-117
+ 160 0083 0D       		.byte	13
+ 161 0084 E6       		.byte	-26
+ 162 0085 08       		.byte	8
+ 163 0086 00       		.byte	0
+ 164 0087 13       		.byte	19
+ 165 0088 02       		.byte	2
+ 166 0089 04       		.byte	4
+ 167 008a 06       		.byte	6
+ 168 008b 15       		.byte	21
+ 169 008c 0C       		.byte	12
+ 170 008d 13       		.byte	19
+ 171 008e 0E       		.byte	14
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 4
+
+
+ 172 008f 0C       		.byte	12
+ 173 0090 14       		.byte	20
+ 174 0091 0A       		.byte	10
+ 175 0092 15       		.byte	21
+ 176 0093 02       		.byte	2
+ 177 0094 16       		.byte	22
+ 178 0095 14       		.byte	20
+ 179 0096 18       		.byte	24
+ 180 0097 03       		.byte	3
+ 181 0098 1A       		.byte	26
+ 182 0099 14       		.byte	20
+ 183 009a 26       		.byte	38
+ 184 009b 08       		.byte	8
+ 185 009c 27       		.byte	39
+ 186 009d 03       		.byte	3
+ 187 009e 30       		.byte	48
+ 188 009f 10       		.byte	16
+ 189 00a0 35       		.byte	53
+ 190 00a1 01       		.byte	1
+ 191 00a2 36       		.byte	54
+ 192 00a3 0F       		.byte	15
+ 193 00a4 37       		.byte	55
+ 194 00a5 02       		.byte	2
+ 195 00a6 3A       		.byte	58
+ 196 00a7 80       		.byte	-128
+ 197 00a8 3E       		.byte	62
+ 198 00a9 01       		.byte	1
+ 199 00aa 40       		.byte	64
+ 200 00ab 16       		.byte	22
+ 201 00ac 41       		.byte	65
+ 202 00ad 04       		.byte	4
+ 203 00ae 45       		.byte	69
+ 204 00af 0C       		.byte	12
+ 205 00b0 46       		.byte	70
+ 206 00b1 E0       		.byte	-32
+ 207 00b2 47       		.byte	71
+ 208 00b3 0B       		.byte	11
+ 209 00b4 48       		.byte	72
+ 210 00b5 19       		.byte	25
+ 211 00b6 49       		.byte	73
+ 212 00b7 FF       		.byte	-1
+ 213 00b8 4A       		.byte	74
+ 214 00b9 FF       		.byte	-1
+ 215 00ba 4B       		.byte	75
+ 216 00bb FF       		.byte	-1
+ 217 00bc 4E       		.byte	78
+ 218 00bd F0       		.byte	-16
+ 219 00be 4F       		.byte	79
+ 220 00bf 44       		.byte	68
+ 221 00c0 50       		.byte	80
+ 222 00c1 0C       		.byte	12
+ 223 00c2 52       		.byte	82
+ 224 00c3 80       		.byte	-128
+ 225 00c4 54       		.byte	84
+ 226 00c5 05       		.byte	5
+ 227 00c6 58       		.byte	88
+ 228 00c7 04       		.byte	4
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 5
+
+
+ 229 00c8 59       		.byte	89
+ 230 00c9 04       		.byte	4
+ 231 00ca 5A       		.byte	90
+ 232 00cb 04       		.byte	4
+ 233 00cc 5B       		.byte	91
+ 234 00cd 04       		.byte	4
+ 235 00ce 5C       		.byte	92
+ 236 00cf 31       		.byte	49
+ 237 00d0 5D       		.byte	93
+ 238 00d1 31       		.byte	49
+ 239 00d2 5F       		.byte	95
+ 240 00d3 01       		.byte	1
+ 241 00d4 66       		.byte	102
+ 242 00d5 C0       		.byte	-64
+ 243 00d6 6A       		.byte	106
+ 244 00d7 40       		.byte	64
+ 245 00d8 6B       		.byte	107
+ 246 00d9 02       		.byte	2
+ 247 00da 84       		.byte	-124
+ 248 00db 09       		.byte	9
+ 249 00dc 85       		.byte	-123
+ 250 00dd 80       		.byte	-128
+ 251 00de 86       		.byte	-122
+ 252 00df D0       		.byte	-48
+ 253 00e0 87       		.byte	-121
+ 254 00e1 13       		.byte	19
+ 255 00e2 8C       		.byte	-116
+ 256 00e3 0C       		.byte	12
+ 257 00e4 8E       		.byte	-114
+ 258 00e5 71       		.byte	113
+ 259 00e6 94       		.byte	-108
+ 260 00e7 DC       		.byte	-36
+ 261 00e8 95       		.byte	-107
+ 262 00e9 2C       		.byte	44
+ 263 00ea 96       		.byte	-106
+ 264 00eb 22       		.byte	34
+ 265 00ec 97       		.byte	-105
+ 266 00ed 43       		.byte	67
+ 267 00ee 9A       		.byte	-102
+ 268 00ef 03       		.byte	3
+ 269 00f0 9B       		.byte	-101
+ 270 00f1 0C       		.byte	12
+ 271 00f2 9C       		.byte	-100
+ 272 00f3 10       		.byte	16
+ 273 00f4 9E       		.byte	-98
+ 274 00f5 AC       		.byte	-84
+ 275 00f6 9F       		.byte	-97
+ 276 00f7 08       		.byte	8
+ 277 00f8 A0       		.byte	-96
+ 278 00f9 10       		.byte	16
+ 279 00fa A1       		.byte	-95
+ 280 00fb 71       		.byte	113
+ 281 00fc A2       		.byte	-94
+ 282 00fd 40       		.byte	64
+ 283 00fe A3       		.byte	-93
+ 284 00ff 0E       		.byte	14
+ 285 0100 A4       		.byte	-92
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 6
+
+
+ 286 0101 14       		.byte	20
+ 287 0102 AA       		.byte	-86
+ 288 0103 20       		.byte	32
+ 289 0104 AD       		.byte	-83
+ 290 0105 71       		.byte	113
+ 291 0106 AF       		.byte	-81
+ 292 0107 06       		.byte	6
+ 293 0108 B0       		.byte	-80
+ 294 0109 E0       		.byte	-32
+ 295 010a B3       		.byte	-77
+ 296 010b 0F       		.byte	15
+ 297 010c B4       		.byte	-76
+ 298 010d 1F       		.byte	31
+ 299 010e B5       		.byte	-75
+ 300 010f C0       		.byte	-64
+ 301 0110 B7       		.byte	-73
+ 302 0111 30       		.byte	48
+ 303 0112 B9       		.byte	-71
+ 304 0113 A0       		.byte	-96
+ 305 0114 BA       		.byte	-70
+ 306 0115 02       		.byte	2
+ 307 0116 BB       		.byte	-69
+ 308 0117 08       		.byte	8
+ 309 0118 BF       		.byte	-65
+ 310 0119 40       		.byte	64
+ 311 011a C0       		.byte	-64
+ 312 011b 01       		.byte	1
+ 313 011c C5       		.byte	-59
+ 314 011d 40       		.byte	64
+ 315 011e C9       		.byte	-55
+ 316 011f FF       		.byte	-1
+ 317 0120 CA       		.byte	-54
+ 318 0121 07       		.byte	7
+ 319 0122 CB       		.byte	-53
+ 320 0123 FF       		.byte	-1
+ 321 0124 CC       		.byte	-52
+ 322 0125 40       		.byte	64
+ 323 0126 CD       		.byte	-51
+ 324 0127 20       		.byte	32
+ 325 0128 CE       		.byte	-50
+ 326 0129 F0       		.byte	-16
+ 327 012a CF       		.byte	-49
+ 328 012b 05       		.byte	5
+ 329 012c D0       		.byte	-48
+ 330 012d 08       		.byte	8
+ 331 012e D8       		.byte	-40
+ 332 012f 04       		.byte	4
+ 333 0130 D9       		.byte	-39
+ 334 0131 04       		.byte	4
+ 335 0132 DA       		.byte	-38
+ 336 0133 04       		.byte	4
+ 337 0134 DC       		.byte	-36
+ 338 0135 11       		.byte	17
+ 339 0136 DD       		.byte	-35
+ 340 0137 01       		.byte	1
+ 341 0138 DF       		.byte	-33
+ 342 0139 01       		.byte	1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 7
+
+
+ 343 013a E0       		.byte	-32
+ 344 013b 40       		.byte	64
+ 345 013c E1       		.byte	-31
+ 346 013d A8       		.byte	-88
+ 347 013e E2       		.byte	-30
+ 348 013f 40       		.byte	64
+ 349 0140 E3       		.byte	-29
+ 350 0141 20       		.byte	32
+ 351 0142 00       		.byte	0
+ 352 0143 44       		.byte	68
+ 353 0144 04       		.byte	4
+ 354 0145 08       		.byte	8
+ 355 0146 05       		.byte	5
+ 356 0147 41       		.byte	65
+ 357 0148 09       		.byte	9
+ 358 0149 88       		.byte	-120
+ 359 014a 0A       		.byte	10
+ 360 014b 04       		.byte	4
+ 361 014c 0D       		.byte	13
+ 362 014d 08       		.byte	8
+ 363 014e 0F       		.byte	15
+ 364 014f 08       		.byte	8
+ 365 0150 10       		.byte	16
+ 366 0151 88       		.byte	-120
+ 367 0152 11       		.byte	17
+ 368 0153 08       		.byte	8
+ 369 0154 17       		.byte	23
+ 370 0155 08       		.byte	8
+ 371 0156 18       		.byte	24
+ 372 0157 40       		.byte	64
+ 373 0158 19       		.byte	25
+ 374 0159 21       		.byte	33
+ 375 015a 1A       		.byte	26
+ 376 015b 04       		.byte	4
+ 377 015c 1D       		.byte	29
+ 378 015d C0       		.byte	-64
+ 379 015e 1E       		.byte	30
+ 380 015f 40       		.byte	64
+ 381 0160 20       		.byte	32
+ 382 0161 05       		.byte	5
+ 383 0162 21       		.byte	33
+ 384 0163 08       		.byte	8
+ 385 0164 22       		.byte	34
+ 386 0165 10       		.byte	16
+ 387 0166 23       		.byte	35
+ 388 0167 08       		.byte	8
+ 389 0168 26       		.byte	38
+ 390 0169 40       		.byte	64
+ 391 016a 27       		.byte	39
+ 392 016b 04       		.byte	4
+ 393 016c 28       		.byte	40
+ 394 016d 80       		.byte	-128
+ 395 016e 29       		.byte	41
+ 396 016f 41       		.byte	65
+ 397 0170 2F       		.byte	47
+ 398 0171 20       		.byte	32
+ 399 0172 30       		.byte	48
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 8
+
+
+ 400 0173 80       		.byte	-128
+ 401 0174 31       		.byte	49
+ 402 0175 08       		.byte	8
+ 403 0176 32       		.byte	50
+ 404 0177 10       		.byte	16
+ 405 0178 36       		.byte	54
+ 406 0179 20       		.byte	32
+ 407 017a 37       		.byte	55
+ 408 017b 24       		.byte	36
+ 409 017c 38       		.byte	56
+ 410 017d 08       		.byte	8
+ 411 017e 40       		.byte	64
+ 412 017f 01       		.byte	1
+ 413 0180 44       		.byte	68
+ 414 0181 80       		.byte	-128
+ 415 0182 45       		.byte	69
+ 416 0183 80       		.byte	-128
+ 417 0184 48       		.byte	72
+ 418 0185 80       		.byte	-128
+ 419 0186 4C       		.byte	76
+ 420 0187 04       		.byte	4
+ 421 0188 4E       		.byte	78
+ 422 0189 20       		.byte	32
+ 423 018a 4F       		.byte	79
+ 424 018b 08       		.byte	8
+ 425 018c 50       		.byte	80
+ 426 018d 0C       		.byte	12
+ 427 018e 55       		.byte	85
+ 428 018f 14       		.byte	20
+ 429 0190 5D       		.byte	93
+ 430 0191 02       		.byte	2
+ 431 0192 5E       		.byte	94
+ 432 0193 88       		.byte	-120
+ 433 0194 74       		.byte	116
+ 434 0195 01       		.byte	1
+ 435 0196 C0       		.byte	-64
+ 436 0197 B5       		.byte	-75
+ 437 0198 C2       		.byte	-62
+ 438 0199 67       		.byte	103
+ 439 019a C4       		.byte	-60
+ 440 019b 2E       		.byte	46
+ 441 019c CA       		.byte	-54
+ 442 019d 49       		.byte	73
+ 443 019e CC       		.byte	-52
+ 444 019f 4E       		.byte	78
+ 445 01a0 CE       		.byte	-50
+ 446 01a1 02       		.byte	2
+ 447 01a2 D0       		.byte	-48
+ 448 01a3 98       		.byte	-104
+ 449 01a4 D2       		.byte	-46
+ 450 01a5 20       		.byte	32
+ 451 01a6 D6       		.byte	-42
+ 452 01a7 D0       		.byte	-48
+ 453 01a8 E6       		.byte	-26
+ 454 01a9 08       		.byte	8
+ 455 01aa E8       		.byte	-24
+ 456 01ab 01       		.byte	1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 9
+
+
+ 457 01ac E6       		.byte	-26
+ 458 01ad 01       		.byte	1
+ 459 01ae 03       		.byte	3
+ 460 01af 04       		.byte	4
+ 461 01b0 09       		.byte	9
+ 462 01b1 01       		.byte	1
+ 463 01b2 1A       		.byte	26
+ 464 01b3 01       		.byte	1
+ 465 01b4 1B       		.byte	27
+ 466 01b5 02       		.byte	2
+ 467 01b6 27       		.byte	39
+ 468 01b7 02       		.byte	2
+ 469 01b8 2A       		.byte	42
+ 470 01b9 01       		.byte	1
+ 471 01ba 33       		.byte	51
+ 472 01bb 04       		.byte	4
+ 473 01bc 34       		.byte	52
+ 474 01bd 01       		.byte	1
+ 475 01be 35       		.byte	53
+ 476 01bf 01       		.byte	1
+ 477 01c0 37       		.byte	55
+ 478 01c1 02       		.byte	2
+ 479 01c2 3E       		.byte	62
+ 480 01c3 10       		.byte	16
+ 481 01c4 3F       		.byte	63
+ 482 01c5 10       		.byte	16
+ 483 01c6 40       		.byte	64
+ 484 01c7 30       		.byte	48
+ 485 01c8 41       		.byte	65
+ 486 01c9 02       		.byte	2
+ 487 01ca 45       		.byte	69
+ 488 01cb D2       		.byte	-46
+ 489 01cc 46       		.byte	70
+ 490 01cd 10       		.byte	16
+ 491 01ce 48       		.byte	72
+ 492 01cf 0B       		.byte	11
+ 493 01d0 49       		.byte	73
+ 494 01d1 FF       		.byte	-1
+ 495 01d2 4A       		.byte	74
+ 496 01d3 FF       		.byte	-1
+ 497 01d4 4B       		.byte	75
+ 498 01d5 FF       		.byte	-1
+ 499 01d6 4D       		.byte	77
+ 500 01d7 A0       		.byte	-96
+ 501 01d8 4F       		.byte	79
+ 502 01d9 04       		.byte	4
+ 503 01da 50       		.byte	80
+ 504 01db 18       		.byte	24
+ 505 01dc 54       		.byte	84
+ 506 01dd 01       		.byte	1
+ 507 01de 58       		.byte	88
+ 508 01df 04       		.byte	4
+ 509 01e0 59       		.byte	89
+ 510 01e1 04       		.byte	4
+ 511 01e2 5A       		.byte	90
+ 512 01e3 04       		.byte	4
+ 513 01e4 5B       		.byte	91
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 10
+
+
+ 514 01e5 04       		.byte	4
+ 515 01e6 5C       		.byte	92
+ 516 01e7 30       		.byte	48
+ 517 01e8 5D       		.byte	93
+ 518 01e9 13       		.byte	19
+ 519 01ea 5F       		.byte	95
+ 520 01eb 01       		.byte	1
+ 521 01ec 60       		.byte	96
+ 522 01ed 40       		.byte	64
+ 523 01ee 62       		.byte	98
+ 524 01ef C0       		.byte	-64
+ 525 01f0 64       		.byte	100
+ 526 01f1 40       		.byte	64
+ 527 01f2 65       		.byte	101
+ 528 01f3 40       		.byte	64
+ 529 01f4 66       		.byte	102
+ 530 01f5 C0       		.byte	-64
+ 531 01f6 68       		.byte	104
+ 532 01f7 C0       		.byte	-64
+ 533 01f8 6A       		.byte	106
+ 534 01f9 C0       		.byte	-64
+ 535 01fa 6C       		.byte	108
+ 536 01fb C0       		.byte	-64
+ 537 01fc 6E       		.byte	110
+ 538 01fd C0       		.byte	-64
+ 539 01fe 86       		.byte	-122
+ 540 01ff 04       		.byte	4
+ 541 0200 87       		.byte	-121
+ 542 0201 01       		.byte	1
+ 543 0202 92       		.byte	-110
+ 544 0203 08       		.byte	8
+ 545 0204 94       		.byte	-108
+ 546 0205 01       		.byte	1
+ 547 0206 9B       		.byte	-101
+ 548 0207 01       		.byte	1
+ 549 0208 A6       		.byte	-90
+ 550 0209 07       		.byte	7
+ 551 020a A9       		.byte	-87
+ 552 020b 02       		.byte	2
+ 553 020c B0       		.byte	-80
+ 554 020d 04       		.byte	4
+ 555 020e B2       		.byte	-78
+ 556 020f 02       		.byte	2
+ 557 0210 B3       		.byte	-77
+ 558 0211 01       		.byte	1
+ 559 0212 B4       		.byte	-76
+ 560 0213 08       		.byte	8
+ 561 0214 B6       		.byte	-74
+ 562 0215 01       		.byte	1
+ 563 0216 B7       		.byte	-73
+ 564 0217 02       		.byte	2
+ 565 0218 BF       		.byte	-65
+ 566 0219 44       		.byte	68
+ 567 021a C0       		.byte	-64
+ 568 021b 20       		.byte	32
+ 569 021c C1       		.byte	-63
+ 570 021d 06       		.byte	6
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 11
+
+
+ 571 021e C5       		.byte	-59
+ 572 021f D1       		.byte	-47
+ 573 0220 C7       		.byte	-57
+ 574 0221 02       		.byte	2
+ 575 0222 C8       		.byte	-56
+ 576 0223 13       		.byte	19
+ 577 0224 C9       		.byte	-55
+ 578 0225 FF       		.byte	-1
+ 579 0226 CA       		.byte	-54
+ 580 0227 FF       		.byte	-1
+ 581 0228 CB       		.byte	-53
+ 582 0229 FF       		.byte	-1
+ 583 022a CD       		.byte	-51
+ 584 022b A0       		.byte	-96
+ 585 022c CF       		.byte	-49
+ 586 022d 04       		.byte	4
+ 587 022e D0       		.byte	-48
+ 588 022f 18       		.byte	24
+ 589 0230 D2       		.byte	-46
+ 590 0231 80       		.byte	-128
+ 591 0232 D4       		.byte	-44
+ 592 0233 05       		.byte	5
+ 593 0234 D8       		.byte	-40
+ 594 0235 04       		.byte	4
+ 595 0236 D9       		.byte	-39
+ 596 0237 04       		.byte	4
+ 597 0238 DA       		.byte	-38
+ 598 0239 04       		.byte	4
+ 599 023a DB       		.byte	-37
+ 600 023b 04       		.byte	4
+ 601 023c DC       		.byte	-36
+ 602 023d 02       		.byte	2
+ 603 023e DD       		.byte	-35
+ 604 023f 22       		.byte	34
+ 605 0240 DF       		.byte	-33
+ 606 0241 01       		.byte	1
+ 607 0242 E0       		.byte	-32
+ 608 0243 40       		.byte	64
+ 609 0244 E2       		.byte	-30
+ 610 0245 C0       		.byte	-64
+ 611 0246 E4       		.byte	-28
+ 612 0247 40       		.byte	64
+ 613 0248 E5       		.byte	-27
+ 614 0249 40       		.byte	64
+ 615 024a E6       		.byte	-26
+ 616 024b C0       		.byte	-64
+ 617 024c E8       		.byte	-24
+ 618 024d C0       		.byte	-64
+ 619 024e EA       		.byte	-22
+ 620 024f C0       		.byte	-64
+ 621 0250 EC       		.byte	-20
+ 622 0251 C0       		.byte	-64
+ 623 0252 EE       		.byte	-18
+ 624 0253 C0       		.byte	-64
+ 625 0254 00       		.byte	0
+ 626 0255 04       		.byte	4
+ 627 0256 09       		.byte	9
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 12
+
+
+ 628 0257 02       		.byte	2
+ 629 0258 0A       		.byte	10
+ 630 0259 10       		.byte	16
+ 631 025a 0D       		.byte	13
+ 632 025b 20       		.byte	32
+ 633 025c 0F       		.byte	15
+ 634 025d 08       		.byte	8
+ 635 025e 10       		.byte	16
+ 636 025f 20       		.byte	32
+ 637 0260 17       		.byte	23
+ 638 0261 10       		.byte	16
+ 639 0262 18       		.byte	24
+ 640 0263 04       		.byte	4
+ 641 0264 19       		.byte	25
+ 642 0265 50       		.byte	80
+ 643 0266 1A       		.byte	26
+ 644 0267 10       		.byte	16
+ 645 0268 1B       		.byte	27
+ 646 0269 02       		.byte	2
+ 647 026a 1E       		.byte	30
+ 648 026b 08       		.byte	8
+ 649 026c 22       		.byte	34
+ 650 026d 04       		.byte	4
+ 651 026e 23       		.byte	35
+ 652 026f 02       		.byte	2
+ 653 0270 25       		.byte	37
+ 654 0271 08       		.byte	8
+ 655 0272 26       		.byte	38
+ 656 0273 80       		.byte	-128
+ 657 0274 27       		.byte	39
+ 658 0275 18       		.byte	24
+ 659 0276 29       		.byte	41
+ 660 0277 20       		.byte	32
+ 661 0278 2F       		.byte	47
+ 662 0279 20       		.byte	32
+ 663 027a 31       		.byte	49
+ 664 027b 10       		.byte	16
+ 665 027c 37       		.byte	55
+ 666 027d 10       		.byte	16
+ 667 027e 38       		.byte	56
+ 668 027f 08       		.byte	8
+ 669 0280 3C       		.byte	60
+ 670 0281 02       		.byte	2
+ 671 0282 3D       		.byte	61
+ 672 0283 20       		.byte	32
+ 673 0284 3F       		.byte	63
+ 674 0285 10       		.byte	16
+ 675 0286 40       		.byte	64
+ 676 0287 04       		.byte	4
+ 677 0288 45       		.byte	69
+ 678 0289 28       		.byte	40
+ 679 028a 48       		.byte	72
+ 680 028b 28       		.byte	40
+ 681 028c 49       		.byte	73
+ 682 028d 01       		.byte	1
+ 683 028e 4D       		.byte	77
+ 684 028f 02       		.byte	2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 13
+
+
+ 685 0290 4F       		.byte	79
+ 686 0291 08       		.byte	8
+ 687 0292 50       		.byte	80
+ 688 0293 0C       		.byte	12
+ 689 0294 57       		.byte	87
+ 690 0295 20       		.byte	32
+ 691 0296 59       		.byte	89
+ 692 0297 41       		.byte	65
+ 693 0298 5A       		.byte	90
+ 694 0299 08       		.byte	8
+ 695 029a 5D       		.byte	93
+ 696 029b 01       		.byte	1
+ 697 029c 5E       		.byte	94
+ 698 029d 40       		.byte	64
+ 699 029e 5F       		.byte	95
+ 700 029f 28       		.byte	40
+ 701 02a0 71       		.byte	113
+ 702 02a1 02       		.byte	2
+ 703 02a2 83       		.byte	-125
+ 704 02a3 02       		.byte	2
+ 705 02a4 92       		.byte	-110
+ 706 02a5 40       		.byte	64
+ 707 02a6 99       		.byte	-103
+ 708 02a7 20       		.byte	32
+ 709 02a8 9B       		.byte	-101
+ 710 02a9 20       		.byte	32
+ 711 02aa 9D       		.byte	-99
+ 712 02ab 02       		.byte	2
+ 713 02ac A0       		.byte	-96
+ 714 02ad 01       		.byte	1
+ 715 02ae A1       		.byte	-95
+ 716 02af 10       		.byte	16
+ 717 02b0 A6       		.byte	-90
+ 718 02b1 04       		.byte	4
+ 719 02b2 A7       		.byte	-89
+ 720 02b3 20       		.byte	32
+ 721 02b4 C0       		.byte	-64
+ 722 02b5 04       		.byte	4
+ 723 02b6 C2       		.byte	-62
+ 724 02b7 4C       		.byte	76
+ 725 02b8 C4       		.byte	-60
+ 726 02b9 44       		.byte	68
+ 727 02ba CA       		.byte	-54
+ 728 02bb 44       		.byte	68
+ 729 02bc CC       		.byte	-52
+ 730 02bd 24       		.byte	36
+ 731 02be CE       		.byte	-50
+ 732 02bf A2       		.byte	-94
+ 733 02c0 D0       		.byte	-48
+ 734 02c1 64       		.byte	100
+ 735 02c2 D2       		.byte	-46
+ 736 02c3 04       		.byte	4
+ 737 02c4 D6       		.byte	-42
+ 738 02c5 FB       		.byte	-5
+ 739 02c6 0E       		.byte	14
+ 740 02c7 05       		.byte	5
+ 741 02c8 12       		.byte	18
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 14
+
+
+ 742 02c9 02       		.byte	2
+ 743 02ca 17       		.byte	23
+ 744 02cb 01       		.byte	1
+ 745 02cc 25       		.byte	37
+ 746 02cd 01       		.byte	1
+ 747 02ce 26       		.byte	38
+ 748 02cf 04       		.byte	4
+ 749 02d0 2A       		.byte	42
+ 750 02d1 09       		.byte	9
+ 751 02d2 30       		.byte	48
+ 752 02d3 02       		.byte	2
+ 753 02d4 32       		.byte	50
+ 754 02d5 08       		.byte	8
+ 755 02d6 34       		.byte	52
+ 756 02d7 04       		.byte	4
+ 757 02d8 36       		.byte	54
+ 758 02d9 01       		.byte	1
+ 759 02da 37       		.byte	55
+ 760 02db 01       		.byte	1
+ 761 02dc 3E       		.byte	62
+ 762 02dd 10       		.byte	16
+ 763 02de 40       		.byte	64
+ 764 02df 40       		.byte	64
+ 765 02e0 41       		.byte	65
+ 766 02e1 02       		.byte	2
+ 767 02e2 45       		.byte	69
+ 768 02e3 D2       		.byte	-46
+ 769 02e4 47       		.byte	71
+ 770 02e5 01       		.byte	1
+ 771 02e6 48       		.byte	72
+ 772 02e7 13       		.byte	19
+ 773 02e8 49       		.byte	73
+ 774 02e9 FF       		.byte	-1
+ 775 02ea 4A       		.byte	74
+ 776 02eb FF       		.byte	-1
+ 777 02ec 4B       		.byte	75
+ 778 02ed FF       		.byte	-1
+ 779 02ee 4D       		.byte	77
+ 780 02ef A0       		.byte	-96
+ 781 02f0 4F       		.byte	79
+ 782 02f1 04       		.byte	4
+ 783 02f2 50       		.byte	80
+ 784 02f3 18       		.byte	24
+ 785 02f4 52       		.byte	82
+ 786 02f5 80       		.byte	-128
+ 787 02f6 54       		.byte	84
+ 788 02f7 05       		.byte	5
+ 789 02f8 58       		.byte	88
+ 790 02f9 04       		.byte	4
+ 791 02fa 59       		.byte	89
+ 792 02fb 04       		.byte	4
+ 793 02fc 5A       		.byte	90
+ 794 02fd 04       		.byte	4
+ 795 02fe 5B       		.byte	91
+ 796 02ff 04       		.byte	4
+ 797 0300 5C       		.byte	92
+ 798 0301 44       		.byte	68
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 15
+
+
+ 799 0302 5D       		.byte	93
+ 800 0303 44       		.byte	68
+ 801 0304 5F       		.byte	95
+ 802 0305 01       		.byte	1
+ 803 0306 60       		.byte	96
+ 804 0307 40       		.byte	64
+ 805 0308 62       		.byte	98
+ 806 0309 C0       		.byte	-64
+ 807 030a 64       		.byte	100
+ 808 030b 40       		.byte	64
+ 809 030c 65       		.byte	101
+ 810 030d 40       		.byte	64
+ 811 030e 66       		.byte	102
+ 812 030f C0       		.byte	-64
+ 813 0310 68       		.byte	104
+ 814 0311 C0       		.byte	-64
+ 815 0312 6A       		.byte	106
+ 816 0313 C0       		.byte	-64
+ 817 0314 6C       		.byte	108
+ 818 0315 C0       		.byte	-64
+ 819 0316 6E       		.byte	110
+ 820 0317 C0       		.byte	-64
+ 821 0318 8F       		.byte	-113
+ 822 0319 01       		.byte	1
+ 823 031a 94       		.byte	-108
+ 824 031b 01       		.byte	1
+ 825 031c 9A       		.byte	-102
+ 826 031d 07       		.byte	7
+ 827 031e 9E       		.byte	-98
+ 828 031f 04       		.byte	4
+ 829 0320 A3       		.byte	-93
+ 830 0321 01       		.byte	1
+ 831 0322 AE       		.byte	-82
+ 832 0323 08       		.byte	8
+ 833 0324 B0       		.byte	-80
+ 834 0325 01       		.byte	1
+ 835 0326 B2       		.byte	-78
+ 836 0327 02       		.byte	2
+ 837 0328 B4       		.byte	-76
+ 838 0329 04       		.byte	4
+ 839 032a B5       		.byte	-75
+ 840 032b 01       		.byte	1
+ 841 032c B6       		.byte	-74
+ 842 032d 08       		.byte	8
+ 843 032e BF       		.byte	-65
+ 844 032f 10       		.byte	16
+ 845 0330 C0       		.byte	-64
+ 846 0331 10       		.byte	16
+ 847 0332 C1       		.byte	-63
+ 848 0333 05       		.byte	5
+ 849 0334 C5       		.byte	-59
+ 850 0335 D1       		.byte	-47
+ 851 0336 C6       		.byte	-58
+ 852 0337 02       		.byte	2
+ 853 0338 C8       		.byte	-56
+ 854 0339 07       		.byte	7
+ 855 033a C9       		.byte	-55
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 16
+
+
+ 856 033b FF       		.byte	-1
+ 857 033c CA       		.byte	-54
+ 858 033d FF       		.byte	-1
+ 859 033e CB       		.byte	-53
+ 860 033f FF       		.byte	-1
+ 861 0340 CD       		.byte	-51
+ 862 0341 A0       		.byte	-96
+ 863 0342 CF       		.byte	-49
+ 864 0343 04       		.byte	4
+ 865 0344 D0       		.byte	-48
+ 866 0345 18       		.byte	24
+ 867 0346 D2       		.byte	-46
+ 868 0347 80       		.byte	-128
+ 869 0348 D4       		.byte	-44
+ 870 0349 05       		.byte	5
+ 871 034a D8       		.byte	-40
+ 872 034b 04       		.byte	4
+ 873 034c D9       		.byte	-39
+ 874 034d 04       		.byte	4
+ 875 034e DA       		.byte	-38
+ 876 034f 04       		.byte	4
+ 877 0350 DB       		.byte	-37
+ 878 0351 04       		.byte	4
+ 879 0352 DC       		.byte	-36
+ 880 0353 05       		.byte	5
+ 881 0354 DD       		.byte	-35
+ 882 0355 55       		.byte	85
+ 883 0356 DF       		.byte	-33
+ 884 0357 01       		.byte	1
+ 885 0358 E0       		.byte	-32
+ 886 0359 40       		.byte	64
+ 887 035a E2       		.byte	-30
+ 888 035b C0       		.byte	-64
+ 889 035c E4       		.byte	-28
+ 890 035d 40       		.byte	64
+ 891 035e E5       		.byte	-27
+ 892 035f 40       		.byte	64
+ 893 0360 E6       		.byte	-26
+ 894 0361 C0       		.byte	-64
+ 895 0362 E8       		.byte	-24
+ 896 0363 C0       		.byte	-64
+ 897 0364 EA       		.byte	-22
+ 898 0365 C0       		.byte	-64
+ 899 0366 EC       		.byte	-20
+ 900 0367 C0       		.byte	-64
+ 901 0368 EE       		.byte	-18
+ 902 0369 C0       		.byte	-64
+ 903 036a 00       		.byte	0
+ 904 036b 40       		.byte	64
+ 905 036c 09       		.byte	9
+ 906 036d 02       		.byte	2
+ 907 036e 0D       		.byte	13
+ 908 036f 80       		.byte	-128
+ 909 0370 0E       		.byte	14
+ 910 0371 20       		.byte	32
+ 911 0372 0F       		.byte	15
+ 912 0373 08       		.byte	8
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 17
+
+
+ 913 0374 10       		.byte	16
+ 914 0375 28       		.byte	40
+ 915 0376 17       		.byte	23
+ 916 0377 80       		.byte	-128
+ 917 0378 18       		.byte	24
+ 918 0379 40       		.byte	64
+ 919 037a 19       		.byte	25
+ 920 037b 04       		.byte	4
+ 921 037c 1A       		.byte	26
+ 922 037d 04       		.byte	4
+ 923 037e 1B       		.byte	27
+ 924 037f 80       		.byte	-128
+ 925 0380 1C       		.byte	28
+ 926 0381 08       		.byte	8
+ 927 0382 1D       		.byte	29
+ 928 0383 80       		.byte	-128
+ 929 0384 1E       		.byte	30
+ 930 0385 60       		.byte	96
+ 931 0386 1F       		.byte	31
+ 932 0387 40       		.byte	64
+ 933 0388 22       		.byte	34
+ 934 0389 40       		.byte	64
+ 935 038a 27       		.byte	39
+ 936 038b 08       		.byte	8
+ 937 038c 29       		.byte	41
+ 938 038d 04       		.byte	4
+ 939 038e 2F       		.byte	47
+ 940 038f 40       		.byte	64
+ 941 0390 30       		.byte	48
+ 942 0391 28       		.byte	40
+ 943 0392 31       		.byte	49
+ 944 0393 20       		.byte	32
+ 945 0394 3F       		.byte	63
+ 946 0395 80       		.byte	-128
+ 947 0396 40       		.byte	64
+ 948 0397 40       		.byte	64
+ 949 0398 41       		.byte	65
+ 950 0399 20       		.byte	32
+ 951 039a 45       		.byte	69
+ 952 039b 80       		.byte	-128
+ 953 039c 48       		.byte	72
+ 954 039d 20       		.byte	32
+ 955 039e 49       		.byte	73
+ 956 039f 01       		.byte	1
+ 957 03a0 4F       		.byte	79
+ 958 03a1 89       		.byte	-119
+ 959 03a2 50       		.byte	80
+ 960 03a3 08       		.byte	8
+ 961 03a4 57       		.byte	87
+ 962 03a5 40       		.byte	64
+ 963 03a6 59       		.byte	89
+ 964 03a7 01       		.byte	1
+ 965 03a8 5A       		.byte	90
+ 966 03a9 84       		.byte	-124
+ 967 03aa 5E       		.byte	94
+ 968 03ab 40       		.byte	64
+ 969 03ac 5F       		.byte	95
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 18
+
+
+ 970 03ad 09       		.byte	9
+ 971 03ae 71       		.byte	113
+ 972 03af 02       		.byte	2
+ 973 03b0 77       		.byte	119
+ 974 03b1 80       		.byte	-128
+ 975 03b2 88       		.byte	-120
+ 976 03b3 04       		.byte	4
+ 977 03b4 8F       		.byte	-113
+ 978 03b5 80       		.byte	-128
+ 979 03b6 AB       		.byte	-85
+ 980 03b7 02       		.byte	2
+ 981 03b8 AD       		.byte	-83
+ 982 03b9 01       		.byte	1
+ 983 03ba AE       		.byte	-82
+ 984 03bb 80       		.byte	-128
+ 985 03bc AF       		.byte	-81
+ 986 03bd 10       		.byte	16
+ 987 03be C0       		.byte	-64
+ 988 03bf 01       		.byte	1
+ 989 03c0 C2       		.byte	-62
+ 990 03c1 E8       		.byte	-24
+ 991 03c2 C4       		.byte	-60
+ 992 03c3 86       		.byte	-122
+ 993 03c4 CA       		.byte	-54
+ 994 03c5 82       		.byte	-126
+ 995 03c6 CC       		.byte	-52
+ 996 03c7 02       		.byte	2
+ 997 03c8 CE       		.byte	-50
+ 998 03c9 10       		.byte	16
+ 999 03ca D0       		.byte	-48
+ 1000 03cb 15       		.byte	21
+ 1001 03cc D2       		.byte	-46
+ 1002 03cd 10       		.byte	16
+ 1003 03ce D6       		.byte	-42
+ 1004 03cf DB       		.byte	-37
+ 1005 03d0 E8       		.byte	-24
+ 1006 03d1 05       		.byte	5
+ 1007 03d2 EC       		.byte	-20
+ 1008 03d3 08       		.byte	8
+ 1009 03d4 31       		.byte	49
+ 1010 03d5 40       		.byte	64
+ 1011 03d6 85       		.byte	-123
+ 1012 03d7 40       		.byte	64
+ 1013 03d8 CC       		.byte	-52
+ 1014 03d9 10       		.byte	16
+ 1015 03da E6       		.byte	-26
+ 1016 03db 10       		.byte	16
+ 1017 03dc 55       		.byte	85
+ 1018 03dd 01       		.byte	1
+ 1019 03de D6       		.byte	-42
+ 1020 03df 20       		.byte	32
+ 1021 03e0 A5       		.byte	-91
+ 1022 03e1 01       		.byte	1
+ 1023 03e2 A5       		.byte	-91
+ 1024 03e3 01       		.byte	1
+ 1025 03e4 87       		.byte	-121
+ 1026 03e5 01       		.byte	1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 19
+
+
+ 1027 03e6 A7       		.byte	-89
+ 1028 03e7 01       		.byte	1
+ 1029 03e8 1B       		.byte	27
+ 1030 03e9 01       		.byte	1
+ 1031 03ea A7       		.byte	-89
+ 1032 03eb 01       		.byte	1
+ 1033 03ec C6       		.byte	-58
+ 1034 03ed 08       		.byte	8
+ 1035 03ee 45       		.byte	69
+ 1036 03ef 10       		.byte	16
+ 1037 03f0 D0       		.byte	-48
+ 1038 03f1 04       		.byte	4
+ 1039 03f2 27       		.byte	39
+ 1040 03f3 04       		.byte	4
+ 1041 03f4 81       		.byte	-127
+ 1042 03f5 01       		.byte	1
+ 1043 03f6 A5       		.byte	-91
+ 1044 03f7 01       		.byte	1
+ 1045 03f8 C8       		.byte	-56
+ 1046 03f9 20       		.byte	32
+ 1047 03fa E6       		.byte	-26
+ 1048 03fb 80       		.byte	-128
+ 1049 03fc AB       		.byte	-85
+ 1050 03fd 04       		.byte	4
+ 1051 03fe E8       		.byte	-24
+ 1052 03ff 80       		.byte	-128
+ 1053 0400 58       		.byte	88
+ 1054 0401 08       		.byte	8
+ 1055 0402 62       		.byte	98
+ 1056 0403 01       		.byte	1
+ 1057 0404 65       		.byte	101
+ 1058 0405 40       		.byte	64
+ 1059 0406 67       		.byte	103
+ 1060 0407 40       		.byte	64
+ 1061 0408 A5       		.byte	-91
+ 1062 0409 10       		.byte	16
+ 1063 040a D6       		.byte	-42
+ 1064 040b 03       		.byte	3
+ 1065 040c D8       		.byte	-40
+ 1066 040d 03       		.byte	3
+ 1067 040e 8B       		.byte	-117
+ 1068 040f 40       		.byte	64
+ 1069 0410 8C       		.byte	-116
+ 1070 0411 08       		.byte	8
+ 1071 0412 97       		.byte	-105
+ 1072 0413 40       		.byte	64
+ 1073 0414 9C       		.byte	-100
+ 1074 0415 08       		.byte	8
+ 1075 0416 A9       		.byte	-87
+ 1076 0417 10       		.byte	16
+ 1077 0418 AA       		.byte	-86
+ 1078 0419 01       		.byte	1
+ 1079 041a AD       		.byte	-83
+ 1080 041b 40       		.byte	64
+ 1081 041c E0       		.byte	-32
+ 1082 041d 06       		.byte	6
+ 1083 041e 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 20
+
+
+ 1084 041f 0A       		.byte	10
+ 1085 0420 0C       		.byte	12
+ 1086 0421 0A       		.byte	10
+ 1087 0422 10       		.byte	16
+ 1088 0423 3E       		.byte	62
+ 1089 0424 1C       		.byte	28
+ 1090 0425 3E       		.byte	62
+ 1091 0426 00       		.byte	0
+ 1092 0427 03       		.byte	3
+ 1093 0428 02       		.byte	2
+ 1094 0429 00       		.byte	0
+ 1095 042a 00       		.byte	0
+ 1096 042b 02       		.byte	2
+ 1097 042c 02       		.byte	2
+ 1098 042d 00       		.byte	0
+ 1099 042e 02       		.byte	2
+ 1100 042f 00       		.byte	0
+ 1101 0430 00       		.byte	0
+ 1102 0431 00       		.byte	0
+ 1103 0432 00       		.byte	0
+ 1104 0433 00       		.byte	0
+ 1105 0434 04       		.byte	4
+ 1106 0435 FB       		.byte	-5
+ 1107 0436 FB       		.byte	-5
+ 1108 0437 00       		.byte	0
+ 1109 0438 F0       		.byte	-16
+ 1110 0439 00       		.byte	0
+ 1111 043a 00       		.byte	0
+ 1112 043b 00       		.byte	0
+ 1113 043c 04       		.byte	4
+ 1114 043d 00       		.byte	0
+ 1115 043e 00       		.byte	0
+ 1116 043f 04       		.byte	4
+ 1117 0440 00       		.byte	0
+ 1118 0441 00       		.byte	0
+ 1119 0442 00       		.byte	0
+ 1120 0443 00       		.byte	0
+ 1121 0444 01       		.byte	1
+ 1122 0445 00       		.byte	0
+ 1123 0446 00       		.byte	0
+ 1124 0447 00       		.byte	0
+ 1125              		.section	.cywolatch,"a",%progbits
+ 1126              		.align	2
+ 1127              		.type	cy_meta_wonvl, %object
+ 1128              		.size	cy_meta_wonvl, 4
+ 1129              	cy_meta_wonvl:
+ 1130 0000 BC       		.byte	-68
+ 1131 0001 90       		.byte	-112
+ 1132 0002 AC       		.byte	-84
+ 1133 0003 AF       		.byte	-81
+ 1134              		.section	.cycustnvl,"a",%progbits
+ 1135              		.align	2
+ 1136              		.type	cy_meta_custnvl, %object
+ 1137              		.size	cy_meta_custnvl, 4
+ 1138              	cy_meta_custnvl:
+ 1139 0000 00       		.byte	0
+ 1140 0001 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 21
+
+
+ 1141 0002 40       		.byte	64
+ 1142 0003 05       		.byte	5
+ 1143              		.section	.cymeta,"a",%progbits
+ 1144              		.align	2
+ 1145              		.type	cy_metadata, %object
+ 1146              		.size	cy_metadata, 12
+ 1147              	cy_metadata:
+ 1148 0000 00       		.byte	0
+ 1149 0001 01       		.byte	1
+ 1150 0002 2E       		.byte	46
+ 1151 0003 16       		.byte	22
+ 1152 0004 10       		.byte	16
+ 1153 0005 69       		.byte	105
+ 1154 0006 00       		.byte	0
+ 1155 0007 01       		.byte	1
+ 1156 0008 00       		.byte	0
+ 1157 0009 00       		.byte	0
+ 1158 000a 00       		.byte	0
+ 1159 000b 00       		.byte	0
+ 1160              		.section	.cyflashprotect,"a",%progbits
+ 1161              		.align	2
+ 1162              		.type	cy_meta_flashprotect, %object
+ 1163              		.size	cy_meta_flashprotect, 256
+ 1164              	cy_meta_flashprotect:
+ 1165 0000 00000000 		.space	256
+ 1165      00000000 
+ 1165      00000000 
+ 1165      00000000 
+ 1165      00000000 
+ 1166              		.text
+ 1167              	.Letext0:
+ 1168              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1169              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1170              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 1171              		.section	.debug_info,"",%progbits
+ 1172              	.Ldebug_info0:
+ 1173 0000 31010000 		.4byte	0x131
+ 1174 0004 0400     		.2byte	0x4
+ 1175 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1176 000a 04       		.byte	0x4
+ 1177 000b 01       		.uleb128 0x1
+ 1178 000c 74000000 		.4byte	.LASF17
+ 1179 0010 0C       		.byte	0xc
+ 1180 0011 CE010000 		.4byte	.LASF18
+ 1181 0015 0A000000 		.4byte	.LASF19
+ 1182 0019 00000000 		.4byte	.Ldebug_line0
+ 1183 001d 02       		.uleb128 0x2
+ 1184 001e 01       		.byte	0x1
+ 1185 001f 06       		.byte	0x6
+ 1186 0020 C2010000 		.4byte	.LASF0
+ 1187 0024 03       		.uleb128 0x3
+ 1188 0025 00000000 		.4byte	.LASF9
+ 1189 0029 01       		.byte	0x1
+ 1190 002a 1D       		.byte	0x1d
+ 1191 002b 2F000000 		.4byte	0x2f
+ 1192 002f 02       		.uleb128 0x2
+ 1193 0030 01       		.byte	0x1
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 22
+
+
+ 1194 0031 08       		.byte	0x8
+ 1195 0032 66000000 		.4byte	.LASF1
+ 1196 0036 02       		.uleb128 0x2
+ 1197 0037 02       		.byte	0x2
+ 1198 0038 05       		.byte	0x5
+ 1199 0039 AF010000 		.4byte	.LASF2
+ 1200 003d 02       		.uleb128 0x2
+ 1201 003e 02       		.byte	0x2
+ 1202 003f 07       		.byte	0x7
+ 1203 0040 14010000 		.4byte	.LASF3
+ 1204 0044 02       		.uleb128 0x2
+ 1205 0045 04       		.byte	0x4
+ 1206 0046 05       		.byte	0x5
+ 1207 0047 B9010000 		.4byte	.LASF4
+ 1208 004b 02       		.uleb128 0x2
+ 1209 004c 04       		.byte	0x4
+ 1210 004d 07       		.byte	0x7
+ 1211 004e 02010000 		.4byte	.LASF5
+ 1212 0052 02       		.uleb128 0x2
+ 1213 0053 08       		.byte	0x8
+ 1214 0054 05       		.byte	0x5
+ 1215 0055 A1010000 		.4byte	.LASF6
+ 1216 0059 02       		.uleb128 0x2
+ 1217 005a 08       		.byte	0x8
+ 1218 005b 07       		.byte	0x7
+ 1219 005c 56010000 		.4byte	.LASF7
+ 1220 0060 04       		.uleb128 0x4
+ 1221 0061 04       		.byte	0x4
+ 1222 0062 05       		.byte	0x5
+ 1223 0063 696E7400 		.ascii	"int\000"
+ 1224 0067 02       		.uleb128 0x2
+ 1225 0068 04       		.byte	0x4
+ 1226 0069 07       		.byte	0x7
+ 1227 006a 49010000 		.4byte	.LASF8
+ 1228 006e 03       		.uleb128 0x3
+ 1229 006f 6D010000 		.4byte	.LASF10
+ 1230 0073 02       		.byte	0x2
+ 1231 0074 18       		.byte	0x18
+ 1232 0075 24000000 		.4byte	0x24
+ 1233 0079 05       		.uleb128 0x5
+ 1234 007a 91000000 		.4byte	0x91
+ 1235 007e 8A000000 		.4byte	0x8a
+ 1236 0082 06       		.uleb128 0x6
+ 1237 0083 8A000000 		.4byte	0x8a
+ 1238 0087 4704     		.2byte	0x447
+ 1239 0089 00       		.byte	0
+ 1240 008a 02       		.uleb128 0x2
+ 1241 008b 04       		.byte	0x4
+ 1242 008c 07       		.byte	0x7
+ 1243 008d 98010000 		.4byte	.LASF11
+ 1244 0091 07       		.uleb128 0x7
+ 1245 0092 6E000000 		.4byte	0x6e
+ 1246 0096 08       		.uleb128 0x8
+ 1247 0097 37010000 		.4byte	.LASF12
+ 1248 009b 03       		.byte	0x3
+ 1249 009c 1F       		.byte	0x1f
+ 1250 009d A7000000 		.4byte	0xa7
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 23
+
+
+ 1251 00a1 05       		.uleb128 0x5
+ 1252 00a2 03       		.byte	0x3
+ 1253 00a3 00000000 		.4byte	cy_meta_configecc
+ 1254 00a7 07       		.uleb128 0x7
+ 1255 00a8 79000000 		.4byte	0x79
+ 1256 00ac 05       		.uleb128 0x5
+ 1257 00ad 91000000 		.4byte	0x91
+ 1258 00b1 BC000000 		.4byte	0xbc
+ 1259 00b5 09       		.uleb128 0x9
+ 1260 00b6 8A000000 		.4byte	0x8a
+ 1261 00ba 03       		.byte	0x3
+ 1262 00bb 00       		.byte	0
+ 1263 00bc 08       		.uleb128 0x8
+ 1264 00bd 27010000 		.4byte	.LASF13
+ 1265 00c1 03       		.byte	0x3
+ 1266 00c2 B5       		.byte	0xb5
+ 1267 00c3 CD000000 		.4byte	0xcd
+ 1268 00c7 05       		.uleb128 0x5
+ 1269 00c8 03       		.byte	0x3
+ 1270 00c9 00000000 		.4byte	cy_meta_custnvl
+ 1271 00cd 07       		.uleb128 0x7
+ 1272 00ce AC000000 		.4byte	0xac
+ 1273 00d2 08       		.uleb128 0x8
+ 1274 00d3 8A010000 		.4byte	.LASF14
+ 1275 00d7 03       		.byte	0x3
+ 1276 00d8 C3       		.byte	0xc3
+ 1277 00d9 E3000000 		.4byte	0xe3
+ 1278 00dd 05       		.uleb128 0x5
+ 1279 00de 03       		.byte	0x3
+ 1280 00df 00000000 		.4byte	cy_meta_wonvl
+ 1281 00e3 07       		.uleb128 0x7
+ 1282 00e4 AC000000 		.4byte	0xac
+ 1283 00e8 05       		.uleb128 0x5
+ 1284 00e9 91000000 		.4byte	0x91
+ 1285 00ed F8000000 		.4byte	0xf8
+ 1286 00f1 09       		.uleb128 0x9
+ 1287 00f2 8A000000 		.4byte	0x8a
+ 1288 00f6 FF       		.byte	0xff
+ 1289 00f7 00       		.byte	0
+ 1290 00f8 08       		.uleb128 0x8
+ 1291 00f9 75010000 		.4byte	.LASF15
+ 1292 00fd 03       		.byte	0x3
+ 1293 00fe D1       		.byte	0xd1
+ 1294 00ff 09010000 		.4byte	0x109
+ 1295 0103 05       		.uleb128 0x5
+ 1296 0104 03       		.byte	0x3
+ 1297 0105 00000000 		.4byte	cy_meta_flashprotect
+ 1298 0109 07       		.uleb128 0x7
+ 1299 010a E8000000 		.4byte	0xe8
+ 1300 010e 05       		.uleb128 0x5
+ 1301 010f 91000000 		.4byte	0x91
+ 1302 0113 1E010000 		.4byte	0x11e
+ 1303 0117 09       		.uleb128 0x9
+ 1304 0118 8A000000 		.4byte	0x8a
+ 1305 011c 0B       		.byte	0xb
+ 1306 011d 00       		.byte	0
+ 1307 011e 08       		.uleb128 0x8
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 24
+
+
+ 1308 011f 5A000000 		.4byte	.LASF16
+ 1309 0123 03       		.byte	0x3
+ 1310 0124 FE       		.byte	0xfe
+ 1311 0125 2F010000 		.4byte	0x12f
+ 1312 0129 05       		.uleb128 0x5
+ 1313 012a 03       		.byte	0x3
+ 1314 012b 00000000 		.4byte	cy_metadata
+ 1315 012f 07       		.uleb128 0x7
+ 1316 0130 0E010000 		.4byte	0x10e
+ 1317 0134 00       		.byte	0
+ 1318              		.section	.debug_abbrev,"",%progbits
+ 1319              	.Ldebug_abbrev0:
+ 1320 0000 01       		.uleb128 0x1
+ 1321 0001 11       		.uleb128 0x11
+ 1322 0002 01       		.byte	0x1
+ 1323 0003 25       		.uleb128 0x25
+ 1324 0004 0E       		.uleb128 0xe
+ 1325 0005 13       		.uleb128 0x13
+ 1326 0006 0B       		.uleb128 0xb
+ 1327 0007 03       		.uleb128 0x3
+ 1328 0008 0E       		.uleb128 0xe
+ 1329 0009 1B       		.uleb128 0x1b
+ 1330 000a 0E       		.uleb128 0xe
+ 1331 000b 10       		.uleb128 0x10
+ 1332 000c 17       		.uleb128 0x17
+ 1333 000d 00       		.byte	0
+ 1334 000e 00       		.byte	0
+ 1335 000f 02       		.uleb128 0x2
+ 1336 0010 24       		.uleb128 0x24
+ 1337 0011 00       		.byte	0
+ 1338 0012 0B       		.uleb128 0xb
+ 1339 0013 0B       		.uleb128 0xb
+ 1340 0014 3E       		.uleb128 0x3e
+ 1341 0015 0B       		.uleb128 0xb
+ 1342 0016 03       		.uleb128 0x3
+ 1343 0017 0E       		.uleb128 0xe
+ 1344 0018 00       		.byte	0
+ 1345 0019 00       		.byte	0
+ 1346 001a 03       		.uleb128 0x3
+ 1347 001b 16       		.uleb128 0x16
+ 1348 001c 00       		.byte	0
+ 1349 001d 03       		.uleb128 0x3
+ 1350 001e 0E       		.uleb128 0xe
+ 1351 001f 3A       		.uleb128 0x3a
+ 1352 0020 0B       		.uleb128 0xb
+ 1353 0021 3B       		.uleb128 0x3b
+ 1354 0022 0B       		.uleb128 0xb
+ 1355 0023 49       		.uleb128 0x49
+ 1356 0024 13       		.uleb128 0x13
+ 1357 0025 00       		.byte	0
+ 1358 0026 00       		.byte	0
+ 1359 0027 04       		.uleb128 0x4
+ 1360 0028 24       		.uleb128 0x24
+ 1361 0029 00       		.byte	0
+ 1362 002a 0B       		.uleb128 0xb
+ 1363 002b 0B       		.uleb128 0xb
+ 1364 002c 3E       		.uleb128 0x3e
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 25
+
+
+ 1365 002d 0B       		.uleb128 0xb
+ 1366 002e 03       		.uleb128 0x3
+ 1367 002f 08       		.uleb128 0x8
+ 1368 0030 00       		.byte	0
+ 1369 0031 00       		.byte	0
+ 1370 0032 05       		.uleb128 0x5
+ 1371 0033 01       		.uleb128 0x1
+ 1372 0034 01       		.byte	0x1
+ 1373 0035 49       		.uleb128 0x49
+ 1374 0036 13       		.uleb128 0x13
+ 1375 0037 01       		.uleb128 0x1
+ 1376 0038 13       		.uleb128 0x13
+ 1377 0039 00       		.byte	0
+ 1378 003a 00       		.byte	0
+ 1379 003b 06       		.uleb128 0x6
+ 1380 003c 21       		.uleb128 0x21
+ 1381 003d 00       		.byte	0
+ 1382 003e 49       		.uleb128 0x49
+ 1383 003f 13       		.uleb128 0x13
+ 1384 0040 2F       		.uleb128 0x2f
+ 1385 0041 05       		.uleb128 0x5
+ 1386 0042 00       		.byte	0
+ 1387 0043 00       		.byte	0
+ 1388 0044 07       		.uleb128 0x7
+ 1389 0045 26       		.uleb128 0x26
+ 1390 0046 00       		.byte	0
+ 1391 0047 49       		.uleb128 0x49
+ 1392 0048 13       		.uleb128 0x13
+ 1393 0049 00       		.byte	0
+ 1394 004a 00       		.byte	0
+ 1395 004b 08       		.uleb128 0x8
+ 1396 004c 34       		.uleb128 0x34
+ 1397 004d 00       		.byte	0
+ 1398 004e 03       		.uleb128 0x3
+ 1399 004f 0E       		.uleb128 0xe
+ 1400 0050 3A       		.uleb128 0x3a
+ 1401 0051 0B       		.uleb128 0xb
+ 1402 0052 3B       		.uleb128 0x3b
+ 1403 0053 0B       		.uleb128 0xb
+ 1404 0054 49       		.uleb128 0x49
+ 1405 0055 13       		.uleb128 0x13
+ 1406 0056 3F       		.uleb128 0x3f
+ 1407 0057 19       		.uleb128 0x19
+ 1408 0058 02       		.uleb128 0x2
+ 1409 0059 18       		.uleb128 0x18
+ 1410 005a 00       		.byte	0
+ 1411 005b 00       		.byte	0
+ 1412 005c 09       		.uleb128 0x9
+ 1413 005d 21       		.uleb128 0x21
+ 1414 005e 00       		.byte	0
+ 1415 005f 49       		.uleb128 0x49
+ 1416 0060 13       		.uleb128 0x13
+ 1417 0061 2F       		.uleb128 0x2f
+ 1418 0062 0B       		.uleb128 0xb
+ 1419 0063 00       		.byte	0
+ 1420 0064 00       		.byte	0
+ 1421 0065 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 26
+
+
+ 1422              		.section	.debug_aranges,"",%progbits
+ 1423 0000 14000000 		.4byte	0x14
+ 1424 0004 0200     		.2byte	0x2
+ 1425 0006 00000000 		.4byte	.Ldebug_info0
+ 1426 000a 04       		.byte	0x4
+ 1427 000b 00       		.byte	0
+ 1428 000c 0000     		.2byte	0
+ 1429 000e 0000     		.2byte	0
+ 1430 0010 00000000 		.4byte	0
+ 1431 0014 00000000 		.4byte	0
+ 1432              		.section	.debug_line,"",%progbits
+ 1433              	.Ldebug_line0:
+ 1434 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 1434      02003701 
+ 1434      00000201 
+ 1434      FB0E0D00 
+ 1434      01010101 
+ 1435              	.LASF9:
+ 1436 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 1436      6E74385F 
+ 1436      7400
+ 1437              	.LASF19:
+ 1438 000a 443A5C55 		.ascii	"D:\\Users\\ESTEBAN\\Desktop\\Materias\\Codigos\\Psc"
+ 1438      73657273 
+ 1438      5C455354 
+ 1438      4542414E 
+ 1438      5C446573 
+ 1439 0037 6F635C43 		.ascii	"oc\\Carrito_arcos\\carro_arcos.cydsn\000"
+ 1439      61727269 
+ 1439      746F5F61 
+ 1439      72636F73 
+ 1439      5C636172 
+ 1440              	.LASF16:
+ 1441 005a 63795F6D 		.ascii	"cy_metadata\000"
+ 1441      65746164 
+ 1441      61746100 
+ 1442              	.LASF1:
+ 1443 0066 756E7369 		.ascii	"unsigned char\000"
+ 1443      676E6564 
+ 1443      20636861 
+ 1443      7200
+ 1444              	.LASF17:
+ 1445 0074 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1445      43313120 
+ 1445      352E342E 
+ 1445      31203230 
+ 1445      31363036 
+ 1446 00a7 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1446      20726576 
+ 1446      6973696F 
+ 1446      6E203233 
+ 1446      37373135 
+ 1447 00da 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1447      66756E63 
+ 1447      74696F6E 
+ 1447      2D736563 
+ 1447      74696F6E 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 27
+
+
+ 1448              	.LASF5:
+ 1449 0102 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1449      20756E73 
+ 1449      69676E65 
+ 1449      6420696E 
+ 1449      7400
+ 1450              	.LASF3:
+ 1451 0114 73686F72 		.ascii	"short unsigned int\000"
+ 1451      7420756E 
+ 1451      7369676E 
+ 1451      65642069 
+ 1451      6E7400
+ 1452              	.LASF13:
+ 1453 0127 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 1453      6574615F 
+ 1453      63757374 
+ 1453      6E766C00 
+ 1454              	.LASF12:
+ 1455 0137 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 1455      6574615F 
+ 1455      636F6E66 
+ 1455      69676563 
+ 1455      6300
+ 1456              	.LASF8:
+ 1457 0149 756E7369 		.ascii	"unsigned int\000"
+ 1457      676E6564 
+ 1457      20696E74 
+ 1457      00
+ 1458              	.LASF7:
+ 1459 0156 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1459      206C6F6E 
+ 1459      6720756E 
+ 1459      7369676E 
+ 1459      65642069 
+ 1460              	.LASF10:
+ 1461 016d 75696E74 		.ascii	"uint8_t\000"
+ 1461      385F7400 
+ 1462              	.LASF15:
+ 1463 0175 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 1463      6574615F 
+ 1463      666C6173 
+ 1463      6870726F 
+ 1463      74656374 
+ 1464              	.LASF14:
+ 1465 018a 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 1465      6574615F 
+ 1465      776F6E76 
+ 1465      6C00
+ 1466              	.LASF11:
+ 1467 0198 73697A65 		.ascii	"sizetype\000"
+ 1467      74797065 
+ 1467      00
+ 1468              	.LASF6:
+ 1469 01a1 6C6F6E67 		.ascii	"long long int\000"
+ 1469      206C6F6E 
+ 1469      6720696E 
+ 1469      7400
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\cc3BJoBX.s 			page 28
+
+
+ 1470              	.LASF2:
+ 1471 01af 73686F72 		.ascii	"short int\000"
+ 1471      7420696E 
+ 1471      7400
+ 1472              	.LASF4:
+ 1473 01b9 6C6F6E67 		.ascii	"long int\000"
+ 1473      20696E74 
+ 1473      00
+ 1474              	.LASF0:
+ 1475 01c2 7369676E 		.ascii	"signed char\000"
+ 1475      65642063 
+ 1475      68617200 
+ 1476              	.LASF18:
+ 1477 01ce 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 1477      72617465 
+ 1477      645F536F 
+ 1477      75726365 
+ 1477      5C50536F 
+ 1478              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

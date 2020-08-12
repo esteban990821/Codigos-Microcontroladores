@@ -1,0 +1,614 @@
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJWBnsT.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Display2_Pins.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Display2_SegPort_SetDriveMode,"ax",%progbits
+  20              		.align	2
+  21              		.global	Display2_SegPort_SetDriveMode
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	Display2_SegPort_SetDriveMode, %function
+  25              	Display2_SegPort_SetDriveMode:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC5\\Display2_Pins.c"
+   1:Generated_Source\PSoC5/Display2_Pins.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/Display2_Pins.c **** * File Name: Display2_Pins.c
+   3:Generated_Source\PSoC5/Display2_Pins.c **** * Version 3.40
+   4:Generated_Source\PSoC5/Display2_Pins.c **** *
+   5:Generated_Source\PSoC5/Display2_Pins.c **** * Description:
+   6:Generated_Source\PSoC5/Display2_Pins.c **** *  This file provides the API source code for the Segment LCD Pins component.
+   7:Generated_Source\PSoC5/Display2_Pins.c **** *
+   8:Generated_Source\PSoC5/Display2_Pins.c **** * Note:
+   9:Generated_Source\PSoC5/Display2_Pins.c **** *
+  10:Generated_Source\PSoC5/Display2_Pins.c **** ********************************************************************************
+  11:Generated_Source\PSoC5/Display2_Pins.c **** * Copyright 2008-2011, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC5/Display2_Pins.c **** * You may use this file only in accordance with the license, terms, conditions,
+  13:Generated_Source\PSoC5/Display2_Pins.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  14:Generated_Source\PSoC5/Display2_Pins.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC5/Display2_Pins.c **** *******************************************************************************/
+  16:Generated_Source\PSoC5/Display2_Pins.c **** 
+  17:Generated_Source\PSoC5/Display2_Pins.c **** #include <Display2_Pins.h>
+  18:Generated_Source\PSoC5/Display2_Pins.c **** 
+  19:Generated_Source\PSoC5/Display2_Pins.c **** /*******************************************************************************
+  20:Generated_Source\PSoC5/Display2_Pins.c **** * Function Name: Display2_SegPort_SetDriveMode
+  21:Generated_Source\PSoC5/Display2_Pins.c **** ********************************************************************************
+  22:Generated_Source\PSoC5/Display2_Pins.c **** * Summary:
+  23:Generated_Source\PSoC5/Display2_Pins.c **** *  Change the drive mode on the pins of the port.
+  24:Generated_Source\PSoC5/Display2_Pins.c **** *
+  25:Generated_Source\PSoC5/Display2_Pins.c **** * Parameters:
+  26:Generated_Source\PSoC5/Display2_Pins.c **** *  mode: Changes the pins to this drive mode.
+  27:Generated_Source\PSoC5/Display2_Pins.c **** *
+  28:Generated_Source\PSoC5/Display2_Pins.c **** * Return:
+  29:Generated_Source\PSoC5/Display2_Pins.c **** *  void
+  30:Generated_Source\PSoC5/Display2_Pins.c **** *
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJWBnsT.s 			page 2
+
+
+  31:Generated_Source\PSoC5/Display2_Pins.c **** *******************************************************************************/
+  32:Generated_Source\PSoC5/Display2_Pins.c **** void Display2_SegPort_SetDriveMode(uint8 mode) 
+  33:Generated_Source\PSoC5/Display2_Pins.c **** {
+  28              		.loc 1 33 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  34:Generated_Source\PSoC5/Display2_Pins.c ****     CyPins_SetPinDriveMode(Display2_SegPort_0, mode);
+  34              		.loc 1 34 0
+  35 0000 164A     		ldr	r2, .L2
+  36 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  37 0004 00F00E00 		and	r0, r0, #14
+  38              	.LVL1:
+  39 0008 03F0F103 		and	r3, r3, #241
+  40 000c 0343     		orrs	r3, r3, r0
+  41 000e 1370     		strb	r3, [r2]
+  35:Generated_Source\PSoC5/Display2_Pins.c ****     CyPins_SetPinDriveMode(Display2_SegPort_1, mode);
+  42              		.loc 1 35 0
+  43 0010 0132     		adds	r2, r2, #1
+  44 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  45 0014 03F0F103 		and	r3, r3, #241
+  46 0018 0343     		orrs	r3, r3, r0
+  47 001a 1370     		strb	r3, [r2]
+  36:Generated_Source\PSoC5/Display2_Pins.c ****     CyPins_SetPinDriveMode(Display2_SegPort_2, mode);
+  48              		.loc 1 36 0
+  49 001c 0132     		adds	r2, r2, #1
+  50 001e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  51 0020 03F0F103 		and	r3, r3, #241
+  52 0024 0343     		orrs	r3, r3, r0
+  53 0026 1370     		strb	r3, [r2]
+  37:Generated_Source\PSoC5/Display2_Pins.c ****     CyPins_SetPinDriveMode(Display2_SegPort_3, mode);
+  54              		.loc 1 37 0
+  55 0028 0132     		adds	r2, r2, #1
+  56 002a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  57 002c 03F0F103 		and	r3, r3, #241
+  58 0030 0343     		orrs	r3, r3, r0
+  59 0032 1370     		strb	r3, [r2]
+  38:Generated_Source\PSoC5/Display2_Pins.c ****     CyPins_SetPinDriveMode(Display2_SegPort_4, mode);
+  60              		.loc 1 38 0
+  61 0034 0132     		adds	r2, r2, #1
+  62 0036 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  63 0038 03F0F103 		and	r3, r3, #241
+  64 003c 0343     		orrs	r3, r3, r0
+  65 003e 1370     		strb	r3, [r2]
+  39:Generated_Source\PSoC5/Display2_Pins.c ****     CyPins_SetPinDriveMode(Display2_SegPort_5, mode);
+  66              		.loc 1 39 0
+  67 0040 0132     		adds	r2, r2, #1
+  68 0042 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  69 0044 03F0F103 		and	r3, r3, #241
+  70 0048 0343     		orrs	r3, r3, r0
+  71 004a 1370     		strb	r3, [r2]
+  40:Generated_Source\PSoC5/Display2_Pins.c ****     CyPins_SetPinDriveMode(Display2_SegPort_6, mode);
+  72              		.loc 1 40 0
+  73 004c 0132     		adds	r2, r2, #1
+  74 004e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJWBnsT.s 			page 3
+
+
+  75 0050 03F0F103 		and	r3, r3, #241
+  76 0054 1843     		orrs	r0, r0, r3
+  77 0056 1070     		strb	r0, [r2]
+  78 0058 7047     		bx	lr
+  79              	.L3:
+  80 005a 00BF     		.align	2
+  81              	.L2:
+  82 005c 01500040 		.word	1073762305
+  83              		.cfi_endproc
+  84              	.LFE0:
+  85              		.size	Display2_SegPort_SetDriveMode, .-Display2_SegPort_SetDriveMode
+  86              		.section	.text.Display2_ComPort_SetDriveMode,"ax",%progbits
+  87              		.align	2
+  88              		.global	Display2_ComPort_SetDriveMode
+  89              		.thumb
+  90              		.thumb_func
+  91              		.type	Display2_ComPort_SetDriveMode, %function
+  92              	Display2_ComPort_SetDriveMode:
+  93              	.LFB1:
+  41:Generated_Source\PSoC5/Display2_Pins.c **** }
+  42:Generated_Source\PSoC5/Display2_Pins.c **** 
+  43:Generated_Source\PSoC5/Display2_Pins.c **** /*******************************************************************************
+  44:Generated_Source\PSoC5/Display2_Pins.c **** * Function Name: Display2_ComPort_SetDriveMode
+  45:Generated_Source\PSoC5/Display2_Pins.c **** ********************************************************************************
+  46:Generated_Source\PSoC5/Display2_Pins.c **** * Summary:
+  47:Generated_Source\PSoC5/Display2_Pins.c **** *  Change the drive mode on the pins of the port.
+  48:Generated_Source\PSoC5/Display2_Pins.c **** *
+  49:Generated_Source\PSoC5/Display2_Pins.c **** * Parameters:
+  50:Generated_Source\PSoC5/Display2_Pins.c **** *  mode: Changes the pins to this drive mode.
+  51:Generated_Source\PSoC5/Display2_Pins.c **** *
+  52:Generated_Source\PSoC5/Display2_Pins.c **** * Return:
+  53:Generated_Source\PSoC5/Display2_Pins.c **** *  void
+  54:Generated_Source\PSoC5/Display2_Pins.c **** *
+  55:Generated_Source\PSoC5/Display2_Pins.c **** *******************************************************************************/
+  56:Generated_Source\PSoC5/Display2_Pins.c **** void Display2_ComPort_SetDriveMode(uint8 mode) 
+  57:Generated_Source\PSoC5/Display2_Pins.c **** {
+  94              		.loc 1 57 0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 0
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98              		@ link register save eliminated.
+  99              	.LVL2:
+  58:Generated_Source\PSoC5/Display2_Pins.c ****     CyPins_SetPinDriveMode(Display2_ComPort_0, mode);
+ 100              		.loc 1 58 0
+ 101 0000 044A     		ldr	r2, .L5
+ 102 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 103 0004 03F0F103 		and	r3, r3, #241
+ 104 0008 00F00E00 		and	r0, r0, #14
+ 105              	.LVL3:
+ 106 000c 1843     		orrs	r0, r0, r3
+ 107 000e 1070     		strb	r0, [r2]
+ 108 0010 7047     		bx	lr
+ 109              	.L6:
+ 110 0012 00BF     		.align	2
+ 111              	.L5:
+ 112 0014 00500040 		.word	1073762304
+ 113              		.cfi_endproc
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJWBnsT.s 			page 4
+
+
+ 114              	.LFE1:
+ 115              		.size	Display2_ComPort_SetDriveMode, .-Display2_ComPort_SetDriveMode
+ 116              		.text
+ 117              	.Letext0:
+ 118              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
+ 119              		.section	.debug_info,"",%progbits
+ 120              	.Ldebug_info0:
+ 121 0000 E0000000 		.4byte	0xe0
+ 122 0004 0400     		.2byte	0x4
+ 123 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 124 000a 04       		.byte	0x4
+ 125 000b 01       		.uleb128 0x1
+ 126 000c 3B000000 		.4byte	.LASF15
+ 127 0010 0C       		.byte	0xc
+ 128 0011 B8010000 		.4byte	.LASF16
+ 129 0015 31010000 		.4byte	.LASF17
+ 130 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 131 001d 00000000 		.4byte	0
+ 132 0021 00000000 		.4byte	.Ldebug_line0
+ 133 0025 02       		.uleb128 0x2
+ 134 0026 01       		.byte	0x1
+ 135 0027 06       		.byte	0x6
+ 136 0028 DF010000 		.4byte	.LASF0
+ 137 002c 02       		.uleb128 0x2
+ 138 002d 01       		.byte	0x1
+ 139 002e 08       		.byte	0x8
+ 140 002f 2D000000 		.4byte	.LASF1
+ 141 0033 02       		.uleb128 0x2
+ 142 0034 02       		.byte	0x2
+ 143 0035 05       		.byte	0x5
+ 144 0036 A8010000 		.4byte	.LASF2
+ 145 003a 02       		.uleb128 0x2
+ 146 003b 02       		.byte	0x2
+ 147 003c 07       		.byte	0x7
+ 148 003d E0000000 		.4byte	.LASF3
+ 149 0041 02       		.uleb128 0x2
+ 150 0042 04       		.byte	0x4
+ 151 0043 05       		.byte	0x5
+ 152 0044 1E000000 		.4byte	.LASF4
+ 153 0048 02       		.uleb128 0x2
+ 154 0049 04       		.byte	0x4
+ 155 004a 07       		.byte	0x7
+ 156 004b CE000000 		.4byte	.LASF5
+ 157 004f 02       		.uleb128 0x2
+ 158 0050 08       		.byte	0x8
+ 159 0051 05       		.byte	0x5
+ 160 0052 23010000 		.4byte	.LASF6
+ 161 0056 02       		.uleb128 0x2
+ 162 0057 08       		.byte	0x8
+ 163 0058 07       		.byte	0x7
+ 164 0059 07010000 		.4byte	.LASF7
+ 165 005d 03       		.uleb128 0x3
+ 166 005e 04       		.byte	0x4
+ 167 005f 05       		.byte	0x5
+ 168 0060 696E7400 		.ascii	"int\000"
+ 169 0064 02       		.uleb128 0x2
+ 170 0065 04       		.byte	0x4
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJWBnsT.s 			page 5
+
+
+ 171 0066 07       		.byte	0x7
+ 172 0067 FA000000 		.4byte	.LASF8
+ 173 006b 04       		.uleb128 0x4
+ 174 006c B2010000 		.4byte	.LASF12
+ 175 0070 02       		.byte	0x2
+ 176 0071 E401     		.2byte	0x1e4
+ 177 0073 2C000000 		.4byte	0x2c
+ 178 0077 02       		.uleb128 0x2
+ 179 0078 04       		.byte	0x4
+ 180 0079 04       		.byte	0x4
+ 181 007a 27000000 		.4byte	.LASF9
+ 182 007e 02       		.uleb128 0x2
+ 183 007f 08       		.byte	0x8
+ 184 0080 04       		.byte	0x4
+ 185 0081 F3000000 		.4byte	.LASF10
+ 186 0085 02       		.uleb128 0x2
+ 187 0086 01       		.byte	0x1
+ 188 0087 08       		.byte	0x8
+ 189 0088 85010000 		.4byte	.LASF11
+ 190 008c 04       		.uleb128 0x4
+ 191 008d C9000000 		.4byte	.LASF13
+ 192 0091 02       		.byte	0x2
+ 193 0092 8E02     		.2byte	0x28e
+ 194 0094 98000000 		.4byte	0x98
+ 195 0098 05       		.uleb128 0x5
+ 196 0099 6B000000 		.4byte	0x6b
+ 197 009d 06       		.uleb128 0x6
+ 198 009e 00000000 		.4byte	.LASF18
+ 199 00a2 01       		.byte	0x1
+ 200 00a3 20       		.byte	0x20
+ 201 00a4 00000000 		.4byte	.LFB0
+ 202 00a8 60000000 		.4byte	.LFE0-.LFB0
+ 203 00ac 01       		.uleb128 0x1
+ 204 00ad 9C       		.byte	0x9c
+ 205 00ae C2000000 		.4byte	0xc2
+ 206 00b2 07       		.uleb128 0x7
+ 207 00b3 1E010000 		.4byte	.LASF14
+ 208 00b7 01       		.byte	0x1
+ 209 00b8 20       		.byte	0x20
+ 210 00b9 6B000000 		.4byte	0x6b
+ 211 00bd 00000000 		.4byte	.LLST0
+ 212 00c1 00       		.byte	0
+ 213 00c2 08       		.uleb128 0x8
+ 214 00c3 8A010000 		.4byte	.LASF19
+ 215 00c7 01       		.byte	0x1
+ 216 00c8 38       		.byte	0x38
+ 217 00c9 00000000 		.4byte	.LFB1
+ 218 00cd 18000000 		.4byte	.LFE1-.LFB1
+ 219 00d1 01       		.uleb128 0x1
+ 220 00d2 9C       		.byte	0x9c
+ 221 00d3 07       		.uleb128 0x7
+ 222 00d4 1E010000 		.4byte	.LASF14
+ 223 00d8 01       		.byte	0x1
+ 224 00d9 38       		.byte	0x38
+ 225 00da 6B000000 		.4byte	0x6b
+ 226 00de 21000000 		.4byte	.LLST1
+ 227 00e2 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJWBnsT.s 			page 6
+
+
+ 228 00e3 00       		.byte	0
+ 229              		.section	.debug_abbrev,"",%progbits
+ 230              	.Ldebug_abbrev0:
+ 231 0000 01       		.uleb128 0x1
+ 232 0001 11       		.uleb128 0x11
+ 233 0002 01       		.byte	0x1
+ 234 0003 25       		.uleb128 0x25
+ 235 0004 0E       		.uleb128 0xe
+ 236 0005 13       		.uleb128 0x13
+ 237 0006 0B       		.uleb128 0xb
+ 238 0007 03       		.uleb128 0x3
+ 239 0008 0E       		.uleb128 0xe
+ 240 0009 1B       		.uleb128 0x1b
+ 241 000a 0E       		.uleb128 0xe
+ 242 000b 55       		.uleb128 0x55
+ 243 000c 17       		.uleb128 0x17
+ 244 000d 11       		.uleb128 0x11
+ 245 000e 01       		.uleb128 0x1
+ 246 000f 10       		.uleb128 0x10
+ 247 0010 17       		.uleb128 0x17
+ 248 0011 00       		.byte	0
+ 249 0012 00       		.byte	0
+ 250 0013 02       		.uleb128 0x2
+ 251 0014 24       		.uleb128 0x24
+ 252 0015 00       		.byte	0
+ 253 0016 0B       		.uleb128 0xb
+ 254 0017 0B       		.uleb128 0xb
+ 255 0018 3E       		.uleb128 0x3e
+ 256 0019 0B       		.uleb128 0xb
+ 257 001a 03       		.uleb128 0x3
+ 258 001b 0E       		.uleb128 0xe
+ 259 001c 00       		.byte	0
+ 260 001d 00       		.byte	0
+ 261 001e 03       		.uleb128 0x3
+ 262 001f 24       		.uleb128 0x24
+ 263 0020 00       		.byte	0
+ 264 0021 0B       		.uleb128 0xb
+ 265 0022 0B       		.uleb128 0xb
+ 266 0023 3E       		.uleb128 0x3e
+ 267 0024 0B       		.uleb128 0xb
+ 268 0025 03       		.uleb128 0x3
+ 269 0026 08       		.uleb128 0x8
+ 270 0027 00       		.byte	0
+ 271 0028 00       		.byte	0
+ 272 0029 04       		.uleb128 0x4
+ 273 002a 16       		.uleb128 0x16
+ 274 002b 00       		.byte	0
+ 275 002c 03       		.uleb128 0x3
+ 276 002d 0E       		.uleb128 0xe
+ 277 002e 3A       		.uleb128 0x3a
+ 278 002f 0B       		.uleb128 0xb
+ 279 0030 3B       		.uleb128 0x3b
+ 280 0031 05       		.uleb128 0x5
+ 281 0032 49       		.uleb128 0x49
+ 282 0033 13       		.uleb128 0x13
+ 283 0034 00       		.byte	0
+ 284 0035 00       		.byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJWBnsT.s 			page 7
+
+
+ 285 0036 05       		.uleb128 0x5
+ 286 0037 35       		.uleb128 0x35
+ 287 0038 00       		.byte	0
+ 288 0039 49       		.uleb128 0x49
+ 289 003a 13       		.uleb128 0x13
+ 290 003b 00       		.byte	0
+ 291 003c 00       		.byte	0
+ 292 003d 06       		.uleb128 0x6
+ 293 003e 2E       		.uleb128 0x2e
+ 294 003f 01       		.byte	0x1
+ 295 0040 3F       		.uleb128 0x3f
+ 296 0041 19       		.uleb128 0x19
+ 297 0042 03       		.uleb128 0x3
+ 298 0043 0E       		.uleb128 0xe
+ 299 0044 3A       		.uleb128 0x3a
+ 300 0045 0B       		.uleb128 0xb
+ 301 0046 3B       		.uleb128 0x3b
+ 302 0047 0B       		.uleb128 0xb
+ 303 0048 27       		.uleb128 0x27
+ 304 0049 19       		.uleb128 0x19
+ 305 004a 11       		.uleb128 0x11
+ 306 004b 01       		.uleb128 0x1
+ 307 004c 12       		.uleb128 0x12
+ 308 004d 06       		.uleb128 0x6
+ 309 004e 40       		.uleb128 0x40
+ 310 004f 18       		.uleb128 0x18
+ 311 0050 9742     		.uleb128 0x2117
+ 312 0052 19       		.uleb128 0x19
+ 313 0053 01       		.uleb128 0x1
+ 314 0054 13       		.uleb128 0x13
+ 315 0055 00       		.byte	0
+ 316 0056 00       		.byte	0
+ 317 0057 07       		.uleb128 0x7
+ 318 0058 05       		.uleb128 0x5
+ 319 0059 00       		.byte	0
+ 320 005a 03       		.uleb128 0x3
+ 321 005b 0E       		.uleb128 0xe
+ 322 005c 3A       		.uleb128 0x3a
+ 323 005d 0B       		.uleb128 0xb
+ 324 005e 3B       		.uleb128 0x3b
+ 325 005f 0B       		.uleb128 0xb
+ 326 0060 49       		.uleb128 0x49
+ 327 0061 13       		.uleb128 0x13
+ 328 0062 02       		.uleb128 0x2
+ 329 0063 17       		.uleb128 0x17
+ 330 0064 00       		.byte	0
+ 331 0065 00       		.byte	0
+ 332 0066 08       		.uleb128 0x8
+ 333 0067 2E       		.uleb128 0x2e
+ 334 0068 01       		.byte	0x1
+ 335 0069 3F       		.uleb128 0x3f
+ 336 006a 19       		.uleb128 0x19
+ 337 006b 03       		.uleb128 0x3
+ 338 006c 0E       		.uleb128 0xe
+ 339 006d 3A       		.uleb128 0x3a
+ 340 006e 0B       		.uleb128 0xb
+ 341 006f 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJWBnsT.s 			page 8
+
+
+ 342 0070 0B       		.uleb128 0xb
+ 343 0071 27       		.uleb128 0x27
+ 344 0072 19       		.uleb128 0x19
+ 345 0073 11       		.uleb128 0x11
+ 346 0074 01       		.uleb128 0x1
+ 347 0075 12       		.uleb128 0x12
+ 348 0076 06       		.uleb128 0x6
+ 349 0077 40       		.uleb128 0x40
+ 350 0078 18       		.uleb128 0x18
+ 351 0079 9742     		.uleb128 0x2117
+ 352 007b 19       		.uleb128 0x19
+ 353 007c 00       		.byte	0
+ 354 007d 00       		.byte	0
+ 355 007e 00       		.byte	0
+ 356              		.section	.debug_loc,"",%progbits
+ 357              	.Ldebug_loc0:
+ 358              	.LLST0:
+ 359 0000 00000000 		.4byte	.LVL0
+ 360 0004 08000000 		.4byte	.LVL1
+ 361 0008 0100     		.2byte	0x1
+ 362 000a 50       		.byte	0x50
+ 363 000b 08000000 		.4byte	.LVL1
+ 364 000f 60000000 		.4byte	.LFE0
+ 365 0013 0400     		.2byte	0x4
+ 366 0015 F3       		.byte	0xf3
+ 367 0016 01       		.uleb128 0x1
+ 368 0017 50       		.byte	0x50
+ 369 0018 9F       		.byte	0x9f
+ 370 0019 00000000 		.4byte	0
+ 371 001d 00000000 		.4byte	0
+ 372              	.LLST1:
+ 373 0021 00000000 		.4byte	.LVL2
+ 374 0025 0C000000 		.4byte	.LVL3
+ 375 0029 0100     		.2byte	0x1
+ 376 002b 50       		.byte	0x50
+ 377 002c 0C000000 		.4byte	.LVL3
+ 378 0030 18000000 		.4byte	.LFE1
+ 379 0034 0400     		.2byte	0x4
+ 380 0036 F3       		.byte	0xf3
+ 381 0037 01       		.uleb128 0x1
+ 382 0038 50       		.byte	0x50
+ 383 0039 9F       		.byte	0x9f
+ 384 003a 00000000 		.4byte	0
+ 385 003e 00000000 		.4byte	0
+ 386              		.section	.debug_aranges,"",%progbits
+ 387 0000 24000000 		.4byte	0x24
+ 388 0004 0200     		.2byte	0x2
+ 389 0006 00000000 		.4byte	.Ldebug_info0
+ 390 000a 04       		.byte	0x4
+ 391 000b 00       		.byte	0
+ 392 000c 0000     		.2byte	0
+ 393 000e 0000     		.2byte	0
+ 394 0010 00000000 		.4byte	.LFB0
+ 395 0014 60000000 		.4byte	.LFE0-.LFB0
+ 396 0018 00000000 		.4byte	.LFB1
+ 397 001c 18000000 		.4byte	.LFE1-.LFB1
+ 398 0020 00000000 		.4byte	0
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJWBnsT.s 			page 9
+
+
+ 399 0024 00000000 		.4byte	0
+ 400              		.section	.debug_ranges,"",%progbits
+ 401              	.Ldebug_ranges0:
+ 402 0000 00000000 		.4byte	.LFB0
+ 403 0004 60000000 		.4byte	.LFE0
+ 404 0008 00000000 		.4byte	.LFB1
+ 405 000c 18000000 		.4byte	.LFE1
+ 406 0010 00000000 		.4byte	0
+ 407 0014 00000000 		.4byte	0
+ 408              		.section	.debug_line,"",%progbits
+ 409              	.Ldebug_line0:
+ 410 0000 76000000 		.section	.debug_str,"MS",%progbits,1
+ 410      02004A00 
+ 410      00000201 
+ 410      FB0E0D00 
+ 410      01010101 
+ 411              	.LASF18:
+ 412 0000 44697370 		.ascii	"Display2_SegPort_SetDriveMode\000"
+ 412      6C617932 
+ 412      5F536567 
+ 412      506F7274 
+ 412      5F536574 
+ 413              	.LASF4:
+ 414 001e 6C6F6E67 		.ascii	"long int\000"
+ 414      20696E74 
+ 414      00
+ 415              	.LASF9:
+ 416 0027 666C6F61 		.ascii	"float\000"
+ 416      7400
+ 417              	.LASF1:
+ 418 002d 756E7369 		.ascii	"unsigned char\000"
+ 418      676E6564 
+ 418      20636861 
+ 418      7200
+ 419              	.LASF15:
+ 420 003b 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 420      43313120 
+ 420      352E342E 
+ 420      31203230 
+ 420      31363036 
+ 421 006e 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 421      20726576 
+ 421      6973696F 
+ 421      6E203233 
+ 421      37373135 
+ 422 00a1 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 422      66756E63 
+ 422      74696F6E 
+ 422      2D736563 
+ 422      74696F6E 
+ 423              	.LASF13:
+ 424 00c9 72656738 		.ascii	"reg8\000"
+ 424      00
+ 425              	.LASF5:
+ 426 00ce 6C6F6E67 		.ascii	"long unsigned int\000"
+ 426      20756E73 
+ 426      69676E65 
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJWBnsT.s 			page 10
+
+
+ 426      6420696E 
+ 426      7400
+ 427              	.LASF3:
+ 428 00e0 73686F72 		.ascii	"short unsigned int\000"
+ 428      7420756E 
+ 428      7369676E 
+ 428      65642069 
+ 428      6E7400
+ 429              	.LASF10:
+ 430 00f3 646F7562 		.ascii	"double\000"
+ 430      6C6500
+ 431              	.LASF8:
+ 432 00fa 756E7369 		.ascii	"unsigned int\000"
+ 432      676E6564 
+ 432      20696E74 
+ 432      00
+ 433              	.LASF7:
+ 434 0107 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 434      206C6F6E 
+ 434      6720756E 
+ 434      7369676E 
+ 434      65642069 
+ 435              	.LASF14:
+ 436 011e 6D6F6465 		.ascii	"mode\000"
+ 436      00
+ 437              	.LASF6:
+ 438 0123 6C6F6E67 		.ascii	"long long int\000"
+ 438      206C6F6E 
+ 438      6720696E 
+ 438      7400
+ 439              	.LASF17:
+ 440 0131 443A5C55 		.ascii	"D:\\Users\\ESTEBAN\\Documents\\PSoC Creator\\Proyec"
+ 440      73657273 
+ 440      5C455354 
+ 440      4542414E 
+ 440      5C446F63 
+ 441 015f 746F5F54 		.ascii	"to_Temperatura\\Lm35_7_segmentos.cydsn\000"
+ 441      656D7065 
+ 441      72617475 
+ 441      72615C4C 
+ 441      6D33355F 
+ 442              	.LASF11:
+ 443 0185 63686172 		.ascii	"char\000"
+ 443      00
+ 444              	.LASF19:
+ 445 018a 44697370 		.ascii	"Display2_ComPort_SetDriveMode\000"
+ 445      6C617932 
+ 445      5F436F6D 
+ 445      506F7274 
+ 445      5F536574 
+ 446              	.LASF2:
+ 447 01a8 73686F72 		.ascii	"short int\000"
+ 447      7420696E 
+ 447      7400
+ 448              	.LASF12:
+ 449 01b2 75696E74 		.ascii	"uint8\000"
+ 449      3800
+ARM GAS  C:\Users\ESTEBAN\AppData\Local\Temp\ccJWBnsT.s 			page 11
+
+
+ 450              	.LASF16:
+ 451 01b8 47656E65 		.ascii	"Generated_Source\\PSoC5\\Display2_Pins.c\000"
+ 451      72617465 
+ 451      645F536F 
+ 451      75726365 
+ 451      5C50536F 
+ 452              	.LASF0:
+ 453 01df 7369676E 		.ascii	"signed char\000"
+ 453      65642063 
+ 453      68617200 
+ 454              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
