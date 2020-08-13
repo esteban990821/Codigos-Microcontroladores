@@ -1,0 +1,13 @@
+>>> Warning 203 "Matriz.c" Line 555(1,1): Condition always TRUE
+>>> Warning 216 "Matriz.c" Line 598(1,2): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
+>>> Warning 216 "Matriz.c" Line 598(1,2): Interrupts disabled during call to prevent re-entrancy:  (lcd_send_nibble)
+>>> Warning 216 "Matriz.c" Line 598(1,2): Interrupts disabled during call to prevent re-entrancy:  (lcd_send_byte)
+>>> Warning 216 "Matriz.c" Line 598(1,2): Interrupts disabled during call to prevent re-entrancy:  (lcd_gotoxy)
+>>> Warning 216 "Matriz.c" Line 598(1,2): Interrupts disabled during call to prevent re-entrancy:  (lcd_putc)
+>>> Warning 202 "Matriz.c" Line 65(13,18): Variable never used:   dato2
+>>> Warning 202 "Matriz.c" Line 67(5,12): Variable never used:   barrido
+>>> Warning 202 "Matriz.c" Line 69(5,12): Variable never used:   vector0
+>>> Warning 202 "Matriz.c" Line 70(5,8): Variable never used:   mov
+      Memory usage:   ROM=35%      RAM=20% - 32%
+      0 Errors,  10 Warnings.
+Build Successful.

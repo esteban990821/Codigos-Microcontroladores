@@ -1,0 +1,6 @@
+>>> Warning 203 "Servo Motor.c" Line 41(1,1): Condition always TRUE
+>>> Warning 203 "Servo Motor.c" Line 129(1,1): Condition always TRUE
+>>> Warning 203 "Servo Motor.c" Line 235(1,1): Condition always TRUE
+      Memory usage:   ROM=5%      RAM=0% - 0%
+      0 Errors,  3 Warnings.
+Build Successful.

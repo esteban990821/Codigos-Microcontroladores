@@ -1,0 +1,9 @@
+El instalador contiene:
+
+Driver original de Microchip, con fuentes en SDK Microsoft
+La DLL mpusbapi.dll original de Microchip para conectar con el Driver, con fuentes en Borland C++ Builder
+Algunos programas de ejemplo.
+
+Mas información en http://www.microchip.com
+
+Diego Redraven

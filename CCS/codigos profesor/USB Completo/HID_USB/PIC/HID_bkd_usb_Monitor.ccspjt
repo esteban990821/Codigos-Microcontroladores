@@ -1,0 +1,19 @@
+[PROJECT]
+Target=HID_bkd_usb_Monitor.hex
+Processor_Text=PIC18F4550
+CCSVersion=5.015
+Compiler=PCH
+[Target Data]
+FileList=HID_bkd_usb_Monitor.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[HID_bkd_usb_Monitor.c]
+Type=4
+[mru-list]
+1=HID_bkd_usb_Monitor.c
+[Opened Files]
+1=HID_bkd_usb_Monitor.c
+2=
+[Units]
+Count=1
+1=HID_bkd_usb_Monitor (main)

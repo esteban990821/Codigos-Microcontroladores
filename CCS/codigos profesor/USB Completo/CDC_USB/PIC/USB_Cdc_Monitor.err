@@ -1,0 +1,25 @@
+*** Error 18 "F:\Micros\USB Completo\CDC_USB\PIC\include\usb_cdc.h" Line 181(10,108): File can not be opened
+    Not in local ".\include\rr2_USB_Cdc_Monitor.h"
+    Not in local "F:\Micros\USB Completo\CDC_USB\PIC\.\include\rr2_USB_Cdc_Monitor.h"
+    Not in last "C:\Program Files (x86)\PICC\Drivers\.\include\rr2_USB_Cdc_Monitor.h"
+    Not in project "F:\Micros\USB Completo\CDC_USB\PIC\.\include\rr2_USB_Cdc_Monitor.h"
+    Not in "F:\Micros\USB Completo\CDC_USB\PIC\include\.\include\rr2_USB_Cdc_Monitor.h"
+    Not in "C:\Program Files (x86)\PICC\Devices\.\include\rr2_USB_Cdc_Monitor.h"
+    Not in "C:\Program Files (x86)\PICC\Drivers\.\include\rr2_USB_Cdc_Monitor.h"
+*** Error 119 "C:\Program Files (x86)\PICC\Drivers\usb.c" Line 210(10,44):  You must include USB descriptors.
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\usb.c" Line 542(20,42): Undefined identifier   USB_MAX_NUM_INTERFACES
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\usb.c" Line 542(43,44): Expecting a declaration
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\usb.c" Line 650(15,37): Undefined identifier   USB_MAX_NUM_INTERFACES
+*** Error 76 "C:\Program Files (x86)\PICC\Drivers\usb.c" Line 650(41,42): Expect ;
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\usb.c" Line 895(57,75): Undefined identifier   USB_NUM_INTERFACES
+*** Error 51 "C:\Program Files (x86)\PICC\Drivers\usb.c" Line 900(13,17): A numeric expression must appear here
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\usb.c" Line 1051(29,49): Undefined identifier   USB_TOTAL_CONFIG_LEN
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\usb.c" Line 1056(29,51): Undefined identifier   USB_STRING_DESC_OFFSET
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\usb.c" Line 1057(29,44): Undefined identifier   USB_STRING_DESC
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\usb.c" Line 1070(29,50): Undefined identifier   USB_CLASS_DESCRIPTORS
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\usb.c" Line 1072(32,47): Undefined identifier   USB_CONFIG_DESC
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\usb.c" Line 1146(15,30): Undefined identifier   USB_CONFIG_DESC
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\usb.c" Line 1156(15,30): Undefined identifier   USB_STRING_DESC
+*** Error 12 "C:\Program Files (x86)\PICC\Drivers\usb.c" Line 1160(15,30): Undefined identifier   USB_DEVICE_DESC
+      16 Errors,  0 Warnings.
+Build Failed.

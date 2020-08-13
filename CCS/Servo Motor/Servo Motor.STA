@@ -1,0 +1,45 @@
+
+ROM used:   1666/32768 (5%)
+            1666/32768 (5%) including unused fragments
+
+            1.4 Average locations per line
+            5.9 Average locations per statement
+
+RAM used:   10/2048 (0%) at main() level
+            10/2048 (0%) worst case
+
+Stack used: 1 worst case (1 in main + 0 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  329   284 100  Servo Motor.c
+  837     0   0  C:\Program Files (x86)\PICC\Devices\18f4550.H
+----- -----
+ 1166   284 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     26   1    1             @delay_ms1
+0   1636  49    1 12093  5.5  main
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               1
+    Statements              284
+    Comments                151
+    Volume (V)              12099
+    Difficulty (D)          5.5
+    Effort to implement (E) 66096
+    Time to implement (T)   1 hours, 1 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   42
+    Maintainability (MI)    30
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE  1662  31102  
+
+
+

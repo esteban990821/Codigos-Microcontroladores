@@ -1,0 +1,20 @@
+[PROJECT]
+Target=led.hex
+Processor_Text=PIC18F4550
+CCSVersion=5.015
+Compiler=PCH
+[Target Data]
+FileList=led.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[led.c]
+Type=4
+[mru-list]
+1=led.c
+[Opened Files]
+1=led.c
+2=..\codigos profesor\usb\esteban\program_cdc (1).c
+3=
+[Units]
+Count=1
+1=led (main)

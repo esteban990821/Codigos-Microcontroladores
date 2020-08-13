@@ -1,0 +1,7 @@
+>>> Warning 202 "C:\Program Files (x86)\PICC\Drivers\tones.c" Line 85(9,15): Variable never used:   Db_NOTE
+>>> Warning 202 "motor_cancion_libreria.c" Line 15(18,25): Variable never used:   temreal
+>>> Warning 202 "motor_cancion_libreria.c" Line 16(7,13): Variable never used:   cambio
+>>> Warning 202 "motor_cancion_libreria.c" Line 65(8,14): Variable never used:   tiempo
+      Memory usage:   ROM=18%      RAM=3% - 6%
+      0 Errors,  4 Warnings.
+Build Successful.

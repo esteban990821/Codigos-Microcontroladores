@@ -1,0 +1,281 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @INTERRUPT_AREA
+005     @INTERRUPT_AREA
+006     @INTERRUPT_AREA
+007     @INTERRUPT_AREA
+008     @INTERRUPT_AREA
+009     @INTERRUPT_AREA
+00A     @INTERRUPT_AREA
+00B     @INTERRUPT_AREA
+00C     @INTERRUPT_AREA
+00D     @INTERRUPT_AREA
+00E     @INTERRUPT_AREA
+00F     @INTERRUPT_AREA
+010     @INTERRUPT_AREA
+011     @INTERRUPT_AREA
+012     @INTERRUPT_AREA
+013     @INTERRUPT_AREA
+014     @INTERRUPT_AREA
+015     @INTERRUPT_AREA
+016     @INTERRUPT_AREA
+017     @INTERRUPT_AREA
+018     @INTERRUPT_AREA
+019.0   cancion1
+019.1   cancion2
+019.2   empezar
+019.3   flag
+01A     contador
+01B     CONTAM
+01C     giro
+01D     conta
+01E     conta2
+01F     contagiros
+020     temreal
+021     i
+022     cambio
+023     pos1
+024     pos2
+025-026 @sprintf_string
+027-02A atan2.y
+027     MAIN.i
+028     gir_izq.tiempo
+028     gir_der.tiempo2
+028     lcd_init.i
+028     MAIN.@SCRATCH1
+029     gir_izq.i
+029     gir_der.i
+029-02C lcd_init.LCD_INIT_STRING
+02A     @PRINTF_D_840.P1
+02A-02D @DIVFF.P2
+02A-02B generate_tone.frequency
+02A     @PSTRINGCN_840.P1
+02A     gir_izq.@SCRATCH1
+02A     @PSTRINGC_840.@SCRATCH1
+02A     gir_der.@SCRATCH1
+02B     @PRINTF_D_840.P1
+02B-02E atan2.x
+02B     gir_izq.@SCRATCH2
+02B     @PSTRINGC_840.@SCRATCH2
+02B     gir_der.@SCRATCH2
+02B     @PSTRINGCN_840.@SCRATCH1
+02C-02D generate_tone.duration
+02C     gir_izq.@SCRATCH3
+02C     @PRINTF_D_840.@SCRATCH1
+02C     gir_der.@SCRATCH3
+02C     @PSTRINGCN_840.@SCRATCH2
+02D     lcd_init.@SCRATCH1
+02D     gir_izq.@SCRATCH4
+02D     @PRINTF_D_840.@SCRATCH2
+02D     gir_der.@SCRATCH4
+02E-031 ceil.x
+02E-031 generate_tone.total_delay_time
+02E-031 @DIVFF.P1
+02E     @PRINTF_D_840.@SCRATCH3
+02F-032 atan2.z
+02F     @PRINTF_D_840.@SCRATCH4
+030     lcd_putc.c
+030     @DIV88.P1
+031     @DIV88.P1
+031     lcd_gotoxy.x
+032-033 generate_tone.total_ms_delay_time
+032     lcd_gotoxy.y
+032-035 CEIL_FLOOR.x
+032     @DIVFF.@SCRATCH1
+032     @DIV88.@SCRATCH1
+033     lcd_gotoxy.address
+033.0   atan2.sign
+033     @DIVFF.@SCRATCH2
+034-035 generate_tone.total_us_delay_time
+034     atan2.quad
+034     @DIVFF.@SCRATCH3
+034     lcd_gotoxy.@SCRATCH1
+035     lcd_send_byte.address
+035     @DIVFF.@SCRATCH4
+036     lcd_send_byte.n
+036     generate_tone.num_us_delays
+036     CEIL_FLOOR.n
+036     @DIVFF.@SCRATCH5
+037-03A CEIL_FLOOR.y
+037     generate_tone.num_ms_delays
+037     lcd_read_byte.low
+037     @DIVFF.@SCRATCH6
+037     lcd_send_byte.@SCRATCH1
+038     lcd_send_nibble.n
+038     lcd_read_byte.high
+038     generate_tone.ms_delay_time
+039     generate_tone.us_delay_time
+039     lcd_read_byte.@SCRATCH1
+03A-03B generate_tone.num_periods
+03B-03E CEIL_FLOOR.res
+03C-03D @DIV1616.P1
+03C     do_delay.ms_delay
+03C     generate_tone.@SCRATCH1
+03D     do_delay.num_ms
+03D     generate_tone.@SCRATCH2
+03E     do_delay.us_delay
+03E-03F @DIV1616.P1
+03E     generate_tone.@SCRATCH3
+03F     do_delay.num_us
+03F-040 CEIL_FLOOR.l
+03F     generate_tone.@SCRATCH4
+040-043 @MUL3232.P1
+040     do_delay.i
+040     generate_tone.@SCRATCH5
+040     @DIV1616.@SCRATCH1
+041     @delay_ms1.P1
+041     @delay_us1.P2
+041.0   CEIL_FLOOR.s
+041     generate_tone.@SCRATCH6
+042-045 @MULFF.P1
+042-045 @SFTOI.P2
+042-045 @FLT.P3
+042     CEIL_FLOOR.@SCRATCH1
+042     generate_tone.@SCRATCH7
+043     CEIL_FLOOR.@SCRATCH2
+043     generate_tone.@SCRATCH8
+044-047 @MUL3232.P1
+044-047 @DIV3232.P2
+044     CEIL_FLOOR.@SCRATCH3
+045     CEIL_FLOOR.@SCRATCH4
+046-049 @ADDFF.P1
+046-049 @MULFF.P2
+046-049 @FLT.P3
+046-047 @ITOF.P4
+048-04B @DIV3232.P1
+048     @MUL3232.@SCRATCH1
+049     @MUL3232.@SCRATCH2
+04A-04D @ADDFF.P1
+04A     @FLT.@SCRATCH1
+04A     @MULFF.@SCRATCH1
+04A     @MUL3232.@SCRATCH3
+04B     @FLT.@SCRATCH2
+04B     @MULFF.@SCRATCH2
+04B     @MUL3232.@SCRATCH4
+04C     @MULFF.@SCRATCH3
+04C     @DIV3232.@SCRATCH1
+04C     @MUL3232.@SCRATCH5
+04D     @DIV3232.@SCRATCH2
+04D     @MUL3232.@SCRATCH6
+04E     @ADDFF.@SCRATCH1
+04E     @DIV3232.@SCRATCH3
+04F     @ADDFF.@SCRATCH2
+04F     @DIV3232.@SCRATCH4
+050     @ADDFF.@SCRATCH3
+050     @DIV3232.@SCRATCH5
+051     @ADDFF.@SCRATCH4
+052     @ADDFF.@SCRATCH5
+053     @ADDFF.@SCRATCH6
+054     @ADDFF.@SCRATCH7
+055     @ADDFF.@SCRATCH8
+F83     PSP_DATA
+F83     lcd
+F8C     lcdlat
+F95     lcdtris
+FBB     CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P3
+FE9-FEA @WRITE_PACKED_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+0000AE  movimientimer
+0000F8  @goto58376
+00011C  @const875.call
+000136  @const887.call
+00013A  @const889.call
+00013C  @const890.call
+000144  @const892.call
+00015E  @const894.call
+000162  @const896.call
+000164  @const897.call
+00016C  @const898.call
+000176  @const906.call
+000178  @const907.call
+000184  @const908.call
+0001A2  @const909.call
+0001A4  @const910.call
+0001A6  @const911.call
+0001B6  @const912.call
+0001C4  @delay_ms1
+0001EC  lcd_send_nibble
+000204  lcd_read_nibble
+000210  lcd_read_byte
+00024E  lcd_send_byte
+000288  lcd_init
+0002FC  lcd_gotoxy
+00031E  lcd_putc
+00036E  @PSTRINGC_840
+00038E  @DIV88
+0003B6  @PRINTF_D_840
+000460  @ITOF
+000496  @DIVFF
+0005F0  @FLT
+000666  @SFTOI
+00069E  @MULFF
+000790  @ADDFF
+0009FA  CEIL_FLOOR
+000D12  ceil
+000D2A  @DIV3232
+000DB8  @DIV1616
+000DFA  @MUL3232
+000E50  @delay_us1
+000E76  do_delay
+000EAE  generate_tone
+00107E  gir_izq
+001342  @PSTRINGCN_840
+001364  gir_der
+00165E  @cinit1
+00165E  MAIN
+00168C  @cinit2
+
+Project Directory:
+    C:\Users\user\Documents\proyectos digitales pic c\cancion con libreria\
+
+Project Files:
+    motor_cancion_libreria.c                                [11-sept.-18 23:48  CRC=28D7F80E]
+    ..\..\..\..\..\Program Files (x86)\PICC\Devices\18f452.h [24-feb.-17 16:23  CRC=2C967150]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h  [22-sept.-16 08:36  CRC=9CF8C837]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\tones.c [22-may.-03 14:25  CRC=437B685A]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c   [22-feb.-16 09:05  CRC=D1A6378A]
+
+Source signature=D92F0903
+Program memory checksum=0000
+Program memory CRC=0000
+Hex file CRC=4E48
+
+Units:
+    motor_cancion_libreria (main)
+
+Compiler Settings:
+    Processor:      PIC18F452
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   motor_cancion_libreria.xsym
+    Errors:      motor_cancion_libreria.err
+    Ext Symbols: motor_cancion_libreria.esym
+    INHX32:      motor_cancion_libreria.hex
+    Symbols:     motor_cancion_libreria.sym
+    List:        motor_cancion_libreria.lst
+    Debug/COFF:  motor_cancion_libreria.cof
+    Project:     motor_cancion_libreria.ccspjt
+    Call Tree:   motor_cancion_libreria.tre
+    Statistics:  motor_cancion_libreria.STA

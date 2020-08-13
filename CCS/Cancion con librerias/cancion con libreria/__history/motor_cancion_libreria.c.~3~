@@ -1,0 +1,38 @@
+#include<18f452.h>
+#fuses nowdt,xt,NOPROTECT
+#use delay(clock=4M)
+#INCLUDE<math.h>
+#include<tones.c>
+#include <lcd.c>
+#INT_TIMER1
+void retardo_timer1 (void)
+{
+ for(int i=0;i<10;i++){
+generate_tone(C_NOTE[2] ,500);
+generate_tone(E_NOTE[1] ,500);
+generate_tone(E_NOTE[1] ,500);
+generate_tone(C_NOTE[2] ,500); 
+generate_tone(C_NOTE[2] ,1000);
+generate_tone(E_NOTE[1] ,500);
+generate_tone(E_NOTE[1] ,500);
+generate_tone(C_NOTE[2] ,500);
+generate_tone(C_NOTE[2] ,500);
+generate_tone(E_NOTE[1] ,500); 
+generate_tone(F_NOTE[1] ,500); 
+generate_tone(E_NOTE[1] ,500); 
+generate_tone(D_NOTE[1] ,500); 
+generate_tone(D_NOTE[1] ,500); 
+generate_tone(D_NOTE[1] ,500);
+generate_tone(B_NOTE[1] ,500);
+generate_tone(B_NOTE[1] ,1000);
+}}
+
+Void main (){
+while(true){
+if(input(pin_a0)==1){
+       setup_timer_1 ( T1_INTERNAL | T1_DIV_BY_8 ); // RESOLUCION DEL TIMER 1/((20MHz/4)/8)=3,2uS
+        enable_interrupts(INT_TIMER1);
+       enable_interrupts(GLOBAL); // SE HABILITAN LAS INTERRUPCIONES GLOBALES
+}
+
+}}

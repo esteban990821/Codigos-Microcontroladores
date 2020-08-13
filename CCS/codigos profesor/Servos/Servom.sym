@@ -1,0 +1,69 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     valor
+021-022 pulse
+023     servo.i
+024-025 @MUL1616.P1
+024     @delay_ms1.P2
+024     servo.@SCRATCH1
+025     @delay_us1.P1
+025     servo.@SCRATCH2
+026-027 @MUL1616.P1
+028     @MUL1616.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @delay_us1
+000013  servo
+000022  @MUL1616
+000052  @delay_ms1
+00006A  main
+00006A  @cinit1
+000074  @cinit2
+
+Project Directory:
+    D:\Users\ESTEBAN\Desktop\Materias\Codigos\CCS\codigos profesor\Servos\
+
+Project Files:
+    Servom.c                                                [06-ene.-20 18:16  CRC=9B33871F]
+    C:\Program Files (x86)\PICC\Devices\16F877A.h           [12-nov.-13 14:35  CRC=81334808]
+
+Source signature=9D9A172F
+
+Units:
+    Servom (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   Servom.xsym
+    Errors:      Servom.err
+    Ext Symbols: Servom.esym
+    INHX8:       Servom.hex
+    Symbols:     Servom.sym
+    List:        Servom.lst
+    Debug/COFF:  Servom.cof
+    Project:     Servom.ccspjt
+    Call Tree:   Servom.tre
+    Statistics:  Servom.STA

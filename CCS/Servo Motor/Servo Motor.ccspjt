@@ -1,0 +1,21 @@
+[PROJECT]
+Target=Servo Motor.hex
+Processor_Text=PIC18F4550
+CCSVersion=5.015
+Compiler=PCH
+[Target Data]
+FileList=Servo Motor.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\DriversC:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[Servo Motor.c]
+Type=4
+[mru-list]
+1=Servo Motor.c
+[Opened Files]
+1=Servo Motor.c
+2=..\..\..\conexion led\led.c
+3=..\Conexión Serial\Conexión Serial.c
+4=
+[Units]
+Count=1
+1=Servo Motor (main)

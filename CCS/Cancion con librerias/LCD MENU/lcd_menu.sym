@@ -1,0 +1,97 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+008     lcdlat
+008     lcd
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020-021 @sprintf_string
+022     MAIN.i
+023     lcd_init.i
+023     @PSTRINGC7_623.@SCRATCH1
+024-027 lcd_init.LCD_INIT_STRING
+024     @PSTRINGC7_623.@SCRATCH2
+025     @PSTRINGC7_623.@SCRATCH3
+026     lcd_putc.c
+026     @PSTRINGC7_623.@SCRATCH4
+027     lcd_gotoxy.x
+028     lcd_gotoxy.y
+028     @delay_ms1.P1
+028     lcd_init.@SCRATCH1
+029     lcd_gotoxy.address
+02A     lcd_gotoxy.@SCRATCH1
+02B     lcd_send_byte.address
+02C     lcd_send_byte.n
+02D     lcd_read_byte.low
+02D     lcd_send_byte.@SCRATCH1
+02E     lcd_send_nibble.n
+02E     lcd_read_byte.high
+02F     lcd_read_byte.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+088     lcdtris
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const639.call
+000005  @const644.call
+00000B  @const645.call
+00001A  @delay_ms1
+00002E  lcd_send_nibble
+00003D  lcd_read_nibble
+000043  lcd_send_byte
+000049  lcd_read_byte
+000085  lcd_init
+0000C3  lcd_gotoxy
+0000D5  lcd_putc
+000101  @PSTRINGC7_623
+000157  MAIN
+000157  @cinit1
+000163  @cinit2
+
+Project Directory:
+    C:\Users\user\Documents\proyectos digitales pic c\LCD MENU\
+
+Project Files:
+    lcd_menu.c                                              [07-sept.-18 10:35  CRC=EFB66427]
+    ..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [24-feb.-17 16:21  CRC=6248FE08]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c   [22-feb.-16 09:05  CRC=D1A6378A]
+
+Source signature=F54BD143
+Program memory checksum=0000
+Program memory CRC=0000
+Hex file CRC=B67C
+
+Units:
+    lcd_menu (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   lcd_menu.xsym
+    Errors:      lcd_menu.err
+    Ext Symbols: lcd_menu.esym
+    INHX8:       lcd_menu.hex
+    Symbols:     lcd_menu.sym
+    List:        lcd_menu.lst
+    Debug/COFF:  lcd_menu.cof
+    Project:     lcd_menu.ccspjt
+    Call Tree:   lcd_menu.tre
+    Statistics:  lcd_menu.STA

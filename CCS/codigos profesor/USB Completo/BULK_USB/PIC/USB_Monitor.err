@@ -1,0 +1,10 @@
+>>> Warning 203 "C:\Program Files (x86)\PICC\Drivers\pic18_usb.c" Line 643(1,1): Condition always TRUE
+>>> Warning 216 "USB_Monitor.c" Line 133(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_token_reset)
+>>> Warning 216 "USB_Monitor.c" Line 133(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_flush_out)
+>>> Warning 216 "USB_Monitor.c" Line 133(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_tbe)
+>>> Warning 216 "USB_Monitor.c" Line 133(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_flush_in)
+>>> Warning 202 "USB_Monitor.c" Line 63(6,7): Variable never used:   i
+>>> Warning 202 "USB_Monitor.c" Line 66(6,12): Variable never used:   sndbuf
+      Memory usage:   ROM=14%      RAM=15% - 17%
+      0 Errors,  7 Warnings.
+Build Successful.

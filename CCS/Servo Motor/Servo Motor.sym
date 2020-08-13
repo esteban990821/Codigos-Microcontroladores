@@ -1,0 +1,67 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     i
+005     a
+006     d
+007     b
+008     c
+009     @delay_ms1.P1
+009     main.@SCRATCH1
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @READ_PACKED_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @delay_ms1
+00001E  @cinit1
+00001E  main
+00002E  @cinit2
+
+Project Directory:
+    D:\Users\ESTEBAN\Desktop\Materias\Codigos\CCS\Trasversal\Codigos\Servo Motor\
+
+Project Files:
+    Servo Motor.c                                           [10-mar.-19 20:32  CRC=C22DEEB4]
+    C:\Program Files (x86)\PICC\Devices\18f4550.H           [12-nov.-13 14:35  CRC=5337E248]
+
+Source signature=689DB344
+
+Units:
+    Servo Motor (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   Servo Motor.xsym
+    Errors:      Servo Motor.err
+    Ext Symbols: Servo Motor.esym
+    INHX32:      Servo Motor.hex
+    Symbols:     Servo Motor.sym
+    List:        Servo Motor.lst
+    Debug/COFF:  Servo Motor.cof
+    Project:     Servo Motor.ccspjt
+    Call Tree:   Servo Motor.tre
+    Statistics:  Servo Motor.STA

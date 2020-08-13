@@ -1,0 +1,69 @@
+[PROJECT]
+Target=motor_cancion_libreria.hex
+Processor_Text=PIC18F452
+CCSVersion=5.070
+Compiler=PCH
+[Target Data]
+FileList=motor_cancion_libreria.c
+[motor_cancion_libreria.c]
+Type=4
+[mru-list]
+1=motor_cancion_libreria.c
+
+[defines]
+buildcount=34
+
+[ProjectLog]
+Days=2
+D1=11-09-2018
+D1_L=22
+D1_L1=[73907]Started Editing.
+D1_L2=[74216]Stopped Editing.
+D1_L3=[74229]Started Editing.
+D1_L4=[74732]Stopped Editing.
+D1_L5=[74917]Started Editing.
+D1_L6=[75447]Stopped Editing.
+D1_L7=[75909]Started Editing.
+D1_L8=[76512]Stopped Editing.
+D1_L9=[76538]Started Editing.
+D1_L10=[77626]Stopped Editing.
+D1_L11=[77777]Started Editing.
+D1_L12=[78720]Stopped Editing.
+D1_L13=[79801]Project Opened.
+D1_L14=[80115]Started Editing.
+D1_L15=[80415]Stopped Editing.
+D1_L16=[80712]Started Editing.
+D1_L17=[82154]Stopped Editing.
+D1_L18=[82250]Started Editing.
+D1_L19=[83023]Stopped Editing.
+TotalEdit=62
+TotalDebug=0
+D1_E=32
+D1_D=0
+D1_L20=[83023]Project Closed.
+D1_L21=[85688]Project Opened.
+D1_L22=[85707]Started Editing.
+D2=12-09-2018
+D2_L=4
+D2_L1=[139]Stopped Editing.
+D2_L2=[269]Started Editing.
+D2_L3=[1515]Stopped Editing.
+D2_E=30
+D2_D=0
+D2_L4=[1515]Project Closed.
+
+[Opened Files]
+1=..\..\..\Desktop\lab3 opcional\main.c
+t1=205
+2=motor_cancion_libreria.c
+t2=22
+3=..\Lcd, motor, cancion\Lcd_motor_cancion.c
+t3=22
+4=..\Lcd, motor, cancion\Lcd_motor_cancion.c
+t4=145
+5=motor_cancion_libreria.c
+t5=145
+Count=3
+[Units]
+Count=1
+1=motor_cancion_libreria (main)

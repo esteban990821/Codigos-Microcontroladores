@@ -1,0 +1,9 @@
+>>> Warning 225 "C:\Program Files (x86)\PICC\Drivers\usb_desc_cdc.h" Line 41(24,37): Duplicate #define
+>>> Warning 225 "C:\Program Files (x86)\PICC\Drivers\usb_desc_cdc.h" Line 42(24,37): Duplicate #define
+>>> Warning 203 "C:\Program Files (x86)\PICC\Drivers\pic18_usb.c" Line 531(1,1): Condition always TRUE
+>>> Warning 216 "program_cdc (1).c" Line 43(0,1): Interrupts disabled during call to prevent re-entrancy:  (usb_token_reset)
+>>> Warning 216 "program_cdc (1).c" Line 43(0,1): Interrupts disabled during call to prevent re-entrancy:  (usb_tbe)
+>>> Warning 216 "program_cdc (1).c" Line 43(0,1): Interrupts disabled during call to prevent re-entrancy:  (usb_cdc_flush_out_buffer)
+>>> Warning 216 "program_cdc (1).c" Line 43(0,1): Interrupts disabled during call to prevent re-entrancy:  (usb_flush_out)
+      Memory usage:   ROM=15%      RAM=20% - 23%
+      0 Errors,  7 Warnings.

@@ -1,0 +1,53 @@
+[PROJECT]
+Target=lcd_menu.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.070
+Compiler=PCM
+[Target Data]
+FileList=lcd_menu.c
+[lcd_menu.c]
+Type=4
+[mru-list]
+1=lcd_menu.c
+
+[defines]
+buildcount=17
+
+[ProjectLog]
+Days=2
+D1=03-09-2018
+D1_L=2
+D1_L1=[71375]Started Editing.
+D1_L2=[72221]Project Closed.
+D2=07-09-2018
+D2_L=10
+D2_L1=[36778]Project Opened.
+D2_L2=[36803]Started Editing.
+D2_L3=[36809]Stopped Editing.
+TotalEdit=8
+TotalDebug=0
+D2_E=8
+D2_D=0
+D2_L4=[36809]Project Closed.
+D2_L5=[36996]Project Opened.
+D2_L6=[37064]Started Editing.
+D2_L7=[37636]Stopped Editing.
+D2_L8=[38092]Started Editing.
+D2_L9=[38183]Stopped Editing.
+D2_L10=[38183]Project Closed.
+
+[Opened Files]
+1=..\Lcd, motor, cancion\Lcd_motor_cancion.c
+t1=29
+2=lcd_menu.c
+t2=29
+3=..\..\..\Desktop\lab2\main.c
+t3=189
+4=lcd_menu.c
+t4=1
+5=..\..\..\Desktop\LCD PRACTICA\LCD PRACTICA.c
+t5=1
+Count=3
+[Units]
+Count=1
+1=lcd_menu (main)

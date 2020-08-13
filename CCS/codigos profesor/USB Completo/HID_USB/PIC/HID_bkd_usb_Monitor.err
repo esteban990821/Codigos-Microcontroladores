@@ -1,0 +1,11 @@
+>>> Warning 203 "C:\Program Files (x86)\PICC\Drivers\pic18_usb.c" Line 643(1,1): Condition always TRUE
+>>> Warning 216 "HID_bkd_usb_Monitor.c" Line 209(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_token_reset)
+>>> Warning 216 "HID_bkd_usb_Monitor.c" Line 209(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_tbe)
+>>> Warning 216 "HID_bkd_usb_Monitor.c" Line 209(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_flush_in)
+>>> Warning 216 "HID_bkd_usb_Monitor.c" Line 209(1,2): Interrupts disabled during call to prevent re-entrancy:  (usb_flush_out)
+>>> Warning 202 "HID_bkd_usb_Monitor.c" Line 49(6,15): Variable never used:   connected
+>>> Warning 202 "HID_bkd_usb_Monitor.c" Line 57(6,7): Variable never used:   i
+>>> Warning 202 "HID_bkd_usb_Monitor.c" Line 120(16,23): Variable never used:   Char_Tx
+      Memory usage:   ROM=14%      RAM=11% - 12%
+      0 Errors,  8 Warnings.
+Build Successful.
